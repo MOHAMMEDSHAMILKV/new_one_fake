@@ -1,0 +1,627 @@
+<!-- header -->
+<div class="container-fluid bgw">
+    <div class="container">
+        <div class=" row mx-0 py-3 px-sm-0 px-1">
+            <div class=" d-flex justify-content-between ">
+                <div>
+                    <img src="../../assets/images/Group 26840.svg" width="70" alt="">
+                </div>
+                <div>
+                    <a class="aboutus" href="">About Us</a>
+                    <a class="ms-sm-5 ms-2  aboutus text-black " (click)="showDivv()">View all jobs</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- section 1 -->
+
+<div class="container-fluid row mx-0 bgw-image" [ngClass]="{'bgw-image1': isActive}">
+    <div class="col-sm-6 "></div>
+    <div class="col-sm-6 d-flex justify-content-center flex-column">
+        <div *ngIf="showHome">
+            <h4 class="text-white mb-0 section1-text1">"Think <b>Beyond</b> Think<b> Tomrrow</b>"</h4>
+            <h2 class=" text-white mt-0 section1-text2 text">Find your career opportunity</h2>
+            <button type="button" class="btn btn mt-3 " (click)="showDivv()">View all jobs</button>
+        </div>
+        <div *ngIf="showDiv ">
+            <h4 class="text-white mb-0">"Think <b>Beyond</b> Think<b> Tomrrow</b>"</h4>
+            <h2 class=" text-white mt-0 text">Find your career opportunity!</h2>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- section 2 to 5 -->
+<div *ngIf="showHome">
+    <!-- section 2 -->
+    <div class="container-fluid row  mx-0 section2 px-lg-5 px-4 py-sm-0 py-3 ">
+        <div class="container row d-flex justify-content-center px-sm-5 px-0  ">
+            <div class="col-sm-4 col-12">
+                <img class=" px-lg-5 px-0 py-sm-5 py-2 ms-sm-5 ms-2" src="../../assets/images/Group 29371.png" alt="">
+            </div>
+            <div
+                class="col-sm-8 col-12 d-flex text-white d-flex justify-content-center flex-column py-sm-5 py-2 px-sm-5 px-3">
+                <h4 class="mb-0 pe-5 text-white">Who we are ?</h4>
+                <p class="mt-1 pe-5 paragraph1">Our mission is to be Earth's most customer-centric company.
+                    This is what unites sidrabazar's across teams and geographies as we all striving to delight
+                    our coustomers and make theri lives easier, one innovative product, service, and isea at a time. for
+                    more
+                    <a class="aboutus" href="">about us</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- section 3 -->
+    <div class="container-fluid  bgc">
+        <div class="container d-flex align-items-center justify-content-center  mb-3 ">
+            <h2 class="pt-sm-5 pt-3 mb-0 section3-text1">Open Positions</h2>
+        </div>
+        <div class="container px-sm-2 px-0 ">
+            <div class="col-12 row mx-0">
+                <div class="col-sm-4 col-12 ps-1 pe-0 mt-1">
+                    <div class="box py-sm-5 py-3 d-flex align-items-center justify-content-center flex-column">
+                        <h5 class="mb-sm-3 mb-3">Strategy Marketing Creative</h5>
+                        <p class="box-t text-center mt-sm-2 mt-0 px-4">Select the type of notifications you want to get
+                            about
+                            your
+                            activities and recoSelect</p>
+                        <button type="button" class="px-3 py-2 mt-sm-4 mt-0 btn-1"
+                            uk-toggle="target:#modal-center">APPLY
+                            NOW</button>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-12 ps-1 pe-0 mt-1">
+                    <div class="box py-sm-5 py-3 d-flex align-items-center justify-content-center flex-column">
+                        <h5 class="mb-sm-3 mb-3">Strategy Marketing Creative</h5>
+                        <p class="box-t text-center mt-sm-1 mt-0 px-4">Select the type of notifications you want to get
+                            about
+                            your
+                            activities and recoSelect</p>
+                        <button type="button" class="px-3 py-2 mt-sm-4 mt-0 btn-1"
+                            uk-toggle="target:#modal-center">APPLY
+                            NOW</button>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-12 ps-1 pe-0 mt-1">
+                    <div class="box py-sm-5 py-3 d-flex align-items-center justify-content-center flex-column">
+                        <h5 class="mb-sm-3 mb-3">Strategy Marketing Creative</h5>
+                        <p class="box-t text-center mt-sm-1 mt-0 px-4">Select the type of notifications you want to get
+                            about
+                            your
+                            activities and recoSelect</p>
+                        <button type="button" class="px-3 py-2 mt-sm-4 mt-0 btn-1"
+                            uk-toggle="target:#modal-center">APPLY
+                            NOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container px-sm-2 px-0">
+            <div class="col-12 row mx-0">
+                <div class="col-sm-4 col-12 ps-1 pe-0 mt-1">
+                    <div class="box py-sm-5 py-3 d-flex align-items-center justify-content-center flex-column">
+                        <h5 class="mb-sm-3 mb-3">Strategy Marketing Creative</h5>
+                        <p class="box-t text-center mt-sm-1 mt-0 px-4">Select the type of notifications you want to get
+                            about
+                            your
+                            activities and recoSelect</p>
+                        <button type="button" class="px-3 py-2 mt-sm-4 mt-0 btn-1"
+                            uk-toggle="target:#modal-center">APPLY
+                            NOW</button>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-12 ps-1 pe-0 mt-1">
+                    <div class="box py-sm-5 py-3 d-flex align-items-center justify-content-center flex-column">
+                        <h5 class="mb-sm-3 mb-3">Strategy Marketing Creative</h5>
+                        <p class="box-t text-center mt-sm-1 mt-0 px-4">Select the type of notifications you want to get
+                            about
+                            your
+                            activities and recoSelect</p>
+                        <button type="button" class="px-3 py-2 mt-sm-4 mt-0 btn-1"
+                            uk-toggle="target:#modal-center">APPLY
+                            NOW
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-12 ps-1 pe-0 mt-1">
+                    <div class="box py-sm-5 py-3 d-flex align-items-center justify-content-center flex-column">
+                        <h5 class="mb-sm-3 mb-3">Strategy Marketing Creative</h5>
+                        <p class="box-t text-center mt-sm-1 mt-0 px-4">Select the type of notifications you want to get
+                            about
+                            your
+                            activities and recoSelect</p>
+                        <button type="button" class="px-3 py-2 mt-sm-4 mt-0 btn-1"
+                            uk-toggle="target:#modal-center">APPLY
+                            NOW
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container d-flex align-items-center justify-content-center py-5">
+            <button type="button" class="btn-2 px-4 py-2" (click)="showDivv()">VIEW ALL JOBS</button>
+        </div>
+    </div>
+
+    <!-- section 4 -->
+    <div class=" bgc">
+        <div class="container-fluid section4bgc  row mx-0 px-0  ">
+            <div class="col-sm-4 col-12 px-0 ">
+                <img src="../../assets/images/Rectangle 21875.png" width="450" alt="">
+            </div>
+            <div class=" col-sm-8 col-12 d-flex justify-content-center flex-column py-sm-5 py-4">
+                <div class="container">
+                    <div class="px-sm-5 px-0">
+                        <h2>Vibrant and inspiring workspace</h2>
+                        <p class="text-start ">Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                        <a class="link" (click)="showDivv()">View all jobs</a>
+                        <img class="ms-2" src="../../assets/images/Arrow 1.svg" width="100" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid section4bgc  row mx-0 px-0 mt-1">
+            <div
+                class=" col order-sm-1 col order-2 col-sm-8 col-12  d-flex justify-content-center flex-column py-sm-5 py-4">
+                <div class="container">
+                    <div class="px-sm-5 px-0">
+                        <h2>Unlimited learning opportunity</h2>
+                        <p class="text-start ">Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                        <a class="link" (click)="showDivv()">View all jobs</a>
+                        <img class="ms-2 " src="../../assets/images/Arrow 1.svg" width="100" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class=" col order-sm-2 col order-1 col-sm-4 col-12 px-0 ">
+                <img src="../../assets/images/Rectangle 21877.png" width="450" alt="">
+            </div>
+        </div>
+
+        <div class="container-fluid section4bgc row mx-0 px-0 mt-1">
+            <div class="col-sm-4 col-12 px-0  ">
+                <img src="../../assets/images/Rectangle 21883.png" width="450" alt="">
+            </div>
+            <div class=" col-sm-8 col-12 d-flex justify-content-center flex-column py-sm-5 py-4">
+                <div class="container ">
+                    <div class="px-lg-5 px-sm-0">
+                        <h2>Experiment and Creative</h2>
+                        <p class="text-start ">Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+
+                        <a class="link" (click)="showDivv()">View all jobs</a>
+                        <img class="ms-2" src="../../assets/images/Arrow 1.svg" width="100" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- section 5 -->
+    <div class="container-fluid py-sm-5 py-2 bgc">
+        <div class="container d-flex justify-content-center py-sm-5 py-2">
+            <div uk-slider>
+
+                <ul
+                    class="uk-slider-items uk-child-width-1-1 uk-child-width-1-1@s uk-child-width-1-1@m uk-light d-flex align-items-center ">
+                    <li class="uk-transition-toggle " tabindex="0">
+                        <img src="../../assets/images/Rectangle 21857.png" width="1090px" height="420px" alt="">
+                        <div class="slidergradient"></div>
+                    </li>
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="../../assets/images/Rectangle 21857.png" width="1090px" height="420px" alt="">
+                        <div class="slidergradient"></div>
+                    </li>
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="../../assets/images/Rectangle 21857.png" width="1090px" height="420px" alt="">
+                        <div class="slidergradient"></div>
+                    </li>
+                    <li class="uk-transition-toggle" tabindex="0">
+                        <img src="../../assets/images/Rectangle 21857.png" width="1090px" height="420px" alt="">
+                        <div class="slidergradient"></div>
+                    </li>
+                </ul>
+
+                <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin "></ul>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- view all jobs  -->
+<div class="container-fluid mx-0 px-0 bgc d-none d-lg-block d-xl-block d-md-block d-sm-block" *ngIf="showDiv">
+    <div class="container-md px-lg-5 px-0 ">
+        <div class="col-12 row py-5 mx-0">
+            <div class="col-4 pe-0 ps-0 ">
+
+                <div class="box1 px-sm-3 px-1 py-sm-3 py-1" [ngClass]="{'box2': activeIndex === i}"
+                    *ngFor="let item of items; let i = index" (click)="setActiveIndex(i)">
+                    <div class="d-flex justify-content-between mb-0">
+                        <h5 class="textcolor mb-1">Planning Analyst</h5>
+                        <p class="date my-1 ">october 7,2022</p>
+                    </div>
+                    <p class="paragraph2 mt-0">Select the type of notification you want to
+                        get about your activities and recoSelect
+                    </p>
+                    <h5 class="my-0 textsize1 "><i class="fa-solid fa-location-dot"></i> Sharjah</h5>
+                </div>
+            </div>
+            <div class="col-8 px-2 ">
+                <div class="box px-lg-5 px-2  py-3">
+                    <div class="d-flex justify-content-between">
+                        <h3 class="textcolor mb-0">Planning Analyst</h3>
+                        <p class="date my-1 ">Posted on october 7,2022</p>
+                    </div>
+                    <h5 class="mt-1 textsize1 "><i class="fa-solid fa-location-dot"></i> Sharjah</h5>
+                    <div class=" col-12 row">
+                        <div class="col-6">
+                            <button type="button" class="btn btn px-5 py-2 labelfont" uk-toggle="target:#modal-center">
+                                Apply Now
+                            </button>
+                        </div>
+                        <div class="col-6  d-flex align-items-center justify-content-end ">
+                            <div class="pe-2 date">
+                                <p class="mb-0">share this job :</p>
+                            </div>
+                            <div class="iconborder2 px-2 me-1 pt-1" style="background-color:#55ACEF ;"><a class="atag"
+                                    href=""><span uk-icon="twitter"></span></a></div>
+                            <div class="iconborder2 px-2 me-1 pt-1" style="background-color:#1A478A ;"> <a class="atag"
+                                    href=""><span uk-icon="facebook"></span></a></div>
+                            <div class="iconborder2 px-2 me-1 pt-1" style="background-color:#007BB6 ;"><a class="atag"
+                                    href=""><span uk-icon="linkedin"></span></a></div>
+                            <div class="iconborder2 px-2  pt-1" style="background-color:#FFFC00 ;"><a class="atag"
+                                    href=""><i class="fa-brands fa-snapchat fa-lg"></i></a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box px-5 py-4 mt-2">
+                    <h5 class="jobheading">Job Description:</h5>
+                    <p class="paragraph2 mt-0 mb-1">Job Description: Planning Analyst, EKart Supply Planning</p>
+                    <p class="paragraph2 mt-0">It is a long established fact that a reader will be distracted by the
+                        readable content of a page when looking at its layout.
+                        The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+                        opposed to using 'Content here, content here', making it look like readable English.
+                        Many desktop publishing packages and web page editors now use Lorem Ipsum as their</p>
+                    <ul class="paragraph2 ps-4">
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                    </ul>
+                    <h5 class="jobheading mb-0 mt-0">Skills & experience of People who have done well in the Job so Far
+                    </h5>
+                    <h5 class="jobheading mt-0 mb-0">Must have:</h5>
+                    <ul class="paragraph2 ps-4 mt-0">
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                    </ul>
+                    <h5 class="jobheading mt-0 mb-0">What you'll need:</h5>
+                    <ul class="paragraph2 ps-4 mt-0">
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                    </ul>
+                    <h5 class="jobheading mt-0 mb-0">Open Positions:</h5>
+                    <p class="paragraph2 mt-0">1</p>
+                    <h5 class="jobheading mt-0 mb-0">Skills Required:</h5>
+                    <p class="paragraph2 mt-0">MS Excel, Python, </p>
+                    <h5 class="jobheading mt-0 mb-0">Education / Qualifiation:</h5>
+                    <p class="paragraph2 mt-0">B.Tech/Equivalent Graduate</p>
+                    <h5 class="jobheading mt-0 mb-0">Desirable Skills:</h5>
+                    <p class="paragraph2 mt-0">Capacity Planning, Basic statics</p>
+                    <h5 class="jobheading mt-0 mb-0">Year of Exp:</h5>
+                    <p class="paragraph2 mt-0">1 to 3 Years</p>
+                </div>
+
+                <div class="lastbox px-4 ps-5 py-4 mt-2 ">
+                    <div class=" container col-12 row ">
+                        <div class="col-sm-6 col-12">
+                            <h3 class="viewtext mb-0 ">Planning Analyst</h3>
+                        </div>
+                        <div class="col-sm-6 col-12 d-flex justify-content-end">
+                            <button type="button" class="btn viewbtn px-4 py-2 " uk-toggle="target:#modal-center">Apply
+                                Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- view all jobs expansion -->
+<div class="accordion    d-sm-none d-xs-block d-lg-none d-xl-none d-md-none" *ngIf="showDiv" id="accordionExample">
+    <div class="accordion-item" [ngClass]="{'box2': activeIndex === i}" *ngFor="let item of items; let i = index">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed " type="button" (click)="setActiveIndex(i)"
+                [attr.data-bs-toggle]="activeIndex === i ? 'collapse' : '' " [attr.data-bs-target]="'#collapse' + i"
+                [attr.aria-expanded]="activeIndex === i ? 'true' : 'false'" [attr.aria-controls]="'collapse' + i">
+                <div class="box1 px-sm-3 px-1 py-sm-3 py-1">
+                    <div class="d-flex justify-content-between mb-0">
+                        <h5 class="textcolor mb-1">Planning Analyst</h5>
+                        <p class="date my-1 ">october 7,2022</p>
+                    </div>
+                    <p class="paragraph2 mt-0">Select the type of notification you want to
+                        get about your activities and recoSelect
+                    </p>
+                    <h5 class="my-0 textsize1 "><i class="fa-solid fa-location-dot"></i> Sharjah</h5>
+                </div>
+            </button>
+        </h2>
+        <div [id]="'collapse' + i" class="accordion-collapse collapse " [ngClass]="{'show': activeIndex === i}"
+            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body px-0 py-0">
+
+                <div class="box px-5 py-1">
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn px-5 py-2 labelfont" uk-toggle="target:#modal-center">Apply
+                            Now
+                        </button>
+                    </div>
+                    <h5 class="jobheading">Job Description:</h5>
+                    <p class="paragraph2 mt-0 mb-1">Job Description: Planning Analyst, EKart Supply Planning</p>
+                    <p class="paragraph2 mt-0">It is a long established fact that a reader will be distracted by the
+                        readable content of a page when looking at its layout.
+                        The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+                        opposed to using 'Content here, content here', making it look like readable English.
+                        Many desktop publishing packages and web page editors now use Lorem Ipsum as their</p>
+                    <ul class="paragraph2 ps-4">
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                    </ul>
+                    <h5 class="jobheading mb-0 mt-0">Skills & experience of People who have done well in the Job so Far
+                    </h5>
+                    <h5 class="jobheading mt-0 mb-0">Must have:</h5>
+                    <ul class="paragraph2 ps-4 mt-0">
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                    </ul>
+                    <h5 class="jobheading mt-0 mb-0">What you'll need:</h5>
+                    <ul class="paragraph2 ps-4 mt-0">
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                        <li>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s</li>
+                    </ul>
+                    <h5 class="jobheading mt-0 mb-0">Open Positions:</h5>
+                    <p class="paragraph2 mt-0">1</p>
+                    <h5 class="jobheading mt-0 mb-0">Skills Required:</h5>
+                    <p class="paragraph2 mt-0">MS Excel, Python, </p>
+                    <h5 class="jobheading mt-0 mb-0">Education / Qualifiation:</h5>
+                    <p class="paragraph2 mt-0">B.Tech/Equivalent Graduate</p>
+                    <h5 class="jobheading mt-0 mb-0">Desirable Skills:</h5>
+                    <p class="paragraph2 mt-0">Capacity Planning, Basic statics</p>
+                    <h5 class="jobheading mt-0 mb-0">Year of Exp:</h5>
+                    <p class="paragraph2 mt-0">1 to 3 Years</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- section 6 -->
+<div class="container-fluid  section6bgc ">
+    <div class=" col-12 row py-sm-5 py-4 mx-0">
+        <div class=" text-center col-sm-6 col-12 d-flex align-items-center justify-content-center text-center">
+            <h3 class="text-white mb-1 section6-text1">We're Always Here To Help You ?</h3>
+        </div>
+        <div
+            class="col-sm-6 col-12 d-flex align-items-center justify-content-sm-end justify-content-center pt-sm-0 pt-3 pe-sm-5 pe-0">
+            <button type="button" class="section6-btn1 px-3 py-2">RECIEVE NEWS</button>
+            <button type="button" class="section6-btn2 px-4 py-2 ms-2">SEND MAIL</button>
+        </div>
+    </div>
+
+</div>
+
+<!-- footer  -->
+<div class="container-fluid  row mx-0 py-4 px-lg-5  footer">
+    <div class="container col-12 row px-lg-5 ms-1">
+        <div class="col-sm-4 col-12 d-flex align-items-center justify-content-center justify-content-lg-start">
+            <img src="../../assets/images/Group 29333.svg" width="70" alt="">
+        </div>
+        <div class="col-sm-4 col-12 d-flex align-items-center justify-content-center ">
+            <p class="copyright  mt-4"> © 2022 Sidracartuae.com All Rights Reserved</p>
+        </div>
+        <div class="col-sm-4 col-12 d-flex align-items-center justify-content-center justify-content-lg-end">
+            <div class="iconborder px-2 me-2"><a class="atag" href=""><span uk-icon="twitter"></span></a></div>
+            <div class="iconborder px-2 me-2"><a class="atag" href=""><span uk-icon="facebook"></span></a></div>
+            <div class="iconborder px-2 me-2"><a class="atag" href=""><span uk-icon="linkedin"></span></a></div>
+            <div class="iconborder px-2 "><a class="atag" href=""><span uk-icon="instagram"></span></a></div>
+        </div>
+    </div>
+</div>
+
+<!-- modal -->
+<div id="modal-center" class="uk-flex-top container-fluid " uk-modal>
+
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical pt-0 px-0 ">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div>
+            <div class="container formbgc">
+                <h5 class="mt-0 ms-2 py-3"><b>Applying to Graphics Designer</b></h5>
+            </div>
+            <form action="" class="px-4">
+
+                <div class="col-12 row ">
+                    <div class="col-sm-6 col-12 mb-sm-0 mb-3">
+                        <label class="pb-1 labelfont" for="fullname">Full Name<span class="mandatory">*</span></label>
+                        <input type="text" name="fullname" id="fullname" class="form-control"
+                            placeholder="your full name">
+                    </div>
+                    <div class="col-sm-6 col-12 mb-sm-0 mb-3">
+                        <label class="pb-1 labelfont" for="mobilenumber">Mobile Number<span
+                                class="mandatory">*</span></label>
+                        <input type="tel" name="mobilenumber" id="mobilenumber" class="form-control"
+                            placeholder="Phone Number">
+                    </div>
+                </div>
+
+                <div class="col-12 row pt-sm-3 pt-0">
+                    <div class="col-sm-6 col-12 mb-sm-0 mb-3">
+                        <label class="pb-1 labelfont" for="email">E-Mail Address<span class="mandatory">*</span></label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Valid E-mail id">
+                    </div>
+                    <div class="col-sm-6 col-12 mb-sm-0 mb-3">
+                        <label class="pb-1 labelfont" for="location">Location<span class="mandatory">*</span></label>
+                        <input type="text" name="location" id="location" class="form-control"
+                            placeholder="Current Location">
+                    </div>
+                </div>
+
+                <div class="col-12 row pt-sm-3 pt-0">
+                    <div class="col-sm-6 col-12 mb-sm-0 mb-3">
+                        <label class="pb-1 labelfont" for="gender">Gender<span class="mandatory">*</span></label>
+                        <input type="text" name="gender" id="gender" class="form-control" placeholder="select">
+                    </div>
+                    <div class="col-sm-6 col-12 mb-sm-0 mb-3">
+                        <label class="pb-1 labelfont" for="experience">Experience (in year)<span
+                                class="mandatory">*</span></label>
+                        <input type="tel" name="experience" id="experience" class="form-control" placeholder="In Year">
+                    </div>
+                </div>
+
+                <div class="col-12 row pt-sm-3 pt-0">
+                    <div class="col-sm-6 col-12">
+                        <label class="pb-1 labelfont" for="resume">Your Resume<span class="mandatory">*</span></label>
+                        <div class="form-control px-0 py-0 position-relative">
+                            <input type="file" name="resume" id="resumeInput" class="form-control "
+                                placeholder="updated Resume" (change)="resumeFileInputChange($event)">
+                            <span *ngIf="FileName" class="custom-span">{{FileName}}</span>
+                            <label for="resumeInput" class="file-input-label" [class.hide]="FileName">Choose a
+                                file</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-12">
+
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start mt-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    </div>
+                    <p class="checkbox ms-2">By submitting the above information, I agree to the<a href="">Terms of
+                            Use</a> and
+                        <a href="">Privacy Policy</a>
+                    </p>
+                </div>
+
+                <div class="container d-flex justify-content-center mt-1">
+                    <button type="button" class="btn submitbtn  px-sm-5 px-2">Submit your Application</button>
+                </div>
+
+            </form>
+        </div>
+
+
+    </div>
+</div>

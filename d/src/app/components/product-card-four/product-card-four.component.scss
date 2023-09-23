@@ -1,0 +1,26 @@
+.round{
+  width: 160px;
+  height: 170px;
+  border-radius: 0px;
+  background: #ECECEC;
+  overflow: hidden; 
+  img{
+    width: 200px;
+    &:hover{
+        transform: scale(1.1);
+    }
+  }
+}
+
+.fw-600{
+  font-weight: 600;
+}
+
+.text-align{
+  text-align: center;
+  align-items: center;
+}
+
+.w-92{
+  width: 92%;
+}

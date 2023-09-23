@@ -1,0 +1,46 @@
+
+<div class="container-fluid px-0">
+  <div [routerLink]="['/']" class="col-12 mx-0 py-2 d-flex justify-content-between px-3 align-items-center" style="background-color: #323031;">
+    <img src="../../../../assets/icons/Sidra Logo white-16 (1).svg" alt="" width="70">
+    <span class="fz-13 fw-500" style="color: white;">
+        Return to previous page
+    </span>
+  </div>
+  <div class="col-12 d-flex justify-content-center py-5">
+      <div class="login-page d-flex flex-wrap bw d-flex flex-column justify-content-center">
+        <div class="col-12 mx-0 px-0">
+          <div class="col-12 d-flex justify-content-center">
+              <span class="fz-22 fw-500">Enter OTP</span>
+          </div>
+          <div class="col-12 d-flex justify-content-center my-0 py-0">
+              <span class="fz-13 c-585858 mt-2">Long time no see! Let’s login to get started</span>
+          </div>
+          <div class="col-12 row mx-0 mt-3"> 
+            <div class="col mt-3 px-0">
+              <div class="px-2">
+                  <label for="" class="fz-13 fw-bold mb-2">Please Enter OTP</label>
+              </div>
+              <div class="">
+                  <ng-otp-input class=""  (onInputChange)="onOtpChange($event)"  [config]="{length:5}"></ng-otp-input>
+              </div> 
+            </div>
+          </div>
+          <div class="col-12 row px-0 mx-0 mt-3 d-flex justify-content-center">
+              <div class="col-12 flex-warp">
+                <button class=" fz-15 fw-400 w-100" [ngClass]="button_active==true?'login-btn':'login-btnDisable'"  (click)="otpSend()">Verify the Otp</button>
+              </div>
+              <div class="col-12 mt-2 d-flex justify-content-center">
+                 <i class="fz-13 fw-500 c-FF9900 mt-2 cursor"*ngIf="subscribeTimer!=0">{{subscribeTimer}} sec</i>
+                 <i class="fz-13 fw-500 c-FF9900 mt-2 cursor"*ngIf="subscribeTimer==0"(click)="reSendOtp()">Resend Otp</i>
+              </div>
+          </div>
+        </div>
+        <hr>   
+        <div class="d-flex justify-content-center">
+            <span class="fz-13 fw-500 c-5F5F61 cursor">Already have an account ? <i class="fz-13 fw-500 c-FF9900 ms-1" [routerLink]="['/auth']" routerLinkActive="router-link-active" >Back to Login</i></span>
+        </div>
+      </div>
+  </div>
+</div>
+
+

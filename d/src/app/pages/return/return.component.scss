@@ -1,0 +1,198 @@
+.bgw{
+    background-color: white;
+}
+
+
+.form-control{
+    background-color: transparent;
+    border-radius: 5px !important;
+    color: #868686;
+    font-size: 13px;
+    border-radius: 5px;
+  }
+
+
+.image-box{
+    width: 98px;
+    height: 100px;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.review-btn{
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1.5px solid #ececec;
+}
+
+
+.main-images{
+    background: #fff;
+    border: 1px dashed #A9A8A8;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    .image-upload{
+        // border: 1px solid rgba(0, 0, 0, 0.125);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        position: relative;
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+        input[type=file]{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            opacity: 0;
+        }
+        img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .img1{
+           width: 25px;
+           height: 21px;   
+        }
+        i{
+            color: #A9A8A8;
+        }
+    }
+}
+
+
+.update-btn{
+    background-color: #FF9900;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 12px 25px;
+}
+
+.update-btn:disabled{
+    background-color: #D3D3D3;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 12px 25px;
+}
+
+
+.accordion-button{
+    padding: 12px 15px 12px 15px;
+    color: #717478;
+}
+
+.accordion-button:not(.collapsed){
+    background-color: white;
+    color: black;
+    font-weight: 500;
+} 
+.accordion-button2{
+    color:#1B1B1F ; 
+    border-bottom: 1.5px solid #efefef;
+}
+
+.accordion-button2:not(.collapsed){
+    background-color: white ;
+    color: black;
+    border-bottom: none;
+}
+.accordion-button::after{
+    background-image: none;
+}
+
+.accordion-header{
+    border: none;
+}
+
+.border-main{
+    border: 1.3px solid #FF9900;
+}
+
+.main_active{
+    background-color: #FFF9F0;
+}
+
+
+.form-check-input:checked {
+    background-color:#FF9900 ;
+    border-color:#FF9900 ;
+}
+
+.form-check-input{
+    width: 1rem;
+    height: 1rem;
+    border-color:#FF9900;
+    background-color: #FFF5E6;
+} 
+
+.accordion-item{
+    border: none;
+}
+
+
+.cardadding-body{
+    width: 500px;
+    border-radius: 5px;
+    height: 140vh;
+}
+
+.body-uk{
+    background-color: #FFFDFA;
+    border: 1.5px solid #efefef;
+    border-radius: 5px;
+}
+
+.form-control{
+//   height: 42px;
+  border: 1.5px solid #ececec;
+  border-radius: 5px;
+}
+
+.form-control::placeholder{
+  color: #A9A8A8;
+}
+
+.update-btn{
+    // width: 160px;
+    // height: 45px;
+    background-color: #FF9900;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 12px 36px;
+}
+
+.cancel-btn{
+    background-color: transparent;
+    color: #A9A8A8;
+    border-radius: 5px;
+    border: 1.5px solid #efefef;
+    padding: 12px 28px;
+}
+
+.cards{
+    border-radius: 5px;
+    background-color: #F9F8F8;
+    border: 1px solid #F9F8F8;
+    &:hover{
+        border: 1px solid #FF8F04;
+        background-color: #FFF9F0;
+    }
+}
+
+.cardsSelected{
+    border-radius: 5px;
+    border: 1px solid #FF8F04;
+    background-color: #FFF9F0;
+}

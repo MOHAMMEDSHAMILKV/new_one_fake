@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAA;EACV,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,GAAG;EACR,SAAS,EAAE,gBAAgB;EAC3B,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,IAAI;EACZ,UAAU,EAAE,KAAK;EACjB,OAAO,EAAE,QAAQ;EACjB,OAAO,EAAE,CAAC;EACV,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;CACnB",
+    "sources": [
+        "../../src/app/pages/auth/otp/otp.component.scss"
+    ],
+    "names": [],
+    "file": "otp.component.css"
+}

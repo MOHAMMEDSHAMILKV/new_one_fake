@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAA;EACb,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "../../src/app/components/branch-banner/branch-banner.component.scss"
+    ],
+    "names": [],
+    "file": "branch-banner.component.css"
+}

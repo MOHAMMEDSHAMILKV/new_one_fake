@@ -1,0 +1,160 @@
+
+<div class="bgw px-4 d-flex justify-content-between" style="padding: 21px 0px 21px 0px;">
+    <span class="fz-15 fw-bold">Message to Us</span>
+ </div>
+ <div  class="col-12 row mx-0 mt-2">
+     <div class="col-8 px-0">
+        <div class="bgw px-4 py-3">
+           <div class="" style="height:300px;overflow-y: auto;">
+                <div *ngIf="customerServiceActive==false" class="d-flex flex-row">
+                    <div class="chatboadt d-flex justify-content-center align-items-center">
+                        <div class="p-2">
+                            <img src="../../../../assets/icons/chatboat.svg" alt="">  
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column ms-2 ">
+                        <div class="chatbox_one p-3" style="border-radius: 5px 15px 15px 15px;">
+                            <span class="fz-13" style="line-height: 1.5;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consectetur ut repellendus ullam </span>
+                        </div>  
+                        <div class="chatbox_one p-3 mt-2"style="border-radius: 5px 15px 15px 15px;">
+                            <span class="fz-13" style="line-height: 1.5;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consectetur ut repellendus ullam </span>
+                        </div> 
+                        <div class="d-flex flex-row mt-2">
+                            <button class="chatboat-btn fw-500 fz-13 py-2">Ok Thanks</button>
+                            <button class="chatboat-btn fw-500 fz-13 ms-2 py-2">Ok Thanks</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="customerServiceActive==false" class="d-flex justify-content-end mt-3 pe-2">
+                    <div class="d-flex flex-column mt-2">
+                        <div class="chatbox_two p-3" style="border-radius: 15px 5px 15px 15px;">
+                            <span class="fz-13" style="line-height: 1.5;">Good morning, Thank you for contacting sidracart. 
+                                how can i help you ?</span>
+                        </div> 
+                        <div class="chatbox_two p-3 mt-2" style="border-radius: 15px 15px 15px 15px;">
+                            <span class="fz-13" style="line-height: 1.5;">Good morning, Thank you for contacting sidracart. 
+                                how can i help you ?</span>
+                        </div> 
+                    </div> 
+                </div>
+                <div class="" *ngIf="customerServiceActive==true">
+                    <div class="d-flex justify-content-center">
+                        <img src="../../../../assets/icons/customer.svg" alt="" width="80">
+                    </div>
+                    <div class="d-flex justify-content-center mt-2">
+                        <div class="w-50 textalign">
+                            <span class="fz-13 c-FF9900 fw-bold ">
+                                Our customer service representative
+                                will join within few seconds
+                            </span>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row mt-3">
+                        <div class="chatboadt d-flex justify-content-center align-items-center">
+                            <div class="p-2">
+                                <img src="../../../../assets/icons/chatboat.svg" alt="">  
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column ms-2 ">
+                            <div class="chatbox_one p-3" style="border-radius: 5px 15px 15px 15px;">
+                                <span class="fz-13" style="line-height: 1.5;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet consectetur ut repellendus ullam </span>
+                            </div> 
+                            <div class="d-flex flex-row mt-2">
+                                <button class="chatboat-btn fw-500 fz-13 py-2">Ok Thanks</button>
+                                <button class="chatboat-btn fw-500 fz-13 ms-2 py-2">Ok Thanks</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end mt-2 pe-2">
+                        <div class="d-flex flex-column mt-2">
+                            <div class="chatbox_two py-2 px-3" style="border-radius: 15px 5px 15px 15px;">
+                                <span class="fz-13" style="line-height: 1.5;">Chat with us</span>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+           </div> 
+        </div>
+        <div class="F0F2F5 px-4 py-2">
+            <div *ngIf="customerServiceActive==false" class="d-flex justify-content-center align-items center py-2" style="background-color: white; border-radius: 10px;">
+                <span style="font-style: italic;">... sidra bot ...</span>
+            </div>
+            <div *ngIf="customerServiceActive==true" class="d-flex justify-content-center align-items center flex-row py-2">
+                <input type="text" class="form-control fz-12 "  placeholder="Type a message">
+                <img class="ms-2" src="../../../../assets/icons/messageIcon.svg" alt="" width="35">
+            </div>
+        </div>
+     </div>
+     <div class="col-4 px-0">
+        <div class="ms-2 bgw p-3">
+            <div class="heading">
+                <span class="fz-14 fw-500">FAQ ?</span>
+            </div>
+            <div class="border-bottom d-flex justify-content-between mt-3">
+                <div class="d-flex flex-column py-2">
+                    <span class="fz-13 fw-500">
+                        What issue are you facing?
+                    </span>
+                    <span class="sub-head mt-1 fz-12">
+                        I want to track my order
+                    </span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <img src="../../../../assets/icons/right-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="border-bottom d-flex justify-content-between mt-2">
+                <div class="d-flex flex-column py-2">
+                    <span class="fz-12 fw-500">
+                        Check order status & call the delivery agent
+                    </span>
+                    <span class="sub-head mt-1 fz-12">
+                        I want to track my order
+                    </span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <img src="../../../../assets/icons/right-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="border-bottom d-flex justify-content-between mt-2">
+                <div class="d-flex flex-column py-2">
+                    <span class="fz-12 fw-500">
+                        Cancel,change delivery date & address
+                    </span>
+                    <span class="sub-head mt-1 fz-12">
+                        I want to track my order
+                    </span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <img src="../../../../assets/icons/right-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="border-bottom d-flex justify-content-between mt-2">
+                <div class="d-flex flex-column py-2">
+                    <span class="fz-12 fw-500">
+                        Manage and track returns
+                    </span>
+                    <span class="sub-head mt-1 fz-12">
+                        I want to track my order
+                    </span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <img src="../../../../assets/icons/right-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="d-flex justify-content-between mt-2">
+                <div class="d-flex flex-column py-2">
+                    <span class="fz-12 fw-500">
+                        Offers,payment,Flipkart Plus & all other issues
+                    </span>
+                    <span class="sub-head mt-1 fz-12">
+                        I want to track my order
+                    </span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <img src="../../../../assets/icons/right-icon.svg" alt="">
+                </div>
+            </div>
+        </div>
+     </div>
+ </div>

@@ -1,0 +1,9 @@
+.register input[type=text], .register input[type=password] {
+  min-height: 45px !important;
+}
+
+.register button {
+  height: 45px;
+  width: 35%;
+}
+/*# sourceMappingURL=signup.component.css.map */

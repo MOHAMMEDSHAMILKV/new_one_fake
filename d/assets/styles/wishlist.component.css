@@ -1,0 +1,14 @@
+.qty-drop {
+  max-width: 90px;
+  display: inline-block;
+  height: 30px;
+}
+
+:host {
+  width: 100%;
+}
+
+.wishlist_block {
+  max-width: 900px;
+}
+/*# sourceMappingURL=wishlist.component.css.map */

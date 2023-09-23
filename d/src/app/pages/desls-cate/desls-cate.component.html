@@ -1,0 +1,260 @@
+<div class="container-fluid p-md-3 p-1 mt-2 category-page">
+    <div class="row gx-3 category-page">
+      <!-- <div class="category-flilter col-2 me-1 ">
+        <div class="fz-16 fw-bold px-3 pt-4 bg-white py-3" *ngIf="!categoryFilter.groups">
+          Filter
+        </div>
+        <ul class="bg-white  mt-0" uk-accordion="multiple: true">
+          <li class="uk-open bg-white border-bottom pb-2 pt-3" *ngIf="categoryFilter.groups">
+            <a class="uk-accordion-title filter-head" href="#">
+              <div class="fz-16 fw-bold px-3">
+                Filter
+              </div> 
+              <span class="me-3" uk-icon="chevron-down"></span>
+            </a>
+            <div class="uk-accordion-content">
+              <div class="h-100 bg-white">
+                <div class="category-search px-3">
+                  <input type="text" placeholder="Search.." [(ngModel)]="searchCategory" (change)="onCategorySearch(searchCategory)">
+                  <i class="bi bi-search"></i>
+                </div>
+                <div class="category-list mt-4 px-3" *ngIf="searchCategory ===''">
+                  <div class="category__item mb-3" *ngFor="let category of categoryFilter.groups">
+                    <label for="" class="parent-category d-flex align-items-center">
+                      <input class="form-check-input mt-0 me-2" type="checkbox" value="" id="flexCheckDefault" (change)="changeGroup($event,category.name)" checked disabled>
+                      <label class="ps-2 text-truncate filter-category" for="">{{category.name}}</label>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="uk-open bg-white border-bottom pt-3 pb-2">
+            <a class="uk-accordion-title filter-head" href="#">
+              <div class="fz-14 fw-bold px-3">
+                PRICE
+              </div>
+              <span class="me-3" uk-icon="chevron-down"></span>
+            </a>
+            <div class="uk-accordion-content">
+              <div class="h-100 bg-white px-3">
+                <ngx-slider [(ngModel)]="priceRange[0]" [(value)]="value" [(highValue)]="highValue" [options]="options" (mouseup)="sliderEvent()"></ngx-slider>
+              </div>
+            </div>
+          </li>
+          <li class="uk-open bg-white m-0 py-3" >
+            <a class="uk-accordion-title filter-head" href="#">
+              <div class="fz-14 fw-bold px-3">
+                BRAND
+              </div>
+              <span class="me-3" uk-icon="chevron-down"></span>
+            </a>
+            <div class="uk-accordion-content">
+              <div class="h-100 bg-white px-3">
+                <div class="form-check mb-2 d-flex align-items-center" *ngFor="let brand of brandList">
+                  <input class="form-check-input mt-0 me-2" type="checkbox" value="" id="flexCheckDefault" (change)="changeBrand($event,brand.name)">
+                  <label class="form-check-label fz-14" for ="flexCheckDefault">
+                    {{brand.name}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="uk-open bg-white border-bottom pt-3 pb-2">
+            <a class="uk-accordion-title filter-head" href="#">
+              <div class="fz-16 fw-bold px-3">
+                CUSTOMER RATING
+              </div>
+              <span class="me-3" uk-icon="chevron-down"></span>
+            </a>
+            <div class="uk-accordion-content">
+              <div class="h-100 bg-white px-3">
+                <div class="form-check mb-3 d-flex align-items-center">
+                  <input class="form-check-input mt-0 me-2" type="radio" value="5" name="rating" id="star-rating-five" [(ngModel)]="rateingStar" [checked]="rateingStar == 5" (change)="changeStarFilter()">
+                  <label class="form-check-label" for ="star-rating-five">
+                    Upto 5 Star
+                  </label>
+                </div>
+                <div class="form-check mb-3 d-flex align-items-center">
+                  <input class="form-check-input mt-0 me-2" type="radio" value="4" name="rating"  id="star-rating-four" [(ngModel)]="rateingStar" (change)="changeStarFilter()">
+                  <label class="form-check-label" for ="star-rating-four">
+                    Upto 4 Star 
+                  </label>
+                </div>
+                <div class="form-check mb-3 d-flex align-items-center">
+                  <input class="form-check-input mt-0 me-2" type="radio" name="rating" value="3" id="star-rating-three" [(ngModel)]="rateingStar" (change)="changeStarFilter()">
+                  <label class="form-check-label" for ="star-rating-three">
+                    Upto 3 Star 
+                  </label>
+                </div>
+                <div class="form-check mb-3 d-flex align-items-center">
+                  <input class="form-check-input mt-0 me-2" type="radio" name="rating" value="2" id="star-rating-two" [(ngModel)]="rateingStar" (change)="changeStarFilter()">
+                  <label class="form-check-label" for ="star-rating-two">
+                    Upto 2 Star 
+                  </label>
+                </div>
+                <div class="form-check mb-3 d-flex align-items-center">
+                  <input class="form-check-input mt-0 me-2" type="radio" name="rating" value="1" id="star-rating-one" [(ngModel)]="rateingStar" (change)="changeStarFilter()">
+                  <label class="form-check-label" for ="star-rating-one">
+                    Upto1 Star 
+                  </label>
+                </div>
+              </div>
+            </div>
+          </li>
+         
+         
+          <li class="uk-open bg-white border-bottom pt-3 pb-2">
+            <a class="uk-accordion-title filter-head" href="#">
+              <div class="fz-16 fw-bold px-3">
+                OFFER
+              </div>
+              <span class="me-3" uk-icon="chevron-down"></span>
+            </a>
+            <div class="uk-accordion-content">
+              <div class="h-100 bg-white px-3">
+                <div class="form-check mb-3 d-flex align-items-center" *ngFor="let offer of offerList">
+                  <input class="form-check-input mt-0 me-2" type="checkbox" value="" id="flexCheckDefault" (change)="changeOffer($event,offer.name)">
+                  <label class="form-check-label" for ="flexCheckDefault">
+                    {{offer.name}}
+                  </label>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>     
+      </div> -->
+      <div class="col category-body px-0">
+        <div class="h-100 w-100 bg-white pb-3 pt-4 px-md-4 px-1">
+          <div class="d-flex d-flex w-100">
+            <div class="fz-18 fw-bold pb-1 px-3 w-100 d-flex flex-wrap align-items-center justify-content-between">
+              <label class="mb-1" for=""><span class="text-uppercase">{{categoryName}} </span>({{categoryProductList?.length}} Results)</label>
+              <label class="d-flex flex-wrap align-items-center mb-3" for="">
+                <!-- <label class="fz-15 w-70px me-2">Sort By:</label> -->
+                <div class="d-flex mt-md-0 mt-3">
+                  <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="changeAlphbetic($event)">
+                      <label class="form-check-label fz-14 fw-bold" for="flexCheckDefault">
+                        Sort By Alphabetic Order 
+                      </label>  
+                  </div> 
+                  <!-- <button class="bg-gray-200 btn sort-drop px-4 ms-2 d-block d-lg-none" data-bs-toggle="modal" data-bs-target="#filter">Filter</button> -->
+                </div>
+              </label>
+              <!-- <label class="d-flex flex-wrap align-items-center mb-3" for="">
+                  <label class="fz-15 w-70px me-2">Sort By:</label>
+                  <div class="d-flex">
+                    <select class="form-select bg-gray-200 border-0 sort-drop" aria-label="Default select example" [(ngModel)]="filter" (change)="changeFilter()">
+                      <option value="all" class="px-1">All</option>
+                      <option value="low-high" class="px-1">Price low to high</option>
+                      <option value="high-low" class="px-1">Price high to low</option>
+                    </select>
+                    <button class="bg-gray-200 btn sort-drop px-4 ms-2 d-block d-lg-none" data-bs-toggle="modal" data-bs-target="#filter">Filter</button>
+                  </div>
+              </label> -->
+            </div>
+          </div> 
+          <div class="container-fluid">
+            <div class="row gx-2">
+              <!-- <app-popular-category
+                  parentLink="/productGroup/"
+                  [group]="specialGroups"
+                  [count]="count"
+                  [popular_category]="popular_category">
+            </app-popular-category> -->
+              <div class="w-100 text-center mt-4" *ngIf="categoryProductList?.length === 0">
+                <img src="../../../assets/assets/buyitagain.png" alt="" style="width:200px">
+                <div class="w-100 text-center my-4">
+                    No product in this category!
+                    <p class="fz-13 fw-normal mt-3">
+                        Please come again later.
+                    </p>
+                </div>
+              </div>
+              <!-- <div class="col-xxl col-md col-sm-4 col-6 mb-3" *ngFor="let product of productGroupDesignLayout">
+                <app-popular-category
+                  parentLink="/productGroup/"
+                  [count]="count"
+                  [popular_category]="product"
+              ></app-popular-category>
+            </div> -->
+              <div class="col-xxl-2 col-md-2 col-sm-4 col-6 mb-3" *ngFor="let product of categoryProductList">
+                  <app-product-card-two
+                    [products]="product"                  
+                    (cartEvent)="addCart(product)"
+                    (wishEvent)="addWishList(product)"
+                    [wishListed]="isWishlisted(product.id)"
+                  ></app-product-card-two> 
+              </div>
+              <div class="w-100 my-5 d-flex align-itemcenter justify-content-center" *ngIf="categoryBackProductList?.length != 0">
+                  <button class="btn btn-light" *ngIf="next" (click)="loadMore(next)">
+                    Load More
+                  </button>
+              </div>
+              <!-- <div class="pagination-block d-flex justify-content-center align-items-center p-0 m-0 mt-5 mb-4" *ngIf="pageCount.length >0">
+                <nav aria-label="Page navigation example mb-0">
+                  <ul class="pagination mb-0">
+                    <li class="page-item">
+                      <a class="page-link"aria-label="Previous" (click)="Previous(next?.previous)">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item" *ngFor="let page of pageCount | slice:0:10" [ngClass]="page == activePage ? 'active': ''"><a class="page-link" (click)="getThisPage(page)">{{page}}</a></li>
+                    <li class="page-item" *ngIf="pageCount.length > 10"><a class="page-link">...</a></li>
+                    <li class="page-item">
+                      <a class="page-link" aria-label="Next" (click)="NextCahange(next?.next)">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+                <span class="ms-3 fz-13">( {{next.count}} products )</span>
+              </div> -->
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+  
+  
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="filter" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Filter <span class="fw-bold fz-14">{{categoryName}}</span></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="category-list mt-4 px-3">
+            <div class="category__item mb-3" *ngFor="let category of categoryFilter.groups">
+              <label for="" class="parent-category d-flex align-items-center">
+                <input class="form-check-input mt-0 me-2" type="checkbox" value="" id="flexCheckDefault" (change)="changeGroup($event,category.name)" checked disabled>
+                <label class="ps-2 text-truncate filter-category" for="">{{category.name}}</label>
+              </label>
+            </div>
+          </div>
+          <div class="fz-18 fw-bold px-3">
+            PRICE
+          </div>
+          <div class="uk-accordion-content">
+            <div class="h-100 bg-white px-3">
+              <ngx-slider [(ngModel)]="priceRange[0]" [(value)]="value" [(highValue)]="highValue" [options]="options" (mouseup)="sliderEvent()"></ngx-slider>
+            </div>
+          </div>
+          <div class="fz-18 fw-bold px-3 mt-3">
+            Brand
+          </div>
+          <div class="h-100 bg-white px-3 mt-3">
+            <div class="form-check mb-3 d-flex align-items-center" *ngFor="let brand of brandList">
+              <input class="form-check-input mt-0 me-2" type="checkbox" value="" id="flexCheckDefault" (change)="changeBrand($event,brand.name)">
+              <label class="form-check-label" for ="flexCheckDefault">
+                {{brand.name}}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->

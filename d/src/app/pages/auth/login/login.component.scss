@@ -1,0 +1,155 @@
+.login-page{
+    width: 390px;
+    padding: 35px;
+} 
+@media screen and (min-width:320px) and (max-width:440px){
+    .login-page{
+        width: 286px !important;
+        padding: 17px !important;
+    }  
+}
+
+.c-585858{
+    color: #585858;
+} 
+
+.bw{
+    background-color: white;
+}
+
+.h-55{
+    height: 42px;
+} 
+
+.form-control::placeholder{
+    color: #A9A8A8;
+}
+
+
+.form-control{
+    height: 42px;
+    border: 1.5px solid #f6f6f6;
+    font-size: 12px;
+    // display: flex;
+    // align-items: center;
+}
+
+
+.login-btn{
+    background-color: #FF9900;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    height: 42px;
+}
+
+.c-5F5F61{
+    color: #5F5F61;
+}
+
+.c-FF9900{
+    color: #FF9900;
+}
+
+.l-h{
+    line-height: 1px;
+}
+
+:host ::ng-deep .pi{
+    font-family: 'primeicons'!important
+}
+:host ::ng-deep .p-inputtext {
+    height: 42px;
+    border: 1.5px solid #ececec;
+    font-size: 13px;
+    color: #A9A8A8;
+}
+
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: transparent;
+}
+
+:host ::ng-deep .mat-calendar-body-selected {
+    background-color: #FF9900 !important; 
+    color: #fff;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-underline::before {
+     background-color: transparent; 
+}
+
+:host ::ng-deep .mat-form-field-wrapper{
+    padding-bottom: 0px;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+    padding: 0px;  
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-underline::before{
+    background-color:transparent;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-flex{
+    background-color: transparent;
+}
+
+:host ::ng-deep .mat-form-field-underline {
+    display: none;
+}
+
+:host ::ng-deep .mat-form-field-infix {
+    padding:0px;
+    border-top: 0px solid transparent;
+} 
+
+:host ::ng-deep .mat-focus-indicator.mat-icon-button.mat-button-base {
+    height: 0px;
+    width: 0px;
+}
+
+.date-picker{
+    border: 1.5px solid #ececec;
+    border-radius: 5px;
+    // padding: 0px !important;
+    height: 42px;
+    color: black;
+}
+
+:host ::ng-deep .mat-form-field-infix{
+    width: auto;
+}
+
+.mat-input-element:disabled, 
+.mat-form-field-type-mat-native-select
+.mat-form-field-disabled 
+.mat-form-field-infix::after{
+    color: black;
+}
+
+.eye-icon{
+    background-color: transparent;
+    border: 0px;
+    color: #A9A8A8;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(119, 119, 119, 0.5);
+    backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  :host ::ng-deep .mat-progress-spinner{}
+  
+  :host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+     stroke: #FF9900;
+  }

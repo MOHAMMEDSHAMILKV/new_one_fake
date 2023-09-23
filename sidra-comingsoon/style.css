@@ -1,0 +1,100 @@
+.body {
+    background-image: url("./assets/Group\ 29372.png");
+    background-position:right;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.opacity-div {
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha value (0.5 in this example) to control the opacity */
+    
+}
+
+.box-1 {
+    background: white;
+}
+
+.iconborder {
+    border: 1px #BFBFBF solid;
+    border-radius: 50%;
+    color: white;
+    height: 30px;
+    width: 30px;
+}
+
+.atag {
+    color: black;
+}
+
+.box-2 {
+    background: white;
+    opacity: 0.25;
+}
+
+.text-1{
+    font-size: 18px;
+    font-weight: 600;
+    color:#717478 ;
+}
+.text-2{
+    font-size:28px ;
+    font-weight: 600;  
+}
+@media (max-width:576px) {
+    .text-2{
+        font-size:23px ;
+        font-weight: 600;  
+    }
+    .iconborder {
+        border: 1px #BFBFBF solid;
+        border-radius: 50%;
+        color: white;
+        height: 25px;
+        width: 25px;
+    }
+}
+.text-3{
+    font-size: 45px;
+    font-weight: 900;
+    color: #F6AF04;
+}
+.footer{
+    background-color: #282627;
+}
+.privacytag{
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+}
+.copyright{
+    color: white;
+    font-size: 11px;
+    font-weight: 300;
+}
+
+/* privacy & policy */
+.main-container{
+    background-color: #eff8f8;
+}
+.paragraph{
+    font-size: 15px;
+}
+.date{
+    font-size: 13px;
+}
+.heading-1{
+    font-size: 18px;
+    font-weight: 700;
+}
+.heading-2{
+    font-size: 16px;
+}
+.box{
+    background: white;
+    margin-top: 10px;
+}
+
+/* terms-use */
+.heading{
+    font-weight: 500;
+    font-size: 18px;
+}

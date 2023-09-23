@@ -1,0 +1,16 @@
+.footer-link{
+    // text-decoration: none !important;
+    color: color(white) !important;
+    font-size: 13px;
+    margin-bottom: 5px;
+    &:hover{
+       text-decoration: underline;
+    }
+}
+.footer{
+    height: auto;
+    background: #086DB5;
+}
+.footer-credit{
+    background-color: #0A4A77;
+}

@@ -1,0 +1,252 @@
+<<<<<<<<<<<<<  html  >>>>>>>>>>>>>>>>>>
+
+<div class="container-fluid bgw">
+    <div class=" row mx-0 py-2 px-sm-0 px-1 d-flex align-items-center justify-content-between">
+            <div class=" col-4 logo">
+                <img src="../../../assets/icons/sidra_logo.png"  alt=""  [routerLink]="['/']">
+            </div>
+            <div class="col-4 d-flex align-items-center justify-content-center">
+                <span class=" cursor fw-bold fz-20 d-none d-sm-block">  Sell with us</span>
+            </div>
+            <div class="col-4"></div>
+    </div>
+</div>
+
+ <div class="container-fluid bgw mt-2 py-4 ">
+    <div class="col-12 row ">
+        <div class="p-5 d-flex justify-content-between col-4">
+            <div class="mt-3 ps-5 d-flex flex-column">
+                <span class="fz-32 fw-500"> 
+                    Sidra Business Account,
+                    <br class="my-1">
+                    text something ....
+                </span>
+                <button class="update-btn mt-3">Selling Now</button>
+            </div>            
+        </div> 
+        <div class="col-8 d-flex justify-content-center">
+            <img src="../../../../assets/test/business.svg" alt="" class="pe-5" width="300">
+        </div>
+    </div>
+    <div class="col-12 row mx-0">
+        <span class="fz-16 c1B1B1F fw-bold">How to Sell ?</span>
+        <p class="mt-2 c1B1B1F fz-13" style="line-height: 1.6;">
+            Lorem ipsum dolor sit amet, consect etur adipi scing elit. 
+            Integer dolor varius lectus habit asse.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus.
+            Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.
+        </p>
+    </div>
+    <div class="col-12 row mx-0 px-5 py-5">
+        <div class="cF8F7F5 benefits-box py-4 d-flex justify-content-center">
+            <span class="fz-18 my-3 fw-400">BENIFITS OF BECOMING A VERIFIED SELLER ON SIDRACART</span>
+        </div>
+        <div class="boxes">
+            <div class="col-12 row mx-0"> 
+                <div class="col px-2">
+                    <div class="box shadow-sm pb-5">
+                        <div class="p-4 d-flex justify-content-center align-items-center">
+                            <img src="../../../../assets/images/round-image.svg" alt="" width="100">
+                        </div>
+                        <div class="px-3 textalign">
+                            <span class="fz-13 fw-500" >Manage your sales and products by
+                                using your phone or computer
+                            </span> 
+                        </div>
+                        <div class="px-3 pt-4 textalign">
+                            <span class="fz-13">
+                                Lorem ipsum dolor sit amet, cons ect etur adipi scing elit. 
+                                ger dol or varius lectus habit asse.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col px-2">
+                    <div class="box shadow-sm pb-5">
+                        <div class="p-4 d-flex justify-content-center align-items-center">
+                            <img src="../../../../assets/images/round-image2.svg" alt="" width="100">
+                        </div>
+                        <div class="px-3 textalign">
+                            <span class="fz-13 fw-500" >Manage your sales and products by
+                                using your phone or computer
+                            </span> 
+                        </div>
+                        <div class="px-3 pt-4 textalign">
+                            <span class="fz-13">
+                                Lorem ipsum dolor sit amet, cons ect etur adipi scing elit. 
+                                ger dol or varius lectus habit asse.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col px-2">
+                    <div class="box shadow-sm pb-5">
+                        <div class="p-4 d-flex justify-content-center align-items-center">
+                            <img src="../../../../assets/images/round-image3.svg" alt="" width="100">
+                        </div>
+                        <div class="px-3 textalign">
+                            <span class="fz-13 fw-500" >Manage your sales and products by
+                                using your phone or computer
+                            </span> 
+                        </div>
+                        <div class="px-3 pt-4 textalign">
+                            <span class="fz-13"> 
+                                Lorem ipsum dolor sit amet, cons ect etur adipi scing elit. 
+                                ger dol or varius lectus habit asse.
+                            </span> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 mt-4">
+        <span class="fz-16 c1B1B1F fw-bold">How to Sell on Sidracart ?</span>
+        <p class="mt-2 c1B1B1F fz-13" style="line-height: 1.6;">
+            Lorem ipsum dolor sit amet, consect etur adipi scing elit. 
+            Integer dolor varius lectus habit asse.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus.
+            Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.
+        </p>
+    </div>
+    <div class="col-12 row mx-0 mt-2">
+        <span class="fz-14 c1B1B1F fw-bold">1.Slave Lorem Ipsum :</span>
+        <p class="mt-2 c1B1B1F fz-13" style="line-height: 1.6;">
+            Lorem ipsum dolor sit amet, consect etur adipi scing elit. 
+            Integer dolor varius lectus habit asse.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus.
+            Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.
+        </p>
+    </div>
+    <div class="col-12 row mx-0 mt-2">
+        <span class="fz-14 c1B1B1F fw-bold">1.Slave Lorem Ipsum :</span>
+        <p class="mt-2 c1B1B1F fz-13" style="line-height: 1.6;">
+            Lorem ipsum dolor sit amet, consect etur adipi scing elit. 
+            Integer dolor varius lectus habit asse.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus.
+            Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.
+        </p>
+    </div>
+    <div class="col-12 row mx-0 mt-3 mb-5">
+        <div class="cF0F2F5 p-5">
+            <div class="col-12 d-flex justify-content-center">
+                <span class="fz-19 fw-bold">Lets Start Selling !</span>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <p class="fz-14" style="text-align: center;line-height: 1.7;">
+                    Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus.Lorem ipsum dolor sit amet, consect etur adipi scing elit. 
+                </p>
+            </div>
+            <div class="col-12 mx-0 row mt-4 d-flex justify-content-center">
+                <button class="update-btn">Selling Now</button>
+            </div>
+        </div>
+    </div>
+ </div>
+
+<!-- footer  -->
+<div class="container-fluid mx-0 py-4 footer">
+    <div class="col-12 row px-lg-5 ms-1">
+        <div class=" col-md-3 col-12 d-flex align-items-center justify-content-md-start justify-content-center">
+            <img src="../../../assets/icons/Sidra Logo white-16 (1).svg" width="100px" alt="">
+        </div>
+        <div class="col-md-6 col-12 d-flex align-items-center justify-content-center mt-md-0 mt-3 px-0">
+            <span class="copyright"> © 2022 Sidracartuae.com All Rights Reserved</span>
+            <span class="privacytag ms-2 cursor d-none d-md-flex" [routerLink]="['/genaral-policy']">privacy & policy</span>
+            <span class="privacytag ms-2 cursor d-none d-md-flex" [routerLink]="['/termsanduse']">Terms-use</span>
+        </div>
+        <div class="col-12 d-flex d-md-none align-items-center justify-content-center mt-1">
+            <span class="privacytag ms-2 cursor" [routerLink]="['/genaral-policy']">privacy & policy</span>
+            <span class="privacytag ms-2 cursor" [routerLink]="['/termsanduse']">Terms-use</span>
+        </div>
+        <div class="col-md-3 col-12 d-flex align-items-center justify-content-md-end justify-content-center  mt-md-0 mt-3">
+            <button class="iconborder px-2 me-2"><span uk-icon="twitter"></span></button>
+            <button class="iconborder px-2 me-2"><span uk-icon="facebook"></span></button>
+            <button class="iconborder px-2 me-2"><span uk-icon="linkedin"></span></button>
+            <button class="iconborder px-2 "><span uk-icon="instagram"></span></button>
+        </div>
+    </div>
+</div>
+
+
+
+<<<<<<<<<<<<<  css  >>>>>>>>>>>>>>>>>>
+
+
+.bgw{
+    background-color: white;
+}
+
+.c-FF9900{
+    color: #FF9900;
+}
+
+.update-btn{
+    background-color: #FF9900;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    padding: 12px 10px;
+    width: 110px;
+} 
+
+
+.fz-24{
+    font-size: 24px;
+}
+
+.fz-32{
+    font-size: 32px;
+}
+
+.c1B1B1F{
+    color: #1B1B1F;
+}
+
+.cF8F7F5{
+    background-color: #F8F7F5;
+}
+
+.benefits-box{
+    border-radius: 10px 10px 0px 0px;
+} 
+.boxes{
+    margin-top: -25px;
+}
+.box{
+    border-radius: 5px;
+    background: white;
+} 
+
+.textalign{
+    text-align: center;
+}
+
+.cF0F2F5{
+    background-color: #F0F2F5;
+}
+
+.logo img{
+    width: 200px;
+    }
+   
+     
+// footer 
+.footer{
+    background-color: #282627;
+}
+.copyright{
+    color: white;
+    font-size: 11px;
+    font-weight: 300;
+}
+.iconborder{
+    border: 1px white solid;
+    border-radius: 50%;
+    color: white;
+    background:#282627;
+    height:30px ;
+    width:30px ;
+}
+
+.privacytag{
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+}          

@@ -1,0 +1,489 @@
+.bgw{
+    background-color: white;
+}
+
+.pro-parts{
+    border: 1px solid #E6E6E6;
+    border-radius: 5px;
+    width: 55px;
+    height: 65px;
+    background: transparent;
+    :hover{
+        background: #FFF9F0;
+        border: 1px solid #FF9900;
+        width: 55px;
+        height: 65px;
+        border-radius: 5px;
+    }
+}
+
+.pro-parts_select{
+    background: #FFF9F0;
+    border: 1px solid #FF9900;
+    width: 55px;
+    height: 65px;
+    border-radius: 5px;
+}
+
+.icons{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1.5px solid #e6e6e6 !important;
+}
+
+.ship-btn{
+    background-color: #3A8762;
+    color: white;
+}
+
+.molbile-btn{
+    border: 1px solid #FF9900;
+    width: 70px;
+    height: 110px;
+    border-radius: 5px;
+    &:hover{
+        background-color: #FFF9F0;
+    }
+}
+
+.upi{
+    width: 35px;
+    height: 35px;
+    background-color: #F2EFEA;
+    border-radius: 50%;
+} 
+
+.product-detail{
+    border: 1.5px solid #efefef;
+    border-radius: 5px;
+    .span-1{
+        color: #717478;
+        background-color: #F8F7F5;
+        border-bottom: 2px solid #FF9900;
+    }
+    .second{
+        color: #3D3C3C;
+        .i{
+            color: #00AB59;
+        }
+    }
+}
+
+.offer-info-box{
+    background-color: #F8F7F5;
+    line-height: 1.3;
+    border-radius: 4px;
+    span{
+        color: #676767;
+        i{
+            color: #FF9900;
+        }
+    }
+}
+
+.buy_btn{
+    background-color: #FF8F04;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.buy_btn_buynow{
+    border: 1.3px solid #FF8F04 !important;
+    background: transparent;
+    color: #FF8F04;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+}
+
+.btn-similar{
+    background: transparent;
+    border: 1.5px solid #efefef;
+    border-radius: 5px;
+}
+
+.c-main{
+    color: #FF9900;
+}
+
+.rating_box{
+    border: 1.5px solid #efefef;
+    border-radius: 5px;
+}
+
+.rating_box_1{
+    border: 1.5px solid #efefef;
+    border-radius: 5px;
+}
+
+.progress{
+    background-color: #E3E3E3 !important;
+    height: 0.7rem !important;
+}
+.progress-bar{
+    background-color: #FF8506;
+}
+
+.fz-38{
+    font-size: 38px;
+}
+
+.btn-2{
+    background: transparent;
+    border: 1.5px solid #efefef;
+    border-radius: 5px;
+    color: black;
+}
+
+.review_pro{
+    border: 1.5px solid #efeefe;
+    border-radius: 5px;
+  }
+  
+  .rating_box{
+      border: 1.5px solid #efefef;
+      border-radius: 5px;
+  }
+  
+  .rating_box_1{
+      border: 1.5px solid #efefef;
+      border-radius: 5px;
+  }
+  
+  .c-main{
+      color: #FF9900;
+  }
+  
+  .btn-2{
+      background: transparent;
+      border: 1.5px solid #efefef;
+      border-radius: 5px;
+      color: black;
+  }
+  
+  
+  
+  .update-btn{
+      // width: 160px;
+      // height: 45px;
+      background-color: #FF9900;
+      color: white;
+      border-radius: 5px;
+      border: none;
+      // padding: 12px 36px;
+     }
+  
+     .cancel-btn{
+          background-color: transparent;
+          color: #A9A8A8;
+          border-radius: 5px;
+          border: 1.5px solid #efefef;
+          // padding: 12px 28px;
+     }
+  
+     .bottom {
+      box-shadow: 0px 10px 10px -15px rgb(146, 144, 144);    
+    }
+  
+    .cardadding-body{
+        width: 350px;
+      //   border-radius: 5px;
+    }
+  
+    .body-uk{
+      //   background-color: #FFFDFA;
+      //   border: 1.5px solid #efefef;
+      //   border-radius: 5px;
+    }
+  
+  .form-control{
+      height: 42px;
+      border: 1.5px solid #ececec;
+  }
+  
+  .form-control::placeholder{
+      color: #A9A8A8;
+  }
+  
+  .bc-F4F3F0{
+      background-color: #F4F3F0;
+  }
+  
+  .form-check-input:checked {
+      background-color:#FF9900 ;
+      border-color:#FF9900 ;
+  }
+  
+  .form-check-input {
+      background-color:#FFF5E6;
+      border-color:#FF9900;
+      width: 1.3em;
+      height: 1.3em;
+  }
+  
+  .checkbox{
+      border: 1.5px solid #efefef;
+      border-radius: 5px;
+      &:hover{
+          border: 1.5px solid #FF9900;
+          background-color:#FFF5E6; 
+      }
+  }
+
+  .linecolor{
+      color: #6D6D6D;
+      &:hover{
+          color: black;
+          border-bottom: 2px solid black;
+      } 
+  }
+
+  .linecolorSelected{
+    color: black;
+    border-bottom: 2px solid black;
+  }
+  
+
+  .uk-button-default{
+    border: none;
+    
+}
+
+.uk-button{
+    text-transform: none;
+    border: none;
+    line-height: 0px;
+}
+
+.groupListOver:hover{
+    background-color: #FFF5E6;
+}
+
+.wish_befor{
+    color:#EEEEEE ;
+}
+.wish_after{
+    color: #C70718;
+}
+
+.uk-slidenav{
+    color: black !important;
+}
+
+.round{
+    width: 140px;
+    height: 150px;
+    border-radius: 0px;
+    background: #f6f6f6;
+    overflow: hidden; 
+    img{
+      width: 200px;
+      &:hover{
+          transform: scale(1.1);
+      }
+    }
+  }
+  
+  @media screen and (min-width:320px) and (max-width:575px){
+    .round{
+        width: 120px !important;
+        height: 110px !important;
+        img{
+            width: 85px !important;
+        }
+    }
+  }
+  .fw-600{
+    font-weight: 600;
+  }
+  
+  .text-align{
+    text-align: start;
+    align-items: center;
+  }
+  
+  .w-92{
+    width: 92%;
+  }
+
+  @media (min-width: 960px){
+    .uk-child-width-1-6\@m>* {
+        width: calc(100% * 1 / 8.001);
+    }
+  }
+
+
+  
+.border-t-b{
+    border-top: 1px dashed #8F8F8F;
+    border-bottom: 1px dashed #8F8F8F;
+}
+
+
+.uk-modal-dialog{
+    width: 800px;
+} 
+
+
+.header-c{
+    background-color: #F4F3F0;
+}
+
+.heading{
+    color: #717478;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #F0EFED; 
+    border-radius: 4px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #A5A4A4; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b4b3b3; 
+  }
+
+  .scroll{
+      height: 60vh;
+      overflow-y: scroll;
+  }
+
+
+  .c-EE2626{
+    color: #EE2626;
+}
+
+
+.main-images{
+    background: #fff;
+    border: 1px dashed #A9A8A8;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
+    .image-upload{
+        // border: 1px solid rgba(0, 0, 0, 0.125);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        position: relative;
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+        input[type=file]{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            opacity: 0;
+        }
+        img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .img1{
+           width: 25px;
+           height: 21px;   
+        }
+        i{
+            color: #A9A8A8;
+        }
+    }
+}
+
+
+.update-btn{
+    background-color: #FF9900;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    // padding: 12px 25px;
+}
+
+.image-box{
+    width: 98px;
+    height: 100px;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.review-btn{
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    background: transparent;
+    border: 1.5px solid #ececec;
+}
+
+.uk-modal-dialog{
+    width: 650px;
+}
+
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(119, 119, 119, 0.5);
+    backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+//   :host ::ng-deep .outerImg{
+//     width: 310px !important;
+//     height: auto;
+//     padding-left: 5px;
+//     padding-right: 5px;
+//     padding-top: 5px;
+//     padding-bottom: 5px;
+//   }
+  @media screen and (min-width:992px) and (max-width:1200px){
+      :host ::ng-deep .outerImg{
+    width: 250px !important;
+}
+  }
+  :host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+     stroke: #FF9900;
+  }
+@media screen and (min-width:320px) and (max-width:339px){
+    .Overview_p{
+        font-size: 11px !important;
+    }
+}
+.uk-dotnav li {
+    width: 20px !important;
+    height: 5px !important;
+    border-radius: 11px !important;
+}
+.product_img img{
+object-fit: contain;
+}
+.sidebar_img{
+    position: absolute;
+    left: 91%;
+}

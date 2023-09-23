@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/app/pages/home/bulk/bulk.component.scss"
+    ],
+    "names": [],
+    "file": "bulk.component.css"
+}

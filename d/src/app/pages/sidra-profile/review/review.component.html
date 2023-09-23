@@ -1,0 +1,99 @@
+<div class="bgw px-4" *ngIf="isEdited==false" style="padding: 21px 0px 21px 0px;">
+   <span class="fz-15 fw-bold">Reviews</span>
+</div>
+
+<div class="p-0 m-0" *ngIf="ratingreview.length!=0">
+    <div *ngIf="isEdited==false" class="bgw">
+        <div class=" px-3 py-4 mt-2 border-bottom" *ngFor="let item of ratingreview">
+            <div class="review-card">
+                <div class="col-12 row"> 
+                    <div class="col-2">
+                        <img src="{{item.image}}" alt="" style="width: 150px; height: 140px;">
+                    </div> 
+                    <div class="col-10 d-flex flex-column">
+                        <span class="fw-500 fz-13">{{item.display_name}}</span>
+                        <!-- <ngb-rating [max]="5" [(rate)]="currentRating" [readonly]="false"></ngb-rating> -->
+                        <p-rating class="mt-3" [(ngModel)]="item.rating" [cancel]="false"></p-rating>
+                        <span class="fz-13 c-black py-3 fw-500">
+                             {{item.review_data?.review}}
+                        </span> 
+                        <div class="d-flex flex-row mt-3">
+                            <button class="review-btn fz-14" (click)="edited(item)">Edit</button>
+                            <button class="review-btn fz-14 ms-3" (click)="deleteRatingAndReview(item.id,item.review_data.id)" >Delete</button>
+                        </div> 
+                    </div> 
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="p-0 m-0" *ngIf="ratingreview.length==0&&isEdited==false">
+    <div class="bgw mt-2 d-flex justify-content-center align-items-center" style="height: 70vh;">
+         <h2 class="cr-main">
+             No review Found
+         </h2>
+    </div>
+</div>
+
+
+<div class="bgw" *ngIf="isEdited==true">
+    <div class="border-bottom py-2">
+        <div class="col-12 row mx-0 px-3">
+            <div class="col-1 d-flex align-items-center">
+                <div class=""> 
+                    <img src="{{editedItem.image}}" alt="">
+                </div> 
+            </div> 
+            <div class="col-11 d-flex align-items-center">
+               <div class="d-flex flex-column">
+                    <span class="fz-15 fw-400">
+                        {{editedItem.display_name |titlecase}}
+                    </span>
+                    <p-rating class="mt-2" [(ngModel)]="editedItem.rating" [cancel]="false"></p-rating>
+               </div> 
+            </div> 
+        </div>
+    </div>
+    <div class="px-3 py-3">
+         <div class="col-12 row mx-0">
+            <div class="col">
+                <label for="" class="fz-13 fw-bold mb-2">Highlights</label>
+                <input type="email" class="form-control fz-12 h-55" [(ngModel)]="editedItem.review_data.title"  placeholder="Enter review highlights">
+            </div> 
+         </div>
+         <div class="col-12 row mx-0 mt-3">
+            <div class="col">
+                <label for="" class="fz-13 fw-bold mb-2">Description</label>
+                <textarea class="form-control fz-12" rows="3" [(ngModel)]="editedItem.review_data.review" placeholder="Share your experience"></textarea>            
+            </div>  
+         </div>
+         <div class="col-12 row mx-0 mt-3">
+             <div class="col-12 d-flex align-items-center">
+                <span class="fz-14 fw-bold">Upload Image</span>
+                <span class="fz-11 c-EE2626 ms-3"> Maximum 5 Image</span>
+             </div>
+             <div class="col-12 mt-3 d-flex flex-row">
+                <div class="image-box me-2" *ngFor="let item of imageArray;let i=index">
+                    <div class=" d-flex justify-content-end p-1" style="position: relative;" (click)="splice(i)">
+                        <img src="../../../../assets/icons/cancelicon.svg" alt="" width="20">
+                    </div>
+                    <img src="{{item.image}}" alt="" style="margin-top: -36px;">
+                </div> 
+                <div class="main-images ms-2">
+                    <div class="image-upload me-2" style="position: relative;">
+                        <!-- <img [src]="imageshow1" alt="" *ngIf="imageshow1!=''"> -->
+                        <input type="file" name="profilepic.png" id="" [(ngModel)]="imageShow"  (change)="imageUpload($event,imageShow)">
+                        <i class="bi bi-camera-fill"></i>                
+                    </div> 
+                </div> 
+             </div>
+         </div>
+         <div class="col-12 row mx-0 mt-4 mb-3">
+             <div class="d-flex flex-row">
+                <button class="review-btn" (click)="back()">Back</button>
+                <button class="update-btn ms-2 py-2 px-3" (click)="createRatingAndReview()">Update</button>
+             </div>
+         </div>
+    </div>
+</div>

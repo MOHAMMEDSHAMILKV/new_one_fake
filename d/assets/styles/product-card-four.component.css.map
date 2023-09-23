@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAA;EACP,SAAS,EAAC,KAAK;EACf,OAAO,EAAC,KAAK;EACb,MAAM,EAAC,IAAI;EACX,MAAM,EAAC,IAET;CAAC",
+    "sources": [
+        "../../src/app/components/product-card-four/product-card-four.component.scss"
+    ],
+    "names": [],
+    "file": "product-card-four.component.css"
+}

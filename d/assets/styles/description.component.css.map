@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/app/pages/product/description/description.component.scss"
+    ],
+    "names": [],
+    "file": "description.component.css"
+}

@@ -1,0 +1,21 @@
+
+.multi-slider .uk-slidenav{
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px #b4b1b1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 768px){
+    display: none;
+  }
+
+  svg{
+    width: 70% !important;
+  }
+}
+.slider-item{
+  width: 220px !important;
+}
+.box{
+  background-color: white;
+}

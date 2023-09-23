@@ -1,0 +1,106 @@
+@media print {
+  .watermark-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.05; /* Adjust opacity for the desired shading effect */
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.1); /* Darker background color for shading */
+    display: block; /* Show watermark only when printing */
+}
+    tr {
+      page-break-inside: avoid;
+    }
+    .section4{
+        page-break-inside: avoid;
+      }
+      .page-break {
+        /* Create a border line at the bottom of each page */
+        border-bottom: 1px solid black;
+        page-break-after: always; /* Force a page break after each element with this class */
+      }
+  }
+  @page { 
+    size: auto; 
+    margin: 0; 
+    /* padding-bottom: 20px;  */
+    border-bottom: 1px solid black; 
+}
+
+.Header{
+    border-bottom: 3px solid ;
+}
+.text_tax{
+    font-size: 40px;
+    font-weight: bold;
+}
+.text_2{
+    font-size: 13px;
+}
+.text_1{
+    font-size: 20px;
+}
+
+tr {
+    page-break-inside: avoid;
+  }
+/* // table 1 */
+ .table1{
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black; /* Add a border to the table */
+    /* // border-bottom: none; */
+}
+
+.th1 {
+    border: 1px solid black;
+    padding: 4px 25px;
+    
+}
+
+/* // table 2 */
+.table2 {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .th2{
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+  }
+.td2 {
+    border: 1px solid black;
+    padding: 7px;
+    text-align: center;
+    font-weight: bold;
+  }
+.section2_text1{
+    font-size: 14px;
+}
+
+.uom{
+    font-weight: 500;
+    /* // text-decoration: underline; */
+}
+/* //   section 3 */
+.section3_text1{
+    font-size: 20px;
+}
+.section3_text2{
+font-size: 20px;
+}
+@media screen {
+  .watermark-image {
+      display: none;
+  }
+}
+/* .watermark-image {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3; /* Adjust opacity as needed */
+  /* pointer-events: none; Make sure the watermark doesn't interfere with interactions */
+/* }  */

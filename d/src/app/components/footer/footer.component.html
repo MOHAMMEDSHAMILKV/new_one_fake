@@ -1,0 +1,125 @@
+<div class="container-fluid sidra-main-footer px-0">
+    <div class="container pt-sm-5 pt-4 pb-0 ">
+        <div class="col-12 d-flex flex-column justify-content-center pb-4">
+            <div class="footer_content1 d-flex justify-content-center">
+                <span class="cw fw-400 fz-27">We're Always Here To Help You</span>
+            </div>      
+            <div class="d-flex justify-content-center mt-sm-4 mt-2">
+                <!-- <button class="footer-btn_One fw-500">RECIEVE NEWS</button> -->
+                <button class="footer-btn_two fw-500 ms-2" (click)="sendEmail()">SEND MAIL</button>
+            </div>      
+        </div>
+        <div class="col-12 row py-sm-5 py-3 mx-0">
+            <div class="col-6 col-sm-3 col-md  d-flex justify-content-center flex-column ">
+                <span class="cw fz-14 fw-500 cursor">NAVIGATION</span>
+                <span class="cwl fz-13 mt-3 cursor" [routerLink]="['/career']">Career</span> 
+                <span class="cwl fz-13 mt-2 cursor"  [routerLink]="['/aboutus']" >About Us</span>
+                <span class="cwl fz-13 mt-2 cursor" [routerLink]="['/faqs']" routerLinkActive="router-link-active" >FAQ </span>
+                <span class="cwl fz-13 mt-2 cursor" [routerLink]="['/termsanduse']">Terms of use</span>
+                <span class="cwl fz-13 mt-2 cursor">24/7 Customer Support</span>
+                <span class="cwl fz-13 mt-2 cursor">Sell with Us</span>
+            </div> 
+            <div class="col-6 col-sm-3 col-md  d-flex flex-column ">
+                <span class="cw fz-14 fw-500 cursor">Quick Link</span>
+                <span class="cwl fz-13 mt-3 cursor ">Bulk</span>
+                <span class="cwl fz-13 mt-2 cursor">Groceries</span>
+                <span class="cwl fz-13 mt-2 cursor">Lifestyle</span>
+                <span class="cwl fz-13 mt-2 cursor">Market</span>
+                <span class="cwl fz-13 mt-2 cursor">Business</span>
+            </div>
+            <div class="col-6 col-sm-3 col-md  d-flex flex-column mt-sm-0 mt-5">
+                <span class="cw fz-14 fw-500">Connect to us</span>
+                <span class="cwl fz-13 mt-3 cursor" >Email</span>
+                <span class="cwl fz-13 mt-2 cursor" >Facebook</span>
+                <span class="cwl fz-13 mt-2 cursor" >Linked In</span>
+                <span class="cwl fz-13 mt-2 cursor" >Twitter</span>
+                <span class="cwl fz-13 mt-2 cursor" >Instagram</span>
+                <span class="cwl fz-13 mt-2 cursor" >Whatsapp</span>
+            </div>
+            <div class="col-6 col-sm-3 col-md d-flex flex-column mt-sm-0 mt-5"> 
+                <span class="cw fz-14 fw-500 mb-3">Download</span>
+                <a class="Download" href="https://apps.apple.com/in/app/sidrabazar/id1658468993">
+                    <img class="mb-2"  src="../../../assets/images/playstore.svg" alt="" width="180">
+                </a>
+                <a class="Download mt-2" href="https://play.google.com/store/apps/details?id=com.rgcsidrabazar">
+                    <img src="../../../assets/images/applestore.svg" alt="" width="180">
+                </a> 
+        </div>
+        <div class="col-12 row pt-5 mt-2 mx-0 d-flex justify-content-center">
+            <!-- <div class="dropdown w-11 px-0">
+                <button class="btn btn-secondary dropdown-toggle btn-footer-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-globe cw"></i>
+                    <span class="cw fz-14 ms-2">English</span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+            <button class="btn-footer-four ms-3">UAE-AED</button>
+            <div class="dropdown w-17 px-0 ms-2">
+                <button class="btn btn-secondary dropdown-toggle btn-footer-btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="../../../assets/icons/flag.svg" alt="" width="24" height="18">
+                    <span class="cw fz-14 ms-2">United State</span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div> -->
+            <!-- <select class="uk-select">
+                <option class="bi bi-globe">
+                    English
+                </option>
+                <option>Arabic</option>
+            </select> -->
+            <div class="d-flex flex-row d-flex justify-content-center">
+                <div class="">
+                    <button class="btn-footer-four ms-3 px-3 py-2">English</button>
+                </div>
+                <div class="">
+                    <button class="btn-footer-four ms-3 px-3 py-2">UAE-AED</button>
+                </div>
+                <div class="">
+                    <button class="btn-footer-four ms-3 px-3 py-2">UAE</button>
+                </div>
+            </div>
+            <!-- <select class="uk-select ms-3">
+                <option class="bi bi-globe">
+                    UAE
+                </option>
+                <option>Option 02</option>
+            </select> -->
+        </div>
+    </div> 
+</div>
+<div class="container-fluid sidra-main-footer-one d-flex align-items-center py-4">
+    <div class="container-lg container-fluid px-0">
+        <div class="col-12 row mx-0 ">
+            <div class="col-md col-sm-3 col-12 footer_sidralogo d-flex justify-content-sm-start justify-content-center align-items-center ">
+                <img src="../../../assets/icons/Sidra Logo white-16 (1).svg" alt="" class="cw" width="100px">
+            </div>
+            <div class="col-md col-sm-6 col-12 d-flex justify-content-center align-items-center mt-sm-0 mt-3 copyright ">
+                <span class="fz-12 cw">@2022 Sidra@gmail.com All Right Reserved</span>
+            </div>
+            <div class="col-md col-sm-3 col-12 d-flex justify-content-sm-end justify-content-center align-items-center mt-sm-0 mt-4 ">
+                <div class="d-flex flex-row">
+                    <button class="rounded-btn">
+                        <i style="color: white;" class="bi bi-facebook"></i>
+                    </button>
+                    <button class="rounded-btn ms-2">
+                        <i style="color: white;" class="bi bi-twitter"></i>
+                    </button>
+                    <button class="rounded-btn ms-2">
+                        <img src="../../../assets/icons/Shape.svg" alt="" width="7" height="15">
+                    </button>
+                    <button class="rounded-btn ms-2">
+                        <i style="color: white;" class="bi bi-instagram"></i>
+                    </button>
+                </div>            
+            </div>
+        </div>
+    </div>
+</div>

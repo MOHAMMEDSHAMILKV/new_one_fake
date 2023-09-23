@@ -1,0 +1,252 @@
+
+<div  *ngIf="isLoading" class="container-fluid loading-overlay d-flex justify-content-center align-items-center" style="height:100%">
+    <img src="../../../assets/images/New-anime2.gif" alt="" width="80">
+</div>
+
+<div class="container-fluid px-md-3 px-0 shadow-sm" style="background-color: white;">
+    <div class="d-block d-sm-none pt-2" *ngIf="userData==null"></div>
+    <div class="col-12  row mx-0 d-flex align-items-center sidra-header-main py-md-3 py-0 pt-sm-3 pt-2" >
+        <div class="col-md-8 col-6  ps-md-0 ps-2  d-flex flex-row align-items-center cursor">
+            <div class="logo">
+                <img src="../../../assets/icons/sidra_logo.png" alt="" [routerLink]="['/']">
+            </div>
+            <div class="d-none d-md-flex d-flex flex-row ms-4 w-100" style="position: relative;">
+                <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Bulk Products</button>
+                <ul class="dropdown-menu"> 
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul> --> 
+                <div class="search-box position-relative " (clickOutside)="historyTrueFalse=false"> 
+                    <div class="overflow-hidden position-relative h-100">
+                        <input class="form-control bg-light fz-13 text-truncate w-100" 
+                        type="text" [(ngModel)]="searchData"  style="border-radius: 5px !important;" placeholder="Search products.." (click)="changeHeader()" (input)="sidraheader(searchData)">
+                        <button class="pointer"(keyup.enter)="searchResults(searchData,'')" (click)="searchResults(searchData,'')" ><i class="bi bi-search"></i></button>
+                    </div>  
+                    <div class="search-result d-flex flex-column shadow-sm" *ngIf="searchDataFalseTrue&&searchData!=''" (clickOutside)="OnclickOutside()"> 
+                        <div class="col-12 d-flex flex-column search-scroll mt-1" *ngIf="this.searchDataArray!=undefined">
+                            <div class="d-flex flex-wrap " *ngFor="let item of searchDataArray" > 
+                                <div class="d-flex flex-wrap w-100 py-2 ps-1 search-result__text mx-2" (click)="searchResults(searchData,item)">
+                                    <div class="col px-2 d-flex flex-column justify-content-between fz-13 justify-content-start  pointer">
+                                        <div class="d-flex justify-content-between">
+                                            <span class="my-auto fz-13 fw-500 ">{{item.name |titlecase}} in<i class="ms-2">{{item.group_type |titlecase}}</i></span>
+                                            <!-- <span> 
+                                                {{item?.segment_list[0]}}
+                                            </span> -->
+                                        </div>
+                                    </div> 
+                                </div>  
+                            </div> 
+                        </div>   
+                        <div class="py-3 px-3 border-top d-flex align-items-center cursor" (click)="searchResults(searchData,'')">
+                            <span class="fz-13 cursor">
+                                View all result of <i class="ms-2 fw-bold">"{{searchData}}"</i>
+                            </span>
+                        </div> 
+                    </div> 
+                    <div class="search-result d-flex shadow-sm" *ngIf="historyTrueFalse==true" > 
+                        <div class="col-12 d-flex flex-column py-3"> 
+                            <div class="d-flex justify-content-between mt-2 px-3">
+                                <span class="fz-14 fw-bold">
+                                    Recent Search 
+                                </span> 
+                                <span class="fz-14" (click)="clearHistory()" style="color: #FF9502;">
+                                    Clear All 
+                                </span> 
+                            </div> 
+                            <div class="d-flex flex-wrap" *ngFor="let item of historyArray.reverse()"> 
+                                <div class="d-flex flex-wrap  search-result__text py-2 ps-2 mx-3">
+                                    <div class="col d-flex flex-column fz-13 justify-content-start pointer">
+                                        <span class="my-auto fz-14 fw-500">{{item.name |titlecase}}</span>
+                                    </div> 
+                                </div>  
+                            </div>  
+                        </div>  
+                    </div> 
+                </div> 
+                 <!-- <div class="d-flex flex-column" style="width: 577px;position: relative;" >
+                    <div class="d-flex flex-row">  
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="search by anything...">
+                        <label class="input-group-text cursor" for="inputGroupFile02">
+                            <img src="../../../assets/icons/Search Icon.svg" alt="">
+                        </label> 
+                    </div>
+                    <div class=""  style="background-color: white; height: 300px; position: absolute;">
+                        
+                    </div>
+                 </div> -->
+            </div> 
+        </div>
+        <div class= "col-md-4 col-6  cursor d-flex align-items-center justify-content-end ps-0 d-flex flex-row">
+            <div class="dropdown">
+                <img src="../../../assets/icons/arablogo.svg" alt="" width="25">
+                <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul> -->
+            </div>
+            <div class="dropdown d-flex flex-column ms-sm-4 ms-3">
+                <span class="fz-11 d-none d-sm-block" *ngIf="userData!=null">Hello</span>
+                <button *ngIf="userData!=null" class="btn btn-secondary flag-dropdown fw-500 p-0 fz-14" (clickOutside)="showMenu=false" (click)="showOptions()" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="d-none d-sm-block dropdown-toggle ">
+                        {{profileData?.fname |titlecase}}
+                    </div>
+                    <div class="profile-image d-flex justify-content-center align-items-center d-block d-sm-none">
+                        <img [src]="updatedprofile" alt="" width="48" height="48" style="border-radius: 50%;">
+                    </div>
+                </button> 
+                <!-- <button *ngIf="userData==null" class="btn btn-secondary dropdown-toggle flag-dropdown fw-500 p-0 fz-14" (clickOutside)="showMenu=false" (click)="showOptions()" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Login
+                </button>  -->
+                 
+                <div class="profile-box d-flex flex-row p-0" *ngIf="userData==null">
+                    <button class="login-btn fz-13 fw-bold px-2 py-1"   [routerLink]="['/auth']" routerLinkActive="router-link-active" >Login</button>
+                </div>
+                <div class="shadow-sm " *ngIf="showMenu==true">
+                    <div class="menu border shadow-sm">
+                        <div class="profile-box d-flex flex-row px-3 py-2" *ngIf="userData!=null">
+                            <!-- <img src="../../../assets/test/profile-pic.svg" alt="" width="35"> -->
+                            <div class="d-flex flex-column ms-0">
+                                <span class="fz-14 fw-bold">{{profileData?.fname |titlecase}}</span>
+                                <span class="fz-12 mt-1" style="color: #A9A8A8;">+{{profileData?.mobile_code}} {{profileData?.mobile}}</span>
+                            </div>
+                        </div>
+                        <!-- <div class="profile-box d-flex flex-row p-0" *ngIf="userData==null">
+                            <button class="login-btn fz-13 fw-bold  py-3 w-100"  [routerLink]="['/auth']" routerLinkActive="router-link-active" >Login</button>
+                        </div> -->
+                        <div class=" px-3 py-2" style="background: white;">
+                            <div class="d-flex flex-row border-b content-box py-2"  (click)="routing('profile')">
+                                <span class="fz-14 bi bi-person-fill text-1 fz-500" ></span>
+                                <span class="fz-14 ms-2">Profile</span>
+                            </div> 
+                            <div class="d-flex flex-row border-b content-box py-2"  (click)="routing('deliveryaddress')">
+                                <span class="fz-14 bi bi-house-door-fill text-1 fz-500" ></span>
+                                <span class="fz-14 ms-2">Delivery Address</span>
+                            </div> 
+                            <div class="d-flex flex-row border-b content-box py-2"  (click)="routing('orders')">
+                                <span class="fz-14 bi bi-journal-text text-1 fz-500"></span>
+                                <span class="fz-14 ms-2">Orders</span>
+                            </div>
+                            <div class="d-flex flex-row border-b content-box py-2"  (click)="routing('wishlist')" routerLinkActive="router-link-active" >
+                                <span class="fz-14 bi bi-heart-fill text-1 fz-500" ></span>
+                                <span class="fz-14  ms-2 ">Wishlist</span>
+                            </div>
+                            <div class="d-flex flex-row border-b content-box py-2"  (click)="routing('notification')">
+                                <span class="fz-14 bi bi-bell-fill text-1 fz-500" ></span>
+                                <span class="fz-14  ms-2 ">Notification</span>
+                            </div>
+                            <div class="d-flex flex-row border-b content-box py-2"  (click)="routing('settings')">
+                                <span class="fz-14 bi bi-gear-fill text-1 fz-500" ></span>
+                                <span class="fz-14  ms-2">Settings</span>
+                            </div>
+                            <div class="d-flex flex-row content-box py-2"  (click)="logout()">
+                                <span class="fz-14 bi bi-box-arrow-right text-1 fz-500"></span>
+                                <span class="fz-14  ms-2 ">Log Out</span>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <div class="dropdown d-flex flex-column d-none d-lg-block ms-sm-4 ms-3">
+             
+                <span class="fw-500 p-0 fz-14  "> 
+                    English
+                </span>
+             
+            </div>
+            <div class="d-flex flex-row align-items-center ms-sm-4 ms-3" (click)="onCartNavigate()">
+                <div class="cart_1 d-flex flex-column">
+                    <div *ngIf="cartDataMain?.length!=0" class="count d-flex justify-content-center align-items-center fz-11 fw-bold">
+                        {{cartDataMain?.length}}
+                    </div>
+                    <img src="../../../assets/icons/carticon-new.svg" alt="" width="27">
+                </div>
+                <span class="ps-1 fz-14 fw-500 d-none d-md-block ">Cart</span>
+            </div>
+        </div>
+        <div class="col-12 d-block d-md-none px-0 pt-1">
+            <div class= "d-flex flex-row ms-2 w-100" style="position: relative;">
+                <!-- <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Bulk Products</button>
+                <ul class="dropdown-menu"> 
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Separated link</a></li>
+                </ul> --> 
+                <div class="search-box position-relative  " (clickOutside)="historyTrueFalse=false"> 
+                    <div class="overflow-hidden position-relative h-100">
+                        <input class="form-control bg-light fz-13 text-truncate w-100" 
+                        type="text" [(ngModel)]="searchData"  style="border-radius: 5px !important;" placeholder="Search products.." (click)="changeHeader()" (input)="sidraheader(searchData)">
+                        <button class="pointer"(keyup.enter)="searchResults(searchData,'')" (click)="searchResults(searchData,'')" ><i class="bi bi-search"></i></button>
+                    </div>  
+                    <div class="search-result d-flex flex-column shadow-sm" *ngIf="searchDataFalseTrue&&searchData!=''" (clickOutside)="OnclickOutside()"> 
+                        <div class="col-12 d-flex flex-column search-scroll mt-1" *ngIf="this.searchDataArray!=undefined">
+                            <div class="d-flex flex-wrap " *ngFor="let item of searchDataArray" > 
+                                <div class="d-flex flex-wrap w-100 py-2 ps-1 search-result__text mx-2" (click)="searchResults(searchData,item)">
+                                    <div class="col px-2 d-flex flex-column justify-content-between fz-13 justify-content-start  pointer">
+                                        <div class="d-flex justify-content-between">
+                                            <span class="my-auto fz-13 fw-500 ">{{item.name |titlecase}} in<i class="ms-2">{{item.group_type |titlecase}}</i></span>
+                                            <!-- <span> 
+                                                {{item?.segment_list[0]}}
+                                            </span> -->
+                                        </div>
+                                    </div> 
+                                </div>  
+                            </div> 
+                        </div>   
+                        <div class="py-3 px-3 border-top d-flex align-items-center cursor" (click)="searchResults(searchData,'')">
+                            <span class="fz-13 cursor">
+                                View all result of <i class="ms-2 fw-bold">"{{searchData}}"</i>
+                            </span>
+                        </div> 
+                    </div> 
+                    <div class="search-result d-flex shadow-sm" *ngIf="historyTrueFalse==true" > 
+                        <div class="col-12 d-flex flex-column py-3"> 
+                            <div class="d-flex justify-content-between mt-2 px-3">
+                                <span class="fz-14 fw-bold">
+                                    Recent Search 
+                                </span> 
+                                <span class="fz-14" (click)="clearHistory()" style="color: #FF9502;">
+                                    Clear All 
+                                </span> 
+                            </div> 
+                            <div class="d-flex flex-wrap" *ngFor="let item of historyArray.reverse()"> 
+                                <div class="d-flex flex-wrap  search-result__text py-2 ps-2 mx-3">
+                                    <div class="col d-flex flex-column fz-13 justify-content-start pointer">
+                                        <span class="my-auto fz-14 fw-500">{{item.name |titlecase}}</span>
+                                    </div> 
+                                </div>  
+                            </div>  
+                        </div>  
+                    </div> 
+                   
+                </div> 
+                 <!-- <div class="d-flex flex-column" style="width: 577px;position: relative;" >
+                    <div class="d-flex flex-row">  
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="search by anything...">
+                        <label class="input-group-text cursor" for="inputGroupFile02">
+                            <img src="../../../assets/icons/Search Icon.svg" alt="">
+                        </label> 
+                    </div>
+                    <div class=""  style="background-color: white; height: 300px; position: absolute;">
+                        
+                    </div>
+                 </div> -->
+            </div> 
+        </div>
+    </div>
+</div>
+
+ 
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+.dark-sidenav{
+  background-color: #979797ba;
+}
+
+.icon-image-main-category{
+  width: 65%;
+} 
+
+.main-filter-detail{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden;
+  /* autoprefixer: off */
+  @media(max-width:1200px){
+    -webkit-line-clamp: 3;
+  }
+  @media (max-width:768px) {
+    -webkit-line-clamp: 3;
+    display: none;
+  }
+
+}
+
+.test{
+  font-size: 18px;
+}
+
+@media(max-width: 379px) {
+  .test{
+    font-size: 15px;
+  }
+}
+@media(max-width: 342px) {
+  .test{
+    font-size: 13px;
+  }
+}

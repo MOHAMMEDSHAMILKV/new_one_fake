@@ -1,0 +1,35 @@
+.branch-product{
+    @include d-flex;
+    background: color(white);
+    &__content{
+        padding: 15px;
+        &--search{
+            position: relative;
+            .form-control{
+                border: none !important;
+                border-bottom: 1px solid color(gray-200) !important;
+                margin: 0; 
+                padding-right: 30px;
+                overflow: hidden;
+            }
+            i{
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+            }
+        }
+    }
+    &__lsidebar{
+        padding-top: 10px;
+        background: color(gray-200);
+        width: fit-content;
+        min-height: 200px;
+    }
+    &__rsidebar{
+        padding: 25px 20px;
+        width: 400px;
+        background: color(gray-200);
+        min-height: 200px;
+    }
+}

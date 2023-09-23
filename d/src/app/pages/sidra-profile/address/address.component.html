@@ -1,0 +1,317 @@
+<div *ngIf="picUpAddress_isActive==false" class="bgw px-4 d-flex justify-content-between" style="padding: 21px 0px 21px 0px;">
+    <span class="fz-15 fw-bold">Delivery Address</span>
+    <span class="fz-14 c-FF9900 fw-bold cursor" uk-toggle="target:#address-modal" (click)="AddNew()">ADD NEW ADDRESS</span>
+ </div>
+ 
+ <div *ngIf="picUpAddress_isActive==false" class="bgw mt-2">
+    <div class="" *ngIf="addressList.length!=0">
+        <div class="border-bottom py-4" *ngFor="let item of addressList">
+            <div class="col-12 row mx-0 px-3">
+                <div class="col-12 d-flex flex-column">
+                    <div class="d-flex flex-row align-items-center">
+                        <span class="fz-15 fw-bold">
+                            {{item.full_name | titlecase}}
+                        </span>
+                        <button class="defualt-btn ms-3 fz-14" *ngIf="item.is_default==true">Default</button>
+                        <button class="order-btn py-1 fz-14 ms-2 fw-500 px-2" *ngIf="item.is_default==false" (click)="default(item.id)" >Make us default</button>
+                    </div>
+                    <span class="fz-14 mt-2">{{item.building_name}}, {{item.street_name}}, {{item.state}}</span>
+                    <span class="fz-14 mt-2">{{item.city}},{{item.country}}<i class="fz-14 fw-bold ms-1"></i></span>
+                    <div class="d-flex flex-row mt-3">
+                        <button class="address-btn fz-14" (click)="edit(item.id)" uk-toggle="target:#address-modal">Edit</button>
+                        <button class="address-btn fz-14 ms-2" (click)="deleteAddress(item.id)">Delete</button>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="" *ngIf="addressList.length==0">
+        <div class="d-flex justify-content-center align-items-center" style="height: 70vh;">
+            <h2 class="cr-main">Address not found</h2>
+        </div>
+    </div>
+ </div>
+
+
+<div id="address-modal" class="uk-flex-top" uk-modal [hidden]="IsmodelShowAddressCreate">
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical ps-0 pe-0 pt-0 pb-4">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+         <div class="col-12 row mx-0 bg-F4F3F0">
+             <div class="col-12 py-3 px-4">
+                 <div class="px-2">
+                    <span class="fz-16 fw-500">Delivery Address</span>
+                 </div>
+             </div> 
+         </div>
+         <div class="col-12 row mx-0 px-4">
+             <div class="col-12 py-3">
+                 <div class="d-flex flex-column">
+                    <span class="fz-14 fw-500">Location Tag</span>
+                    <div class="d-flex flex-row mt-2">
+                        <div class="d-flex align-items-center">
+                            <input class="form-check-input" type="radio" [checked]="home==true" name="flexRadioDefault" id="flexRadioDefault1" (click)="locationTag('Home')">
+                            <span class="ms-2 fz-14 fw-400">Home</span>  
+                        </div> 
+                        <div class="d-flex align-items-center ms-3">
+                            <input class="form-check-input" type="radio" [checked]="office==true"  name="flexRadioDefault" id="flexRadioDefault2" (click)="locationTag('Office')">
+                            <span class="ms-2 fz-14 fw-400">Office</span>
+                        </div> 
+                        <div class="d-flex align-items-center ms-3">
+                            <input class="form-check-input" type="radio" [checked]="custom==true"  name="flexRadioDefault" id="flexRadioDefault3" (click)="locationTag('Custom')">
+                            <span class="ms-2 fz-14 fw-400">Custom</span>
+                        </div> 
+                    </div>
+                 </div>
+             </div>
+         </div>
+         <div class="col-12 row mx-0 py-3 px-4">
+            <div class="col-6">
+                <label for="" class="fz-13 fw-500 mb-2">First Name</label>
+                <span class="text-danger fz-13 fw-bold ms-1">*</span>
+                <input [(ngModel)]="full_name" type="text" class="form-control fz-12 h-55"  placeholder="First Name">
+            </div>  
+            <div class="col-6">
+                <label for="" class="fz-13 fw-500 mb-2">Phone Number</label>
+                <span class="text-danger fz-13 fw-bold ms-1">*</span>
+                <!-- <input type="text" [(ngModel)]="contact" class="form-control fz-12 h-55"  placeholder="Phone Number"> -->
+                <div class="form-control d-flex flex-row px-0 py-0" style="position: relative;">
+                    <select class="form-select w-25 px-1" style="border-radius: 0px; outline: none; box-shadow: none;"[(ngModel)]="country_code" (change)="country">
+                        <option *ngFor="let con of contry_code_list" [value]="con.code">{{con.code}}</option>
+                    </select> 
+                    <input class="fz-12 w-100" list="datalistOptions" type="number" [(ngModel)]="contact" placeholder="558678579"  style="border-right: 1px solid #f6f6f6;border-left: none;border-bottom: none;border-top: none; outline: none;height: 38px">
+                </div>
+            </div>
+         </div> 
+         <div class="col-12 row mx-0 py-3 px-4">
+            <div class="col-6">
+                <label for="" class="fz-13 fw-500 mb-2">Building Name / Room Number</label>
+                <span class="text-danger fz-13 fw-bold ms-1">*</span>
+                <input type="text" [(ngModel)]="building_name" class="form-control fz-12 h-55"  placeholder="eg.Rashidiyyah">
+            </div>  
+            <div class="col-6">
+                <label for="" class="fz-13 fw-500 mb-2">Street / Area</label>
+                <span class="text-danger fz-13 fw-bold ms-1">*</span>
+                <input type="text" [(ngModel)]="street_name" class="form-control fz-12 h-55"  placeholder="eg.Ajman, UAE">
+            </div> 
+         </div>
+         <div class="col-12 row mx-0 py-3 px-4"> 
+            <div class="col-6">
+                <label for="" class="fz-13 fw-500 mb-2">City / Emirates</label>
+                <span class="text-danger fz-13 fw-bold ms-1">*</span>
+                <input type="text" [(ngModel)]="city" class="form-control fz-12 h-55"  placeholder="eg.Ajman, UAE">
+            </div>  
+            <div class="col-6">
+                <label for="" class="fz-13 fw-500 mb-2">Landmark</label>
+                <input type="text" [(ngModel)]="landmark" class="form-control fz-12 h-55"  placeholder="eg. near Rawabi market">
+            </div>
+         </div>
+         <div class="col-12 row mx-0 py-3 px-4">
+            <div class="col-6">
+                <label for="" class="fz-13 fw-500 mb-2">Nationality</label>
+                <span class="text-danger fz-13 fw-bold ms-1">*</span>
+                <select class="form-select form-control" style=" border: 1.5px solid #ececec;" [(ngModel)]="nationality" (change)="countryChange($event)">
+                    <option  *ngFor="let con of country" [value]="con.code">
+                        {{con.name}}
+                    </option> 
+                </select> 
+            </div>
+            <div class="col-6">
+                <label for="" class="fz-13 fw-500 mb-2">State</label>  
+                <span class="text-danger fz-13 fw-bold ms-1">*</span>
+                <select class="form-select form-control" style=" border: 1.5px solid #ececec;" [(ngModel)]="state" (change)="stateChange($event)">
+                    <option *ngFor="let con of stateArray" [value]="con.name">{{con.name}}</option>
+                </select>
+            </div>
+         </div> 
+         <div class="col-12 row mx-0 py-3 px-4">
+             <div class="col-12">
+                <span class="fz-14 fw-500">Add Delivery Instructions</span>
+                <div class="d-flex flex-row mt-3">
+                    <button class="address-btn-two fw-500"  [class.address-btn-twoActive]="instBox=='Avoid ringing bell'"  (click)="instructionsSelection('Avoid ringing bell')">
+                        Avoid ringing bell
+                    </button>
+                    <button class="address-btn-two ms-2 fw-500"  [class.address-btn-twoActive]="instBox=='Hand over to security'" (click)="instructionsSelection('Hand over to security')">
+                        Hand over to security
+                    </button>
+                    <button class="address-btn-two ms-2 fw-500" [class.address-btn-twoActive]="instBox=='Leave at the door'" (click)="instructionsSelection('Leave at the door')">
+                        Leave at the door                    
+                    </button>
+                    <textarea class="form-control fz-14 textarea ms-2" [(ngModel)]="instructionsTextarea" placeholder="Add custom message ..." rows="2" (click)="textareachange()"></textarea>
+                </div>
+             </div>
+         </div>
+         <div class="col-12 row mx-0 px-4 mt-3 mb-3">
+             <div class="col-12 d-flex align-items-center">
+                <input class="form-check-input mt-0" type="checkbox" value="" id="flexCheckChecked" [checked]="is_default==true" (click)="makeUsDefault($event)">
+                <label class="form-check-label fz-14 ms-2" for="flexCheckChecked">
+                    Make it as default
+                </label>
+             </div>
+         </div>
+         <div class="col-12 row mx-0 border-top">
+             <div class="col-12 d-flex justify-content-center px-4 mt-3">
+                 <button class="address-btn-three fz-14" [disabled]="full_name==''||contact==''||building_name==''||street_name==''||city==''||nationality==''||state==''" *ngIf="updateBtnActive==false" (click)="addresCreate()">Create new Address</button>
+                 <button class="address-btn-three fz-14" *ngIf="updateBtnActive==true" (click)="updateAddress()">Update Address</button>
+             </div>
+         </div>
+    </div>
+</div> 
+
+
+<div class="" *ngIf="picUpAddress_isActive==true" class="bgw px-4 py-3 d-flex justify-content-between">
+    <div class="d-flex flex-column">
+        <span class="fz-15 fw-bold">Pickup Address</span>
+        <span class="fz-13 mt-3 c-5F5F61">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.</span>
+        <span class="fz-13 mt-3 c-FF9900 fw-bold">More Learn about Pickup</span>
+    </div>
+    <span class="fz-14 c-FF9900 fw-bold cursor" uk-toggle="target:#unpin-address-modal">SEARCH NEW PICKUP</span>
+</div>
+
+<div *ngIf="picUpAddress_isActive==true" class="bgw border-top">
+    <div class=""*ngIf="pinArray.length!=0">
+        <div class="border-bottom" *ngFor="let item of pinArray">
+            <div class="col-12 row mx-0 py-4 px-4">
+                <div class="col-1">
+                    <div class="icons bg-F0B774 d-flex align-items-center justify-content-center">
+                        <span>H</span>
+                    </div>
+                </div>
+                <div class="col-11"> 
+                    <div class="d-flex flex-column">
+                        <span class="fw-500 fz-14">{{item.name}}</span>  
+                        <span class="fw-400 fz-13 pt-2 pb-1">{{item.address}}</span>
+                        <span class="fz-12 c-5F5F61">Working Time : {{item.open_time}} to {{item.close_time}}</span>
+                        <button class="address-btn mt-3" (click)="unpin(item.delivery_slot)">Unpin</button>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="" *ngIf="pinArray.length==0">
+        <div class="col-12 row mx-0 py-5  d-flex justify-content-center align-items-center">
+            <div class="d-flex justify-content-center align-items-center">
+                <img src="../../../../assets/images/pickup.svg" alt="" class="p-0">
+            </div> 
+            <div class="d-flex justify-content-center flex-column align-items-center my-4">
+                <span class="fz-14 fw-bold">No Pinned Location</span>
+                <span class="fz-12 mt-2">Search a pickup location nearby you and pin to list here</span>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <button class="update-btn fw-bold" uk-toggle="target:#unpin-address-modal">Search Pickup</button>
+            </div> 
+        </div> 
+    </div> 
+</div> 
+
+<!-- <div *ngIf="picUpAddress_isActive==true" class="bgw border-top">
+    <div class="col-12 row mx-0 py-4 px-4">
+        <div class="col-1">
+            <div class="icons bg-74B5F0 d-flex align-items-center justify-content-center">
+                <span>H</span>
+            </div>
+        </div>
+        <div class="col-11">
+            <div class="d-flex flex-column">
+                <span class="fw-500 fz-14">Hilite Business Park</span>  
+                <span class="fw-400 fz-13 pt-3 pb-1">4517 Washington Ave. Manchester, Pookattu Purayil House, Avilora P.O, Kentucky 39495</span>
+                <span class="fz-12 c-5F5F61">Working Time : 08 30 to 22 30</span>
+                <button class="address-btn mt-3">Unpin</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="picUpAddress_isActive==true" class="bgw border-top">
+    <div class="col-12 row mx-0 py-4 px-4">
+        <div class="col-1">
+            <div class="icons bg-5AB568 d-flex align-items-center justify-content-center">
+                <span>H</span>
+            </div>
+        </div>
+        <div class="col-11">
+            <div class="d-flex flex-column">
+                <span class="fw-500 fz-14">Hilite Business Park</span>  
+                <span class="fw-400 fz-13 pt-3 pb-1">4517 Washington Ave. Manchester, Pookattu Purayil House, Avilora P.O, Kentucky 39495</span>
+                <span class="fz-12 c-5F5F61">Working Time : 08 30 to 22 30</span>
+                <button class="address-btn mt-3">Unpin</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="picUpAddress_isActive==true" class="bgw border-top">
+    <div class="col-12 row mx-0 py-4 px-4">
+        <div class="col-1">
+            <div class="icons bg-8E7EF1 d-flex align-items-center justify-content-center">
+                <span>H</span>
+            </div>
+        </div>
+        <div class="col-11">
+            <div class="d-flex flex-column">
+                <span class="fw-500 fz-14">Hilite Business Park</span>  
+                <span class="fw-400 fz-13 pt-3 pb-1">4517 Washington Ave. Manchester, Pookattu Purayil House, Avilora P.O, Kentucky 39495</span>
+                <span class="fz-12 c-5F5F61">Working Time : 08 30 to 22 30</span>
+                <button class="address-btn mt-3">Unpin</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div id="unpin-address-modal" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical ps-0 pe-0 pt-0 pb-4">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12 row mx-0 bg-F4F3F0">
+             <div class="col-12 py-3 px-4">
+                 <div class="px-2">
+                    <span class="fz-16 fw-500">Pickup Address</span>
+                 </div>
+             </div> 
+         </div>
+         <div class="col-12 row mx-0 px-2">
+            <div class="col-12 py-3">
+            <div class="input-group">
+                <input type="text" class="form-control form-control_two" [(ngModel)]="searchData" (input)="searchPicupAddress(searchData)"  style="background-color: #F4F3F1 !important;" aria-label="Text input with dropdown button" placeholder="search by anything...">
+                <label class="input-group-text cursor" (click)="searchPicupAddress(searchData)"> 
+                    <img src="../../../../assets/icons/Search Icon.svg" alt="">
+                </label>  
+            </div>
+            </div>
+            <div class="" style="border-radius: 5px;" *ngFor="let item of searchDataArray">
+                <div class="d-flex flex-row border mx-0 px-2 py-3" style="border-radius: 5px;">
+                    <div class="px-4 d-flex justify-content-center">
+                        <div class="icons bg-5AB568 d-flex align-items-center justify-content-center">
+                            <span>H</span>
+                        </div>
+                    </div>
+                    <div class="ps-3">
+                        <div class="d-flex flex-column">
+                            <span class="fw-500 fz-14">{{item.name}}</span>  
+                            <span class="fw-400 fz-13 pt-2 pb-1">{{item.address}}</span>
+                            <span class="fz-12 c-5F5F61">Working Time :{{item.open_time}} to {{item.close_time}}</span>
+                            <button class="pin_btn mt-3" (click)="bookMark(item.id)">Pin</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+</div>
+
+
+<div class="dialog-container" *ngIf="otpDisplay">
+    <p-dialog header="Otp Verification " class="" [(visible)]="otpDisplay">
+        <div class="col-12 row mx-0 d-flex justify-content-center">
+            <ng-otp-input class="px-0" header="GeeksforGeeks" (onInputChange)="onOtpChange($event)" [config]="{length:5}"></ng-otp-input>
+            <button *ngIf="updateBtnActiveOtp==false" class="fz-15 fw-400 w-100 mt-3 mx-1 login-btn" [disabled]="button_active==false"  (click)="addresVarification()">Send</button>
+            <button *ngIf="updateBtnActiveOtp==true"  class="fz-15 fw-400 w-100 mt-3 mx-1 login-btn" [disabled]="button_active==false"  (click)="UpdateaddresVarification()">Send</button>
+            <div class="col-12 px-1 mt-2 d-flex justify-content-center">
+                <i class="fz-13 fw-500 c-FF9900 mt-2 cursor"  *ngIf="subscribeTimer!=0">{{subscribeTimer}} sec</i>
+                <i class="fz-13 fw-500 c-FF9900 mt-2 cursor"  *ngIf="subscribeTimer==0"(click)="reSendOtp()">Resend Otp</i>
+            </div> 
+        </div> 
+    </p-dialog>
+</div>
+
+
+
+

@@ -1,0 +1,12 @@
+<div class="d-flex flex-row justify-content-center cursor"*ngFor="let item of popular_category.value">
+  <div class=" d-flex flex-column justify-content-center align-items-center " (click)="clickRoute(item.code,'category',item.name,item.segment_type)">
+    <div class="round d-flex justify-content-center align-items-center mx-2 p-sm-3 p-2">
+      <img class="img" src="{{item.image}}" alt="">
+    </div>
+    <span class="fz-12 item_name fw-600 w-92 text-align align-items-center mt-2 text-black">
+        {{item.name |titlecase}}
+    </span>
+  </div>
+</div>
+
+<!-- End product slider Section -->

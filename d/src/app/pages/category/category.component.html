@@ -1,0 +1,208 @@
+
+
+
+<div  *ngIf="isLoading" class="container-fluid  loading-overlay d-flex justify-content-center align-items-center" style="height:100%">
+  <img src="../../../assets/images/New-anime2.gif" alt="" width="80">
+</div>
+<app-sidraheader style="position: fixed;width: 100%;top: 0;
+left: 0;
+z-index: 999;"></app-sidraheader>
+<app-menu-header></app-menu-header>
+
+<div class="container-fluid mb-5 px-0" style="overflow: hidden;">
+  <div class="col-12 row mx-0 pt-4">
+     <div class="d-flex flex-row px-2 ">
+
+    <!-- filter box -->
+         <div class="w-25 d-none d-lg-block">
+           <div class="bgw p-3 b-b">
+             <span class="fz-15 fw-500" style="color: #717478;">
+                Filter 
+             </span> 
+           </div>
+           <div class="bgw mt-1" style="height: 100%;">
+             <div class="py-3  px-3">
+                <div class="d-flex justify-content-between cursor"(click)="brandSelect()">
+                  <span class="fz-14 fw-bold">
+                      BRAND
+                  </span>
+                  <span class="fz-13 fw-bold cursor">
+                      <img src="../../../assets/assets/right.svg" width="7px" alt="">
+                  </span> 
+                </div>
+                 <div class=" pb-2 " *ngIf="isBrand==true">
+                    <div class="d-flex justify-content-between pt-3" *ngFor="let item of brandArray; let i=index">
+                        <div class="">
+                            <input type="checkbox" class="form-check-input" (click)="filterDate($event,'brand',item.id,item.name,i,'','')">
+                            <span class="fw-500 fz-14 filter_itemname ms-2">{{item.name | titlecase}}</span>
+                        </div>
+                    </div>
+                 </div>
+            </div> 
+            <div class="py-3  px-3 mb-2">
+                <div class="d-flex justify-content-between cursor"(click)="Priceselct()">
+                  <span class="fz-14 fw-bold">
+                      PRICE
+                  </span>
+                  <span class="fz-13 fw-bold cursor">
+                      <img src="../../../assets/assets/right.svg" width="7px" alt="">
+                  </span> 
+                </div> 
+                <div class="pb-2" *ngIf="isPrice==true">
+                    <div class="d-flex flex-column pt-3">
+                        <div class="mb-3 d-flex align-items-center" *ngFor="let item of priceListArray;let i=index">
+                            <input type="checkbox" class="form-check-input m-0"  (click)="filterDate($event,'price','','',i,item.start,item.end)">
+                            <span class="fw-500 fz-14 ms-2">{{item.name}}</span>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+          
+           </div>
+         </div>
+
+     <!-- items -->
+         <div class="w-100 ms-lg-2 ms-0">
+           <div class="bgw ms-lg-2 ms-0 px-0 col-12 row" style="padding: 8px 10px 8px 10px !important;">
+             <div class="col-md-8 col-sm-6 col-5 d-flex align-items-center px-0">
+                <span class="fz-15 fw-bold" style="color: #717478;"><i class="fz-15 fw-bold " style="color: black;">{{printedGroup | titlecase}}</i> </span>
+                <!-- <span class="fz-15 ms-3">{{searchResultList.length}} Prodcuts</span> -->
+             </div>
+             <div class="col-md-4 col-sm-6 col-7 d-flex align-items-center justify-content-end px-0">
+              <div class="d-block d-lg-none filter_border">
+                <button class="uk-button uk-button-default " type="button" uk-toggle="target: #uk-flex-top">Filter</button>
+                <!-- <span class="material-icons">filter_alt</span> -->
+              </div>             
+              <div class="ms-1">
+                 <select class="form-select form-select-lg fz-14" aria-label=".form-select-lg example" style="box-shadow: none;" (change)="sort($event)">
+                     <option *ngFor="let item of sortArray;let j=index" [value]="item.value" (change)="sort($event)">{{item.name}}</option>
+                 </select> 
+              </div> 
+             </div>
+           </div>  
+           <div class="bgw ms-lg-2 ms-0 mt-2 px-lg-3 px-2 py-sm-4 py-2" *ngIf="searchResultList.length!=0"> 
+               <div class="col-12 row mx-0"> 
+                   <div class="d-flex flex-row px-0"> 
+                     <div class="company-list d-flex justify-content-between px-3 py-2 me-2 cursor" *ngFor="let item of barndNameArray;let i=index">
+                       <span class="fz-14 fw-500">{{item.name}}</span>
+                       <!-- <img class="ms-2" src="../../../assets/test/close.svg" alt="" width="10px" (click)="brandArraydelete(i)"> -->
+                     </div>
+                   </div> 
+               </div>
+               <div class="col-12 row mx-0 d-flex flex-wrap">
+                 <div class="px-0 mt-3 col-xxl-2 col-lg-3 col-md-3 col-sm-4 col-6" *ngFor="let product of searchResultList">
+                     <app-product-card-three
+                         [products]="product" 
+                     ></app-product-card-three> 
+                 </div>
+               </div> 
+               <div class="col-12 mx-0 row mt-4" *ngIf="paginationIsActive==true">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination d-flex justify-content-center">
+                    <li class="page-item" (click)="priviousData()">
+                      <a class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item" (click)="nextData()">
+                      <a class="page-link" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a> 
+                    </li>
+                  </ul>
+                </nav>
+               </div>
+               <div class="col-12 mx-0 row mt-4" *ngIf="isFilterPageActive==true">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination d-flex justify-content-center">
+                    <li class="page-item" (click)="priviousDataFilter()">
+                        <a class="page-link" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a> 
+                    </li>
+                    <li class="page-item" (click)="nextDataFilter()">
+                        <a class="page-link" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a> 
+                    </li> 
+                  </ul>
+                </nav>
+               </div>
+           </div>
+           <div class="bgw ms-lg-2 ms-0 mt-2 px-3 py-4" *ngIf="searchResultList.length==0"> 
+              <div class="d-flex align-items-center justify-content-center" style="height:70vh">
+                  <span class="fz-20 fw-bold cr-main">
+                       Data not Found
+                  </span>
+              </div>
+          </div>
+         </div> 
+     </div>
+  </div>
+
+  
+<!-- This is the modal of filter box -->
+<div id="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-margin-auto-vertical py-0 px-0 overflow-auto" style="background-color:#EEEEEE;">
+        <button class="uk-modal-close-default mt-1" type="button" uk-close></button>
+<div class="row col-12 ms-0">
+  <div class=" col-12 bgw p-3  "  style="background-color:#F8F8FF;">
+    <span class="fz-20 fw-500" style="color:black;">
+       Filter 
+    </span> 
+  </div>
+  <div class="col-sm-4 col-5 px-1 ps-0">
+    <div class="bgw" >
+      <div class="py-3 border-bottom px-sm-3 px-0" [ngClass]="{'border-bottomActive': isBrand1==false}">
+         <div class="d-flex align-items-center justify-content-around cursor"(click)="brandSelect1()">
+           <span class="brand fz-14 fw-bold">
+               BRAND
+           </span>
+           <span class="fz-13 fw-bold cursor">
+               <img class="arrow" src="../../../assets/assets/right.svg" width="7px" alt="">
+           </span> 
+         </div>
+     </div> 
+     <div class="py-3 border-bottom px-sm-3 px-0 mb-2" [ngClass]="{'border-bottomActive': isPrice1==false}">
+         <div class="d-flex align-items-center justify-content-around cursor"(click)="Priceselct1()">
+           <span class="brand fz-14 fw-bold">
+               PRICE
+           </span>
+           <span class="fz-13 fw-bold cursor">
+               <img class="arrow" src="../../../assets/assets/right.svg" width="7px" alt="">
+           </span> 
+         </div> 
+        
+     </div>
+    </div>
+  </div>
+ <div class="col-sm-8 col-7" style="background-color: white; overflow-y: auto; height: 400px;">
+   <div class=" pb-2 "  [hidden]="isBrand1">
+     <div class="d-flex justify-content-between pt-3" *ngFor="let item of brandArray; let i=index">
+         <div class="">
+             <input type="checkbox" class="form-check-input" (click)="filterDate($event,'brand',item.id,item.name,i,'','')">
+             <span class="brand fw-500 fz-14 ms-2">{{item.name | titlecase}}</span>
+         </div>
+     </div>
+ </div>
+ <div class="pb-2"  [hidden]="isPrice1">
+   <div class="d-flex flex-column pt-3">
+       <div class="mb-3 d-flex align-items-center" *ngFor="let item of priceListArray;let i=index">
+           <input type="checkbox" class="form-check-input m-0"  (click)="filterDate($event,'price','','',i,item.start,item.end)">
+           <span class="brand fw-500 fz-14 ms-2">{{item.name}}</span>
+       </div>
+   </div> 
+ </div>
+ </div>   
+</div>
+<div class="d-flex align-items-center justify-content-center py-2" style="background-color: white;">
+  <button class="apply_filter px-5 py-2" (click)="Apply_filter()">Apply Filter</button>
+  </div> 
+    </div>
+    
+</div>
+</div>
+<app-footer></app-footer>
+
+
+

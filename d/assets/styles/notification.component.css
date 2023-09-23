@@ -1,0 +1,65 @@
+:host {
+  width: 100%;
+  min-height: 600px;
+}
+
+.empty-notification {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.notification {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.notification__item {
+  max-width: 700px;
+  padding: 10px;
+  border: 1px solid #c3c3c3;
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.notification__title {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.notification__details {
+  font-size: 13px;
+  width: calc(100% - 50px);
+}
+
+.notification__close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+/*# sourceMappingURL=notification.component.css.map */

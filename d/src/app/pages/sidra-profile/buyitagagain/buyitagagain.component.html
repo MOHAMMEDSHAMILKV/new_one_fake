@@ -1,0 +1,17 @@
+<div class="bgw px-3 d-flex justify-content-between" style="padding: 21px 0px 21px 0px;">
+    <span class="fz-15 fw-bold">Buy it Again</span>
+ </div> 
+<div class="px-0 mt-2"> 
+    <div class="col-12 row mx-0" *ngIf="buyItArray.length!=0">
+        <div class="col-3 px-0" *ngFor="let product of buyItArray">
+            <app-product-card-three
+               [products]="product"
+            ></app-product-card-three>
+        </div>
+    </div> 
+    <div class="col-12 row mx-0 bgw" style="height: 70vh;" *ngIf="buyItArray.length==0">
+        <h2 class="cr-main d-flex justify-content-center align-items-center">
+            No Products Available
+        </h2>
+    </div>
+</div>

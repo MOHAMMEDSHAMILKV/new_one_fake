@@ -1,0 +1,30 @@
+export class Address {
+    id!:any;
+    address_type!:any;
+    country!:any;
+    state!:any;
+    city!:any;
+    full_name!:any;
+    contact!:any;
+    street_name!:any;
+    building_name!:any;
+    landmark!:any;
+    instructions!:any;
+    address_tag!:any;
+    constructor( address_type:any,country:any,state:any,city:any,full_name:any,contact:any,street_name:any,
+                 building_name:any,landmark:any,instructions:any,address_tag:any,id:any)
+        {
+            this.address_type=address_type,
+            this.country=country,
+            this.state=state,
+            this.city=city,
+            this.full_name=full_name,
+            this.contact=contact,
+            this.street_name=street_name,
+            this.building_name=building_name,
+            this.landmark=landmark,
+            this.instructions=instructions,
+            this.address_tag=address_tag,
+            this.id=id
+        }
+}

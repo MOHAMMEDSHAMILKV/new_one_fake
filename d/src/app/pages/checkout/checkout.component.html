@@ -1,0 +1,547 @@
+
+<div  *ngIf="isLoading" class="container-fluid  loading-overlay d-flex justify-content-center align-items-center" style="height:100%">
+  <img src="../../../assets/images/New-anime2.gif" alt="" width="80">
+</div>
+
+<app-header></app-header>
+
+<div class="container-fluid py-4 pt-sm-4 pt-1 px-sm-2 px-0" style="background-color: #F4F3F0;">
+    <div class="container-lg px-0">
+        <div class="col-12 row mx-0">
+            <div class="col-lg-8 col-sm-7 col-12 px-0">
+                <div class="bgw p-3">
+                    <span class="fz-16 heading fw-500">Checkout</span>
+                </div>
+                <div class="">
+                    <div class="accordion" >
+                        <div class="accordion-item bgw mt-2">
+                          <h2 class="accordion-header border-b mb-0">
+                            <button class="accordion-button fz-14 fw-bold" (click)="showAddressDetail()" type="button">
+                               <span class="" [ngClass]="deliveryAddressApproved==true?'c-black':'c-main'">1.DELIVERY ADDRESS</span>
+                               <img *ngIf="deliveryAddressApproved==true" class="ms-2" src="../../../assets/icons/check_circle.svg" alt="" style="width: 20px;"> 
+                            </button> 
+                          </h2> 
+                          <div class="col-12 row mx-0 py-2 cursor" (click)="viewDetail()" *ngIf="deliveryAddressApproved==true">
+                              <span class="fz-12 fw-500" style="color: #FF9900;">
+                                  VIEW ALL DELIVERY ADDRESS
+                              </span> 
+                          </div> 
+                          <div *ngIf="delveryAddressdetail==true" class="accordion-collapse collapse show">
+                            <div class="accordion-body border-b" *ngIf="IsDirectActive==false">
+                              <div class="d-flex flex-row" *ngFor="let item of cartDataMain"> 
+                                <div class="img d-flex justify-content-center align-items-center">
+                                    <img src="{{item.image}}" alt="">
+                                </div> 
+                                <div class="ms-3 d-flex flex-column py-3">
+                                    <span class="fz-15 fw-500">{{item.name}}</span>
+                                    <span class="mt-2 heading fz-14 fw-500">{{item.delivery_address?.full_name}}</span>
+                                    <span class="mt-1 heading fz-14"> 
+                                        {{item.delivery_address?.street_name}}, {{item.delivery_address?.city}}, {{item.delivery_address?.city}}, {{item.delivery_address?.state}}
+                                    </span>  
+                                </div> 
+                              </div> 
+                            </div>
+                            <div class="accordion-body border-b" *ngIf="IsDirectActive==true">
+                              <div class="d-flex flex-row" *ngFor="let item of cartDataMain2"> 
+                                <div class="img d-flex justify-content-center align-items-center">
+                                    <img src="{{orderDataDetail.order_line[0]?.order_lines_meta?.image1}}" alt="">
+                                </div> 
+                                <div class="ms-3 d-flex flex-column py-3">
+                                    <span class="fz-15 fw-500">{{orderDataDetail.order_line[0]?.order_lines_meta?.variant_name}}</span>
+                                    <span class="mt-2 heading fz-14 fw-500">{{item.address_data?.full_name}}</span>
+                                    <span class="mt-1 heading fz-14"> 
+                                        {{item.address_data?.street_name}}, {{item.address_data?.city}}, {{item.address_data?.city}}, {{item.delivery_address?.state}}
+                                    </span> 
+                                </div> 
+                              </div> 
+                            </div>
+                            <div class="accordion-body border-b"> 
+                              <div class="">
+                                <button class="px-3 Py-2 checkout-btn fz-14 fw-500" (click)="confirmDelivery()">
+                                    Confirm Delivery Address 
+                                </button> 
+                              </div>
+                            </div> 
+                          </div>
+                        </div>
+                        <div class="accordion-item bgw mt-2">
+                          <h2 class="accordion-header mb-0">
+                            <button class="accordion-button fz-14 fw-bold border-bottom py-2" (click)="clickGiftOption()" type="button">
+                                  <i *ngIf="isGiftedClose==false" class="fz-15 fw-bold me-1">+</i> <i *ngIf="isGiftedClose==true" class="fz-15 fw-bold me-1">-</i> 
+                                  <i class="c-black">ADD GIFT OPTION </i>
+                            </button> 
+                            <div class="" *ngIf="giftLIst.length!=0&&giftOptionConfirmed==true">
+                              <div class="d-flex justify-content-between py-3 border-bottom px-3"  *ngFor="let item of giftLIst;let i=index">
+                                <span class="fz-13 fw-bold" style="color: #FF9900;">{{item.values[0].from_name}}</span>
+                                <div class="d-flex flex-row cursor"> 
+                                    <!-- <span class="fz-13 OPTION" (click)="editGiftList(item)" uk-toggle="target:#giftOption">Edit</span>
+                                    <span class="fz-13 mx-2">|</span> -->
+                                    <span class="fz-13 OPTION" (click)="deleteGift(item.group_id)">Delete</span> 
+                                </div>  
+                              </div> 
+                            </div>
+                          </h2> 
+                          <div class="accordion-collapse" *ngIf="isGiftedClose==true">
+                            <div class="accordion-body pt-0 px-0 pb-0">
+                              <div class="d-flex justify-content-between py-3 border-bottom px-3"  *ngFor="let item of giftLIst;let i=index">
+                                  <span class="fz-13 fw-bold" style="color: #FF9900;">{{item.values[0].from_name}}</span>
+                                  <div class="d-flex flex-row cursor"> 
+                                      <!-- <span class="fz-13 OPTION" (click)="editGiftList(item)" uk-toggle="target:#giftOption">Edit</span>
+                                      <span class="fz-13 mx-2">|</span> -->
+                                      <span class="fz-13 OPTION" (click)="deleteGift(item.group_id)">Delete</span> 
+                                  </div>  
+                              </div> 
+                              <div class="fz-13 fw-bold cursor py-2 px-3" style="color: #FF9900;" (click)="addingGiftOption()"  uk-toggle="target:#giftOption">
+                                + ADD GIFT OPTION 1 
+                              </div> 
+                              <div class="accordion-body border-b"> 
+                                <div class=""> 
+                                  <button *ngIf="giftLIst.length==0" class="px-3 py-2 checkout-btn fz-14 fw-500" (click)="skipAndContinue('gift')">
+                                      Skip and Continue        
+                                  </button> 
+                                  <button *ngIf="giftLIst.length!=0" class="px-3 py-2 checkout-btn fz-14 fw-500" (click)="saveAndCotinue()">
+                                    Save and Continue     
+                                  </button>
+                                </div> 
+                              </div>    
+                            </div> 
+                          </div> 
+                        </div>  
+                        <div class="accordion-item bgw">
+                          <h2 class="accordion-header mb-0 d-flex justify-content-between align-items-center">
+                            <button class="accordion-button fz-14 fw-bold py-2" type="button" (click)="packingData()">
+                               <span>+ PACKAGING OPTIONS</span> 
+                            </button>
+                            <span class="fz-13 fw-bold w-130" *ngIf="defultWrapArray.length==1&&defultWrapArray[0]?.price==0" style="font-style: italic; color: #079B16;">Free Packaging</span>
+                          </h2>
+                          <div class="accordion-collapse " *ngIf="isPackingActive==true&&defultWrapArray.length!=0">
+                            <div class="accordion-body pt-2 pb-1"> 
+                               <div class="col-12 row mx-0">
+                                 <div class="col-4 px-0 cursor" *ngFor="let item of defultWrapArray;let i=index" (click)="wrapIndexselect(i,item)">
+                                    <div class="wrapcard pt-2 pb-0 ps-3" [class.wrapcard-select]="wrapIndex==i">
+                                        <div class=" pb-2 border-b">
+                                            <span class="fz-13 fw-500">{{item.name}}</span>
+                                        </div> 
+                                        <div *ngIf="item.price!=0" class="d-flex justify-content-end px-3 py-2">
+                                            <span class="heading fz-14">AED {{item.price}}</span>
+                                        </div> 
+                                        <div *ngIf="item.price==0" class="d-flex justify-content-end px-3 py-2">
+                                            <span class="heading fz-14">Free</span>
+                                       </div> 
+                                    </div> 
+                                 </div> 
+                               </div>
+                            </div> 
+                            <div class="accordion-body border-b">
+                              <div class="">
+                                <button *ngIf="defultWrapArray.length==0" class="px-3 Py-2 checkout-btn fz-14 fw-500" (click)="skipAndContinue('packing')">
+                                    Skip and Continue 
+                                </button> 
+                                <button *ngIf="defultWrapArray.length!=0" class="px-3 Py-2 checkout-btn fz-14 fw-500" (click)="cartUpdate()">
+                                  Save and Continue 
+                                </button> 
+                              </div>
+                            </div> 
+                          </div>
+                        </div>  
+                        <div class="accordion-item bgw mt-2"> 
+                          <h2 class="accordion-header mb-0">
+                            <button class="accordion-button border-b fz-14 fw-bold" type="button">
+                                <span [ngClass]="deliveryOptionConfirmed==true?'c-black':'c-main'">2. PAYMENT OPTION</span> 
+                                <img *ngIf="deliveryOptionConfirmed==true" class="ms-2" src="../../../assets/icons/check_circle.svg" alt="" style="width: 20px;"> 
+                            </button>  
+                          </h2>  
+                          <div class="p-3 mt-2 d-flex flex-row" *ngIf="is_wallet_active==true">
+                            <div class="">
+                                 <input type="checkbox" class="form-check-input" (click)="walletcreation($event)">
+                            </div> 
+                            <div class="d-flex flex-column ms-2">
+                                <span class="fz-14 fw-500">
+                                   Use Wallet Amount
+                                </span> 
+                                <span class="fz-13 mt-1" style="color: #676767;">
+                                    Balance : AED {{this.walletData?.balance}}
+                                </span> 
+                            </div> 
+                        </div> 
+                          <div class="accordion-collapse" *ngIf="paymentOption==true">
+                            <div class="accordion-body p-0">  
+                              <div class="accordion" id="accordionExample2">
+                                <div class="accordion-item p-0">
+                                  <h2 class="accordion-header mb-0"> 
+                                    <button class="accordion-button accordion-button2" type="button" (click)="debitCard()">
+                                        <div class="form-check d-flex align-items-center mb-0">
+                                            <input class="form-check-input" type="radio" [checked]="debitChecked==true" (change)="debitCard()">
+                                            <span class="fz-15 ms-2">Debit / Credit / ATM Card Payment</span>
+                                        </div> 
+                                    </button> 
+                                  </h2>
+                                  <div class="accordion-collapse" *ngIf="savedCardShow==true">
+                                    <div class="accordion-body"> 
+                                        <div class="ps-3"> 
+                                          <span class="fz-13 fw-bold">Choose a saved card</span> 
+                                          <div class="cards d-flex flex-row p-3 mt-2" *ngFor="let item of savedCard;let i=index" (click)="cardSelected(i,item)" [class.cardsSelected]="i==cardSelctedIndex">
+                                              <div class="form-check d-flex align-items-center mb-0 cursor"> 
+                                                  <input class="form-check-input pe-2" type="radio"  [checked]="i==cardSelctedIndex" (click)="paymentWithCard()">
+                                                  <img class="ps-2" src="../../../assets/icons/card2.svg" alt="" width="50">
+                                                  <span class="fz-14 fw-500 ms-3">{{item.card_name}}</span>
+                                              </div>  
+                                              <div class="ps-5 d-flex flex-column cursor"> 
+                                                  <span class="fz-13 fw-bold">{{item.discription}}</span>
+                                                  <span class="heading fz-12">Expires {{item.expiry}}</span> 
+                                              </div>  
+                                          </div> 
+                                            <div class="cards d-flex flex-row px-3 py-2 mt-2" (click)="AddSavedCard()"> 
+                                                <div class="form-check d-flex align-items-center mb-0 px-0 cursor">
+                                                    <span class="fz-14 fw-500" style="color: #FF8F04;">+ Add Debit/Credit/ATM Card</span>
+                                                </div> 
+                                            </div> 
+                                            <div class="cards d-flex flex-row px-3 py-2 mt-2" (click)="directcard()" [class.cardsSelected]="directcard_selection=='directcard'"> 
+                                              <div class="form-check d-flex align-items-center mb-0 px-0 cursor">
+                                                  <span class="fz-14 fw-500" style="color: #FF8F04;">Direct Card Payment </span>
+                                              </div> 
+                                          </div> 
+                                        </div>
+                                    </div> 
+                                    <div class="accordion-body  border-b py-2">
+                                        <div class="px-3">
+                                            <button class="px-3 py-2 checkout-btn fz-14 fw-500" [disabled]="btn_payment_enable==false" (click)="confirDeliOption()">
+                                                Confirm Payment
+                                            </button>  
+                                        </div>
+                                    </div> 
+                                  </div>
+                                </div>
+                                <!-- <div class="accordion-item">
+                                  <h2 class="accordion-header mb-0 " id="headingpayment2">
+                                    <button class="accordion-button accordion-button2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paymenttwo" aria-expanded="false" aria-controls="paymenttwo">
+                                      <div class="form-check d-flex align-items-center">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault">
+                                        <span class="fz-15 ms-2">Samsung Pay</span>
+                                      </div>
+                                    </button>
+                                  </h2> 
+                                  <div id="paymenttwo" class="accordion-collapse collapse" aria-labelledby="headingpayment2" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body">
+                                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    </div>
+                                  </div> 
+                                </div> -->
+                                <!-- <div class="accordion-item">
+                                  <h2 class="accordion-header mb-0" id="headingpayment3">
+                                    <button class="accordion-button accordion-button2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#paymentthree" aria-expanded="false" aria-controls="paymentthree">
+                                      <div class="form-check d-flex align-items-center">
+                                        <input class="form-check-input" type="radio" (click)="walletcreation()">
+                                        <span class="fz-15 ms-2">Wallet</span>
+                                      </div>                                  
+                                    </button> 
+                                  </h2>
+                                  <div id="paymentthree" class="accordion-collapse collapse" aria-labelledby="headingpayment3" data-bs-parent="#accordionExample2">
+                                    <div class="accordion-body">
+                                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                    </div>
+                                  </div>
+                                </div> -->
+                                <div class="accordion-item"> 
+                                  <h2 class="accordion-header mb-0">
+                                    <button class="accordion-button accordion-button2 collapsed" type="button" >
+                                      <div class=" form-check d-flex flex-row align-items-center">
+                                        <input class="form-check-input" [checked]="payOnDelivey==true" type="radio" (change)="proceedToBuy()">
+                                        <div class="d-flex flex-column"  (click)="proceedToBuy()">
+                                          <span class="fz-15 ms-2">Pay on Delivery</span>
+                                          <!-- <p class="fz-12 heading ms-2 mb-0">Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. Etiam cras ur na consequat, lectus.</p> -->
+                                        </div>
+                                      </div> 
+                                    </button>   
+                                  </h2>
+                                  <div class="accordion-collapse" *ngIf="cashOndeliveryTrue==true">
+                                    <div class="accordion-body ms-2"> 
+                                      <div class="d-flex flex-column">
+                                        <!-- <span class="fz-15 ms-2">Pay on Delivery</span> -->
+                                        <p class="fz-12 heading ms-2 mb-0"></p>
+                                      </div> 
+                                    </div> 
+                                    <div class="accordion-body border-b pb-3 pt-0">
+                                      <div class="px-3"> 
+                                          <button class="px-3 py-2 checkout-btn fz-14 fw-500" (click)="cashOnChange()">
+                                              Confirm Payment 
+                                          </button> 
+                                      </div>  
+                                    </div>
+                                  </div>
+                                </div>
+                              </div> 
+                            </div>
+                          </div>
+                          <div class="accordion-collapse" *ngIf="finalPayementData==true">
+                            <div class="accordion-body p-0">  
+                              <div class="accordion pe-3">
+                                 <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex flex-row p-3 mt-2 " *ngIf="finalConfirmationOption!=''">
+                                      <div class="form-check d-flex align-items-center mb-0 cursor ps-0"> 
+                                          <img class="ps-2" src="../../../assets/icons/card2.svg" alt="" width="50">
+                                          <span class="fz-14 fw-500 ms-3">{{finalConfirmationOption?.card_name}}</span>
+                                      </div>  
+                                      <div class="ps-5 d-flex flex-column cursor"> 
+                                        <span class="fz-13 fw-bold">{{finalConfirmationOption?.discription}}</span>
+                                        <span class="heading fz-12">Expires {{finalConfirmationOption?.expiry}}</span> 
+                                      </div> 
+                                    </div> 
+                                    <div class="d-flex flex-row p-3 mt-2 " *ngIf="finalConfirmationOption==''">
+                                      <span class="fz-14 fw-500">
+                                            Direct Payment
+                                      </span>
+                                    </div> 
+                                    <span class="fz-14 fw-500 cursor" style="color: #FF9900;" (click)="changeToBack()">
+                                       CHANGE
+                                    </span>
+                                 </div> 
+                              </div> 
+                            </div>
+                          </div>
+                          <div class="accordion-collapse" *ngIf="cashOn==true">
+                            <div class="accordion-body p-0">  
+                              <div class="accordion px-3">
+                                <div class="d-flex justify-content-between align-items-center py-3">
+                                  <div class="d-flex flex-column">
+                                    <span class="fz-15 ms-2">Pay on Delivery</span>
+                                    <p class="fz-12 heading ms-2 mb-0"></p>
+                                  </div>
+                                  <span class="fz-14 fw-500 cursor" style="color: #FF9900;" (click)="changeToBack()">
+                                       CHANGE 
+                                  </span>
+                                 </div> 
+                              </div> 
+                            </div>
+                          </div>
+                        </div>
+                        <div class="accordion-item bgw mt-2" *ngIf="couponDisplayArray.length!=0" >
+                          <h2 class="accordion-header mb-0 d-flex align-items-center">
+                            <button class="accordion-button fz-14 fw-bold collapsed" type="button" (click)="applyCoupon()">
+                              3. ADD COUPON OR PROMOTION CODE 
+                            </button> 
+                          </h2>
+                          <div class="accordion-collapse" *ngIf="applyCouponisActive==true">
+                            <div class="accordion-body pt-0">
+                              <div class="d-flex flex-row align-items-center">
+                                  <div class="form-control d-flex justify-content-between align-items-center" style="position:absolute;" style="height: 45px; width: 250px;background-color: #F8F7F5;">
+                                    <input type="email" class="fz-12"  style="border: none; background-color: transparent;"  placeholder="Enter Coupon Code ...">
+                                    <span class="fz-13 fw-bold cursor" *ngIf="couponRemove_active==false" style="color: #FF8F04;" (click)="couponAppy()">Apply</span>
+                                    <span class="fz-13 fw-bold cursor" *ngIf="couponRemove_active==true" style="color: #FF8F04;" (click)="deleteCoupon()">Remove</span>
+                                  </div>
+                                  <span class="fz-13 ms-3 fw-bold cursor"*ngIf="couponDisplayArray.length!=0" (click)="couponShow()"  style="color: #FF8F04;" uk-toggle="target:#addcoupon">I have a coupon code </span>
+                                  <!-- <span class="fz-13 ms-3 fw-bold cursor" *ngIf="couponDisplayArray.length==0"  style="color: #FF8F04;">No coupons are avaliable</span> -->
+                              </div> 
+                            </div>  
+                          </div>
+                        </div>  
+                    </div> 
+                </div>  
+            </div> 
+            <div class="col-lg-4 col-sm-5 col-12 ps-sm-2 ps-0 pe-0">
+                <div class="w-100 bgw py-3 px-3 border-bottom">
+                    <span class="fz-14 fw-500 c-717478">PRICE DETAILS</span>
+                </div>
+                <div class="w-100 bgw p-3 d-flex flex-column">
+                  <div class="d-flex justify-content-between">
+                    <span class="fz-14 c-676767">Subtotal</span>
+                    <span class="fz-12 bc fw-500">AED <i class="fz-14 ms-2 bc fw-bold">{{totalAmount}}</i></span>
+               </div> 
+                <div class="d-flex justify-content-between mt-3">
+                    <span class="fz-14 c-676767">Discount</span> 
+                    <span class="fz-12 bc fw-500">AED <i class="fz-14 ms-2 bc fw-500">00</i> </span>
+                   </div>
+                <div class="d-flex justify-content-between mt-3">
+                    <span class="fz-14 c-676767">Delivery Charge</span>
+                    <span class="fz-14 c-079B16 fw-500">FREE</span>
+                </div>
+                <div class="d-flex justify-content-between border-t-b py-2 mt-3">
+                   <span class="fz-14 c-676767">Grand Total</span>
+                   <span class="fz-12 bc fw-500">AED <i class="fz-14 ms-2 bc fw-bold">{{totalAmount}}</i></span>
+               </div>
+                <div class="offer-info-box p-3 mt-3">
+                  <span>
+                      Get free shipping on order above AED 100.
+                      For 
+                      <i>
+                      more information
+                      </i>
+                  </span> 
+                </div>
+                <span class="fz-14 c-676767 mt-3">You save 
+                    <i class="fz-14 c-079B16">AED 25.25</i> with this offer 
+                </span> 
+              
+                <button class=" fw-400 fz-15 mt-3 py-2 cursor buy_btn" [disabled]="is_btn_First_confrim==false||is_btn_second_confrim==false"  (click)="FinalProceedToBuy()">Proceed to Buy</button>
+                </div> 
+                <div class="w-100 bgw py-3 px-3 mt-2 border-bottom">
+                  <span class="fz-14 fw-500 c-717478">WE ACCEPT</span> 
+                </div>
+                <div class="w-100 bgw py-3 px-md-3 px-1 d-flex flex-row payment-option">
+                <img src="../../../assets/icons/card1.svg" alt="">
+                <img class="ps-2" src="../../../assets/icons/card2.svg" alt="">
+                <img class="ps-2" src="../../../assets/icons/card3.svg" alt="">
+                <img class="ps-2" src="../../../assets/icons/card4.svg" alt="">
+                <img class="ps-2" src="../../../assets/icons/card5.svg" alt="">
+                </div>
+                <div class="mt-2">
+                    <img src="../../../assets/icons/banner.svg" alt="">
+                </div>
+            </div> 
+        </div>
+    </div> 
+</div> 
+
+<!-- <a class="uk-button uk-button-default" href="#modal-center" uk-toggle>Open</a> -->
+
+<div id="giftOption" class="uk-flex-top" uk-modal [hidden]="IsmodelShow">
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical p-0">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12 row mx-0 bg-F4F3F0">
+          <div class="col-12 py-3 px-3">
+            <span class="fz-16 fw-500">Gift Option</span>
+          </div> 
+        </div>
+        <div class="col-12 row mx-0 py-3">
+            <div class="col-12 px-3">
+                <span class="fz-13 fw-500">
+                  Select Product
+                </span>
+                <div class="d-flex flex-row mt-2">
+                   <div class="d-flex flex-column me-2" *ngFor="let item of order_lines;let i=index" (click)="giftOptionIndex($event,i,item,checkbox)">
+                      <div class="main-box flex-column cursor d-flex justify-content-center align-items-center" [class.main-boxSelected]="item.selected==true">
+                          <img src="{{item.image}}" alt="">
+                          <div class="d-flex justify-content-center pb-1" (click)="giftInput($event,item,i,item.selected)">
+                              <input type="checkbox" [checked]="item.selected==true" #checkbox (change)="giftInput($event,item,i,item.selected)"> 
+                          </div>  
+                      </div>
+                   </div> 
+                </div>
+            </div>
+        </div>
+        <div class="col-12 row mx-0 py-3 px-3">
+          <div class="col-sm-6 col-12 border-full p-3" style="border-radius: 5px 0px 0px 5px;background-color: #FFFDFA;">
+            <div class="">
+              <label for="" class="fz-13 fw-500 mb-2">To Whom</label>
+              <input type="text" class="form-control fz-12 h-42" [(ngModel)]="ToWhom"  placeholder="eg.Ajman, UAE">
+            </div>
+            <div class="mt-3">
+              <label for="" class="fz-13 fw-500 mb-2">From Whom</label>
+              <input type="text" class="form-control fz-12 h-42"  placeholder="eg.Ajman, UAE" [(ngModel)]="FromWhom">
+            </div>
+            <div class="mt-3">
+              <div class="d-flex flex-row mb-2">
+                  <label for="" class="fz-13 fw-500 ">Your Message</label>
+                  <img src="../../../assets/images/gift.svg" alt="" class="ms-2" width="15px">
+              </div>
+              <textarea name="" id="" cols="50" rows="3" class="form-control fz-12" [(ngModel)]="YourMessage"></textarea>
+            </div>
+        </div>
+        <div class="col-sm-6 col-12 border-full py-3" style="border-radius: 0px 5px 5px 0px;background-color: #FFFDFA;">
+            <span class="fz-13 fw-500">
+              Wrap Option 
+            </span> 
+            <div class="mt-2">
+              <div class="d-flex flex-row align-items-center mb-0 wrap-option shadow-sm py-3 px-3 cursor" *ngFor="let item of wrapOptionArray;let i=index" [class.wrap-option_select]="wrapSelectIndex==i" (click)="checkWarp($event,item,i)">
+                 <input class="form-check-input" type="radio" name="flexRadioDefault"[checked]="wrapSelectIndex==i" >
+                 <div class="d-flex flex-column ms-2">
+                   <span class="fz-13 fw-bold pb-1">{{item.display_name}}</span>
+                   <span class="mtt-2 heading fz-13 fw-bold">
+                      AED {{item.price}} 
+                   </span> 
+                 </div>  
+              </div> 
+              <span class="fz-11 heading">You need minimum of 500 points to redeem your points.</span> 
+            </div> 
+        </div>
+        </div> 
+        <div class="col-12 row mx-0 d-flex justify-content-center mb-3">
+          <div class="d-flex justify-content-center">
+              <button *ngIf="isGiftEdit==false" class="update-btn" (click)="confirmGiftOption()">Apply</button>
+              <button *ngIf="isGiftEdit==true" class="update-btn uk-modal-close" (click)="editGiftConfirmation()">Edit</button>
+          </div> 
+      </div>
+    </div>
+</div>
+
+<div id="addcoupon" class="uk-flex-top" uk-modal [hidden]="IsmodelShow">
+  <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical p-0">
+      <button class="uk-modal-close-default" type="button" uk-close></button>
+      <div class="col-12 row mx-0 bg-F4F3F0">
+        <div class="col-12 py-3 px-3">
+          <span class="fz-16 fw-500">Coupons</span>
+        </div> 
+      </div>
+      <div class="border-all d-flex flex-row m-3" *ngIf="couponDisplayArray.length!=0" style="background-color: #FFFDFA;">
+          <div class="col-12 row mx-0">
+             <div class="col-5 p-0 border-end">
+                 <div class="p-3">
+                   <div class="d-flex justify-content-between">
+                      <span class="fz-16 fw-bold">
+                          Select a segment
+                      </span>
+                   </div>
+                   <div class="coupon-card mt-3 p-3 cursor" *ngFor="let item of this.couponDisplayArray;let i=index" (click)="showCouponDes(item.description,i)" [class.coupon-card-selected]="i==indexOfCoupon">
+                      <div class="d-flex justify-content-between">
+                          <div class="d-flex flex-column">
+                              <span class="fz-14 fw-bold">
+                                  {{item.display_name}}
+                              </span>
+                              <span class="fz-12 mt-1">
+                                  50% off up to AED {{item.price_or_percentage}}
+                              </span> 
+                          </div>
+                          <div>
+                              <span class="fz-13 fw-500 cursor" (click)="copyTextCode(item.coupon_code,i,item)" *ngIf="copied==false" style="color: #FF8F04;">Copy</span>
+                              <span class="fz-13 fw-500 cursor" *ngIf="i==indexOfCopied&&copied==true" style="color: #FF8F04;">Copied</span>
+                          </div>  
+                      </div>
+                   </div>
+                 </div>
+             </div>
+             <div class="col-7 py-3">
+               <div class="d-flex justify-content-between">
+                  <div class="d-flex flex-row">
+                    <div class="condition-box">
+                        <img src="{{this.couponDisplayArray[indexOfCopied]?.image}}" alt="">
+                    </div>
+                    <div class="d-flex flex-column ms-2 justify-content-center">
+                        <span class="fz-16 fw-bold" style="color: #6D6D6D;">
+                          {{this.couponDisplayArray[indexOfCopied]?.name}}
+                        </span>
+                        <span class="fz-12 mt-1" style="color: #A1A1A7;">
+                            Code No:{{this.couponDisplayArray[indexOfCopied]?.coupon_code}}
+                        </span>
+                    </div>
+                  </div>
+                  <div class="cursor">
+                      <span class="cursor fz-13" style="color: #FF9003;">
+                           Apply
+                      </span>
+                  </div>
+               </div>
+               <div class="fz-12 mt-2" style="color: #1B1B1F;">
+                    {{this.couponDisplayArray[indexOfCopied]?.description}}
+               </div>
+                <div class="mt-2">
+                    <span class="fz-16 fw-bold pb-2">
+                        Terms and Condition 
+                    </span>
+                    <div class="py-1" *ngFor="let item1 of this.couponDisplayArray[indexOfCopied]?.terms_and_conditions;let i=index">
+                        <span class="fz-14">
+                            {{item1.condition}}
+                        </span> 
+                    </div>
+                </div>
+             </div>
+          </div>
+      </div>
+      <div  *ngIf="couponDisplayArray.length==0" class="border-all d-flex justify-content-center align-items-center d-flex m-3" style="height: 70vh;">
+            <h2 class="m-0 p-0" style="color: #FF8F04;">
+                No coupons Found
+            </h2>
+      </div>
+  </div>
+</div> 
+
+<app-footer2></app-footer2>

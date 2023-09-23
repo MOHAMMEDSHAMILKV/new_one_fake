@@ -1,0 +1,181 @@
+.btn-primary{
+    color: #086DB5;
+    font-weight: 500;
+    background-color: color(primary) !important;
+    border-color: color(primary) !important;
+    &:hover,&:focus{
+        box-shadow: none;
+        background-color: darken(color(primary), 10%) !important;
+        border-color: darken(color(primary), 10%) !important;
+    }
+}
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+    box-shadow: none !important;
+    background-color: darken(color(primary), 10%) !important;
+    border-color: darken(color(primary), 10%) !important;
+}
+.btn-primary-outlined{
+    color: color(primarytwo) !important;
+    background-color: color(transparent) !important;
+    border-color: color(primary) !important;
+    &:hover,&:focus{
+        box-shadow: none;
+        background-color: darken(color(white), 3%) !important;
+        border-color: darken(color(primary), 10%) !important;
+    }
+}
+button{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.language-select{
+    padding: 0 !important;
+    padding-right: 18px !important;
+    background-position: right 0px center !important;
+    background: #0000 !important;
+    color: #fff !important;
+    border: none !important;
+    font-size: 12px !important;
+    box-shadow: none !important;
+    option{
+      color: #000 !important;  
+    }
+}
+.btn-main{
+    width: fit-content;
+    background-color: color(primary) !important;
+    color: color(primarytwo) !important;
+    border: 1px solid color(primary) !important;
+    &:hover{
+        background-color: darken(color(primary), 5%) !important;
+    }
+}
+.btn-main-outline{
+    width: fit-content;
+    background-color: color(white) !important;
+    color: color(primarytwo) !important;
+    border: 1px solid color(primary) !important;
+    &:hover{
+        background-color: darken(color(primarytwo), 5%) !important;
+    }
+}
+.product-btn{
+    width: 90px;
+    height: 30px;
+    font-size: 12px !important;
+    padding: 5px!important;
+}
+.filter{
+    color: color(medium);
+    font-size: 14px;
+    font-weight: normal;
+}
+.filter-section{
+    top: 40px !important;
+    left: inherit !important;
+    right: 15px !important;
+    font-size: 13px;
+    font-weight: 400;
+}
+.drop-btn{
+    
+    text-transform: capitalize !important;
+    padding: 0px !important;
+    line-height: inherit !important;
+    border: none !important;
+}
+.discussion-btn{
+    color: color(smooth) !important;
+    text-transform: capitalize !important;
+    padding: 0px !important;
+    line-height: 25px !important;
+    border: none !important;
+    border-left: 2px solid color(gray-400) !important;
+    padding-left: 10px !important;
+    margin-left: 10px !important;
+}
+
+
+.gradient-btn{
+    color: color(white) !important;
+    background: color(gradient-1) !important;
+    border:0px !important;
+    transition: 200ms ease;
+    text-decoration: none !important;
+    &:hover{
+        box-shadow: 1px 4px 8px #2d2d2d4a !important;
+    }
+}
+.btn-skelton{
+    width: 100%;
+    height: 35px;
+    font-size: 14px !important;
+    border: 1px solid !important;
+    background: color(white);
+    margin-bottom: 15px;
+}
+.edit-profilepic{
+    display: block;
+    width: 30px;
+    height: 30px;
+    @include flex-center;
+    color:color(dark) !important;
+    background: color(gray-200);
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    opacity: .5;
+    transition: 200ms;
+    cursor: pointer;
+    &:hover{
+        opacity: 1 !important;
+    }
+}
+.profilepic:hover ~ .edit-profilepic{
+    opacity: 1;
+}
+.select-arrow{
+    position: absolute;
+    top: 2px;
+    z-index: 2;
+    right: 8px;
+    width: 15px;
+    pointer-events: none;
+}
+
+.all-category{
+    min-width:275px;
+    border-right:1px solid #0a4a7752;
+    a{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        color: #086DB5 !important;
+    }
+    .form-select{
+        box-shadow: none;
+        outline: none;
+        border: none;
+        width: 160px;
+        height: 30px;
+        margin-left: 10px;
+        background-color: #EBF0F4;
+        color: #086DB5;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        padding-left: 10px;
+    }
+}
+.open-category{
+    width: 20px;
+    height: 20px;
+    @include flex-center;
+    border:1px solid #959595;
+    color:#959595;
+    background-color: #F3F3F3;
+    border-radius: 2px;
+}

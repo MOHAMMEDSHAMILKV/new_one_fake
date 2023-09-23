@@ -1,0 +1,190 @@
+.resend-otp{
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
+ right: 0px;   
+ border: none;
+ background: #0000;
+ padding: 0px 15px;
+ z-index: 5;
+ display: flex;
+ align-items: center;
+}
+
+
+.btn{
+    background-color: #086db5 !important;
+    border: none !important;
+    &:hover,&:focus{
+        background-color: #086db5 !important;
+        border: none !important;
+
+    }
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+    background-color: #086db5 !important;
+    border: none !important;
+}
+
+
+.register{
+    input[type=text],input[type=password] {
+        min-height: 45px !important;
+    }
+    button{
+        height: 42px;
+        width: 35%;
+    }
+}
+
+.form-select{
+    height: 42px;
+    border: 1.5px solid #ececec;
+}
+
+.form-control{
+    height: 42px;
+    border: 1.5px solid #ececec;
+}
+
+
+.form-control::placeholder{
+    color: #A9A8A8;
+}
+
+.noraml-border{
+    border: 1.5px solid #ececec;
+}
+
+.error-border{
+    border: 1.5px solid rgb(170, 3, 3);
+
+}
+
+
+
+.btn{
+    background-color: #086db5 !important;
+    border: none !important;
+    &:hover,&:focus{
+        background-color: #086db5 !important;
+        border: none !important;
+
+    }
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+    background-color: #086db5 !important;
+    border: none !important;
+}
+
+.btn{
+    background-color: #086db5 !important;
+    border: none !important;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.login-page{
+    width: 372px;
+    padding: 35px;
+} 
+
+.c-585858{
+    color: #585858;
+} 
+
+.bw{
+    background-color: white;
+}
+
+.h-55{
+    height: 42px;
+} 
+
+
+.login-btn{
+    background-color: #FF9900;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    height: 40px;
+}
+
+.login-btnDisable{
+    background-color: #D3D3D3;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    height: 40px;
+}
+
+.c-5F5F61{
+    color: #5F5F61;
+}
+
+.c-FF9900{
+    color: #FF9900;
+}
+
+.l-h{
+    line-height: 1px;
+}
+
+.form-select{
+    font-size: 12px;
+    color: #A9A8A8;
+}
+
+input{
+    outline: none;
+}
+
+select{
+    outline: none;
+}
+
+.form-check-input:checked{
+    background-color: #FF9900 !important;
+    border: 1px solid #FF9900 !important;
+}
+
+.form-check-input{
+    border: 1px solid #FF9900 !important;
+}
+
+
+.otp-input{
+    width: 42px;
+    height: 42px;
+    border-radius: 5px;
+}
+
+
+:host ::ng-deep .otp-input{
+    margin-right: 0px !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 5px !important;
+    text-align: center !important;
+    font-size: 20px !important;
+    border: 1.5px solid #ececec !important;
+    outline: none;
+}
+
+:host ::ng-deep .ng-otp-input-wrapper {
+    display: flex;
+    justify-content: space-around;
+}

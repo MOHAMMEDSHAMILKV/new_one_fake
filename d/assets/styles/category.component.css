@@ -1,0 +1,72 @@
+.category-page {
+  background: #F7F7FA;
+  min-height: 70vh;
+}
+
+.category-flilter {
+  width: 280px;
+  min-height: 300px;
+}
+
+@media (max-width: 992px) {
+  .category-flilter {
+    display: none !important;
+  }
+}
+
+.category-body {
+  width: calc(100% - 280px);
+}
+
+.dark-sidenav {
+  background-color: #979797ba;
+}
+
+.filter-category {
+  font-size: 14px;
+  width: 200px;
+  margin-top: 2px;
+}
+
+.group-filter {
+  font-size: 14px;
+  width: 170px;
+  margin-top: 2px;
+}
+
+.pagination-block {
+  margin-top: 80px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pagination-block .page-link {
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+  position: relative;
+  display: block;
+  color: #000000;
+  text-decoration: none !important;
+  background-color: #fff;
+  -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+.pagination-block .page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #0A4A77 !important;
+  border-color: #0A4A77 !important;
+}
+
+.sort-drop {
+  width: 170px;
+}
+/*# sourceMappingURL=category.component.css.map */

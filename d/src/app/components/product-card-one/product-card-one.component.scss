@@ -1,0 +1,101 @@
+
+
+.wishlist{
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #EEEEEE;
+    color:white ;
+    &:hover{
+        background: #EEEEEE;
+        color:white ;
+    }
+}
+
+.wish_befor{
+    color:white ;
+    // background: #EEEEEE;
+
+}
+.wish_after{
+    color: #C70718;
+}
+
+.card-img-top{
+    // height:200px;
+    img{
+        height:170px;
+        transition: transform .2s;
+        z-index: 1;
+        object-fit: contain;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+    overflow: hidden;
+}
+
+.cardheading{
+    color: black;
+    .mainhead{
+        // height: 36px;
+        overflow: hidden;
+    }
+}
+
+.add-to-cart-btn{
+    background-color: #FF9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+
+.qty-btn{
+    background: transparent;
+    // width: 110px;
+    // height: 38px;
+    border: 1px solid #dad5d5 !important;
+    border-radius: 5px;
+} 
+
+
+.qty-adder{
+    background: transparent;
+    border: none;
+}
+
+.uk-button-default{
+    border: none;
+    
+}
+
+.uk-button{
+    text-transform: none;
+    border: none;
+    line-height: 0px;
+}
+
+
+.uk-dropdown{
+    min-width: 143px;
+    width: 143px;
+    border-radius: 4px;
+}
+
+.form-check-input:checked {
+    background-color:#FF9900 ;
+    border-color:#FF9900 ;
+}
+
+.form-check-input{
+    width: 0.8rem;
+    height: 0.8rem;
+    // border-color:#FAFAFA;
+    // background-color: #FFF5E6;
+
+} 
+
+.groupListOver:hover{
+    background-color: #FFF5E6;
+}

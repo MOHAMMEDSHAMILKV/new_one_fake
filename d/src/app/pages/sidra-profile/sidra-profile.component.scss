@@ -1,0 +1,162 @@
+.bgw{
+    background-color: white;
+}
+
+.profile-image{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    img{
+        border-radius: 50%;
+    }
+}
+
+.c-717478{
+    color: #717478;
+}
+
+.fw-bold{
+    font-weight: bold;
+}
+
+.c-black{
+    color: black;
+}
+
+
+.c-A9A8A8{
+    color: #A9A8A8;
+}
+.main-profile-options{
+    color: black;
+    padding: 10px 0px 10px 0px;
+
+
+}
+.main-profile-options{
+    router-link-active{
+        &::after{
+            background-color: #F8F7F5;
+            color: #FF9900;
+            margin-left: -10px;
+            margin-right: -17px;
+            padding: 10px 16px 10px 10px;
+        }
+    }
+}
+
+
+
+.main-profile-options:hover{
+   //width: 200px;
+   background-color: #F8F7F5;
+   color: #FF9900;
+   margin-left: -10px;
+   margin-right: -17px;
+   padding: 10px 16px 10px 10px;
+}
+.main-profile-options1{
+    color: black;
+}
+.main-profile-options1:hover{
+    color: #FF9900;
+}
+
+.hr:not([size]){
+    height: 1.6px;
+}
+
+.border-b{
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.upload-profilefile{
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    width: 100%;
+  }
+
+  .edit-profilimage{
+    // transition: 200ms;
+    // position: absolute;
+    top: 0px;
+    left: 0px;
+    // width: 100%;
+    // height: 100%;
+    // background: #0a6cb582;
+    // border-radius: 50%;
+    // flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // font-size: 30px;
+    color: #d5d5d5;
+    left: 50%;
+    transform: translate(-50%, -0%);
+    .upload-text{
+      font-size: 13px;
+      pointer-events: none;
+    }
+    i{
+      pointer-events: none;
+    }
+    input[type=file]{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0px;
+      left: 0px;
+      border-radius: 50%;
+      opacity: 0;
+      z-index: 10;
+      transform: none;
+    }
+  }
+
+
+  .router-link-active {
+
+    background-color: #F8F7F5;
+
+               color: #FF9900;
+
+         margin-left: -10px;
+
+        margin-right: -17px;
+
+             padding: 10px 16px 10px 10px;
+
+}
+
+ 
+
+.router-link-active1{
+
+    color: #FF9900;
+
+}
+  
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(119, 119, 119, 0.5);
+    backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  
+  
+  :host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+     stroke: #FF9900;
+  }

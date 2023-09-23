@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAA;EACA,KAAK,EAAC,KAAK;EACX,aAAa,EAAE,IAAI;EACnB,KAAK,EAAE,OAAO;EACd,YAAY,EAAE,OAAO;CAMxB;;AAVD,AAKI,IALA,AAKC,MAAM,CAAA;EACH,KAAK,EAAE,eAAe;EACtB,gBAAgB,EAAE,kBAAkB;EACpC,YAAY,EAAE,kBAAkB;CACnC;;AAEL,AAAA,QAAQ,CAAA;EACJ,SAAS,EAAE,KAAK;EAChB,MAAM,EAAE,SAAS;EACjB,aAAa,EAAE,IAAI;CACtB",
+    "sources": [
+        "../../src/app/pages/successorder/successorder.component.scss"
+    ],
+    "names": [],
+    "file": "successorder.component.css"
+}

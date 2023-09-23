@@ -1,0 +1,90 @@
+.slot-9-banners{
+    padding-right: 33px !important;
+    @media(max-width:768px){
+        padding-right: 20px !important;
+    }
+}
+
+.multi-slider .uk-slidenav{
+    @media (max-width: 768px){
+        display: none;
+    }
+}
+
+
+a{
+    text-decoration: none;
+    color: transparent;
+}
+
+
+
+.multi-slider .uk-slidenav{
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px #b4b1b1;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 768px){
+      display: none !important;
+    }
+  
+    svg{
+      width: 70% !important;
+    }
+  }
+  .slider-item{
+    width: 220px !important;
+  }
+  .box{
+    background-color: white;
+  }
+
+  .icon{
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: white;
+    color: #FF7E07;
+  }
+
+
+  .btn_viewAll{
+    color: white;
+    background-color: #FF9900;
+    border: none;
+    border-radius: 5px;
+  }
+
+
+
+  .uk-slider {
+    z-index: 1;
+  }
+
+  
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(119, 119, 119, 0.5);
+  backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+
+
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+   stroke: #FF9900;
+}
+
+@media screen and (min-width: 320px) and (max-width: 489px) {
+  .uk-grid-column-small>*, .uk-grid-small>* {
+    padding-left: 5px;
+  }
+}

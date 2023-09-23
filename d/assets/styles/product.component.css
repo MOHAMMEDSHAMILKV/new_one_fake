@@ -1,0 +1,40 @@
+.zoomed-image {
+  position: fixed;
+  top: 123px;
+  right: 0px;
+  width: 700px;
+  height: 700px;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.hover-zoom {
+  cursor: -webkit-zoom-in;
+  cursor: zoom-in;
+  position: absolute;
+  min-width: 180%;
+}
+
+.zoomed-image-view {
+  width: 90vh;
+  height: 90vh;
+}
+
+.zoomed-image-view img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 90vw;
+  max-height: 75vh;
+}
+
+.product-image-grid {
+  width: 60px;
+  height: 60px;
+  margin-right: 5px;
+  border: 1px solid #0000;
+}
+
+.product-image-grid.active {
+  border: 1px solid #086DB5 !important;
+}
+/*# sourceMappingURL=product.component.css.map */

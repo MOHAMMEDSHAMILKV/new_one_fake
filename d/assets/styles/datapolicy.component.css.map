@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAA;EACV,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,KAAK;EACb,UAAU,EAAE,IAAI;EAChB,UAAU,EAAE,2EAA2E;EACvF,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;CAK1B;;AAJI,AAAD,qBAAQ,CAAA;EACJ,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "../../src/app/pages/datapolicy/datapolicy.component.scss"
+    ],
+    "names": [],
+    "file": "datapolicy.component.css"
+}

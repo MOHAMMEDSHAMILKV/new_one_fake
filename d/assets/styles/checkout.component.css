@@ -1,0 +1,83 @@
+.card-type {
+  background: #F7F7F7;
+  border: 1px solid #D7D0D0;
+  width: 50px;
+  height: 25px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 5px;
+}
+
+.card-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+}
+
+.card-date {
+  width: 70px;
+}
+
+.card-cvv {
+  width: 140px;
+}
+
+.checkout-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 10px;
+}
+
+.checkout-item img {
+  width: 50px;
+  margin-right: 15px;
+}
+
+.checkout-item label {
+  font-size: 13px;
+}
+
+.checkout-item span {
+  font-size: 13px;
+  font-weight: 600;
+  margin-left: auto;
+}
+
+.loader {
+  height: 100px;
+  width: 100px;
+  display: inline-block;
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 10px #00000021;
+          box-shadow: 0px 0px 10px #00000021;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+apple-pay-button {
+  --apple-pay-button-width: 150px;
+  --apple-pay-button-height: 30px;
+  --apple-pay-button-border-radius: 3px;
+  --apple-pay-button-padding: 0px 0px;
+  --apple-pay-button-box-sizing: border-box;
+}
+/*# sourceMappingURL=checkout.component.css.map */

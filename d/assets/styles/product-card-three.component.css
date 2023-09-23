@@ -1,0 +1,11 @@
+.qty-drop {
+  max-width: 100px;
+  display: block;
+  margin: auto;
+  height: 40px;
+}
+
+:host {
+  width: 100%;
+}
+/*# sourceMappingURL=product-card-three.component.css.map */

@@ -1,0 +1,135 @@
+<!-- Popular Category -->
+<app-popular-category
+group="Bulk"
+[count]="count"
+[popular_category]="popular_category"
+>
+</app-popular-category>
+<!-- Ends of Popular Category -->
+
+<div class="container-fluid mt-3 p-3 w-100">
+    <h4 class="fw-bold min-fit-width col-12 mb-4 ms-2 ms-md-0 ps-3 fz-22">Recommanded for you</h4>
+    <div class="row px-3 gx-2">
+        <div class="col-md-4 col-12 mb-3 mb-md-0">
+            <div class="special-card">
+                <label class="special-card__title" for="">New Arrivals</label>
+                <div class="d-flex w-100">
+                    <div class="col-4">
+                        <div class="special-card__img">
+                            <img  src="../../../assets/assets/product-special.png" alt="">
+                        </div>
+                        <label class="special-card__price" for="">AED 4199.00</label>
+                    </div>
+                    <div class="col-4">
+                        <div class="special-card__img">
+                            <img  src="../../../assets/assets/product-special.png" alt="">
+                        </div>
+                        <label class="special-card__price" for="">AED 4199.00</label>
+                    </div>
+                    <div class="col-4">
+                        <div class="special-card__img">
+                            <img  src="../../../assets/assets/product-special.png" alt="">
+                        </div>
+                        <label class="special-card__price" for="">AED 4199.00</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-12 mb-3 mb-md-0">
+            <div class="special-card">
+                <label class="special-card__title" for="">New Arrivals</label>
+                <div class="d-flex w-100">
+                    <div class="col-4">
+                        <div class="special-card__img">
+                            <img  src="../../../assets/assets/product-special.png" alt="">
+                        </div>
+                        <label class="special-card__price" for="">AED 4199.00</label>
+                    </div>
+                    <div class="col-4">
+                        <div class="special-card__img">
+                            <img  src="../../../assets/assets/product-special.png" alt="">
+                        </div>
+                        <label class="special-card__price" for="">AED 4199.00</label>
+                    </div>
+                    <div class="col-4">
+                        <div class="special-card__img">
+                            <img  src="../../../assets/assets/product-special.png" alt="">
+                        </div>
+                        <label class="special-card__price" for="">AED 4199.00</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-12 mb-3 mb-md-0">
+            <div class="special-card">
+                <label class="special-card__title" for="">New Arrivals</label>
+                <div class="d-flex w-100">
+                    <div class="col-4">
+                        <div class="special-card__img">
+                            <img  src="../../../assets/assets/product-special.png" alt="">
+                        </div>
+                        <label class="special-card__price" for="">AED 4199.00</label>
+                    </div>
+                    <div class="col-4">
+                        <div class="special-card__img">
+                            <img  src="../../../assets/assets/product-special.png" alt="">
+                        </div>
+                        <label class="special-card__price" for="">AED 4199.00</label>
+                    </div>
+                    <div class="col-4">
+                        <div class="special-card__img">
+                            <img  src="../../../assets/assets/product-special.png" alt="">
+                        </div>
+                        <label class="special-card__price" for="">AED 4199.00</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>    
+<app-product-slider-two 
+    [sectionTitle]="main_slot_3?.display_name"
+    [products]="main_slot_3?.data"
+></app-product-slider-two>
+
+<app-product-slider-three 
+    [sectionTitle]="main_slot_4?.display_name"
+    [products]="main_slot_4?.data"
+></app-product-slider-three>
+
+<div class="container-fluid d-flex flex-wrap mt-3 p-3 w-100">
+    <h4 class="fw-bold min-fit-width col-12 mb-4 ms-2 ms-md-0 ps-3 fz-22">{{main_slot_5.display_name}}</h4>
+    <div class="col-12 row px-3 gx-3">
+        <div class="col-md-4 col-6 mb-3" *ngFor="let item of main_slot_5.data">
+            <img [src]="item?.image" alt="">
+        </div>
+    </div>
+</div>
+
+<app-product-slider-three 
+    [sectionTitle]="main_slot_6?.display_name"
+    [products]="main_slot_6?.data"
+></app-product-slider-three>
+
+
+<div class="container-fluid d-flex flex-wrap mt-3 p-3 w-100">
+    <h4 class="fw-bold min-fit-width col-12 mb-4 ms-2 ms-md-0 ps-3 fz-22">{{main_slot_7.display_name}}</h4>
+    <div class="col-12 row px-3 gx-3">
+        <div class="col-md-4 col-6 mb-3" *ngFor="let item of main_slot_7.data">
+            <img [src]="item?.image" alt="">
+        </div>
+    </div>
+</div>
+
+<app-product-slider-three 
+    [sectionTitle]="main_slot_8?.display_name"
+    [products]="main_slot_8?.data"
+></app-product-slider-three>
+
+<app-add-slider
+    [type]="type_5"
+    [addList]="bulkOffer"
+></app-add-slider>
+
+<div class="py-3 w-100"></div>
+

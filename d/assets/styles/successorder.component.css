@@ -1,0 +1,19 @@
+.btn {
+  width: 150px;
+  border-radius: 30px;
+  color: #198754;
+  border-color: #198754;
+}
+
+.btn:hover {
+  color: #fff !important;
+  background-color: #198754 !important;
+  border-color: #198754 !important;
+}
+
+.details {
+  max-width: 600px;
+  margin: 20px auto;
+  margin-bottom: 50px;
+}
+/*# sourceMappingURL=successorder.component.css.map */

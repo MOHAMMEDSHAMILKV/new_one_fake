@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,cAAc,CAAA;EACV,UAAU,EAAE,OAAO;EACnB,UAAU,EAAC,IAAI;CAChB;;AACD,AAAA,iBAAiB,CAAA;EACf,KAAK,EAAC,KAAK;EACX,UAAU,EAAE,KAAK;CAClB;;AACD,AAAA,cAAc,CAAA;EACZ,KAAK,EAAC,kBAAkB;CACzB;;AACD,AAAA,aAAa,CAAA;EACX,gBAAgB,EAAE,SAAS;CAC5B;;AAED,AAAA,SAAS,CAAA;EACP,KAAK,EAAE,KAAK;CACb",
+    "sources": [
+        "../../src/app/pages/division/division.component.scss"
+    ],
+    "names": [],
+    "file": "division.component.css"
+}

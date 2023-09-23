@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAA;EACT,UAAU,EAAE,mBAAmB;CAClC;;AAED,AAAA,aAAa,CAAA;EACT,WAAW,EAAE,IAAI;CACpB;;AAED,AAAA,cAAc,AAAA,mBAAmB,CAAA;EAC7B,KAAK,EAAE,kBAAkB;CAC5B",
+    "sources": [
+        "../../src/app/pages/profile/profile.component.scss"
+    ],
+    "names": [],
+    "file": "profile.component.css"
+}

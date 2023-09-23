@@ -1,0 +1,97 @@
+
+    <!-- Branch -->
+    <div class="container-fluid  py-md-5  pt-5 pb-4 bg-white">
+        <div class="d-flex flex-wrap w-100 px-md-5 branch-sec align-items-start mt-4">
+            <div class="col-xl-4 col-md-6 col-12 d-flex flex-wrap">
+                <img class="w-100 pe-4 rounded" src="../../../assets/assets/shop.png" alt="">
+            </div>
+            <div class="col-md d-flex flex-wrap justify-content-between align-items-start">
+                <div class="store-details d-flex mt-md-0 mt-4">
+                    <i class="bi bi-geo-alt me-2 fz-28"></i>
+                    <div class="d-flex flex-column">
+                        <label class="fz-28 fw-500" for="">Kalayikkavila</label>
+                        <label class="fz-20" for="">Open Now <b>Today 8 am - 11 pm</b></label>
+                        <label class="my-3" for="">
+                            <span class="offer-span me-3">Summer sale</span>
+                            Ends in 16:20:09
+                        </label>
+                        <div class="d-flex align-items-center mb-3" for="">
+                            <span class="rating me-2 px-2 text-white small bg-info">4.5</span>
+                            <div class="star-rating">
+                                <i class="bi bi-star-fill small"></i>
+                                <i class="bi bi-star-fill small"></i>
+                                <i class="bi bi-star-fill small"></i>
+                                <i class="bi bi-star-fill small"></i>
+                                <i class="bi bi-star-half small"></i>
+                            </div>
+                            <div class="uk-inline ms-3">
+                                <button class="uk-button uk-button-default drop-btn" type="button">11,144 ratings <span class="small" uk-icon="chevron-down"></span></button>
+                                <div uk-dropdown="mode: click">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</div>
+                            </div>
+                        </div>
+                        <label for="">
+                            More opened stores near by you
+                            <a href="#">Click here</a>
+                        </label>
+                    </div>
+                </div>
+                <div class="cart-card mt-0 border col-md p-3 col-12 d-flex flex-wrap col-md fit-width ms-md-4 mt-4 ms-xl-0 mt-xl-0">
+                    <div class="cart-total-count d-none d-md-flex flex-column">
+                        <label class="w-100 fw-500 mb-2" for="">Total cart Items</label>
+                        <span class="fw-bold fz-20">3</span>
+                    </div>
+                    <div class="col">
+                        <label class="w-100 fw-500 mb-2"  for="">Total Price</label>
+                        <span class="w-100 fw-bold fz-20" >AED 4199.00</span>
+                        <label class="w-100 fz-12"  for="">You save <span class="fw-bold ms-1">AED 470.00</span></label>
+                    </div>
+                    <div class="w-100 mt-3 d-flex flex-column">
+                        <button class="btn btn-primary-outlined mb-2 w-100"><i class="bi bi-cart-plus me-2"></i>Go to cart</button>
+                        <button class="btn btn-primary w-100"><i class="bi bi-hand-index-thumb me-2"></i>Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- product slider Section -->
+        <div class="container-fluid d-flex flex-wrap mt-3 px-md-4 w-100 bg-sm-white">
+            <div class="col-12 multi-slider">
+                <div class="uk-position-relative uk-visible-toggle uk-dark px-10px" tabindex="-1" uk-slider>
+                    <ul class="uk-slider-items uk-child-width-1-1 uk-child-width-1-2@sm uk-child-width-1-2@s uk-child-width-1-5@m">
+                        <li class="pb-3 border-0 d-flex" *ngFor="let product of productList">
+                            <app-branch-slider
+                            [productImg]="product.productImg"
+                            [productName]="product.productName"
+                            [feature]="product.feature"
+                            [typeCount]="product.typeCount"
+                            ></app-branch-slider>
+                        </li>
+                    </ul>
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                
+                </div>
+            </div>
+        </div>
+        <!-- End product slider Section -->
+        <div class="d-flex mx-auto border my-4 branchsearch" *ngIf="search">
+            <div class="dropdown">
+                <button class="fz-13 btn btn-light dropdown-toggle category-button h-100" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    All <span class="d-none d-sm-inline">Categories</span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#">Fashion</a></li>
+                    <li><a class="dropdown-item" href="#">Groceries</a></li>
+                    <li><a class="dropdown-item" href="#">More</a></li>
+                </ul>
+            </div>
+            <div class="branchsearch-box m-0">
+                <input class="form-control bg-light fz-13 text-truncate h-100" type="text" placeholder="Enter an item you want to purchase from this store...">
+                <button class="shopsearch-button">
+                    <i class="bi bi-search d-md-none d-block"></i>
+                    <span class="d-none d-md-block">search</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Ends Branch -->
+

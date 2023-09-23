@@ -1,0 +1,291 @@
+<div class="d-flex flex-wrap cart-item wishlist-item w-100">
+    <div class="form-check col-12 mb-3">
+        <input class="form-check-input" type="checkbox" id="flexCheckChecked">
+        <label class="form-check-label ms-2 fw-bold" for="flexCheckChecked">
+            Order ID : {{orderline_id}}
+        </label>
+    </div>
+    <div class="d-flex flex-wrap w-100">
+        <div class="col">
+            <div class="d-flex flex-wrap ms-sm-4 ps-2 mb-5">
+                <div class="cart-item__image me-3">
+                    <img class="cart-item__img" [src]="image" alt="">
+                </div>
+                <div class="cart-item__details w-300px">
+                    <div class="cart-item__details--title">
+                        {{name}}
+                    </div>
+                    <label class="w-100 fz-13 mb-2" for="">
+                        Expected delivery {{expected_date}}
+                        <br>
+                        Status : <span class="text-success">{{status}}</span>
+                        <img class="ms-sm-3" [src]="delivery_partner" alt="">
+                    </label>
+                    <label for="" class="fz-13 me-2 d-flex flex-wrap align-items-end">
+                        <label class="me-2" for="">
+                            Qty 
+                             <span class="ms-3">{{total_quantity}}</span> 
+                            <span class="fz-16 fw-bold">
+                                {{currency}} {{amount}}
+                            </span>
+                        </label>
+                        <button class="btn py-0 btn-sm btn-outline-dark mt-2">pay now</button>
+                    </label>
+                </div>
+                <div class="row col-md col-12 mt-md-0 mt-3">
+                    <div class="cart-item__control col-6 col-md mb-md-0 mb-2 pointer" uk-toggle="target: #modal-review" *ngIf="isDelivered(status)">
+                        <label class="cart-item__control--img pointer" for="">
+                            <img src="../../../assets/assets/review.png" alt="">
+                        </label>
+                        <label class="cart-item__control--name" for="">Product review</label>
+                    </div>
+                    <div id="modal-review" class="uk-flex-top" uk-modal>
+                        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                    
+                            <button class="uk-modal-close-default" type="button" uk-close></button>
+                    
+                            <form [formGroup]="reviewForm" (ngSubmit)="reviewSubmit(sku_id)">
+                                <div class="mb-3">
+                                    <label for="headline" class="form-label fz-14">Headline</label>
+                                    <input type="text" class="form-control" id="headline" placeholder="" formControlName="title">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label fz-14">Review writing</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="review"></textarea>
+                                </div>
+                                <div class="d-flex addimg-block">
+                                    <div class="addimg-block__block">
+                                        <input type="file" name="" id="">
+                                        <img [src]="selectedImage" alt="">
+                                    </div>
+                                    <div class="addimg-block__block">
+                                        <input type="file" name="" id="">
+                                        <i class="bi bi-plus-lg"></i>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary mt-4 px-4" type="submit">
+                                    post
+                                </button>
+                            </form>
+                    
+                        </div>
+                    </div>
+                    <div class="cart-item__control col-6 col-md mb-md-0 mb-2 pointer" uk-toggle="target: #modal-feedback" *ngIf="isDelivered(status)">
+                        <label class="cart-item__control--img pointer" for="">
+                            <img src="../../../assets/assets/feedback.png" alt="">
+                        </label>
+                        <label class="cart-item__control--name" for="">Leave seller feedback</label>
+                    </div>
+                    <div id="modal-feedback" class="uk-flex-top" uk-modal>
+                        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                    
+                            <button class="uk-modal-close-default" type="button" uk-close></button>
+                    
+                            <form [formGroup]="reviewForm" (ngSubmit)="reportSubmit(sku_id)">
+                                <div class="mb-3">
+                                    <label for="headline" class="form-label fz-14">Headline</label>
+                                    <input type="text" class="form-control" id="headline" placeholder="">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label fz-14">Review writing</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                                <div class="d-flex w-100">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                          
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="d-flex addimg-block">
+                                    <div class="addimg-block__block">
+                                        <input type="file" name="" id="">
+                                        <img [src]="image" alt="">
+                                    </div>
+                                    <div class="addimg-block__block">
+                                        <input type="file" name="" id="">
+                                        <i class="bi bi-plus-lg"></i>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary mt-4 px-4">
+                                    post
+                                </button>
+                            </form>    
+                        </div>
+                    </div>
+                    <div class="cart-item__control col-6 col-md mb-md-0 mb-2 pointer" uk-toggle="target: #modal-sharereceipt">
+                        <label class="cart-item__control--img pointer" for="">
+                            <img src="../../../assets/assets/share-gift.png" alt="">
+                        </label>
+                        <label class="cart-item__control--name" for="">Share</label>
+                    </div>
+                    <div id="modal-sharereceipt" class="uk-flex-top" uk-modal>
+                        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="width: 330px;">
+                            <button class="uk-modal-close-default" type="button" uk-close></button>
+                            <div class="d-flex w-100">
+                                <div class="cart-item__control col-6 col-md mb-md-0 mb-2 pointer" uk-toggle="target: #modal-feedback">
+                                    <label class="cart-item__control--img fz-26 pointer" for="">
+                                        <i class="bi bi-facebook"></i>
+                                    </label>
+                                    <label class="cart-item__control--name" for="">Facebook</label>
+                                </div>
+                                <div class="cart-item__control col-6 col-md mb-md-0 mb-2 pointer" uk-toggle="target: #modal-feedback">
+                                    <label class="cart-item__control--img fz-26 pointer" for="">
+                                        <i class="bi bi-twitter"></i>
+                                    </label>
+                                    <label class="cart-item__control--name" for="">Twiter</label>
+                                </div>
+                                <div class="cart-item__control col-6 col-md mb-md-0 mb-2 pointer" uk-toggle="target: #modal-feedback">
+                                    <label class="cart-item__control--img fz-26 pointer" for="">
+                                        <i class="bi bi-envelope-fill"></i>
+                                    </label>
+                                    <label class="cart-item__control--name" for="">Email</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-item__control col-6 col-md mb-md-0 mb-2" uk-toggle="target: #modal-return" *ngIf="isDelivered(status)">
+                        <label class="cart-item__control--img" for="">
+                            <img src="../../../assets/assets/item-return.png" alt="">
+                        </label>
+                        <label class="cart-item__control--name" for="">Item return</label>
+                    </div>
+                    <div id="modal-return" class="uk-flex-top" uk-modal>
+                        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                            <button class="uk-modal-close-default" type="button" uk-close></button>
+                            <form [formGroup]="returnForm" (ngSubmit)="onReturn(orderline_id)">
+                                <div class="mb-3">
+                                    <label for="headline" class="form-label fz-14">Reson</label>
+                                    <input type="text" class="form-control" id="headline" placeholder="" formControlName="resone">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label fz-14">Message</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="note"></textarea>
+                                </div>
+                                <button class="btn btn-primary mt-4 px-4">
+                                    Submit
+                                </button>
+                            </form>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-item__btn">
+            <button class="btn" uk-toggle="target: #modal-track" *ngIf="isTrackable(status)">Track <span class="d-sm-inline d-none">this item</span></button>
+            <div id="modal-track" class="uk-flex-top" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+            
+                    <button class="uk-modal-close-default" type="button" uk-close></button>
+            
+                    <div class="process-step">
+                        <div class="process-progress" [ngClass]="{step_one : step==1, step_two : step==2, step_three : step==3, step_four: step==4}">
+                            <div class="step step_one" []="{active: step>=1}">
+                                <span >
+                                    <span *ngIf="step <= 1 ">1</span> 
+                                    <span *ngIf="step >= 1 "><i class="bi bi-check"></i></span>
+                                </span>
+                                <label for="">Order Placed</label>
+                            </div>
+                            <div class="step step_two" [ngClass]="{active: step>=2}">
+                                <span>
+                                    <span *ngIf="step < 2 ">2</span> 
+                                    <span *ngIf="step >= 2 "><i class="bi bi-check"></i></span>
+                                </span>
+                                <label for="">Order Shiped</label>
+                            </div>
+                            <div class="step step_three" [ngClass]="{active: step>=3}">
+                                <span>
+                                    <span *ngIf="step < 3 ">3</span> 
+                                    <span *ngIf="step >= 3 "><i class="bi bi-check"></i></span>
+                                </span>
+                                <label for="">Out for delivery</label>
+                            </div>
+                            <div class="step step_four" [ngClass]="{active: step>=4}">
+                                <span> 
+                                    <span *ngIf="step < 4 ">4</span> 
+                                    <span *ngIf="step >= 4 "><i class="bi bi-check"></i></span>
+                                </span>
+                                <label for="">Completed</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order_info mt-5">
+                        <label for="">Order Id: <span>{{orderline_id}}</span></label>
+                        <label for="">Order placed on: <span>22-10-2021</span></label>
+                        <label for="">Expected delivery on: <span>{{expected_date}}</span></label>
+                    </div>
+                    <div class="order_product d-flex align-items-center border rounded mx-3 mt-3">
+                        <img [src]="image" alt="">
+                        <label class="order_details">
+                            <span class="order_product-name">{{name}}</span>
+                            <span class="order_price">{{currency}} {{amount}}</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <button class="btn" disabled>Manage <span class="d-sm-inline d-none">delivery</span></button>
+            <button class="btn" disabled>Pick up <span class="d-sm-inline d-none">from hub</span></button>
+            <button class="btn" uk-toggle="target: #modal-cancel">Cancel <span class="d-sm-inline d-none">this order</span></button>
+            <div id="modal-cancel" class="uk-flex-top" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                    <button class="uk-modal-close-default" type="button" uk-close></button>
+                    <form [formGroup]="cancelForm" (ngSubmit)="onCancel(orderline_id)">
+                        <div class="mb-3">
+                            <label for="headline" class="form-label fz-14">Reson</label>
+                            <input type="text" class="form-control" id="headline" placeholder="" formControlName="resone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label fz-14">Message</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="note"></textarea>
+                        </div>
+                        <button class="btn btn-primary mt-4 px-4">
+                            Submit
+                        </button>
+                    </form>   
+                </div>
+            </div>
+            <button class="btn" disabled>Archive <span class="d-sm-inline d-none"> order</span></button>
+            <button class="btn" uk-toggle="target: #modal-print">Print <span class="d-sm-inline d-none"> order</span></button>
+            <div id="modal-print" class="uk-flex-top" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+                    <button class="uk-modal-close-default" type="button" uk-close></button>
+                    <div class="receipt border" id="demo">
+                        <img class="receipt__logo" src="../../../assets/assets/RGC LOGO.svg" alt="">
+                        <div class="d-flex flex-wrap w-100 receipt__header">
+                            <div class="col-3 text-center">Qty</div>
+                            <div class="col text-center">Item</div>
+                            <div class="col-3 text-center">Amount</div>
+                        </div>
+                        <div class="d-flex flex-wrap receipt__item">
+                            <div class="col-3 text-center fz-13">{{total_quantity}}</div>
+                            <div class="col text-center fz-13">{{name}}</div>
+                            <div class="col-3 text-center fz-13">{{amount}}</div>
+                        </div>
+                        <div class="d-flex flex-wrap w-100 pt-3 fw-bold fz-13">
+                            <div class="col-6">
+                                Total Qty. 
+                            </div>
+                            <div class="col-6 text-end">
+                                {{total_quantity}}
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap w-100 pt-3 fw-bold fz-13">
+                            <div class="col-6">
+                                Total Amout. 
+                            </div>
+                            <div class="col-6 text-end">
+                                {{currency}} {{amount}}
+                            </div>
+                        </div>
+                        <div class="border-receipt"></div>
+
+                        <label for="" class="mt-4 text-center w-100 fz-12 text-gray">Thank you for ordering 😊</label>
+                    </div>
+                    <a class="btn" (click)="downloadPdf(orderline_id)">Download Receipt</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

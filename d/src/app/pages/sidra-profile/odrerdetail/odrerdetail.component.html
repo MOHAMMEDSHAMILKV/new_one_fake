@@ -1,0 +1,379 @@
+<div class="col-12 row mx-0 bgw">
+    <div class="d-flex flex-row py-3">
+        <i class="bi bi-chevron-left fz-18 fw-bold" [routerLink]="['/sidra-profile/orders']" routerLinkActive="router-link-active" ></i>
+        <span class="fz-16 fw-bold me-3 ms-2">Order Details</span>
+        <!-- <img class="me-3" src="../../../../assets/icons/right-icon.svg" alt="" style="width: 7px;">
+        <span class="fz-16 fw-bold">OD126139689733133000</span> -->
+    </div>
+</div>
+
+<div class="col-12 row mx-0 mt-2 bgw">
+    <div class="col-12 row mx-0 py-4 px-2">
+        <div class="order col-lg-2 col-3 d-flex align-items-center justify-content-center px-md-2 px-0">
+            <img src="{{orderDetail?.image}}"  alt="">
+        </div>
+        <div class="col-lg-10 col-9 d-flex justify-content-between">
+             <div class="d-flex flex-column">
+                <span class="fz-14 fw-400 w-100">{{orderDetail?.name}}</span>
+                <span class="mt-2 fw-500 fz-14">Ordered On {{orderDetail?.order_date}}</span>
+                <span class="fz-12 fw-bold mt-2">Sold By: <i class="fz-12 c-FF9900">{{orderDetail?.sold_by}}</i></span>
+             </div> 
+             <i class="c-FF9900 fz-14 fw-400 cursor" *ngIf="currentStatus=='Order Delivered'" uk-toggle="target:#review-data" style="font-style: italic;">Product Review</i>
+        </div> 
+    </div>  
+</div>  
+
+
+<div class="col-12 row mx-0 mt-md-2 mt-1 bgw px-md-3 px-0">
+    <div class="col-12 row mx-0 px-2">
+        <div class="basic_details col-md-6 col-12 py-4">
+             <span class="fz-14 fw-500">
+                Basic Details
+             </span>
+             <div class="d-flex flex-row mt-2">
+                 <span class="fz-13 w-25" style="color: #6D6D6D;">Order Date</span> <i class="mx-3 fw-bold">:</i> <span class="fz-13 fw-bold">{{orderDetail?.order_date}}</span>
+             </div>
+             <div class="d-flex flex-row mt-2">
+                <span class="fz-13 w-25" style="color: #6D6D6D;">Total Price</span> <i class="mx-3 fw-bold">:</i> <span class="fz-13 fw-bold">AED {{orderDetail?.amount}}</span>
+            </div>
+            <div class="d-flex flex-row mt-2">
+                <span class="fz-13 w-25" style="color: #6D6D6D;">Color</span> <i class="mx-3 fw-bold">:</i> <span class="fz-13 fw-bold">White</span>
+            </div>
+            <div class="d-flex flex-row mt-2">
+                <span class="fz-13 w-25" style="color: #6D6D6D;">Quantity</span> <i class="mx-3 fw-bold">:</i> <span class="fz-13 fw-bold">{{orderDetail?.total_quantity}}</span>
+            </div> 
+        </div> 
+        <div class="col-md-6 col-12 py-4">
+            <span class="fz-14 fw-bold mb-2">Delivery Address</span>
+            <div class="d-flex flex-column mt-2">
+                <span class="fz-13">{{orderDetail?.customer_address?.full_name}}</span>
+                <span class="fz-13 mt-2">{{orderDetail?.customer_address?.building_name}} 
+                                         {{orderDetail?.customer_address?.street_name}} 
+                                         {{orderDetail?.customer_address?.landmark}},</span>
+                <span class="fz-13 mt-2">{{orderDetail?.customer_address?.state}} - 673572, Kerala</span>
+                <span class="mt-4  fz-13">
+                    Phone number  
+                </span> 
+                <span class="fz-13 fw-bold mt-1"> 
+                    {{orderDetail?.customer_address?.contact}}
+                </span> 
+            </div> 
+        </div> 
+    </div>  
+</div>  
+
+
+<div class="col-12 row mx-0 mt-2 bgw px-0 py-4" *ngIf="currentStatus!='Order Cancelled'">
+    <div class="col-12 row mx-0">
+        <span class="fz-16 fw-bold pb-3">
+            Order Tracking Details
+        </span>
+        <div class="d-flex w-100 justify-content-between order-track-progress">
+            <div class="step-one " [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Order Shipped', 'stage-three': currentStatus ==='Out for delivery', 'stage-four': currentStatus === 'Order Delivered'}">
+                <i class="bi bi-check2"></i>
+            </div>
+            <div class="stepcontent-one">
+                {{'Order Placed'}}
+            </div>
+            <div class="step-two" [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Order Shipped', 'stage-three': currentStatus ==='Out for delivery', 'stage-four': currentStatus === 'Order Delivered'}">
+                <!-- <i class="bi bi-check2" *ngIf="currentStatus === 'Order Shipped' || currentStatus ==='Out for delivery' || currentStatus ==='Order Delivered'"></i> -->
+                <i class="bi bi-check2" ></i>
+            </div> 
+            <div class="stepcontent-two">
+                {{'Order Shipped'}}
+            </div>
+            <div class="step-three" [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Order Shipped', 'stage-three': currentStatus ==='Out for delivery', 'stage-four': currentStatus === 'Order Delivered'}">
+                <!-- <i class="bi bi-check2" *ngIf="currentStatus ==='Out for delivery' || currentStatus ==='Order Delivered'"></i> -->
+                <i class="bi bi-check2" ></i>
+            </div>
+            <div class="stepcontent-three">
+                {{'Out for delivery'}}
+            </div>
+            <div class="step-four" [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Order Shipped', 'stage-three': currentStatus ==='Out for delivery', 'stage-four': currentStatus === 'Order Delivered'}">
+                <!-- <i class="bi bi-check2" *ngIf="currentStatus ==='Order Delivered'"></i> -->
+                <i class="bi bi-check2" ></i>
+            </div>
+            <div class="stepcontent-four">
+                {{'Order Delivered'}} 
+            </div>
+            <div class="track" [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Order Shipped', 'stage-three': currentStatus =='Out for delivery', 'stage-four': currentStatus === 'Order Delivered'}">
+
+            </div>
+        </div>
+    </div> 
+    
+    
+
+    
+
+
+
+    <div class="col-12 row mx-0 " style="border-bottom: 1.5px solid #efefef;border-top: 1.5px solid #efefef;">
+        <div class=" Delivery_Slot col-md-6 col-12 py-4 px-md-2 px-0" >
+             <div class="border shadpow-sm p-3 d-flex flex-column" style="border-radius: 5px;">
+                    <span class="fz-14 fw-bold">Delivery Slot</span>
+                    <span class="fz-13 mt-2" >
+                        {{orderDetail?.expected_date?.delivery_notes}} On <i class="fw-500">{{orderDetail?.expected_date?.delivery_date}}</i>
+                    </span>
+                    <!-- <span class="fz-14 fw-bold mt-3" style="color: #FF9900;">
+                        Cancel Subscribtion
+                    </span> -->
+                    <span class="fz-12 mt-3" style="color: #6D6D6D; line-height: 1rem;">
+                        By and large, credit cards are easily the most secure & safe payment method to use when you shop online.
+                    </span>
+             </div> 
+        </div> 
+        <div class="col-md-6 col-12 py-md-4 py-0 px-md-2 px-0">
+            <div class="border shadpow-sm p-3 d-flex flex-column mx-md-3 mx-0" style="border-radius: 5px;">
+                <span class="fz-14 fw-bold">Your Points</span>
+                <span class="fz-12 mt-2" style="color: #6D6D6D; line-height: 1rem;">
+                    By and large, credit cards are easily the most secure & safe payment method to use when you shop online.
+                </span>
+                <div class="border mt-2" style="position: relative;border: 1.5px solid #efefef!important; border-radius: 5px;">
+                    <div class=" col-12 row w-100 py-2 mx-0">
+                        <div class=" col d-flex justify-content-start align-items-center">
+                            <i class="fw-bold">
+                                Credited points :
+                            </i>
+                        </div>
+                       
+                        <!-- <input type="text" class="input-control"> -->
+                        <div class=" col d-flex flex-row align-items-center justify-content-end">
+                            <img src="../../../../assets/icons/token 1.svg" alt="" width="20" class="credits">
+                            <span class="fz-12 fw-500 ms-2" style="color: #FF9900;" >
+                                12000
+                            </span>
+                        </div>
+                    </div> 
+                </div>
+            </div> 
+            <hr class="my-3">
+            <!-- <div class="px-3">
+                <span class="fz-12 fw-bold" style="color: #FF9900;">
+                    Subscribe this product
+                </span>
+            </div> -->
+        </div> 
+    </div>
+    <div class="col-12 row mx-0 py-3 px-md-2 px-0"> 
+      <div class="d-flex justify-content-between">
+        <div class=" d-flex flex-row">
+            <button class="cancelbtn py-2 px-3"  uk-toggle="target:#cancelOrder">
+                Cancel Order
+            </button>
+            <button class="cancelbtn py-2 px-3 ms-2"  (click)="routePage(orderDetail?.Orderline_id)">
+                Return or exchange this Product
+            </button>
+        </div> 
+        <div class="">
+            <button class="cancelbtn py-2 px-3" *ngIf="currentStatus=='Order Delivered'" (click)="downloadInvoice()">
+                Download Invoice
+            </button>
+        </div> 
+      </div>
+    </div> 
+</div>
+
+
+<div class="col-12 row mx-0 mt-2 bgw px-0 py-4" *ngIf="currentStatus=='Order Cancelled'">
+    <div class="col-12 row mx-0">
+        <span class="fz-16 fw-bold pb-3">
+            Order Tracking Details
+        </span>
+        <div class="d-flex w-100 justify-content-between order-track-progressCancelled">
+            <div class="step-one " [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Order Cancelled'}">
+                <i class="bi bi-check2"></i>
+            </div>
+            <div class="stepcontent-one">
+                {{'Order Placed'}}
+            </div>
+            <div class="step-two" [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Order Cancelled'}">
+                <!-- <i class="bi bi-check2" *ngIf="currentStatus === 'Order Shipped' || currentStatus ==='Out for delivery' || currentStatus ==='Order Delivered'"></i> -->
+                <i class="bi bi-check2"></i> 
+            </div> 
+            <div class="stepcontent-two">
+                {{'Order Cancelled'}}
+            </div>
+            <div class="track" [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Order Cancelled'}">
+
+            </div>
+        </div>
+    </div>
+    <div class="col-12 row mx-0 " style="border-bottom: 1.5px solid #efefef;border-top: 1.5px solid #efefef;">
+        <div class="col-6 py-4" style="border-right: 1.5px solid #efefef;">
+             <div class="border shadpow-sm p-3 d-flex flex-column" style="border-radius: 5px;">
+                    <span class="fz-14 fw-bold">Delivery Slot</span>
+                    <span class="fz-13 mt-2" >
+                        {{orderDetail?.expected_date?.delivery_notes}} On <i class="fw-500">{{orderDetail?.expected_date?.delivery_date}}</i>
+                    </span>
+                    <!-- <span class="fz-14 fw-bold mt-3" style="color: #FF9900;">
+                        Cancel Subscribtion
+                    </span> -->
+                    <span class="fz-12 mt-3" style="color: #6D6D6D; line-height: 1rem;">
+                        By and large, credit cards are easily the most secure & safe payment method to use when you shop online.
+                    </span>
+             </div> 
+        </div> 
+        <div class="col-6 py-4 px-0">
+            <div class="border shadpow-sm p-3 d-flex flex-column mx-3" style="border-radius: 5px;">
+                <span class="fz-14 fw-bold">Your Points</span>
+                <span class="fz-12 mt-2" style="color: #6D6D6D; line-height: 1rem;">
+                    By and large, credit cards are easily the most secure & safe payment method to use when you shop online.
+                </span>
+                <div class="border mt-2" style="position: relative;border: 1.5px solid #efefef!important; border-radius: 5px;">
+                    <div class="d-flex flex-row w-100 py-2 justify-content-around" style="position: relative;">
+                        <i class="fz-12 fw-bold">
+                            Credited points :
+                        </i>
+                        <input type="text" class="input-control">
+                        <div class="d-flex flex-row align-items-center">
+                            <img src="../../../../assets/icons/token 1.svg" alt="" width="20" class="credits">
+                            <span class="fz-12 fw-500 ms-2" style="color: #FF9900;" >
+                                12000
+                            </span>
+                        </div>
+                    </div> 
+                </div>
+            </div> 
+            <hr class="my-3">
+            <!-- <div class="px-3">
+                <span class="fz-12 fw-bold" style="color: #FF9900;">
+                    Subscribe this product
+                </span>
+            </div> -->
+        </div> 
+    </div>
+    <div class="col-12 row mx-0 py-3 "> 
+      <div class="d-flex justify-content-between">
+        <div class=" d-flex flex-row">
+            <button class="cancelbtn py-2 px-3" uk-toggle="target:#cancelOrder">
+                Cancel
+            </button>
+            <button class="cancelbtn py-2 px-3 ms-2" (click)="routePage(orderDetail?.Orderline_id)">
+                Return or exchange this Product
+            </button>
+        </div> 
+        <div class="">
+            <button class="cancelbtn py-2 px-3" (click)="downloadInvoice()">
+                Download Invoice
+            </button>
+        </div> 
+      </div>
+    </div> 
+</div>
+
+
+<div id="cancelOrder" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body cardadding-body uk-margin-auto-vertical px-0 pb-3 pt-0" style="width: 390px;">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12 row mx-0 bg-F4F3F0 px-2 py-2">
+            <div class="d-flex flex-column py-1">
+                <span class="fz-20 fw-bold">Confirm Cancellation</span>
+            </div>
+        </div>
+        <div class="col-12 row mx-0 px-2">
+            <div class="body-uk pb-3 mt-2 px-0"> 
+                <div class="col-12 row mx-0">
+                    <span class="fz-11" style="color: #1B1B1F;">
+                        Are you sure you want to cancel this order.
+                    </span>
+                </div>
+                <div class="col-12 row mx-0 mt-3"> 
+                    <div class="col-12"> 
+                        <label for="" class="fz-13 fw-500 mb-2">Reason</label>
+                        <textarea [(ngModel)]="reson" placeholder="Enter reason for cancellation ..." class="form-control fz-12" rows="4"></textarea>
+                        <label for="" class="mt-2 fz-11" style="color: #1B1B1F;line-height: 1rem;">
+                            Safe and Secure Payments.Easy returns.100% Authentic products. 
+                            Lorem ipsum this is dummy Safe.
+                        </label>
+                    </div> 
+                </div>
+            </div>
+            <div class="col-12 row mx-0 mt-3 px-2">
+                <div class="d-flex justify-content-center">
+                    <button class="cancel-btn fz-13 fw-500 px-3 py-2 w-50">Cancel</button>
+                    <button class="update-btn ms-2 px-4 py-2 w-50" (click)="cancelOrder()">Yes, Confirm</button>
+                </div>
+            </div>
+        </div>
+   </div>
+</div>
+
+
+<div id="review-data" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical p-0">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12 row mx-0 px-0" style="background-color: #F4F3F0;">
+            <div class="py-3 px-4">
+                <span class="fz-16 fw-bold">
+                    Rating and Review
+                </span>
+            </div> 
+        </div>
+        <div class="px-4 py-3">
+            <div class="col-12 row mx-0 px-0">
+                <div class="pt-2 pb-3 px-0">
+                    <span class="fz-14 fw-500">
+                        Rate Your Product
+                    </span>
+                    <div class="mt-2 d-flex justify-content-start">
+                        <div class="rating">
+                            <mat-icon *ngFor="let star of stars; let i = index"  (click)="rate(i + 1,$event)">
+                              {{ star ? 'star' : 'star_border' }}
+                            </mat-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 row mx-0  rating-review">
+                <div class="col-6 border-e">
+                    <div class="py-3">
+                        <div class="col-12 row mx-0">
+                            <label for="" class="fz-13 fw-bold mb-2 px-0">Highlights</label>
+                            <input type="email" class="form-control fz-12 h-42" [(ngModel)]="highlights" placeholder="Enter review highlights"> 
+                        </div>
+                        <div class="col-12 row mx-0 mt-3">
+                            <label for="" class="fz-13 fw-bold mb-2 px-0">Description</label>
+                            <textarea class="form-control fz-12" rows="3" [(ngModel)]="description" placeholder="Share your experience"></textarea>            
+                        </div>
+                        <!-- <div class="col-12 row mx-0 mt-4 mb-3">
+                            <div class="d-flex flex-row">
+                               <button class="review-btn">Close</button>
+                               <button class="update-btn ms-2 px-4">Update</button>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="col-12 row mx-0 mt-3">
+                        <div class="col-12 d-flex align-items-center">
+                           <span class="fz-14 fw-bold">Upload Image</span>
+                           <span class="fz-11 c-EE2626 ms-3"> Maximum 5 Image</span>
+                        </div>
+                        <div class="col-12 mt-3 d-flex flex-row flex-wrap">
+                           <div class="image-box me-2  mt-2" *ngFor="let item of imageArray;let i=index">
+                               <div class=" d-flex justify-content-end p-1" style="position: relative;" (click)="splice(i)">
+                                   <img src="../../../../assets/icons/cancelicon.svg" alt="" width="20">
+                               </div>
+                               <img src="{{item.image}}" alt="" style="margin-top: -36px;">
+                           </div> 
+                           <div class="main-images mt-2">
+                               <div class="image-upload me-2" style="position: relative;">
+                                   <input type="file" name="profilepic.png" id="" [(ngModel)]="imageShow"  (change)="imageUpload($event,imageShow)">
+                                   <i class="bi bi-camera-fill"></i>                
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 row mx-0 py-3 ">
+            <div class="d-flex justify-content-center">
+                <button class="update-btn px-5 py-2" (click)="createRatingAndReview()">
+                    Add Rating and Review
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

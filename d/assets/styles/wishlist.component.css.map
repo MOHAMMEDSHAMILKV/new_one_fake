@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAA;EACL,SAAS,EAAC,IAAI;EACd,OAAO,EAAC,YAAY;EACpB,MAAM,EAAC,IACX;CAAC;;AACD,AAAA,KAAK,CAAA;EACD,KAAK,EAAE,IAAI;CACd;;AACD,AAAA,eAAe,CAAA;EACX,SAAS,EAAE,KAAK;CACnB",
+    "sources": [
+        "../../src/app/pages/profile/wishlist/wishlist.component.scss"
+    ],
+    "names": [],
+    "file": "wishlist.component.css"
+}

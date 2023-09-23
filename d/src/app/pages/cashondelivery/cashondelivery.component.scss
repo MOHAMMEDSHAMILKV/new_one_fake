@@ -1,0 +1,28 @@
+.btn{
+    width:150px;
+    border-radius: 30px;
+    color: #198754;
+    border-color: #198754;
+    &:hover{
+        color: #fff !important;
+        background-color: #198754 !important;
+        border-color: #198754 !important;
+    }
+}
+.details{
+    max-width: 600px;
+    margin: 20px auto;
+    margin-bottom: 50px;
+}
+
+.btn_failed{
+    width:150px;
+    border-radius: 30px;
+    color: #e0d206;
+    border-color: #e0d206;
+    &:hover{
+        color: #fff !important;
+        background-color: #e0d206 !important;
+        border-color: #e0d206 !important;
+    }
+}

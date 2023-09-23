@@ -1,0 +1,53 @@
+
+<!-- <app-header></app-header> -->
+<!-- <div class="content-body px-0  py-0 my-0" style="height: 100%;">
+    <router-outlet></router-outlet>
+</div> -->
+
+<main id="main-content" #mainContent>
+    <div class="content-body px-0  py-0 my-0" style="height: 100%;">
+        <router-outlet class="router-flex" (activate)="onActivate($event)"></router-outlet>
+    </div>
+</main>
+
+<!-- <div class="chat-button" (click)="isChat = !isChat">
+    <span>1</span>
+    <img src="../assets/assets/chat-icon.png" alt="">
+    chat
+</div> -->
+<!-- <div class="moveup-button" (click)="scrollUp()">
+    <i class="bi bi-arrow-up"></i>
+</div> -->
+
+<div class="chatbox" *ngIf="isChat">
+    <div class="chatbox__head">
+        <div> 
+            <img src="../assets/assets/bot-profile.png" alt="">
+            <span>Chat with Ahlan Cart</span>
+        </div>
+        <button class="btn p-0 text-white fz-18">
+            <i (click)="isChat = !isChat" class="bi bi-x-circle"></i>
+        </button> 
+    </div>
+    <div class="chatbox__body">
+        <div class="chatbox__body--bot">
+            <img src="../assets/assets/bot-profile.png" alt="">
+            <div>
+                Hi There, How can i help you ?
+                Please select the below options
+            </div>
+        </div>
+        <div class="chatbox__body--user">
+            <div>
+                order
+            </div>
+            <img src="../assets/assets/bot-profile.png" alt="">
+        </div>
+    </div>
+    <div class="chatbox__messenger">
+        <input type="text" placeholder="Type Something ...">
+        <button>
+            <img src="../assets/assets/send-icon.png" alt="">
+        </button>
+    </div>
+</div>

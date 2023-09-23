@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/app/pages/profile/seller-account/start/start.component.scss"
+    ],
+    "names": [],
+    "file": "start.component.css"
+}

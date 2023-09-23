@@ -1,0 +1,21 @@
+<div class="container-fluid p-3 bluebg">
+  <div class="container-fluid mt-5">
+    <div class="row">
+      <div class="col-xl-3 col-md-4 col-sm-6 col-12 mb-3 mb-lg-0" *ngFor="let category of mainCategory;let i=index" >
+        <div class="d-flex flex-wrap align-items-start w-100 category-main-card mb-3" [ngClass]="{active: i==0, one: i==0, two: i==1, three: i==2, four: i==3 }">
+          <div class="category-main-card__icon">
+            <img [src]="category.icon" alt="">
+          </div>
+          <div class="col-lg col-12 pe-3 mt-3 mt-lg-0">
+            <p class="fz-17 fw-bold mt-2 mb-2">
+              {{category.title}}
+            </p>
+            <p class="fz-12 mt-0">
+              {{category.detail}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

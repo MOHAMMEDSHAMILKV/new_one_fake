@@ -1,0 +1,83 @@
+.bgw{
+    background-color: white;
+}
+
+.c-FF9900{
+    color: #FF9900;
+}
+
+.chatboadt{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #FF9900;
+}
+
+.chatbox_one{
+    border: 1px solid rgb(247, 247, 247);
+    width: 400px;
+    
+}
+
+.chatbox_two{
+    border: 1px solid rgb(247, 247, 247);
+    // width: 400px;
+    background-color: #FF9900;
+    color: white;
+}
+
+.chatboat-btn{
+    width: 120px;
+    // padding: 10px;
+    background-color: transparent;
+    border: 1.6px solid #FF9900;
+    border-radius: 15px;
+    color: #FF9900;
+}  
+
+.F0F2F5{
+    background-color: #F0F2F5;
+}
+.sub-head{
+    color: #3D3C3C;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #F0EFED; 
+    border-radius: 4px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #A5A4A4; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b4b3b3; 
+  }
+
+
+  .textalign{
+    text-align: center;
+}
+
+.form-control{
+    height: 40px;
+    border: 1.5px solid #ececec;
+    border-radius: 10px;
+} 
+
+.form-control::placeholder{
+    color: #A9A8A8;
+}
+
+
+

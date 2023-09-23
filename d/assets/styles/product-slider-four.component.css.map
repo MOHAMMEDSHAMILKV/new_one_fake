@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/app/components/product-slider-four/product-slider-four.component.scss"
+    ],
+    "names": [],
+    "file": "product-slider-four.component.css"
+}

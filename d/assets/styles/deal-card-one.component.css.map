@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACD,UAAU,EAAE,qBAAqB;CACpC;;AAEI,AAAD,aAAQ,CAAA;EACJ,UAAU,EAAE,KAAK;EACjB,eAAe,EAAE,GAAG;CACvB",
+    "sources": [
+        "../../src/app/components/deal-card-one/deal-card-one.component.scss"
+    ],
+    "names": [],
+    "file": "deal-card-one.component.css"
+}

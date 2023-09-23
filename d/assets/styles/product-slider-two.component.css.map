@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,aAAa,CAAC,YAAY,CAAA;EACxB,gBAAgB,EAAE,SAAS;CAC5B;;AACD,AAAA,YAAY,CAAA;EACV,KAAK,EAAE,gBAAgB;CACxB",
+    "sources": [
+        "../../src/app/components/product-slider-two/product-slider-two.component.scss"
+    ],
+    "names": [],
+    "file": "product-slider-two.component.css"
+}

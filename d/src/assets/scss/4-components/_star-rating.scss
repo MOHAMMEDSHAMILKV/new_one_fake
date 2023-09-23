@@ -1,0 +1,32 @@
+.star-rating{
+    i{
+        color: color(warning);
+    }
+}
+.rating{
+    max-height: fit-content;
+    @include flex-center;
+}
+.rating-percentage{
+    align-items: center;
+    font-size: 13px;
+    &__rate{
+        width: 50px;
+        i{
+            color: color(warning);
+        }
+    }
+    &__analysis{
+        height: 5px;
+        background: color(gray-500);
+        &--percent{
+            height: 100%;
+            min-width: 1%;
+            background: color(warning);
+        }
+    }
+    &__count{
+        text-align: end;
+        width: 60px;
+    }
+}

@@ -1,0 +1,133 @@
+.pagination-block{
+
+  margin-top: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .page-link {
+      box-shadow: none !important;
+      position: relative;
+      display: block;
+      color: #000000;
+      text-decoration: none !important;
+      background-color: #fff;
+      // border: 0;
+      transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .page-item.active .page-link {
+      z-index: 3;
+      color: #fff;
+      background-color: #0A4A77 !important;
+      border-color: #0A4A77 !important;
+  }
+}
+
+.bgw{
+  background-color: white;
+}
+.b-b{
+    border-bottom:5px solid #FF9900 ;
+}
+.border-bottom{
+  background-color: #EEEEEE;
+}
+.border-bottomActive{
+  background-color: white;
+  border-left: 3px solid #FF9900;
+}
+
+.form-check-input:checked{
+  background-color: #FF9900 !important;
+  border: 1px solid #FF9900 !important;
+}
+
+.form-check-input{
+  border: 1px solid #FF9900 !important;
+}
+
+.company-list{
+  background-color: #F4F3F1;
+  border-radius: 4px;
+}
+
+
+.uk-button{
+  border: 1.4px solid #FBFBFB;
+  border-radius: 5px;
+  text-align: start;
+
+}
+
+.uk-dropdown{
+  min-width: 150px;
+  left: 4.9896px;
+  top: 39.6667px;
+}
+
+.form-check-input:checked {
+  background-color:#FF9900 ;
+  border-color:#FF9900 ;
+}
+
+.form-check-input{
+  width: 0.8rem;
+  height: 0.8rem;
+  // border-color:#FAFAFA;
+  // background-color: #FFF5E6;
+
+} 
+
+.groupListOver:hover{
+  background-color: #FFF5E6;
+}
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(119, 119, 119, 0.5);
+  backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+@media screen and (min-width: 768px) and (max-width: 880px) {
+  .filter_itemname{
+font-size: 13px !important;
+  }
+}
+@media screen and (min-width:320px) and (max-width:440px){
+  .brand{
+    font-size: 12px !important;
+  }
+  .arrow{
+    width: 6px !important;
+  }
+}
+.apply_filter{
+  background-color: #FF9900;
+  border-radius: 4px;
+  border: transparent;
+  color: white;
+}
+.filter_border{
+  border-radius: 6px;
+  border: 1.5px solid #ced4da;
+  height: 35px;
+}
+.uk-button {
+ text-align: center !important;
+ text-transform: none !important;
+ line-height: 34px !important;
+}
+.brand_list{
+  padding-left: 10px;
+}
+.form-select {
+  padding: 0.375rem 0.75rem 0.375rem 0.75rem;
+}
+:host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+   stroke: #FF9900;
+}

@@ -1,0 +1,138 @@
+/* 
+    Structure is made by Arun Abraham
+    please keep this structure to get organised
+    ___________________________________________
+
+    Table of content
+    ----------------
+    | 
+    |  * 1-variables
+    |  -------------
+    |  |
+    |  | * _color.scss ("holds all color variables edit here to change color")
+    |  | * _size.scss ("holds all size variables edit here to change size")
+    |  *
+    |  |
+    |  * 2-modules
+    |  -----------
+    |  |
+    |  | * _fonts.scss ("holds all font related stylings and imports")
+    |  | * _functions.scss ("holds all rule sets")
+    |  | * _mixins.scss ("holds all reusable mixins")
+    |  *
+    |  |
+    |  * 3-utilities
+    |  -------------
+    |  |
+    |  | * _resets.scss("reseting all default browser styles etc..")
+    |  | * _theme.scss("holds the bg,text,border,color,shadow,gradients,etc..")
+    |  | * _layout.scss("layout setting")
+    |  *
+    |  |
+    |  * 4-components
+    |  --------------
+    |  |
+    |  | * _button.scss("holds all button styles")
+    |  | * _cards.scss("holds all cards style")
+    |  | * _form.scss("holds all forms styles")
+    |  | * _modal.scss("holds all modal related styles")
+    |  | * _tables.scss("holds all table related styles")
+    |  | * _top-bar.scss("holds the top-bar styling")
+    |  | * _side-bar.scss("holds the side-bar styling")
+    |  | * _footer.scss("holds the footer styling")
+    |  *
+    |  |
+    |  * 5-pages
+    |  --------------
+    |  |
+    |  | * _index.scss("holds the bg,text,border,etc..")
+    |  *
+    |  |
+    |  * 6-responsive
+    |  --------------
+    |  |
+    |  | * _responsive.scss("responsive media query")
+    |  *
+    |  |
+    |  * 7-vendor
+    |  --------------
+    |  |
+    |  |  * vendor-1
+    |  |  --------------
+    |  |  |
+    |  |  |  * _vendor-1.1.scss("3rd party css libraries")
+    |  |  |  * _vendor-1.2.scss("3rd party css libraries")
+    |  |  |  
+    |  |  * vendor-2
+    |  |  --------------
+    |  |  |
+    |  |  |  * _vendor-2.1.scss("3rd party css libraries")
+    |  |  |  * _vendor-2.2.scss("3rd party css libraries")
+    |  |  |
+    |  |  * - 
+    |  * -
+    * -  
+    
+    */
+// ######################
+
+
+/*  1-variables  */
+    
+@import '../scss/1-variables/color';
+@import '../scss/1-variables/size';
+
+/*  2-modules  */
+
+@import '../scss/2-modules/fonts';
+@import'../scss/2-modules/function';
+@import '../scss/2-modules/mixins';
+    
+/*  3-utilities  */
+
+@import '../scss/3-utilities/resets';
+@import '../scss/3-utilities/layout';
+@import '../scss/3-utilities/theme';
+
+/*  4-components  */
+
+@import '../scss/4-components/button';
+@import '../scss/4-components/cards';
+@import '../scss/4-components/form';
+@import '../scss/4-components/modal';
+@import '../scss/4-components/tables';
+@import '../scss/4-components/footer';
+@import '../scss/4-components/top-bar';
+@import '../scss/4-components/side-bar';
+@import '../scss/4-components/slider';
+@import '../scss/4-components/star-rating';
+@import '../scss/4-components/price-slider';
+@import '../scss/4-components/breadcrumbs';
+@import '../scss/4-components/quantity-conter';
+@import '../scss/4-components/image-add';
+@import '../scss/4-components/nav-tab';
+@import '../scss/4-components/toaster';
+
+/*  5-pages  */
+
+@import '../scss/5-pages/index';
+@import '../scss/5-pages/category';
+@import '../scss/5-pages/product';
+@import '../scss/5-pages/cart';
+@import '../scss/5-pages/branch-product';
+
+/*  6-responsive  */
+
+@import '../scss/6-responsive/responsive';
+
+/*  7-vendor  */
+
+// vendor-1
+@import '../scss/7-vendor/vendor-1/vendor';
+
+// vendor-2
+@import '../scss/7-vendor/vendor-2/vendor';
+
+@import '../scss/5-pages/loader';
+
+@import '../scss/5-pages/profile.scss';

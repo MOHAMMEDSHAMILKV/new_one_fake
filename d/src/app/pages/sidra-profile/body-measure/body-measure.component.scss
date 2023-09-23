@@ -1,0 +1,90 @@
+.bgw{
+    background-color: white;
+}
+
+.c-5F5F61{
+    color: #5F5F61;
+}
+
+
+.update-btn{
+    padding: 12px 25px;
+    background-color: #FF9900;
+    color: white;
+    border-radius: 5px;
+    border: none;
+}
+
+
+.form-select{
+    height: 42px;
+    border: 1.5px solid #ececec;
+    font-size: 13px;
+    color: #A9A8A8;
+}
+
+.kg{
+    border: 1px solid #e9e9e9;
+}
+
+
+.form-control{
+    height: 42px;
+    border: 1.5px solid #ececec;
+    font-size: 12px;
+}
+
+.form-control::placeholder{
+    color: #A9A8A8;
+}
+
+.input-group-text{
+    background-color: white !important;
+}
+
+
+.mesure-btn{
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    border: 1.3px solid #d5d2d2;
+    background-color: transparent;
+    &:hover{
+        border: 1.3px solid #FF9900;
+        background-color: #FFF9F0;
+    }
+}
+
+.selected{
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    border: 1.3px solid #FF9900;
+    background-color: #FFF9F0;
+}
+
+
+.form-check-label{
+    color: #A9A8A8;
+}
+
+
+// .form-check-input{
+//     color: #FF9900;
+//     background-color:#FF9900 ;
+//     border-color:#FF9900 ;
+// }
+
+.form-check-input:checked {
+    background-color:#FF9900 ;
+    border-color:#FF9900 ;
+}
+
+.form-check-input{
+    width: 1.2rem; 
+    height: 1.2rem;
+}
+
+.lh-3{
+   line-height: 1.3;
+}

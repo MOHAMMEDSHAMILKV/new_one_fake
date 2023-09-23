@@ -1,0 +1,14 @@
+.breadcrumb{
+
+}
+.breadcrumb-item {
+    font-size: 13px !important;
+    a{
+        color:color(medium);
+        font-weight: weight(medium);
+        
+    }
+}
+.breadcrumb-item.active{
+    width: 200px;
+}

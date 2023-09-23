@@ -1,0 +1,150 @@
+
+<div class="bgw px-3 pt-4 pb-5">
+    <div class="col-12 row mx-0 d-none d-sm-block">
+        <span class="fz-15 fw-bold c-black">Edit Profile</span>
+    </div> 
+    <div class="col-12 row mx-0 mt-sm-4 mt-0">
+        <div class="col-lg-5 col-md-6 col-12">
+            <label for="" class="fz-13 fw-bold mb-2">First Name</label>
+            <input type="text" class="form-control fz-12 h-55"  placeholder="First Name" [(ngModel)]="fname">
+        </div> 
+        <div class="col-lg-5 col-md-6 col-12 mt-md-0 mt-3"> 
+            <label for="" class="fz-13 fw-bold mb-2">Last Name</label>
+            <input type="text" class="form-control fz-12 h-55"  placeholder="Last Name" [(ngModel)]="lname">
+        </div> 
+    </div> 
+    <div class="col-12 row mx-0 mt-3"> 
+        <div class="col-lg-5 col-md-6 col-12"> 
+            <label for="" class="fz-13 fw-bold mb-2">E-Mail</label>
+            <input type="email" class="form-control fz-12 h-55"  placeholder="Email Address" [(ngModel)]="alternative_email" >
+            <!-- <span class="fz-14 c-FF9900 ms-3  cursor" (click)="update_email()">update</span> -->
+        </div> 
+        <div class="col-lg-5 col-md-6 col-12 d-flex flex-column mt-md-0 mt-3">
+            <label for="" class="fz-13 fw-bold mb-2">Phone Nmuber</label>
+            <div class="form-control d-flex flex-row px-0 py-0" style="position: relative;">
+                <select class="form-select w-25 ps-2 d-block d-lg-block d-md-none d-sm-block" style="border-radius: 0px; outline: none; box-shadow: none;border:none"[(ngModel)]="country_code" (change)="country">
+                    <option *ngFor="let con of contry_code_list" [value]="con.code">{{con.code}}</option>
+                </select> 
+                <select class="form-select w-50 ps-2 d-none d-lg-none d-md-block d-sm-none" style="border-radius: 0px; outline: none; box-shadow: none;border:none"[(ngModel)]="country_code" (change)="country">
+                    <option *ngFor="let con of contry_code_list" [value]="con.code">{{con.code}}</option>
+                </select> 
+                <input class="fz-12 w-100" list="datalistOptions"  [(ngModel)]="alternative_mobile_no" placeholder="558678579"  style="border-right: 1px solid #f6f6f6;border-left: none;border-bottom: none;border-top: none; outline: none;height: 38px">
+            </div>
+            <!-- <input type="text" class="form-control fz-12 h-55"  placeholder="Phone Number" [(ngModel)]="alternative_mobile_no"> -->
+        </div> 
+    </div>
+    <div class="col-12 row mx-0 mt-3 mb-3">
+        <div class="col-lg-5 col-md-6 col-12 row mx-0">
+            <div class="col px-0 ">
+                <label for="" class="fz-13 fw-bold mb-2">Gender</label>
+                <select class="form-select" style="height: 42px!important;" [(ngModel)]="gender" (change)="selectGender($event)">
+                    <!-- <option selected>Select Gender</option> -->
+                    <option *ngFor="let item of genderArray">
+                        {{item.name}}
+                    </option> 
+                </select>
+            </div> 
+            <div class="col ps-2 pe-0">  
+                <label for="" class="fz-13 fw-bold mb-2">Date of Birth</label>
+                <div class="d-flex align-items-center">
+                    <mat-form-field class="date-picker px-2 py-0" appearance="fill">
+                        <input matInput  [matDatepicker]="dp3" [(ngModel)]="date_of_birth" (dateChange)="show($event,date)"   [max]="maxDate" disabled> 
+                        <mat-datepicker-toggle matSuffix [for]="dp3" ></mat-datepicker-toggle>
+                        <mat-datepicker #dp3 disabled="false"></mat-datepicker> 
+                    </mat-form-field>   
+                </div>
+                <!-- <p-calendar [(ngModel)]="date_of_birth" inputId="basic" dateFormat="yy-mm-dd" inputId="dateformat"></p-calendar> -->
+            </div> 
+          </div>  
+          <div class="col-lg-5 col-md-6 col-12 d-none d-xl-block">
+            <label for="" class="fz-13 fw-bold mb-2">Nationality</label>
+            <select class="form-select w-50" style="height: 42px!important;" aria-label="Default select example" [(ngModel)]="nationality" (change)="nationalitySelection($event)">
+                <option *ngFor="let con of country" [value]="con">{{con}}</option>
+            </select>
+          </div> 
+          <div class="col-lg-5 col-md-6 col-12 d-block d-xl-none mt-md-0 mt-3">
+            <label for="" class="fz-13 fw-bold mb-2">Nationality</label>
+            <select class="form-select " style="height: 42px!important;" aria-label="Default select example" [(ngModel)]="nationality" (change)="nationalitySelection($event)">
+                <option *ngFor="let con of country" [value]="con">{{con}}</option>
+            </select>
+          </div> 
+    </div>
+    <div class="col-12 row mx-0 my-5 ">
+        <div class="col d-flex flex-row align-items-center d-none d-sm-flex">
+            <button class="update-btn" (click)="updateProfile()">Update</button>
+            <span class="fz-14 c-FF9900 ms-3  cursor" uk-toggle="target:#cardadding">De-activate Account</span>
+        </div> 
+        <div class="col-12 d-flex justify-content-center align-items-center d-block d-sm-none">
+            <button class="update-btn1 col-12 py-2" (click)="updateProfile()">Update</button>
+        </div> 
+        <div class="col-12 d-flex justify-content-center align-items-center d-block d-sm-none mt-3">
+            <span class="fz-14 c-FF9900  cursor" uk-toggle="target:#cardadding">De-activate Account</span>
+        </div>
+    </div>
+
+</div>
+
+<div id="cardadding" class="uk-flex-top" uk-modal  #modalRef>
+    <div class="uk-modal-dialog uk-modal-body cardadding-body uk-margin-auto-vertical p-4">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12 row mx-0">
+            <div class="d-flex flex-column px-0">
+                <span class="fz-20 fw-bold">De-Active Account</span>
+                <span class="fz-12 c-3D3C3C mt-1">Amet minim mollit non deserunt ullamco est sit.</span>
+            </div>
+            <div class="body-uk py-4 mt-3 px-0">
+                <div class="col-12 row mx-0"> 
+                    <div class="col-12"> 
+                        <label for="" class="fz-13 fw-500 mb-2">Password</label>
+                        <input type="text" class="form-control fz-12 h-55" [(ngModel)]="password"  placeholder="enter card number">
+                    </div> 
+                </div>
+            </div>
+            <div class="col-12 row mx-0 mt-3">
+                <div class="d-flex justify-content-center">
+                    <button class="cancel-btn fz-13 fw-bold py-2 px-3 uk-modal-close">No</button>
+                    <button class="_yes ms-2 py-2 px-3" (click)="deativateAccount()">Yes</button>
+                </div>
+            </div>
+        </div>
+   </div>
+</div>
+
+<div id="email_verify" class="uk-flex-top" uk-modal  #modalRef>
+    <div class="uk-modal-dialog uk-modal-body email_verify-body uk-margin-auto-vertical p-4">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12 row mx-0">
+            <div class="d-flex flex-column px-0">
+                <span class="fz-20 fw-bold"> new-email</span>
+                <span class="fz-12 c-3D3C3C mt-1">Amet minim mollit non deserunt ullamco est sit.</span>
+            </div>
+            <div class="body-uk py-4 mt-3 px-0">
+                <div class="col-12 row mx-0"> 
+                    <div class="col-12"> 
+                        <label for="" class="fz-13 fw-500 mb-2"> new-email</label>
+                        <input type="text" class="form-control fz-12 h-55" [(ngModel)]="password"  placeholder=" new-email">
+                    </div> 
+                </div>
+            </div>
+            <div class="col-12 row mx-0 mt-3">
+                <div class="d-flex justify-content-center">
+                    <button class="cancel-btn fz-13 fw-bold py-2 px-3 uk-modal-close">No</button>
+                    <button class="_yes ms-2 py-2 px-3" (click)="email_verify()">Yes</button>
+                </div>
+            </div>
+        </div>
+   </div>
+</div>
+
+<div class="dialog-container" *ngIf="otpDisplay">
+    <p-dialog header="Otp Verification " class="" [(visible)]="otpDisplay">
+        <div class="col-12 row mx-0 d-flex justify-content-center">
+            <ng-otp-input class="px-0" header="GeeksforGeeks" (onInputChange)="onOtpChange($event)" [config]="{length:5}"></ng-otp-input>
+            <button  class="fz-15 fw-400 w-100 mt-3 mx-1 login-btn" [disabled]="button_active==false" >Send</button>
+            <div class="col-12 px-1 mt-2 d-flex justify-content-center">
+                <i class="fz-13 fw-500 c-FF9900 mt-2 cursor"  *ngIf="subscribeTimer!=0">{{subscribeTimer}} sec</i>
+                <i class="fz-13 fw-500 c-FF9900 mt-2 cursor"  *ngIf="subscribeTimer==0">Resend Otp</i>
+            </div> 
+        </div> 
+    </p-dialog>
+</div>

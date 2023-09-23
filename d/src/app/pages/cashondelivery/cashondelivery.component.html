@@ -1,0 +1,17 @@
+<div class="container px-md-0 px-lg-5 py-5 text-center">
+    <i class="bi bi-check-circle text-success fz-50"></i>
+    <h3 class="fw-bold text-success mt-0">Success</h3>
+    <p class="text-secondary fz-15 details">
+        We're so glad you chose <a [href]="weburl">{{webdomain}}</a>
+        <br>
+        Your order has been received and is currently being processed by our crew
+    </p>
+    <div class="d-flex align-items-center justify-content-center flex-wrap">
+        <button class="btn mx-2 fz-15" [routerLink]="['/']" routerLinkActive="router-link-active" >
+            Home
+        </button>
+        <button class="btn mx-2 fz-15" [routerLink]="['/profile/order']" routerLinkActive="router-link-active">
+            Order List
+        </button>
+    </div>
+</div>

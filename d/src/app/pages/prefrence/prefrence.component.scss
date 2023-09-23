@@ -1,0 +1,39 @@
+.pgw{
+    background-color: white;
+}
+
+.form-check-input{
+    height: 1.5rem;
+    width: 2.2rem;
+    border: 1px solid #E2E2E2;
+    background-color: #E2E2E2;
+} 
+
+.form-check-input:checked {
+    background-color: #FF9900;
+    border-color: #FF9900;
+}
+
+.form-check-input_1{
+    border: 1px solid #FF9900;
+} 
+
+
+.form-check-input_1:checked {
+    background-color: #FF9900;
+    border-color: #FF9900;
+}
+
+.btn_Active{
+    color: black;
+    .span1{
+        color:#1B1B1F ;
+    }
+}
+
+.btn_InActive{
+    color: #999999;
+    .span1{
+        color: #A4A4A5;
+    }
+}

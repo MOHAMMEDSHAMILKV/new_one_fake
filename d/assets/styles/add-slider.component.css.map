@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/app/components/add-slider/add-slider.component.scss"
+    ],
+    "names": [],
+    "file": "add-slider.component.css"
+}

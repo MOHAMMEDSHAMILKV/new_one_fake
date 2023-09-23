@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACD,SAAS,EAAE,IAAI;CAClB",
+    "sources": [
+        "../../src/app/pages/profile/payment/payment.component.scss"
+    ],
+    "names": [],
+    "file": "payment.component.css"
+}

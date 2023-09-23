@@ -1,0 +1,327 @@
+<div class="container-fluid p-md-3 p-1 mt-2 category-page" [dir]="languageShow">
+    <div class="row gx-3 category-page">
+      <div class="category-flilter d-lg-block d-none" dir="ltr" *ngIf="is_division">
+          <div class="h-100 bg-white">
+              <div class="fz-14 fw-bold pt-4 pb-3 px-3">
+                {{divisionName}}
+              </div>
+              <div class="category-search px-3">
+                  <input type="text" placeholder="Search.." [(ngModel)]="searchCategory" (input)="onCategorySearch(searchCategory)">
+                  <i (click)="onCategorySearch(searchCategory)" class="bi bi-search"></i>
+              </div>
+              <label *ngIf="searchResult?.groups!=undefined&&searchResult?.subcategories!=undefined&&searchResult?.categories!=undefined&&searchResult?.categories?.length !=0&&searchResult?.subcategories?.length !=0&&searchResult?.groups?.length !=0">
+                no results  
+              </label> 
+              <ul class="nav flex-column" *ngIf="searchResult?.categories!=undefined" dir="rtl">
+                  <li class="nav-item" *ngFor="let item of searchResult?.categories">
+                    <a class="nav-link result-item" aria-current="page" (click)="routeSubCategory(item,'category')">{{item.name}}</a>
+                  </li>
+              </ul>
+              <ul class="nav flex-column" *ngIf="searchResult?.subcategories!=undefined" dir="rtl">
+                  <li class="nav-item" *ngFor="let item of searchResult?.subcategories">
+                    <a class="nav-link result-item" aria-current="page" (click)="routeSubCategory(item,'subCategory')">{{item.name}}</a>
+                  </li> 
+              </ul>
+              <ul class="nav flex-column" *ngIf="searchResult?.groups!=undefined" dir="rtl">
+                  <li class="nav-item" *ngFor="let item of searchResult?.groups">
+                    <a class="nav-link result-item" aria-current="page" (click)="routeSubCategory(item,'group')">{{item.name}}</a>
+                  </li>
+              </ul> 
+              <div class="category-list mt-4 px-3" *ngIf="searchCategory === ''">
+                  <div class="category__item mb-3" *ngFor="let item of sideFilter;let i = index">
+                      <label for="" class="parent-category fz-14">
+                          <span class="open-category" (click)="selectCategory(i)"> 
+                            <i *ngIf="currentSubcategory != i">+</i>
+                            <i *ngIf="currentSubcategory == i">-</i>
+                          </span>
+                          <label class="ps-2  text-truncate-1 main-cat" for="" (click)="routeSubCategory(item,'category')">{{item.name | titlecase}}</label>
+                          <div class="sub-category pt-2" *ngIf="currentSubcategory == i">
+                            <label class="sub-category__item py-2 fz-14" *ngFor="let subcategory of item.subcategories">
+                              <!-- <span class="open-category" (click)="opened = !opened">
+                                <i *ngIf="!opened">-</i>
+                                <i *ngIf="opened">+</i>
+                              </span>    -->
+                              <label class="ps-2" for="" (click)="routeSubCategory(subcategory,'subCategory')">{{subcategory.name | titlecase}}</label>
+                            </label>
+                          </div>
+                      </label>
+                  </div>
+              </div> 
+          </div> 
+      </div>
+      <div class="category-flilter d-lg-block d-none" dir="ltr" *ngIf="!is_division">
+        <div class="h-100 bg-white">
+          <div class="fz-18 fw-bold pt-4 pb-3 px-3">
+            {{this.sideFilter.name}}
+          </div>
+          <div class="category-search px-3">
+              <input type="text" placeholder="Search.." [(ngModel)]="searchCategory" (input)="onCategorySearch(searchCategory)">
+              <i (click)="onCategorySearch(searchCategory)" class="bi bi-search"></i>
+          </div>
+          <ul class="nav flex-column" *ngIf="searchResult?.subcategories!=undefined">
+              <li class="nav-item" *ngFor="let item of searchResult?.subcategories">
+                <a class="nav-link result-item" aria-current="page"  (click)="routeSubCategory(item,'subCategory')">{{item.name | titlecase}}</a>
+              </li>
+          </ul> 
+          <ul class="nav flex-column" *ngIf="searchResult?.groups!=undefined">
+              <li class="nav-item" *ngFor="let item of searchResult?.groups">
+                <a class="nav-link result-item" aria-current="page" (click)="routeSubCategory(item,'group')">{{item.name | titlecase}}</a>
+              </li>
+          </ul>
+          <div class="category-list mt-4 px-3" *ngIf="searchCategory ===''">
+            <div class="category__item mb-3" *ngFor="let item of sideFilter.subcategories;let i = index">
+                <label for="" class="parent-category">
+                    <span class="open-category" (click)="selectCategory(i)"> 
+                      <i *ngIf="currentSubcategory != i">+</i>
+                      <i *ngIf="currentSubcategory == i">-</i>
+                    </span> 
+                    <label class="ps-2 text-truncate-1 main-cat fz-14" for="" (click)="routeSubCategory(item,'subCategory')">{{item.name | titlecase}}</label>
+                    <div class="sub-category pt-2" *ngIf="currentSubcategory == i">
+                        <label class="sub-category__item py-2" *ngFor="let group of item.groups">
+                          <!-- <span class="open-category" (click)="opened = !opened">
+                            <i *ngIf="!opened">-</i>
+                            <i *ngIf="opened">+</i>
+                          </span>    -->
+                          <label class="ps-2 fz-14" for="" (click)="routeSubCategory(group,'group')">{{group.name | titlecase}}</label>
+                        </label>
+                    </div>
+                </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col category-body px-0">
+        <div class="h-100 bg-white py-2 py-md-3 w-100 px-3">
+          <div class="d-flex flex-wrap p-md-3 py-3 px-1" *ngIf="allEmpty()">
+            <!-- <div class="w-100 text-center mt-4 position-relative" *ngIf="allProducts.length ==0">
+              <div class="loader loader--style2" title="1">
+                <div class="lds-dual-ring"></div>
+              </div>  
+            </div> -->
+            <!-- <span class="d-block m-auto pt-5" *ngIf="allProducts.length == 0">Products loading...</span> -->
+            <div class="row g-2">
+              <div class="col-xxl-2 col-md-3 col-sm-4 col-6 mb-3" *ngFor="let product of allProducts">
+                  <app-product-card-two
+                  [products]="product" 
+                  ></app-product-card-two>
+              </div>
+            </div>
+            <div class="w-100 my-5 d-flex align-itemcenter justify-content-center" *ngIf="allProducts?.length != 0">
+              <button class="btn btn-light" *ngIf="next" (click)="loadMore(next)">
+                Load More
+              </button>
+            </div>
+          </div>
+          <!-- <div class="w-100 text-center mt-4" *ngIf="!popular_category?.products">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no popular Category found!
+              <p class="fz-13 fw-normal mt-2">
+                Please come again later.
+              </p>
+            </div>
+          </div> -->
+          
+          <!-- Popular Category -->
+         <div class="" dir="ltr">
+              <app-popular-category
+                parentLink="/productGroup/" 
+                [group]="specialGroups"
+                [count]="count" 
+                [popular_category]="popular_category">
+              </app-popular-category>
+         </div>  
+          <!-- Ends of Popular Category -->
+        
+
+          <div class="container-fluid py-3 long-banner" *ngFor="let item of mainslot_2">
+            <img class="rounded w-100" [src]="item.image" (click)="routeTo(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code)">
+          </div>
+          <!-- <div class="w-100 text-center mt-4" *ngIf="mainslot_2?.length == 0">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no banner found!
+              <p class="fz-13 fw-normal mt-2">
+              Please come again later.
+              </p>
+            </div>
+          </div> -->
+         
+          <app-product-slider-two 
+              [sectionTitle]="mainslot_3?.Display_name"
+              [products]="mainslot_3?.products"
+          ></app-product-slider-two>
+
+          <!-- <div class="w-100 text-center mt-4" *ngIf="!mainslot_3?.products">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no product slider found!
+              <p class="fz-13 fw-normal mt-2">
+              Please come again later.
+              </p>
+            </div>
+          </div> -->
+
+          <app-product-slider-two 
+              [sectionTitle]="mainslot_4?.Display_name"
+              [products]="mainslot_4?.products"
+          ></app-product-slider-two>
+
+          <!-- <div class="w-100 text-center mt-4" *ngIf="!mainslot_4?.products">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no product slider found!
+              <p class="fz-13 fw-normal mt-2">
+              Please come again later.
+              </p>
+            </div>
+          </div> -->
+          
+          <div class="container-fluid py-3 long-banner">
+            <div class="row">
+              <div class="col-md-4 mb-md-0 mb-3" *ngFor="let item of mainslot_5|slice:0:3">
+                <img class="rounded pointer w-100" [src]="item.image" alt="" (click)="routeTo(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code)"> 
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="w-100 text-center mt-4" *ngIf="mainslot_5?.length == 0">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no offer banner!
+              <p class="fz-13 fw-normal mt-2">
+              Please come again later.
+              </p>
+            </div>
+          </div> -->
+
+          <app-product-slider-two 
+              [sectionTitle]="mainslot_6?.Display_name"
+              [products]="mainslot_6?.products"
+          ></app-product-slider-two>
+
+          <!-- <div class="w-100 text-center mt-4" *ngIf="!mainslot_6?.products">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no product slider found!
+              <p class="fz-13 fw-normal mt-2">
+              Please come again later.
+              </p>
+            </div>
+          </div> -->
+          
+          <app-product-slider-two 
+              [sectionTitle]="mainslot_7?.Display_name"
+              [products]="mainslot_7?.products"
+          ></app-product-slider-two>
+
+          <!-- <div class="w-100 text-center mt-4" *ngIf="!mainslot_7?.products">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no product slider found!
+              <p class="fz-13 fw-normal mt-2">
+              Please come again later.
+              </p>
+            </div>
+          </div> -->
+         
+          <div class="container-fluid py-3 long-banner">
+            <div class="row">
+              <div class="col-md-4 mb-md-0 mb-3" *ngFor="let item of mainslot_8|slice:0:3">
+                <img class="rounded pointer w-100" [src]="item?.image" alt="" (click)="routeTo(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code)">
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="w-100 text-center mt-4" *ngIf="mainslot_8?.length == 0">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no offer banner!
+              <p class="fz-13 fw-normal mt-2">
+              Please come again later.
+              </p>
+            </div>
+          </div> -->
+         
+          <app-product-slider-two 
+              [sectionTitle]="mainslot_9?.Display_name"
+              [products]="mainslot_9?.products"
+          ></app-product-slider-two>
+
+          <!-- <div class="w-100 text-center mt-4" *ngIf="!mainslot_9?.products">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no product slider found!
+              <p class="fz-13 fw-normal mt-2">
+              Please come again later.
+              </p>
+            </div>
+          </div> -->
+          
+          <app-product-slider-two 
+              [sectionTitle]="mainslot_10.Display_name"
+              [products]="mainslot_10.products"
+          ></app-product-slider-two>
+
+          <!-- <div class="w-100 text-center mt-4" *ngIf="!mainslot_10?.products">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no product slider found!
+              <p class="fz-13 fw-normal mt-2">
+              Please come again later.
+              </p>
+            </div>
+          </div> -->
+          
+          <div class="container-fluid py-3 long-banner">
+            <div class="row">
+              <div class="col-md-12" *ngFor="let item of mainslot_11">
+                <img class="rounded pointer w-100" [src]="item.image" alt="" (click)="routeTo(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code)">
+              </div>
+            </div>
+          </div>
+         
+          <!-- <div class="w-100 text-center mt-4" *ngIf="mainslot_11?.length == 0">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no offer banner!
+              <p class="fz-13 fw-normal mt-2">
+              Please come again later.
+              </p>
+            </div>
+          </div> -->
+
+          <app-product-slider-two 
+              [sectionTitle]="mainslot_12.Display_name"
+              [products]="mainslot_12.products"
+          ></app-product-slider-two>
+
+          <!-- <div class="w-100 text-center mt-4" *ngIf="!mainslot_12?.products">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no product slider found!
+              <p class="fz-13 fw-normal mt-2">
+              Please come again later.
+              </p>
+            </div>
+          </div> -->
+          
+          <app-product-slider-two 
+              [sectionTitle]="mainslot_13.Display_name"
+              [products]="mainslot_13.products"
+          ></app-product-slider-two>
+
+          <!-- <div class="w-100 text-center mt-4" *ngIf="!mainslot_13?.products">
+            <img src="../../../../assets/assets/nodata.png" alt="" style="width:100px">
+            <div class="w-100 text-center mt-4">
+              no product slider found!
+              <p class="fz-13 fw-normal mt-2">
+              Please come again later.
+              </p>
+            </div>
+          </div> -->
+        
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<div class="container-fluid px-0">
+  <div [routerLink]="['/']" class="col-12 mx-0 py-2 d-flex justify-content-between px-3 align-items-center" style="background-color: #323031;">
+    <img src="../../../../assets/icons/Sidra Logo white-16 (1).svg" alt="" width="70">
+    <span class="fz-13 fw-500 cursor" style="color: white;" [routerLink]="['/']">
+        Return to Home page
+    </span>
+</div>
+  <div class="col-12 d-flex justify-content-center py-5">
+      <div class="login-page d-flex flex-wrap bw d-flex flex-column justify-content-center">
+        <div class="col-12 mx-0 px-0">
+          <div class="col-12 d-flex justify-content-center">
+              <span class="fz-22 fw-500">Get Started</span>
+          </div>
+          <div class="col-12 d-flex justify-content-center my-0 py-0">
+              <span class="fz-13 c-585858 mt-2">Fill all field below and register your account</span>
+          </div>
+          <div class="col-12 mt-4 mb-3">
+              <input type="email" class="form-control fz-12 h-55"  placeholder="First Name" [(ngModel)]="cus_fname">
+              <span class="fz-11 text-danger" *ngIf="cus_fname_fill==true">fill the first name</span>
+          </div>
+          <div class=" col-12 mt-2 mb-3">
+              <input type="email" class="form-control fz-12 h-55"  placeholder="Last Name" [(ngModel)]="cus_lname">
+              <span class="fz-11 text-danger" *ngIf="cus_lname_fill==true">fill the last name</span>
+          </div> 
+          <div class="col-12 mt-2 mb-3">
+            <input type="email" class="form-control fz-12 h-55"  placeholder="Email Address" [(ngModel)]="cus_email">
+            <span class="fz-11 text-danger" *ngIf="cus_email_fill==true">fill the email address</span>
+          </div>
+          <div class="col-12 mt-2 mb-3">
+              <!-- <input type="text" [(ngModel)]="contact" class="form-control fz-12 h-55"  placeholder="Phone Number"> -->
+              <div class="form-control d-flex flex-row px-0 py-0" style="position: relative;">
+                  <select class="form-select w-25 px-1" style="border-radius: 0px; outline: none; box-shadow: none;border: none; height: 38px;" [(ngModel)]="country_code" (change)="onSelectCode($event)">
+                      <option *ngFor="let con of contry_code_list" [value]="con.code"> {{con.code}}</option>
+                  </select> 
+                  <input class="fz-12 w-100" list="datalistOptions" type="number"  [(ngModel)]="cus_mobile" placeholder="eg:558678579"  style="border-right: 1px solid #f6f6f6;border-left: none;border-bottom: none;border-top: none; outline: none;">
+              </div>
+            <span class="fz-11 text-danger" *ngIf="cus_mobile_fill==true">fill the Mobile number</span>
+          </div>
+          <div class="col-12 row mx-0 mb-3">
+              <div class="col ps-0">
+                <select class="px-2 w-100" aria-label="Default select example" (change)="onChanegegender($event)">
+                    <option selected>Select Gender</option>
+                    <option value="F">Female</option> 
+                    <option value="M">Male</option>
+                    <option value="O">I prefer not to say</option>
+                </select>  
+                <span class="fz-11 text-danger" *ngIf="cus_gender_fill==true">Please Select gender</span>
+              </div>  
+              <div class="col pe-0">
+                <select class="px-2 w-100" (change)="currentCountry($event)">
+                    <option selected>
+                        Select Country
+                    </option> 
+                    <option *ngFor="let con of country" [value]="con">{{con}}</option>
+                </select>
+                <span class="fz-11 text-danger" *ngIf="cus_country_fill==true">
+                    Please select the country
+                </span>
+              </div> 
+          </div>  
+          <div class="col-12  mb-3">
+            <mat-form-field appearance="fill" class="w-100 form-control  f-12">
+              <!-- <mat-label>Enter your password</mat-label> -->
+              <input class="fz-12 fw-500" [(ngModel)]="cus_pass" matInput [type]="hide ? 'password' : 'text'" placeholder="Enter the Password" style="font-weight: 500 !important;color: #212529 !important;">
+              <button class="fz-12 eye-icon" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon class="">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button> 
+            </mat-form-field>
+          </div>
+          <div class="col-12 row mx-0 d-flex align-items-center">
+              <div class="form-check d-flex align-items-center mb-0">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1" (click)="termsAnduse($event)" [(ngModel)]="isChecked">
+                  <label class="form-check-label fz-12 fw-500 ms-2 mt-1 cursor" for="exampleCheck1">I accept all 
+                      <i class="c-FF9900 mx-1 fz-12 fw-500" [routerLink]="['/genaral-policy']" routerLinkActive="router-link-active" > 
+                          Terms Of Use 
+                      </i>  
+                      and 
+                      <i class="c-FF9900 mx-1 fz-12 fw-500" [routerLink]="['/genaral-policy']"> 
+                        Privacy Policy 
+                      </i> 
+                  </label> 
+              </div>            
+          </div>
+          <div class="col-12 row px-0 mx-0 mt-3" >
+              <button *ngIf="isLoading==false" class="login-btn fz-15 fw-400" [disabled]="cus_fname=='' || cus_lname==''|| cus_email=='' || country_code=='' || cus_mobile=='' || cus_gender==null || cus_gender=='Select Gender' || cus_country==null || cus_country=='Select Country'|| cus_pass.length < 8 || isChecked==false " (click)="onSignUp()">Register</button>
+              <button *ngIf="isLoading==true"  class="login-btn fz-15 fw-400">
+                <div class="spinner-border text-light" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </button>
+          </div>
+        </div>
+        <hr> 
+        <div class="d-flex justify-content-center cursor">
+            <span class="fz-13 fw-500 c-5F5F61">Already have an account ? <i class="fz-13 fw-500 c-FF9900 ms-1" [routerLink]="['/auth']" routerLinkActive="router-link-active" >Sign in</i></span>
+        </div>
+      </div>
+  </div>
+</div>
+
+

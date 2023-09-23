@@ -1,0 +1,339 @@
+<div class="cart-item col-12 row mx-1" [ngClass]="{'border rounded': type == 'WISHLIST' || type == 'order', '': type != 'WISHLIST' && type != 'order'}">
+    <!-- <div class="form-check cart-item__check">
+        <input class="form-check-input" type="checkbox" value="" id="">
+    </div> -->
+    <div class="cart-item__image ps-3 col-md-2 col-12">
+        <img *ngIf="productImg!=null" [src]="productImg" alt="" (click)="routeTo(variant_id)" class="ms-2">
+        <img *ngIf="productImg==null&&productImg==0" src="../../../" alt="" (click)="routeTo(variant_id)" class="ms-2">
+    </div>
+    <div class="cart-item__detail col-md col-12 mt-md-0 mt-2 ps-md-2 ps-0">
+        <label class="cart-item__detail--name text-truncate-2 pointer" (click)="routeTo(variant_id)">
+            {{productName | titlecase}} 
+        </label>  
+        <!-- <div class="d-flex mb-lg-0 my-2" *ngIf="type != 'order'">
+            <span class="rating me-2 px-2 text-white small bg-primary">4.5</span>
+            <div class="star-rating">
+                <i class="bi bi-star-fill small"></i>
+                <i class="bi bi-star-fill small"></i>
+                <i class="bi bi-star-fill small"></i>
+                <i class="bi bi-star-fill small"></i>
+                <i class="bi bi-star-half small"></i>
+            </div>
+        </div> -->
+        <label class="cart-item__detail--delivery mt-2 d-flex flex-wrap align-items-center justify-content-md-between w-100" *ngIf="type == 'order'">
+            <span>Status:
+                 <span class="text-success fw-bold" *ngIf="status == 'Order Delivered'">{{status| language |async}}</span>
+                 <span class="text-success fw-bold" *ngIf="status == 'Order Placed'||status == 'initiated'">Order Placed</span>
+                 <span class="text-warning fw-bold" *ngIf="status == 'Order Pending'">{{status| language |async}}</span> 
+                 <span class="text-success fw-bold" *ngIf="status == 'Out for delivery'">{{status| language |async}}</span>
+                 <!-- || status == 'Order Placed'|| status == 'Out for delivery' || status == 'Out for delivery'" -->
+                 <span class="text-danger fw-bold" *ngIf="status == 'Order Cancelled'">{{status| language |async}}</span>
+                 <span class="fw-bold" style="color: blue;" *ngIf="status == 'Order Returned'">{{status| language |async}}</span>
+            </span>
+            <label> 
+                <img class="me-2" src="../../../assets/assets/truck.png" alt="">
+                <span>{{orderExpected | date}} </span>
+                <!-- <span><a >Track Order</a></span> -->
+            </label>
+        </label>
+        <!-- <label class="cart-item__detail--delivery mt-2" *ngIf="type != 'order'">
+            <span>Get it Friday, Dec 17, 7AM-9PM. |</span>
+            <span>Sold by <a href="">Cloudtail India</a> |</span>
+            <span>Origin : India</span>
+        </label> -->
+        <div class="cart-item__detail--control mt-3 flex-wrap">
+            <div class="d-flex flex-wrap align-items-center"> 
+                <span class="text-danger fz-12 fw-bold me-2" *ngIf="maxQty==0 && type === 'CART' ">{{'Out Of Stock'|translate}}</span>
+                <select class="form-select text-primary me-3" aria-label="Default select example" [(ngModel)]="productQty" (change)="qtyChanger(products)" *ngIf="type != 'SAVEFORLATER' && type != 'WISHLIST' && type != 'order' && type!='BUY' && maxQty!=0">
+                    <ng-container *ngFor="let in of qty(max_order_limit);let i=index">
+                        <option *ngIf="i>=min_order_limit" [value]="i"><span>{{i}}</span></option>
+                    </ng-container> 
+                </select> 
+                <label class="fz-14 mt-md-0 mt-2 me-2" *ngIf="type === 'order'" for="">{{'Qty'|translate}}: {{productQty}}</label>
+                <label class="price mt-md-0 mt-2 me-2" *ngIf="type != 'CART'">{{currency}} {{currentPrice | number : '1.2-2'}}</label>
+                <label class="text-success fw-bold fz-12 mt-2 ms-md-0 ms-2 me-2" *ngIf="type != 'CART' && Available_stock==true && type != 'order'"> {{'Stock is Available'|translate}} </label>
+                <label class="text-danger fw-bold fz-12 mt-2 ms-md-0 ms-2 me-2" *ngIf="type != 'CART' && Available_stock==false && type != 'order'"> {{'Out of Stock'|translate}} </label>
+                <label class="price me-2" *ngIf="type == 'CART'">{{currency}} {{totalPrice| number : '1.2-2'}}</label>
+                <span class="fz-13 ms-3 delivery-date pt-md-0 pt-2 me-2" *ngIf="type == 'CART'">{{deliveryDate}}</span>
+            </div>    
+            <div class="control-cart" *ngIf="type == 'CART'" class="mt-md-0 mt-2">
+                <a class="cb fz-13 pe-md-1 pe-1 p-0"  (click)="remove()">{{'Delete Item'|translate}}</a>
+                <span *ngIf="isLogin">|</span>
+                <a class="cb fz-13 px-1 p-0" *ngIf="isLogin" (click)="saveForLater()">{{'Save for Later'|translate}}</a>
+            </div>   
+            <div *ngIf="type == 'SAVEFORLATER'" class="mt-md-0 mt-2">
+                <a class="cb fz-13 px-1 p-0" uk-toggle="target:#deleteItemFromSaveforlater">{{'Delete Item'|translate}}</a>
+                <span *ngIf="Available_stock==true">|</span>
+                <a class="cb fz-13 px-1 p-0" *ngIf="Available_stock==true" (click)="moveToCart(avaliablestock,virtual_stock)">{{'Move to cart'|translate}}</a>
+            </div> 
+            <div *ngIf="type == 'WISHLIST'" class="mt-md-0 mt-2">
+                <a class="cb fz-13 pe-md-1 pe-0 p-0" (click)="removeFromWishlist()">{{'Delete Item'|translate}}</a>
+                <span *ngIf="Available_stock==true">|</span>
+                <span class="fz-13 text-success  ms-2" *ngIf="isAvailableInCart" [routerLink]="['/cart']" routerLinkActive="router-link-active" >{{'In cart'|translate}}</span>
+                <a class="cb fz-13 ps-md-1 ps-1 p-0" (click)="addToCart()" *ngIf="!isAvailableInCart && Available_stock==true">{{'Add to cart'|translate}}</a>
+            </div>  
+            <div *ngIf="type == 'order'" class="mt-md-0 mt-2">
+                <a class="cb fz-13 pe-2 pointer" *ngIf="status !='Order Cancelled' && status !='Order Delivered'&& status!='Order Returned'" data-bs-toggle="modal" [attr.data-bs-target]="hash+trackModal+id" (mousemove)="currentStatusUpdate(status,id,orderExpected)">{{'Track Order'|translate}}</a>
+                <span *ngIf="status !='Order Delivered' && status !='Order Cancelled'&& status!='Order Returned'">|</span>
+                <a *ngIf="is_returable && status!='Order Returned'" class="cb fz-13 p-0 pointer px-1" uk-toggle="target:#ReturnOrder" (click)="returnOrderLineId(id)">{{'Return Delivery'|translate}}</a>
+                <span *ngIf="is_returable && status!='Order Returned'">|</span>
+                <!-- <a class="btn p-0 text-muted">Pickup from hub</a>
+                <span>|</span> --> 
+                <a class="cb fz-13 p-0 px-1 pointer" (click)="modalTypeChanger('cancel')" *ngIf="status !='Order Delivered' && status !='Order Cancelled' && status!='Order Returned'" data-bs-toggle="modal" [attr.data-bs-target]="hash+cancelModal+id" (mousemove)="currentStatusUpdate(status,id,orderExpected)">{{'Cancel Order'|translate}}</a>
+                <a class=" cb fz-13 p-0 px-1 pointer"  *ngIf="status =='Order Delivered'" [href]="hash+receiptModal+id" uk-toggle>{{'Order Receipt'|translate}}</a>
+                <span  *ngIf="status =='Order Delivered'">|</span>
+                <a class=" cb fz-13 p-0 px-1 pointer" *ngIf="status =='Order Delivered'" uk-toggle="target:#reviewModal" (click)="reviewId(variant_id)">{{'Write Review'|translate}}</a>
+            </div>
+            <div *ngIf="type=='BUY'" class="mt-md-0 mt-2"> 
+                <span class="fz-13 text-success  ms-2" *ngIf="isAvailableInCart" [routerLink]="['/cart']" routerLinkActive="router-link-active" >{{'In cart'|translate}}</span>
+                <a class="cb fz-13 px-1 p-0" (click)="addToCart()" *ngIf="!isAvailableInCart && Available_stock==true">{{'Add to cart'|translate}}</a>
+            </div> 
+        </div> 
+    </div> 
+</div> 
+
+
+
+<!--  -->
+<div class="modal fade" [id]="cancelModal+id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-2">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="p-4">
+                <select *ngIf="reasonInputActive==false" class="form-select mb-3" aria-label="Default select example" id="selectreason" (change)="cancelReasons($event)">
+                    <option selected>{{'Select the Reason'|translate}}</option>
+                    <option value="Price to high">{{'Price to high'|translate}}</option>
+                    <option value="Address need to change">{{'Address need to change'|translate}}</option>
+                    <option value="View some other similar products">{{'View some other similar products'|translate}}</option>
+                    <option value="Other">{{'Other'|translate}}</option>
+                  </select>
+                 
+                <div class="mb-3">
+                    <textarea class="form-control" placeholder="Comment" [(ngModel)]="comment" rows="3"></textarea>
+                </div>
+                <button *ngIf="isreason ==undefined || isreason == false" class="btn btn-primary" (click)="cancelOrder()">{{'Submit'|translate}}</button>
+                <button *ngIf="isreason ==true" class="btn btn-primary" (click)="cancelOrder()" data-bs-dismiss="modal" >{{'Submit'|translate}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="modal fade" [id]="returnModal+id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-2">
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="p-4">
+                <div class="mb-3" *ngIf="reasonInputActive==true">
+                    <input type="email" class="form-control" placeholder="Reason" [(ngModel)]="resone">
+                    <span class="fz-13 text-danger" *ngIf="isreason ==false">please add reason</span>
+                </div>
+                <select *ngIf="reasonInputActive==false" class="form-select mb-3" aria-label="Default select example" id="selectreason" (change)="cancelReasons($event)">
+                    <option selected>Select the Reason</option>
+                    <option value="Price to high">Price to high</option>
+                    <option value="Address need to change">Address need to change</option>
+                    <option value="View some other similar products">View some other similar products</option>
+                    <option value="Other">Other</option>
+                  </select>
+                 
+                <div class="mb-3">
+                    <textarea class="form-control" placeholder="Comment" [(ngModel)]="comment" rows="3"></textarea>
+                </div>
+                <button *ngIf="isreason ==undefined || isreason == false" class="btn btn-primary" (click)="cancelOrder()">Submit</button>
+                <button *ngIf="isreason ==true" class="btn btn-primary" (click)="cancelOrder()" data-bs-dismiss="modal" >Submit</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="modal fade" [id]="trackModal+id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered track-modal">
+        <div class="modal-content">
+            <div class="d-flex w-100 justify-content-between p-3">
+                <div class="h5 m-0">{{'Order ID'|translate}} : {{currentId}}</div>
+                <label for="" class="d-flex flex-column fz-13">
+                    <label class="m-0 mb-2 fw-500">{{'Expected Delivery'|translate}}</label>
+                    <span>{{CurrentorderExpected | date}}</span>
+                </label>
+            </div>
+            <div class="d-flex w-100 justify-content-between order-track-progress">
+                <div class="step-one stage-one" [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Shipped', 'stage-three': currentStatus ==='Out for delivery', 'stage-four': currentStatus === 'Order Delivered'}">
+                    <i class="bi bi-check2"></i>
+                </div>
+                <div class="stepcontent-one">
+                    {{'Order Placed'|translate}}
+                </div>
+
+                <div class="step-two" [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Shipped', 'stage-three': currentStatus ==='Out for delivery', 'stage-four': currentStatus === 'Order Delivered'}">
+                    <i class="bi bi-check2" *ngIf="currentStatus === 'Shipped' || currentStatus ==='Out for delivery' || currentStatus ==='Order Delivered'"></i>
+                    <i class="bi bi-stopwatch" *ngIf="currentStatus === 'Order Placed'"></i>
+                </div>
+                <div class="stepcontent-two" >
+                    {{'Order Shipped'|translate}}
+                </div>
+                <div class="step-three" [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Shipped', 'stage-three': currentStatus ==='Out for delivery', 'stage-four': currentStatus === 'Order Delivered'}">
+                    <i class="bi bi-check2" *ngIf="currentStatus ==='Out for delivery' || currentStatus ==='Order Delivered'"></i>
+                    <i class="bi bi-stopwatch" *ngIf="currentStatus === 'Order Placed' || currentStatus === 'Shipped'"></i>
+                </div>
+                <div class="stepcontent-three">
+                    {{'Out for delivery'|translate}}
+                </div>
+                <div class="step-four" [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Shipped', 'stage-three': currentStatus ==='Out for delivery', 'stage-four': currentStatus === 'Order Delivered'}">
+                    <i class="bi bi-check2" *ngIf="currentStatus ==='Order Order Delivered'"></i>
+                    <i class="bi bi-stopwatch" *ngIf="currentStatus === 'Order Placed' || currentStatus === 'Shipped' || currentStatus === 'Out for delivery'"></i>
+                </div>
+                <div class="stepcontent-four">
+                    {{'Order Delivered'|translate}} 
+                </div>
+                <div class="track" [ngClass]="{'stage-one': currentStatus ==='Order Placed', 'stage-two' : currentStatus === 'Shipped', 'stage-three': currentStatus =='Out for delivery', 'stage-four': currentStatus === 'Order Delivered'}">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="p-4">
+                <div class="mb-3">
+                    <label for="headline" class="form-label fz-14">Headline</label>
+                    <input type="text" class="form-control" id="headline" [(ngModel)]="headline" placeholder="">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label fz-14">Review writing</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="reviewComment"></textarea>
+                </div>
+                <div class="d-flex addimg-block">
+                    <div class="addimg-block__block" *ngFor="let item of imageArray;let i = index">
+                        <input type="file" name="image1" [(ngModel)]="item.image1" (change)="onUploadImageOne($event,item.image,i)">
+                        <img [src]="item.image" alt="" >
+                    </div>
+                </div>
+                <button class="btn btn-primary mt-4 px-4" (click)="createPost()">
+                    post
+                </button>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div id="ReturnOrder" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="">
+            <div class="mb-3" *ngIf="reasonInputActive==true">
+                <input type="email" class="form-control" placeholder="Reason" [(ngModel)]="resone">
+                <span class="fz-13 text-danger" *ngIf="isreason ==false">{{'please add reason'|translate}}</span>
+            </div>
+            <select *ngIf="reasonInputActive==false" class="form-select mb-3" aria-label="Default select example" id="selectreason" (change)="cancelReasons($event)">
+                <option selected>{{'Select the Reason'|translate}}</option>
+                <option value="Price to high">{{'Price to high'|translate}}</option>
+                <option value="Address need to change">{{'Address need to change'|translate}}</option>
+                <option value="View some other similar products">{{'View some other similar products'|translate}}</option>
+                <option value="Other">{{'Other'|translate}}</option>
+              </select>
+            <div class="mb-3">
+                <textarea class="form-control" placeholder="Comment" [(ngModel)]="comment" rows="3"></textarea>
+            </div>
+            <button class="btn btn-primary" (click)="returnOrder()">{{'Submit'|translate}}</button>
+        </div>
+    </div>
+</div>
+
+ 
+<div [id]="receiptModal+id" class="uk-modal-container" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body p-0">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <div class="receipt">
+            <app-receipt [orderId]="orderId"></app-receipt>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="deleteItemFromCart" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="p-4">
+                <span>{{'Really want to delete the item'|translate}}</span>
+                <button class="btn btn-primary" (click)="removeSaveforLater()">{{'Submit'|translate}}</button>
+                <!-- <button *ngIf="isreason ==true" class="btn btn-primary" (click)="cancelOrder()" data-bs-dismiss="modal" >Submit</button> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="deleteItemFromCartData" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <p class="fz-14">{{'You really want to delete the item from cart'|translate}}</p>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-primary uk-modal-close fz-13" >{{'No'|translate}}</button>
+            <button class="btn btn-primary ms-2 uk-modal-close fz-12" (click)="remove()">{{'Yes'|translate}}</button>
+        </div>
+    </div>
+</div>
+
+<div id="deleteItemFromSaveforlater" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="width: 400px;">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <p class="fz-14">{{'You really want to delete the item from SaveforLater'|translate}}</p>
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-primary uk-modal-close" >{{'No'|translate}}</button>
+            <button class="btn btn-primary ms-2  uk-modal-close" (click)="removeSaveforLater()">{{'Yes'|translate}}</button>
+        </div>
+    </div>
+</div>
+
+<div id="reviewModal" class="uk-flex-top" uk-modal="stack:true">
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="">
+            <div class="mb-3">
+                <label for="headline" class="form-label fz-14">{{'Headline'|translate}}</label>
+                <input type="text" class="form-control" id="headline" [(ngModel)]="headline" placeholder="">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label fz-14">{{'Review writing'|translate}}</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="reviewComment"></textarea>
+            </div>
+            <div class="d-flex addimg-block d-flex align-items-center">
+                <!-- <div class="addimg-block__block" *ngFor="let item of imageArray;let i = index">
+                    <input type="file" name="image1" [(ngModel)]="item.image1" (change)="onUploadImageOne($event,item.image,i)">
+                    <img [src]="item.image" alt="">
+                </div> -->
+                <span class="fw-bold text-success fz-14" uk-toggle="target:#ratingproduct" style="cursor: pointer;" (click)="ratingId(variant_id)">{{'Rate the product'|translate}}</span>
+            </div>
+            <button class="btn btn-primary mt-4 px-4 uk-modal-close" (click)="createPost()">
+                {{'POST'|translate}}
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div id="ratingproduct" class="uk-flex-top" uk-modal="stack:true">
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" style="width: 400px;">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+         <div class="col-12 row d-flex justify-content-center align-items-center">
+             <div class="d-flex flex-row justify-content-center">
+                <ngb-rating [max]="5" [(rate)]="currentRating" [readonly]="false"></ngb-rating>
+            </div>
+             <div class="d-flex justify-content-center mt-3">
+                 <button class="btn fz-14 uk-modal-close" style="color: white;" (click)="postRating()">{{'POST'|translate}}</button>
+             </div>
+         </div>    
+    </div>
+</div>
+

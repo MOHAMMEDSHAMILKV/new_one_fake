@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="mt-5">
+            <h4 class="about_head">{{dataPolicy?.title}}</h4>
+            <p style="font-size: 12px;"> Last updated: {{dataPolicy?.last_updated | date}}</p>
+            <div>
+                <div class="p-Font"  style="line-height: 24px !important;" [innerHtml]="dataPolicy?.description">
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>

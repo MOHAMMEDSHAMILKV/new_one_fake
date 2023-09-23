@@ -1,0 +1,72 @@
+<div class="container-fluid px-0 pt-1">
+    <div class="header_banner" *ngFor="let banner of headerSlot_3">
+      <a [href]="routeTo(banner.redirect_type,banner.redirecturl,banner.redirect_id,banner.section_type,banner.redirect_code)" class="m-0 p-0">
+        <img class="w-100" [src]="banner?.image" alt="">
+      </a>
+    </div>
+</div>
+    
+<!-- Popular Category -->
+<app-popular-category
+parentLink="/division/"
+[group]="specialGroups"
+[count]="count"
+[popular_category]="popular_category"
+>
+</app-popular-category>
+<!-- Ends of Popular Category -->
+
+<div class="container-fluid py-3 px-30px">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let item of mainslot_2|slice:0:4">
+      <a [href]="routeToForSpecialBanners(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code,item.display_name)" class="m-0 p-0">
+        <img class="w-100" [src]="item.image" alt="">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid py-3 px-30px" *ngFor="let item of mainslot_3">
+    <a [href]="routeTo(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code)" class="m-0 p-0">
+      <img class="w-100" [src]="item.image" alt="">
+    </a>
+</div>
+
+<app-product-slider-two 
+    [sectionTitle]="mainslot_4.Display_name"
+    [products]="mainslot_4.products"
+></app-product-slider-two>
+
+
+<div class="container-fluid py-3 px-30px">
+    <div class="row gx-3">
+      <div class="col-md-4 mb-3" *ngFor="let item of mainslot_5|slice:0:3">
+        <a [href]="routeTo(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code)" class="m-0 p-0">
+          <img class="w-100" [src]="item.image" alt="">
+        </a>
+      </div>
+    </div>
+</div>
+
+<app-product-slider-two 
+    [sectionTitle]="mainslot_6.Display_name"
+    [products]="mainslot_6.products"
+></app-product-slider-two>
+
+
+<div class="container-fluid py-3 px-30px" *ngFor="let item of mainslot_7">
+  <a [href]="routeTo(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code)" class="m-0 p-0">
+    <img class="w-100" [src]="item.image" alt="">
+  </a>
+</div>
+
+<div class="container-fluid py-3 px-30px" *ngFor="let item of mainslot_8">
+  <a [href]="routeTo(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code)" class="m-0 p-0">
+    <img class="w-100" [src]="item.image" alt="">
+  </a>
+</div>
+
+<app-product-slider-two 
+    [sectionTitle]="mainslot_9.Display_name"
+    [products]="mainslot_9.products"
+></app-product-slider-two>

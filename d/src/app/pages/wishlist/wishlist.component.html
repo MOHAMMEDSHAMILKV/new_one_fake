@@ -1,0 +1,228 @@
+<div  *ngIf="isLoading" class="container-fluid  loading-overlay d-flex justify-content-center align-items-center" style="height:100%">
+    <img src="../../../assets/images/New-anime2.gif" alt="" width="80">
+  </div>
+<app-sidraheader style="position: fixed;width: 100%;top: 0;
+left: 0;
+z-index: 999;"></app-sidraheader>
+<app-menu-header></app-menu-header>
+    <div class="container-fluid pt-4 pb-5">
+        <div class="col-12 row mx-0">
+            <div class="col-3">
+                <div class="d-flex flex-row bg-white">
+                    <div class="d-flex align-items-center justify-content-center wishlist_btn w-50 py-3 px-2" [class.wishlist_btn_active]="is_My_wishlist==true">
+                        <span class="fz-14 ">My Wishlist</span>
+                    </div>
+                    <!-- <div class="d-flex align-items-center justify-content-center wishlist_btn w-50 py-3 px-2">
+                        <span class="fz-14 ">Shared List</span>
+                    </div> -->
+                </div>
+                <div class="mt-2" style="height: 100vh;background-color: white;">
+                    <div class="wishlistDetail p-3 d-flex justify-content-between cursor" *ngFor="let item of groupListArray;let i=index" [class.wishlistDetail_active]="wishListDetail_active==i||item.group_name==defult" (click)="deatil(i,item.group_name,item)">
+                        <div class="d-flex flex-column">
+                             <span class="fz-14 head fw-bold">
+                                {{item.group_name}} 
+                             </span>
+                             <span class="mt-2 fz-11 d-flex align-items-center head2">
+                                 <img src="../../../assets/icons/glob.svg" width="15px" alt="">
+                                 <i class="ms-1">Total {{item.whishlist_count}} Products</i>
+                             </span> 
+                        </div> 
+                        <div class="shareIcon d-flex flex-column align-items-center">
+                            <!-- <i class="bi bi-share fz-16 uk-button uk-button-default p-0" ></i> -->
+                            <!-- <div class="px-0" *ngIf="wishListDetail_active==i" uk-toggle="target:#sharedList">
+                                 <img class="uk-button uk-button-default p-0" width="15px" src="../../../assets/icons/sharebtnInactive.svg" alt="">
+                                 <div class="p-3" uk-dropdown="mode: click">
+                                     <div class="border-bottom">
+                                         <img src="../../../assets/icons/email.svg" width="20" alt="">
+                                         <span class="fz-13 ms-2">Email</span>
+                                     </div>      
+                                 </div>
+                            </div>  -->
+                            <!-- <div class="px-0" *ngIf="wishListDetail_active==i">
+                                 <img class="uk-button uk-button-default p-0" width="15px" src="../../../assets/icons/shareIconactive.svg" alt="">
+                                 <div class="p-3" uk-dropdown="mode: click">
+                                     <div class="border-b pb-1">
+                                         <img src="../../../assets/icons/email.svg" width="30" alt="">
+                                         <span class="fz-13 ms-2">Email</span>
+                                     </div>   
+                                     <div class="border-b py-2">
+                                         <img src="../../../assets/icons/facebook.svg" width="30" alt="">
+                                         <span class="fz-13 ms-2">Facebook</span>
+                                     </div>     
+                                     <div class="border-b py-2">
+                                         <img src="../../../assets/icons/twitter.svg" width="30" alt="">
+                                         <span class="fz-13 ms-2">Twitter</span>
+                                     </div>   
+                                     <div class="border-b py-2">
+                                         <img src="../../../assets/icons/whatsapp.svg" width="30" alt="">
+                                         <span class="fz-13 ms-2">Whatsapp</span>
+                                     </div>   
+                                     <div class="border-b py-2">
+                                         <img src="../../../assets/icons/linkcopy.svg" width="30" alt="">
+                                         <span class="fz-13 ms-2">Copy Link</span>
+                                     </div> 
+                                 </div>
+                             </div> -->
+                            <!-- <img class="mt-3"  src="../../../assets/icons/rightArraow.svg" width="6px" alt=""> -->
+                            <i *ngIf="wishListDetail_active==i" (click)="deleteGroup(item.id)" style="color: black;" class="bi bi-trash mt-2 cursor"></i>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <div class="col-9 ps-0">
+                <div class="bgw d-flex justify-content-between align-items-center" style="padding: 18px 15px 18px 15px !important;">
+                    <span class="fz-15 fw-bold cursor">Reviews</span>
+                    <span class="fz-14 fw-500 cursor" style="color: #FF9900;" uk-toggle="target:#cardadding" (click)="openModal()">CREATE NEW LIST</span>
+                </div> 
+                 <div class="bgw mt-2" style="height: 100vh;background-color: white; overflow: auto;">
+                     <div class="col-12 mx-0">
+                        <div class="border-bottom"*ngFor="let item of wishlistArray;let i=index">
+                            <div class="col-12 row mx-0 py-2 ">
+                                <div class="col-2 d-flex align-items-center justify-content-center">
+                                    <img src="{{item?.variant_data?.image}}" style="height: 117px;" alt="">
+                                </div>
+                                <div class="col-8 d-flex justify-content-between px-0">
+                                     <div class="d-flex flex-column justify-content-center">
+                                        <span class="fz-15 fw-500 w-100">{{item?.variant_data?.variant_name}}</span>
+                                        <span class="mt-2 fw-500 fz-11 fw-bold">Seller: <i class="fw-bold" >{{item?.variant_data?.inventory_name}}</i></span>
+                                        <span class="mt-2 fz-18 fw-500">AED <i class="ms-1 fz-18 fw-bold">{{item?.selling_price}}</i></span>
+                                     </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <div class="uk-inline">
+                                            <button class="uk-button order-btn py-3 fz-13 px-3" type="button">Move to another</button>
+                                            <div uk-dropdown="mode: click" class="p-0" style="border: 1.3px solid #FF8307;">
+                                                <div class="d-flex flex-row py-1 px-3 align-items-center border-b cursor" [class.group_selected]="is_selectIndex==i||groupName==j.group_name"  *ngFor="let j of groupListArray;let i=index" (click)="movetoAnother(item,j.id,i)">
+                                                    <input class="form-check-input" type="radio" [checked]="is_selectIndex==i||groupName==j.group_name">
+                                                    <span class="fz-13 ms-2">{{j.group_name}} </span>   
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <button class="order-btn py-2 fz-13 px-3" routerLinkActive="router-link-active">Move to another</button> -->
+                                        <button class="mt-2 order-btn py-2 fz-13 px-3" (click)="deleteWishlist(item.id,groupId)"> Delete</button>
+                                    </div>
+                                </div>
+                            </div> 
+                         </div>
+                     </div>
+                     <div *ngIf="wishlistArray.length==0" class="col-12 row mx-0 py-5">
+                          <div class="">
+                              <div class="d-flex justify-content-center align-items-center w-100">
+                                <img src="../../../assets/icons/wishlist.svg" alt="" width="90">
+                              </div>
+                              <div class="d-flex justify-content-center align-items-center mt-2">
+                                  <span class="fz-20 fw-bold">
+                                        No Item found
+                                  </span>
+                              </div>
+                          </div>
+                     </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+
+    
+<div id="cardadding" class="uk-flex-top"  uk-modal >
+    <div class="uk-modal-dialog uk-modal-body cardadding-body uk-margin-auto-vertical p-0">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12 row mx-0"> 
+            <div class="d-flex flex-column px-4 py-3" style="background-color: #F4F3F0;">
+                <span class="fz-20 fw-bold">Create new List</span>
+                <!-- <span class="fz-12 c-3D3C3C mt-1">Amet minim mollit non deserunt ullamco est sit.</span> -->
+            </div> 
+            <div class="body-uk pt-3 pb-4 px-4">
+                <div class="col-12 row mx-0 px-0"> 
+                    <div class="col-12 px-0"> 
+                        <label for="" class="fz-13 fw-500 mb-2">Wishlist Name</label>
+                        <input type="text" class="form-control fz-12 h-55" [(ngModel)]="wishlistGroupName"  placeholder="enter card number">
+                        <label for="" class="fz-12  mt-3">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            sit amet consectetur adipisicing elit
+                        </label> 
+                    </div> 
+                </div>
+                <div class="col-12 px-0 row mx-0 mt-4">
+                    <button class="update-btn" *ngIf="btn_loading==false" (click)="createGroup()">Create new List</button>
+                    <button class="update-btn" *ngIf="btn_loading==true">
+                        <div class="spinner-border text-light" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+   </div>
+</div>
+
+
+
+<div id="sharedList" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body cardadding-body uk-margin-auto-vertical p-0" style="width: 387px;">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12 row mx-0 py-3 px-2" style="background-color: #F4F3F0;">
+            <span class="fz-15 fw-bold">
+                Share Wishlist
+            </span>
+        </div>
+        <div class="py-3">
+            <div class="col-12 row mx-0 px-2">
+                <span class="fz-11" style="color:#3D3C3C">
+                     Safe and Secure Payments.Easy returns.100% Authentic products. Lorem ipsum this is dummy Safe and Secure Payments.
+                </span>
+             </div>
+            <div class="col-12 row mx-0 pt-3 px-3">
+                <div class="py-2 btn_permission d-flex justify-content-between align-items-center">
+                    <span class="fz-12 fw-bold">
+                        Permission For :
+                    </span>
+                    <div class="uk-inline">
+                        <button class="uk-button uk-button-default fz-13 fw-bold px-2 py-2 d-flex justify-content-between" type="button" style="width: 150px;" (click)="sortClick()">
+                            <span class="fz-12" style="color: #6D6D6D;">Only View Products</span>
+                            <i class="bi bi-chevron-down fw-bold"></i>
+                        </button>
+                        <div class="p-0" uk-dropdown="mode: click" *ngIf="sortActive==true">
+                        <div class="d-flex flex-column cursor">
+                            <div class="d-flex flex-row px-2 py-3 groupListOver border-bottom" (click)="permissionClick()">
+                                Edit
+                            </div> 
+                            <div class="d-flex flex-row px-2 py-3 groupListOver border-bottom" >
+                                View 
+                            </div> 
+                        </div> 
+                    </div>
+                </div>
+            </div>
+            <div class="pt-4 px-0 pb-1">
+            <span class="fz-15 fw-bold">
+                    Share Via
+            </span>
+            </div>
+            <span class="fz-11 px-0" style="color: #3D3C3C;">
+                Only set view permission .Easy returns.100% Authentic.
+            </span> 
+            <div class="py-3 px-0 border-bottom">
+                <img src="../../../assets/assets/copylink.svg" alt="" width="20">
+                <span class="fz-12 fw-500 ms-2" style="color: #3D3C3C;">Copy Link</span>
+            </div>
+            <div class="py-3 px-0 border-bottom cursor">
+                <img src="../../../assets/assets/message.svg" alt="" width="20">
+                <span class="fz-12 fw-500 ms-2" style="color: #3D3C3C;">Send by Message</span>
+            </div>
+            <div class="py-3 px-0 border-bottom cursor">
+                <img src="../../../assets/assets/at.svg" alt="" width="20">
+                <span class="fz-12 fw-500 ms-2" style="color: #3D3C3C;">Email</span>
+            </div>
+            <div class="py-3 px-0 cursor">
+                <img src="../../../assets/assets/more.svg" alt="" width="20">
+                <span class="fz-12 fw-500 ms-2" style="color: #3D3C3C;">More</span>
+            </div> 
+            <button class="update-btn py-2 px-3 mt-3" >Share</button>
+            </div>
+        </div>
+   </div>
+</div>
+
+<app-footer></app-footer>
+   

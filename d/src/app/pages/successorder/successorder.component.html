@@ -1,0 +1,90 @@
+<app-header></app-header>
+    <div class="container-fluid container-bgc mb-5 pb-5" >
+        <div class="container py-4">
+            <div class="row mx-0">
+                <div class="col-8 px-0">
+                    <div class="d-flex justify-content-center align-items-center flex-column white-box  py-3 pb-4" style="height: 60vh;">
+                        <img *ngIf="paymentStatus=='success'" src="../../assets/images/tenor.gif" width="90px" class="img" alt="">
+                        <img *ngIf="paymentStatus=='failed'" src="../../../assets/images/failedorder.svg" width="90px" class="img" alt="">
+                        <h3 class="my-0 box1-text1 mt-2" *ngIf="paymentStatus=='success'">Thank you for your purchase!</h3>
+                        <h3 class="my-0 box1-text1 mt-2" *ngIf="paymentStatus=='failed'">We're sorry</h3>
+                        <p class="mb-0 mt-2 box1-text2" *ngIf="paymentStatus=='failed'">Payment for<b class="px-1" style="color: black;">Order No. {{orderDetail?.order_code}}</b>could not be processed. Please try again</p>
+                        <p class="mb-0 mt-2 box1-text2" *ngIf="paymentStatus=='success'"><b style="color: black;">Order No.</b>{{orderDetail?.order_code}}</p>
+                        <p class="mt-0 box1-text2" *ngIf="paymentStatus=='success'">A confirmation email has been sent to you</p>
+                        <a class="box1-link" *ngIf="paymentStatus=='success'" (click)="routeToDetailPage()">Track your order</a>
+                    </div> 
+                    <!-- <div class="col-12 row box-2 mx-0 mt-1"> 
+                        <div class="col-4"> 
+                            <div class="d-flex justify-content-start align-items-start flex-column py-5 ps-4">
+                                <h5 class="mb-1 box2-text1">DELIVERY ADDRESS</h5>
+                                <h5 class="mb-0 mt-2 box2-text2">{{orderDetail?.order_meta?.address_data?.full_name}}</h5>
+                                <p class="my-0 mt-1 box2-text3">{{orderDetail?.order_meta?.address_data?.building_name}}, {{orderDetail?.order_meta?.address_data?.city}},
+                                    {{orderDetail?.order_meta?.address_data?.state}}
+                                </p>
+                                <p class="box2-text4 mb-0">{{orderDetail?.order_meta?.address_data?.contact}}</p>
+                                <p class="box2-text4 my-0">{{orderDetail?.email}}</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-flex justify-content-start align-items-start flex-column py-5 ps-4">
+                                <h5 class="box2-text1 mb-1">DELIVERY option</h5>
+                                <h5 class="mb-0 mt-2 box2-text2">{{orderDetail1?.expected_date?.delivery_notes}}</h5>
+                                <p class="box2-text3 my-0 mt-1">2-3 Bussiness Days</p>
+                                <h5 class="mb-0 mt-3 box2-deliverytime">Expected Delivery :</h5>
+                                <p class="box2-text4 my-0 mt-2">{{orderDetail1?.expected_date?.delivery_date}}</p>
+                                <p class="box2-text4 mt-0">Delivery Slot : {{orderDetail1?.hub_address?.time_from}}AM-{{orderDetail1?.hub_address?.time_to}}PM</p>
+                            </div>
+                        </div> 
+                        <div class="col-4">
+                            <div class="d-flex justify-content-start align-items-start flex-column py-5 px-3">
+                                <h5 class="box2-text1 mb-1">payment method</h5>
+                                <h5 class="mb-0 mt-2 box2-text2" *ngIf="orderDetail?.payment_method=='cod'">Cash on Delivery</h5>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="col-4">
+                    <div class="white-box box-3">
+                        <h5 class="box2-text1 pt-4 pb-3 px-3 mb-0">price details</h5>
+                    </div>
+                    <div class="white-box py-4 ">
+                        <div class="d-flex justify-content-between align-items-center px-3 pb-2">
+                            <span class="price-details">Selling Price</span>
+                            <span class="price">{{orderDetail?.selling_price}}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center px-3 pb-2">
+                            <span class="price-details">Discount</span>
+                            <span class="price1">{{orderDetail?.discount_price}}</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center px-3 pb-2">
+                            <span class="price-details">Shipping & Packing</span>
+                            <span class="price">{{orderDetail?.shipping_price}}</span>
+                        </div>
+                        <!-- <div class="d-flex justify-content-between align-items-center px-3 pb-2">
+                            <span class="price-details">Shipping Discount</span>
+                            <span class="price1">-15.25</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center px-3 pb-2">
+                            <span class="price-details">Tax</span>
+                            <span class="price">125.25</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center px-3 pb-4">
+                            <span class="price-details">Promotion</span>
+                            <span class="price">5.25</span>
+                        </div> -->
+                        <div class="d-flex justify-content-between align-items-center px-3">
+                            <span class="price-details1">Total Amount</span>
+                            <span class="price2">{{orderDetail?.total_amount}}</span>
+                        </div>
+                    </div>
+                <div>
+                    <button type="button" class="btn px-5 py-2 w-100 my-2" [routerLink]="['/']" routerLinkActive="router-link-active" >Continue Shopping</button>
+                </div>
+                <div>
+                        <img src="../../assets/images/Group 29166.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<app-footer2></app-footer2>

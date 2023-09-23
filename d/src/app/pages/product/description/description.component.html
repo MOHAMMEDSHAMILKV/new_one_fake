@@ -1,0 +1,68 @@
+<!-- description slider Section -->
+<div class="container-fluid d-flex flex-wrap p-md-4 p-3 w-100">
+    <div class="col-12 height-fit-content mb-2" *ngIf="discription">
+        <label class="fz-15 fw-500 w-100" for="">{{'Description'|translate}}</label>
+        <p class="w-100 fz-13 mb-4 mt-2">
+            {{discription}}
+        </p>
+    </div>
+    <div class="col-12 height-fit-content mb-2">
+        <label class="fz-15 fw-500 w-100" for="" *ngIf="additional_discription!=''">{{'Additional Description'|translate}}</label>
+        <p class="w-100 fz-13 mb-4 mt-2">
+            {{additional_discription}} 
+        </p> 
+    </div>
+    <div class="col-12 height-fit-content mb-2" *ngIf="arabic_description">
+        <label class="fz-15 fw-500 w-100" for="">{{'Arabic Description'|translate}}</label>
+        <p class="w-100 fz-13 mb-4 mt-2">
+            {{arabic_description}}
+        </p>
+    </div>
+    <div class="d-flex flex-wrap align-items-start w-100 bg-gray-100 px-4 pb-5" *ngIf="aditionInfo==true || productDetails==true || featuresSatus==true">
+        <div class="col-md-6 d-flex flex-wrap align-items-start height-fit-content mb-3" *ngIf="aditionInfo==true">
+            <label class="fz-15 fw-500 mt-4 w-100" for="">{{additionalDetail?.name}}</label>
+            <div class="d-flex w-100 fit-height mt-3 fz-13" *ngFor="let products of additionalDetail?.key_values">
+                <div class="col-4 d-flex justify-content-start">{{products.key}}</div>
+                <div class="col-1 d-flex justify-content-center">
+                    <i class="bi bi-dash-lg fw-bold "></i>
+                </div>
+                <div class="col-4 d-flex justify-content-end">{{products.value}}</div>
+            </div>
+        </div>
+        <!-- <div class="col-md-6 d-flex flex-wrap align-items-start height-fit-content mb-3" *ngIf="incredient?.key_values?.length !=0">
+            <label class="fz-15 fw-500 mt-4 w-100" for="">{{incredient?.name}}</label>
+            <div class="d-flex w-100 fit-height mt-3 fz-13" *ngFor="let products of incredient?.key_values">
+                <div class="col-4">{{products.key}}</div>
+                <div class="col-4">- <span class="ms-3">{{products.value}}</span></div>
+            </div>
+        </div> -->
+        <div class="col-md-6 d-flex flex-wrap align-items-start height-fit-content mb-3" *ngIf="productDetails==true">
+            <label class="fz-15 fw-500 mt-4 w-100" for="">{{product_details?.name}}</label>
+            <div class="d-flex w-100 fit-height mt-3 fz-13" *ngFor="let products of product_details?.key_values">
+                <div class="col-4">{{products.key}}</div>
+                <div class="col-4"><i class="bi bi-dash-lg"></i><span class="ms-3">{{products.value}}</span></div>
+            </div>
+        </div>
+        <!-- <div class="col-md-6 d-flex flex-wrap align-items-start height-fit-content mb-3" *ngIf="features?.key_values?.length !=0">
+            <label class="fz-15 fw-500 mt-4 w-100" for="">{{features?.name}}</label>
+            <ul class="list-content">
+                <li *ngFor="let features of features?.key_values">
+                    <div class="col-6">{{features.key}}</div>
+                    <div class="col-6">- <span class="ms-3">{{features.value}}</span></div>
+                </li>
+            </ul>
+
+        </div> -->
+        <div class="col-md-6 d-flex flex-wrap align-items-start height-fit-content mb-3" *ngIf="featuresSatus==true">
+            <label class="fz-15 fw-500 mt-4 w-100" for="">{{features?.name}}</label>
+            <div class="d-flex w-100 fit-height mt-3 fz-13" *ngFor="let features of features?.key_values">
+                <div class="col-4 d-flex justify-content-start">{{features.key}}</div>
+                <div class="col-1 d-flex justify-content-center">
+                    <i class="bi bi-dash-lg fw-bold"></i>
+                </div>
+                <div class="col-4 d-flex justify-content-end"><span class="">{{features.value}}</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End product slider Section -->

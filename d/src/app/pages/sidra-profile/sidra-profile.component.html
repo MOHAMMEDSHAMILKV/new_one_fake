@@ -1,0 +1,243 @@
+
+<div  *ngIf="isLoading" class="container-fluid  loading-overlay d-flex justify-content-center align-items-center" style="height:100%">
+    <img src="../../../assets/images/New-anime2.gif" alt="" width="80">
+</div>
+
+
+<app-sidraheader style="position: fixed;width: 100%;top: 0;left: 0;z-index: 999;" *ngIf="mainheader"></app-sidraheader>
+<app-menu-header *ngIf="menuheader"></app-menu-header>
+<div class="container-fluid pb-5 px-0"  [class.pt-sm-3]="mainheader" [class.pt-5]="mainheader" [class.mt-sm-0]="mainheader" [class.mt-5]="mainheader" >
+    <div class="col-12 row mx-0 px-0">
+        <div class="col-lg-3 col-md-4 col-sm-5  ps-md-2 ps-1 pe-0 d-none d-sm-block" *ngIf="maincontent">
+            <div class="py-2 bgw px-2 d-flex flex-row align-items-center justify-content-between ">
+                <div class="d-flex flex-row align-items-center">
+                    <div class="profile-image d-flex justify-content-center align-items-center">
+                        <img *ngIf="updatedprofile!=null" [src]="updatedprofile" alt="" width="38" style="border-radius: 50%;">
+                        <img *ngIf="updatedprofile==null" src="../../../assets/images/profile_dedualt_pic.svg" alt="" width="38" style="border-radius: 50%;">
+                    </div>
+                    <span class="ms-2 c-717478 fz-14 fw-500">{{profileData?.fname}}</span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="edit-profilimage">
+                        <span class="fz-12 fw-bold cursor" style="color: #FF9900;">Change</span>
+                        <input type="file" class="upload-profilefile"  name="profilepic"  (change)="onSelectFile($event)">
+                    </div>
+                </div>
+            </div>
+            <div class="bgw">
+                <div class="mt-2 py-3 px-3 "> 
+                    <span class="fz-14 fw-bold">MY PROFILE</span>
+                    <div class="ms-2 cursor d-flex flex-column mt-1">
+                        <div class="d-flex justify-content-between main-profile-options"   [routerLink]="[('sidra-profile-edit')]" routerLinkActive="router-link-active"  (mouseover)="mouseOver('EditProfile')" (mouseleave)="mouseLeave('EditProfile')">
+                            <span class="fz-14 fw-400">Edit Profile</span>
+                             <img src="../../../assets/icons/right-icon.svg" *ngIf="is_active==true" alt="">
+                        </div>
+                        <div class="d-flex justify-content-between main-profile-options"  [routerLink]="[('changePassword')]" routerLinkActive="router-link-active"  (mouseover)="mouseOver('changepassword')" (mouseleave)="mouseLeave('changepassword')">
+                            <span class="fz-14 fw-400">change password</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_1==true" alt="">
+                        </div>  
+                        <div class="d-flex justify-content-between main-profile-options"  [routerLink]="[('review')]" routerLinkActive="router-link-active" (mouseover)="mouseOver('review')" (mouseleave)="mouseLeave('review')">
+                            <span class="fz-14 fw-400">My Reviewes</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_2==true" alt="">
+                        </div>  
+                        <!-- <div class="d-flex justify-content-between main-profile-options" [routerLink]="[('measure')]" routerLinkActive="router-link-active" (mouseover)="mouseOver('measure')" (mouseleave)="mouseLeave('measure')">
+                            <span class="fz-14 fw-400">Body Measurements</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_3==true" alt="">
+                        </div>  -->
+                    </div>
+                </div>
+                <div class="border-b ms-3 me-0 my-0 p-0"></div>                
+                <div class="mt-2 py-3 px-3">
+                    <span class="fz-14 fw-bold">MY ORDERS</span>
+                    <div class="ms-2 cursor d-flex flex-column mt-1">
+                        <div class="d-flex justify-content-between main-profile-options" (mouseover)="mouseOver('AllOrders')" (mouseleave)="mouseLeave('AllOrders')" routerLinkActive="router-link-active"  [routerLink]="[('orders')]">
+                            <span class="fz-14 fw-400">All Orders</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_4==true" alt="">
+                        </div>
+                        <!-- <div class="d-flex justify-content-between main-profile-options" (mouseover)="mouseOver('Subscribed')" (mouseleave)="mouseLeave('Subscribed')" routerLinkActive="router-link-active" [routerLink]="[('orders/subscribed')]">
+                            <span class="fz-14 fw-400">Subscribed Products</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_5==true" alt="">
+                        </div>  -->
+                        <div class="d-flex justify-content-between main-profile-options" (mouseover)="mouseOver('buyit')" (mouseleave)="mouseLeave('buyit')" routerLinkActive="router-link-active"   [routerLink]="[('buyit')]">
+                            <span class="fz-14 fw-400">Buy it Again</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_14==true" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="border-b ms-3 me-0 my-0 p-0"></div>                
+                <div class="mt-2 py-3 px-3">
+                    <span class="fz-14 fw-bold">MY ADDRESS</span>
+                    <div class="ms-2 cursor d-flex flex-column mt-1">
+                        <div class="d-flex justify-content-between main-profile-options" (mouseover)="mouseOver('Delivery')" (mouseleave)="mouseLeave('Delivery')"  routerLinkActive="router-link-active" [routerLink]="[('address/delivery')]">
+                            <span class="fz-14 fw-400">Delivery Address</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_6==true" alt="">
+                        </div>
+                        <!-- <div class="d-flex justify-content-between main-profile-options" (mouseover)="mouseOver('Picup')" (mouseleave)="mouseLeave('Picup')" routerLinkActive="router-link-active" [routerLink]="[('address/picup')]">
+                            <span class="fz-14 fw-400">Picup Address</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_7==true" alt="">
+                        </div>  -->
+                    </div>
+                </div> 
+                <div class="border-b ms-3 me-0 my-0 p-0"></div>                
+                <div class="py-3 px-3 d-flex justify-content-between main-profile-options1 cursor"  [routerLink]="['wallet']" routerLinkActive="router-link-active"  (mouseover)="mouseOver('WALLET')" (mouseleave)="mouseLeave('WALLET')">
+                    <span class="fz-14 fw-bold">WALLET AND POINTS</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_8==true" alt="">
+                </div>
+                <div class="border-b ms-3 me-0 my-0 p-0"></div>                
+                <div class="py-3 px-3 d-flex justify-content-between main-profile-options1 cursor"  [routerLink]="['notification']" routerLinkActive="router-link-active"  (mouseover)="mouseOver('NOTIFICATION')" (mouseleave)="mouseLeave('NOTIFICATION')">
+                    <span class="fz-14 fw-bold">NOTIFICATION</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_9==true" alt="">
+                </div> 
+            </div> 
+            <div class="bgw mt-2">
+                <!-- <div class="py-3 px-3 d-flex justify-content-between main-profile-options1 cursor" [routerLink]="['message']" routerLinkActive="router-link-active" (mouseover)="mouseOver('MESSAGE')" (mouseleave)="mouseLeave('MESSAGE')">
+                    <span class="fz-14 fw-bold">MESSAGE TO US</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_10==true" alt="">
+                </div> -->
+                <!-- <div class="border-b ms-3 me-0 my-0 p-0"></div>                
+                <div class="py-3 px-3 d-flex justify-content-between main-profile-options1 cursor" [routerLink]="['businessaccount']" routerLinkActive="router-link-active"  (mouseover)="mouseOver('BUSINESS')" (mouseleave)="mouseLeave('BUSINESS')">
+                    <span class="fz-14 fw-bold">SWITCH TO BUSINESS ACCOUNT</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_11==true" alt="">
+                </div>  -->
+                <div class="border-b ms-3 me-0 my-0 p-0"></div>                
+                <div class="py-3 px-3 d-flex justify-content-between main-profile-options1 cursor"  [routerLink]="['setting']" (mouseover)="mouseOver('SETTINGS')" (mouseleave)="mouseLeave('SETTINGS')">
+                    <span class="fz-14 fw-bold">SETTINGS</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_12==true" alt="">
+                </div>
+            </div>
+            <div class="bgw mt-2 border-b py-3">
+                <div class="px-3 d-flex justify-content-between main-profile-options1 cursor" (click)="logout('logout')" (mouseover)="mouseOver('LOGOUT')" (mouseleave)="mouseLeave('LOGOUT')">
+                    <span class="fz-14 fw-bold">LOGOUT</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_13==true" alt="">
+                </div>
+            </div>
+            <div class="bgw py-3">
+                <div class="px-3 d-flex justify-content-between main-profile-options1 cursor" (click)="logout('allogout')" (mouseover)="mouseOver('allogout')" (mouseleave)="mouseLeave('allogout')">
+                    <span class="fz-14 fw-bold">LOGOUT ALL DEVICE</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_14==true" alt="">
+                </div>
+            </div>
+        </div>
+
+         <!-- div duplication for responsive -->
+        <div class=" col-12 ps-md-2 ps-1 pe-0 d-block d-sm-none" *ngIf="maincontent">
+            <div class="py-2 bgw px-2 d-flex flex-row align-items-center justify-content-between ">
+                <div class="d-flex flex-row align-items-center">
+                    <div class="profile-image d-flex justify-content-center align-items-center">
+                        <img *ngIf="updatedprofile!=null" [src]="updatedprofile" alt="" width="38" style="border-radius: 50%;">
+                        <img *ngIf="updatedprofile==null" src="../../../assets/images/profile_dedualt_pic.svg" alt="" width="38" style="border-radius: 50%;">
+                    </div>
+                    <span class="ms-2 c-717478 fz-14 fw-500">{{profileData?.fname}}</span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="edit-profilimage">
+                        <span class="fz-12 fw-bold cursor" style="color: #FF9900;">Change</span>
+                        <input type="file" class="upload-profilefile"  name="profilepic"  (change)="onSelectFile($event)">
+                    </div>
+                </div>
+            </div>
+            <div class="bgw">
+                <div class="mt-2 py-3 px-3 "> 
+                    <span class="fz-14 fw-bold">MY PROFILE</span>
+                    <div class="ms-3 cursor d-flex flex-column mt-1">
+                        <div class="d-flex justify-content-between main-profile-options" (click)="toggle('Edit Profile')"  [routerLink]="[('sidra-profile-edit')]"   (mouseover)="mouseOver('EditProfile')" (mouseleave)="mouseLeave('EditProfile')">
+                            <span class="fz-14 fw-400">Edit Profile</span>
+                             <img src="../../../assets/icons/right-icon.svg" *ngIf="is_active==true" alt="">
+                        </div>
+                        <div class="d-flex justify-content-between main-profile-options" (click)="toggle('change password')" [routerLink]="[('changePassword')]"   (mouseover)="mouseOver('changepassword')" (mouseleave)="mouseLeave('changepassword')">
+                            <span class="fz-14 fw-400">change password</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_1==true" alt="">
+                        </div>  
+                        <div class="d-flex justify-content-between main-profile-options" (click)="toggle('My Reviewes')" [routerLink]="[('review')]"  (mouseover)="mouseOver('review')" (mouseleave)="mouseLeave('review')">
+                            <span class="fz-14 fw-400">My Reviewes</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_2==true" alt="">
+                        </div>  
+                        <!-- <div class="d-flex justify-content-between main-profile-options" [routerLink]="[('measure')]" routerLinkActive="router-link-active" (mouseover)="mouseOver('measure')" (mouseleave)="mouseLeave('measure')">
+                            <span class="fz-14 fw-400">Body Measurements</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_3==true" alt="">
+                        </div>  -->
+                    </div>
+                </div>
+                <div class="border-b ms-3 me-0 my-0 p-0"></div>                
+                <div class="mt-2 py-3 px-3">
+                    <span class="fz-14 fw-bold">MY ORDERS</span>
+                    <div class="ms-3 cursor d-flex flex-column mt-1">
+                        <div class="d-flex justify-content-between main-profile-options" (mouseover)="mouseOver('AllOrders')" (mouseleave)="mouseLeave('AllOrders')"  (click)="toggle('Back')" [routerLink]="[('orders')]">
+                            <span class="fz-14 fw-400">All Orders</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_4==true" alt="">
+                        </div>
+                        <!-- <div class="d-flex justify-content-between main-profile-options" (mouseover)="mouseOver('Subscribed')" (mouseleave)="mouseLeave('Subscribed')" routerLinkActive="router-link-active" [routerLink]="[('orders/subscribed')]">
+                            <span class="fz-14 fw-400">Subscribed Products</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_5==true" alt="">
+                        </div>  -->
+                        <div class="d-flex justify-content-between main-profile-options" (mouseover)="mouseOver('buyit')" (mouseleave)="mouseLeave('buyit')"  (click)="toggle('Buy it Again')"  [routerLink]="[('buyit')]">
+                            <span class="fz-14 fw-400">Buy it Again</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_14==true" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="border-b ms-3 me-0 my-0 p-0"></div>                
+                <div class="mt-2 py-3 px-3">
+                    <span class="fz-14 fw-bold">MY ADDRESS</span>
+                    <div class="ms-3 cursor d-flex flex-column mt-1">
+                        <div class="d-flex justify-content-between main-profile-options" (mouseover)="mouseOver('Delivery')" (mouseleave)="mouseLeave('Delivery')"   (click)="toggle('Delivery Address')" [routerLink]="[('address/delivery')]">
+                            <span class="fz-14 fw-400">Delivery Address</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_6==true" alt="">
+                        </div>
+                        <!-- <div class="d-flex justify-content-between main-profile-options" (mouseover)="mouseOver('Picup')" (mouseleave)="mouseLeave('Picup')" routerLinkActive="router-link-active" [routerLink]="[('address/picup')]">
+                            <span class="fz-14 fw-400">Picup Address</span>
+                            <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_7==true" alt="">
+                        </div>  -->
+                    </div>
+                </div> 
+                <div class="border-b ms-3 me-0 my-0 p-0"></div>                
+                <div class="py-3 px-3 d-flex justify-content-between main-profile-options1 cursor" (click)="toggle('WALLET AND POINTS')" [routerLink]="['wallet']"   (mouseover)="mouseOver('WALLET')" (mouseleave)="mouseLeave('WALLET')">
+                    <span class="fz-14 fw-bold">WALLET AND POINTS</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_8==true" alt="">
+                </div>
+                <div class="border-b ms-3 me-0 my-0 p-0"></div>                
+                <div class="py-3 px-3 d-flex justify-content-between main-profile-options1 cursor" (click)="toggle('NOTIFICATION')" [routerLink]="['notification']"   (mouseover)="mouseOver('NOTIFICATION')" (mouseleave)="mouseLeave('NOTIFICATION')">
+                    <span class="fz-14 fw-bold">NOTIFICATION</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_9==true" alt="">
+                </div> 
+            </div> 
+            <div class="bgw mt-2">
+                <!-- <div class="py-3 px-3 d-flex justify-content-between main-profile-options1 cursor" [routerLink]="['message']" routerLinkActive="router-link-active" (mouseover)="mouseOver('MESSAGE')" (mouseleave)="mouseLeave('MESSAGE')">
+                    <span class="fz-14 fw-bold">MESSAGE TO US</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_10==true" alt="">
+                </div> -->
+                <!-- <div class="border-b ms-3 me-0 my-0 p-0"></div>                
+                <div class="py-3 px-3 d-flex justify-content-between main-profile-options1 cursor" [routerLink]="['businessaccount']" routerLinkActive="router-link-active"  (mouseover)="mouseOver('BUSINESS')" (mouseleave)="mouseLeave('BUSINESS')">
+                    <span class="fz-14 fw-bold">SWITCH TO BUSINESS ACCOUNT</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_11==true" alt="">
+                </div>  -->
+                <div class="border-b ms-3 me-0 my-0 p-0"></div>                
+                <div class="py-3 px-3 d-flex justify-content-between main-profile-options1 cursor" (click)="toggle('SETTINGS')" [routerLink]="['setting']" (mouseover)="mouseOver('SETTINGS')" (mouseleave)="mouseLeave('SETTINGS')">
+                    <span class="fz-14 fw-bold">SETTINGS</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_12==true" alt="">
+                </div>
+            </div>
+            <div class="bgw mt-2 border-b py-3">
+                <div class="px-3 d-flex justify-content-between main-profile-options1 cursor" (click)="logout('logout')" (mouseover)="mouseOver('LOGOUT')" (mouseleave)="mouseLeave('LOGOUT')">
+                    <span class="fz-14 fw-bold">LOGOUT</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_13==true" alt="">
+                </div>
+            </div>
+            <div class="bgw py-3">
+                <div class="px-3 d-flex justify-content-between main-profile-options1 cursor" (click)="logout('allogout')" (mouseover)="mouseOver('allogout')" (mouseleave)="mouseLeave('allogout')">
+                    <span class="fz-14 fw-bold">LOGOUT ALL DEVICE</span>
+                    <img src="../../../assets/icons/right-icon.svg" *ngIf="isactive_14==true" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-8 col-sm-7 col-12 px-md-2 px-1" *ngIf="subcontent">
+            <div class=" bgw col mx-0 px-0 d-flex justify-content-between pe-1" *ngIf="subcontentname">              
+                <span class="fw-bold fz-14 pt-3 pb-3 ms-1" *ngIf="back" (click)="Back()"><span class="fw-bold" uk-icon="arrow-left"></span>
+                    {{subcontentname}}
+                 </span>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer> 

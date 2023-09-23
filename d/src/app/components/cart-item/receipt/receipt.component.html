@@ -1,0 +1,171 @@
+<div class="container-fluid bg-primary" >
+    <div class="d-flex align-items-center justify-content-between">
+        <img class="logo" src="../../../../assets/images/logo.svg" alt="">
+        <div class="d-flex flex-column align-items-center">
+            <label class="main-title" for="">INVOICE</label>
+            <span class="text-white">(Original for Recipient)</span>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex flex-wrap w-100" style="padding: 50px 50px 10px 50px">
+    <div class="col-4">
+        <div class="border address-card" style="padding: 20px;">
+            <label class="w-100 fw-bold" style="margin-bottom:15px" for="">Invoice to :</label>
+            <span><b class="fz-13 text-uppercase">{{orderCustomer?.fname}} {{orderCustomer?.lname}}</b></span>
+            <p class="my-0 fz-13">
+                {{billingAddress?.full_name}}, 
+                <br>
+                {{billingAddress?.location}}, {{billingAddress?.building_name}}, {{billingAddress?.landmark}},
+                <br>
+                {{billingAddress?.street_name}}, {{billingAddress?.city}}, {{billingAddress?.country}},
+                <br>
+                {{billingAddress?.state}}, {{billingAddress?.contact}}
+            </p>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="border address-card" style="padding: 20px;">
+            <label class="w-100 fw-bold" style="margin-bottom:15px" for="">Shope Address :</label>
+            <p class="my-0 fz-13">
+                {{shopeAddress}}
+            </p>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="border address-card" style="padding: 20px;">
+            <label class="w-100 fw-bold" style="margin-bottom:15px" for="">Order Details :</label>
+            <span><b class="fz-13">Order id</b></span>
+            <p class="my-0 fz-13">
+                {{orderDetails.id}}
+            </p>
+            <span><b class="fz-13">Order date</b></span>
+            <p class="my-0 fz-13">
+                {{orderDetails.created | date}}
+            </p>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="border" style="padding: 20px;">
+            <p class="my-0 fz-13 w-100">
+                <span><b class="fz-13">Delivery address :</b></span>
+                {{orderAddress?.full_name}}, 
+                <br>
+                {{orderAddress?.location}}, {{orderAddress?.building_name}}, {{orderAddress?.landmark}},
+                <br>
+                {{orderAddress?.street_name}}, {{orderAddress?.city}}, {{orderAddress?.country}},
+                <br>
+                {{orderAddress?.state}}, {{orderAddress?.contact}}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex flex-wrap w-100" style="margin-top: 50px; padding: 0px 50px;">
+    <div class="col-4">
+        <div class="" style="padding: 20px;">
+            <span class="w-100 fw-bold " style="margin-bottom:15px" for="">Invoice no</span>
+            <p class="my-0 fz-13 mb-2">
+                MH-180304731- {{orderDetails.id}}
+            </p>
+            <span class="w-100 fw-bold " style="margin-bottom:15px" for="">Invoice date</span>
+            <p class="my-0 fz-13 mb-2">
+                {{orderDetails.created | date}}
+            </p>
+        </div>
+    </div>
+    <!-- <div class="col-4">
+        <div class=""  style="padding: 20px;">
+            <span class="w-100 fw-bold " style="margin-bottom:15px" for="">Warranty type</span>
+            <p class="my-0 fz-13">
+                MH-180304731-2122
+            </p>
+            <span class="w-100 fw-bold " style="margin-bottom:15px" for="">Warranty Period</span>
+            <p class="my-0 fz-13">
+                6 months
+            </p>
+        </div>
+    </div> -->
+    <div class="col-4">
+        <div class=""  style="padding: 20px;"> 
+            <span class="w-100 fw-bold " style="margin-bottom:15px" for="">Payment method</span>
+            <p class="my-0 fz-13 mb-2">
+                {{orderDetails.payment_method}}
+            </p>
+            <span class="w-100 fw-bold " style="margin-bottom:15px" for="">Payment date </span>
+            <p class="my-0 fz-13 mb-2">
+                {{paymentDate | date}}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="d-flex flex-wrap w-100" style="padding:50px;">
+    <div class="table w-100">
+        <div class="table__head bg-primary text-white">
+            <div class="tabel__head--slno">
+                Sl. No
+            </div>
+            <div class="tabel__head--item-name col">
+                Item name
+            </div>
+            <div class="tabel__head--unit-price">
+                Unit price
+            </div>
+            <div class="tabel__head--qty">
+                Qty
+            </div>
+            <div class="tabel__head--net-amout">
+                Net amount
+            </div>
+            <div class="tabel__head--tax">
+                Tax
+            </div>
+            <div class="tabel__head--total">
+                Total
+            </div>
+        </div>
+        <!-- <div class="table__item" *ngFor="let item of orderProducts;let i = index">
+            <div class="tabel__item--slno">
+                {{i+1}}
+            </div>
+            <div class="tabel__item--item-name col">
+                {{item?.order_lines_meta?.name}}
+            </div>
+            <div class="tabel__item--unit-price">
+                {{currency}} {{item?.amount / item?.total_quantity | number : '1.2-2'}} /-
+            </div>
+            <div class="tabel__item--qty">
+                {{item?.total_quantity}}
+            </div>
+            <div class="tabel__item--net-amout">
+                {{currency}} {{item?.amount | number : '1.2-2'}} /-
+            </div>
+            <div class="tabel__item--tax">
+                {{currency}} {{item?.order_lines_meta?.tax[0]?.tax_amount | number : '1.2-2'}}
+            </div>
+            <div class="tabel__item--total">
+                {{currency}} {{item?.amount | number : '1.2-2'}} /-
+            </div>
+        </div> -->
+
+        <!--  -->
+        <div class="table__summary">
+            <div class="tabel__summary--item-name col">
+                Total amount to paid
+            </div>
+           
+            <div class="tabel__summary--tax">
+                {{currency}} {{tax | number : '1.2-2'}}
+            </div>
+            <div class="tabel__summary--total">
+                {{currency}} {{totalPrice | number : '1.2-2'}}/-
+            </div>
+        </div>
+    </div>
+    <span class="fz-13 mt-1">* Tax is already applied to products</span>
+    <!-- <div class="border w-100 text-center d-flex flex-column align-items-center justify-content-center" style="padding: 50px;">
+        <img class="signature" src="../dist/assets/signature.png" alt="">
+        (Authorized Signature)
+    </div> -->
+</div>

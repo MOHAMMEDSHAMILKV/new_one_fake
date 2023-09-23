@@ -1,0 +1,61 @@
+<div class="container px-md-0  px-lg-5 py-5">
+  <div class="row m-0 pt-5">
+    <!-- <form action=""> -->
+    <h2 class="text-center mb-2" *ngIf="checkRoute(resetRoute.name)"><b>RESET PASSWORD</b></h2>
+    <h2 class="text-center mb-2"*ngIf="!checkRoute(resetRoute.name)"> <b>CHANGE PASSWORD</b> </h2>
+    <!-- <p class="text-center w-75 mx-auto fz-14">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem deleniti at expedita fugiat. Voluptatum voluptatibus autem reiciendis inventore ut sequi.
+    </p> -->
+    <div class="mx-auto col-md-6 col-sm-12 login ps-md-0 px-lg-5 mt-lg-3 mt-0">
+        
+      <!-- Email input -->
+      <div class="form-outline mb-4 w-100 position-relative"  *ngIf="checkRoute(resetRoute.name)">
+          <input type="text" class="form-control" [type]="passwordFeild1" placeholder="new password" [(ngModel)]="firstFeild" autocomplete="false" 
+          />
+          <i (mouseover)="passwordFeild1 = 'text'" (mouseleave)="passwordFeild1 = 'password'" (click)="showPassword1()"  class="show-password bi bi-eye-fill"></i>
+          <ng9-password-strength-bar
+          [passwordToCheck]="firstFeild"
+          [barLabel]="barLabel"
+          [customThresholds]="thresholds"
+          [barColors]="myColors">
+         </ng9-password-strength-bar>
+      </div>
+      <div class="form-outline mb-4 w-100 position-relative"  *ngIf="checkRoute(resetRoute.name)">
+          <input type="text" class="form-control" [type]="passwordFeild2" placeholder="confirm password"  [(ngModel)]="secondFeild" autocomplete="false"/>
+          <i (mouseover)="passwordFeild2 = 'text'" (mouseleave)="passwordFeild2 = 'password'" (click)="showPassword2()"  class="show-password bi bi-eye-fill"></i>
+        </div>
+     
+      <div class="form-outline mb-4 w-100 position-relative"  *ngIf="!checkRoute(resetRoute.name)">
+        <input type="text"  class="form-control" autocomplete="false" [type]="passwordFeild1" placeholder="old password"  [(ngModel)]="firstFeild"
+        />
+        <i (mouseover)="passwordFeild1 = 'text'" (mouseleave)="passwordFeild1 = 'password'" (click)="showPassword1()"  class="show-password bi bi-eye-fill"></i>
+      </div>
+      <div class="form-outline mb-4 w-100 position-relative"  *ngIf="!checkRoute(resetRoute.name)">
+          <input type="text" class="form-control" autocomplete="false" [type]="passwordFeild2" placeholder="new password"  [(ngModel)]="secondFeild"/>
+          <i (mouseover)="passwordFeild2 = 'text'" (mouseleave)="passwordFeild2 = 'password'" (click)="showPassword2()"  class="show-password bi bi-eye-fill"></i>
+          <ng9-password-strength-bar
+          [passwordToCheck]="secondFeild"
+          [barLabel]="barLabel"
+          [customThresholds]="thresholds"
+          [barColors]="myColors">
+         </ng9-password-strength-bar>
+      
+        </div>
+      
+      <span class="text-danger" *ngIf="firstFeild !=secondFeild && isForgot">Password not match</span>
+      <div class=" mb-4 pb-1" *ngIf="checkRoute(resetRoute.name)">
+          <button class="btn btn-primary mb-3 w-100 d-flex justify-content-center"  (click)="newPasswordCreate()" [disabled]="firstFeild !=secondFeild">
+            Create Password
+          </button>
+      </div>
+      <div class=" mb-4 pb-1" *ngIf="!checkRoute(resetRoute.name)">
+        <button class="btn btn-primary mb-3 w-100 d-flex justify-content-center"  (click)="changePassword()" >
+          Change Password
+        </button>
+      </div>
+    </div>
+    <!-- </form> -->
+    <a *ngIf="checkRoute(resetRoute.name)" [routerLink]="['/auth/signup']" routerLinkActive="router-link-active"  class="text-center mb-4 fz-14" style="color: black;">Create a new account</a>
+    <a *ngIf="!checkRoute(resetRoute.name)" [routerLink]="['/profile/profile-edit']" routerLinkActive="router-link-active"  class="text-center mb-4 fz-14" style="color: black;">Back to profile</a>
+  </div>
+</div>

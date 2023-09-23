@@ -1,0 +1,232 @@
+.qty-drop{
+    max-width:90px;
+    display:inline-block;
+    height:30px    
+}
+:host{
+    width: 100%;
+}
+
+.control-cart{
+    @media (max-width:1150px) {
+        margin-top: 15px;
+        width: 100%;
+        .btn{
+            margin: 0px !important;
+        }
+        span{
+            margin: 0px 5px;
+        }
+    }
+}
+.delivery-date{
+    @media (max-width:900px) {
+        
+        width: 100%;
+        margin: 0 !important;
+        margin-top: 5px !important;
+    }
+}
+.track-modal{
+    max-width: 600px;
+    width: 90%;
+}
+
+.order-track-progress{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    padding: 0% 5%;
+    margin: 30px auto;
+    margin-bottom: 80px;
+   .track{
+        margin: auto;
+        width: 80%;
+        height: 10px;
+        background: rgb(220, 220, 220); 
+        position: relative;
+        &::before{
+            content:'';
+            position:absolute;
+            top: 50%;
+            height: 10px;
+            transform: translateY(-50%);
+            background: #086DB5 !important;
+        }
+   }
+   .track.stage-one{
+        position: relative;
+        &::before{
+            width: 28%;
+        }
+   }
+   .track.stage-two{
+    position: relative;
+        &::before{
+            width: 65% !important;
+        }
+    }
+   .track.stage-three{
+        position: relative;
+        &::before{
+            width: 98% !important;
+        }
+    }
+
+   
+   .stepcontent-one,.stepcontent-two,.stepcontent-three,.stepcontent-four{
+    position: absolute;
+    top: 35px;
+    width: fit-content;
+    height: auto;
+    font-size: 14px;
+   }
+   .stepcontent-one{
+    left: 40px;
+   }
+   .stepcontent-two{
+       left:30%
+   }
+   .stepcontent-three{
+        right:30%
+    }
+   .stepcontent-four{
+    right: 40px;
+   }
+   .step-one,.step-two,.step-three,.step-four{
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        background: rgb(220, 220, 220);
+        transform: translateY(-50%);
+        border-radius: 50%;
+        z-index: 5;
+        box-shadow: 0px 0px 5px #00000021;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:#000;
+        i{
+            font-size: 15px;
+        }
+    }
+    .step-one{
+       left: 70px;
+    }
+    .step-two{
+        left: 34%;
+    }
+    .step-three{
+        right: 34%;
+    }
+    .step-four{
+        right: 70px;
+    }
+    .step-one.stage-one{
+        color:#fff !important;
+        background: #086DB5 !important;
+        i{
+            font-size: 18px !important;
+        }
+    }
+    .step-one.stage-two{
+        color:#fff !important;
+        background: #086DB5 !important;
+        i{
+            font-size: 18px !important;
+        }
+    }
+    .step-one.stage-three{
+        color:#fff !important;
+        background: #086DB5 !important;
+        i{
+            font-size: 18px !important;
+        }
+    }
+    .step-one.stage-four{
+        color:#fff !important;
+        background: #086DB5 !important;
+        i{
+            font-size: 18px !important;
+        }
+    }
+    .step-two.stage-two{
+        color:#fff !important;
+        background: #086DB5 !important;
+        i{
+            font-size: 18px !important;
+        }
+    }
+    .step-two.stage-three{
+        color:#fff !important;
+        background: #086DB5 !important;
+        i{
+            font-size: 18px !important;
+        }
+    }
+    .step-two.stage-four{
+        color:#fff !important;
+        background: #086DB5 !important;
+        i{
+            font-size: 18px !important;
+        }
+    }
+    .step-three.stage-three{
+        color:#fff !important;
+        background: #086DB5 !important;
+        i{
+            font-size: 18px !important;
+        }
+    }
+    .step-three.stage-four{
+        color:#fff !important;
+        background: #086DB5 !important;
+        i{
+            font-size: 18px !important;
+        }
+    }
+    .step-four.stage-four{
+        color:#fff !important;
+        background: #086DB5 !important;
+        i{
+            font-size: 18px !important;
+        }
+    }
+}
+ 
+
+.uk-modal-dialog{
+    width: 750px;
+}
+
+
+
+.btn{
+    background-color: #086db5 !important;
+    border: none !important;
+    &:hover,&:focus{
+        background-color: #086db5 !important;
+        border: none !important;
+
+    }
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+    background-color: #086db5 !important;
+    border: none !important;
+}
+
+.cb{
+    color: black;
+}
+
+.fz-21{
+    font-size: 21px !important;
+}
+
+ngb-rating {
+    color: #ffe600;
+    font-size: 60px;
+    }

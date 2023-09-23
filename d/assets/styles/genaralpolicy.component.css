@@ -1,0 +1,21 @@
+.policy-header {
+  width: 100%;
+  height: 150px;
+  background: #000;
+  background: linear-gradient(135deg, #4e8cc5 0%, #0a6cb5 60%, #0a6cb5 61%, #387fbd 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.policy-header__title {
+  color: #fff;
+  font-size: 22px;
+}
+/*# sourceMappingURL=genaralpolicy.component.css.map */

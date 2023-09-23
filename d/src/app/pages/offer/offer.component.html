@@ -1,0 +1,56 @@
+
+<div  *ngIf="isLoading" class="container-fluid  loading-overlay d-flex justify-content-center align-items-center" style="height:100%">
+    <img src="../../../assets/images/New-anime2.gif" alt="" width="80">
+  </div>
+  <app-sidraheader style="position: fixed;width: 100%;top: 0;
+  left: 0;
+  z-index: 999;"></app-sidraheader>
+  <app-menu-header></app-menu-header>
+  <div class="container-fluid py-lg-4 py-md-4 py-3  px-lg-4 px-md-4 px-sm-3 px-2">
+      
+    <div class="col-12 row mx-0">
+      <div class="bgw d-flex justify-content-between py-3">
+        <div class="d-flex align-items-center">
+            <div class="p-0 m-0" >
+                  <span class="fz-15 fw-bold" style="color: #717478;">Best Offer Product</span>
+                <!-- <span class="fz-15 ms-3">{{searchResultList.length}} Prodcuts</span> -->
+            </div>
+        </div>
+      </div> 
+    </div> 
+    <div class="col-12 row bgw  mx-0 pt-4 pb-3 mt-2 px-2"> 
+      <div class="d-flex flex-wrap px-sm-2 px-0" *ngIf="offerData.length!=0">
+        <div class="px-0 mt-3 col-xl-2 col-lg-3 col-sm-4 col-6" *ngFor="let product of offerData">
+            <app-product-card-three
+                [products]="product" 
+            ></app-product-card-three> 
+        </div>
+      </div> 
+      <div class="px-sm-2 px-0" *ngIf="offerData.length==0">
+        <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+             <div class="">
+                 <h2 class="cr-main">No product Found</h2>
+             </div>
+        </div>
+      </div> 
+      <div class="col-12 row mx-0 mt-3">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination d-flex justify-content-center">
+            <li class="page-item" (click)="priviousData()" *ngIf="paginationDetails?.previous!=null">
+              <a class="page-link" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item" (click)="nextData()" *ngIf="paginationDetails?.next!=null">
+              <a class="page-link" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a> 
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  
+  </div>
+  
+  <app-footer></app-footer>

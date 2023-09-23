@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACH,KAAK,EAAE,IAAI;CACZ;;AACD,AAAA,YAAY,CAAA;EACV,OAAO,EAAE,IAAI;CACd",
+    "sources": [
+        "../../src/app/components/popular-category/popular-category.component.scss"
+    ],
+    "names": [],
+    "file": "popular-category.component.css"
+}

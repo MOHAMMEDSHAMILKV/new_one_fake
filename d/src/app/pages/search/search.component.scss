@@ -1,0 +1,67 @@
+.pagination-block{
+
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .page-link {
+        box-shadow: none !important;
+        position: relative;
+        display: block;
+        color: #000000;
+        text-decoration: none !important;
+        background-color: #fff;
+        // border: 0;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+    .page-item.active .page-link {
+        z-index: 3;
+        color: #fff;
+        background-color: #0A4A77 !important;
+        border-color: #0A4A77 !important;
+    }
+  }
+
+  .bgw{
+    background-color: white;
+  }
+  .b-b{
+      border-bottom:5px solid #FF9900 ;
+  }
+
+
+  .form-check-input:checked{
+    background-color: #FF9900 !important;
+    border: 1px solid #FF9900 !important;
+}
+
+.form-check-input{
+    border: 1px solid #FF9900 !important;
+}
+
+.company-list{
+    background-color: #F4F3F1;
+    border-radius: 4px;
+}
+
+
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(119, 119, 119, 0.5);
+    backdrop-filter: blur(5px); /* Adjust the blur intensity as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  :host ::ng-deep .mat-progress-spinner{}
+  
+  :host ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+     stroke: #FF9900;
+  }

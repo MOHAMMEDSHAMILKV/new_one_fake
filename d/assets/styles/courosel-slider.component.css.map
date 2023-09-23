@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,MAAM,EAAE,SAAS,EAAE,KAAK;EACpB,AAAA,OAAO,CAAC;IACJ,QAAQ,EAAE,QAAQ;IAClB,UAAU,EAAE,WAAW;GAC1B;;;AAEL,AAAA,OAAO,CAAA;EACH,UAAU,EAAE,WAAW;CAC1B;;AACD,AAAA,oBAAoB,CAAC;EACjB,MAAM,EAAE,KAAK;CAChB;;AACD,AAAA,oBAAoB,EAAC,AAAA,cAAC,AAAA,EAAgB;EAClC,KAAK,EAAE,GAAG;EACV,MAAM,EAAE,GAAG;EACX,aAAa,EAAE,cAAc;EAC7B,OAAO,EAAE,CAAC;EACV,gBAAgB,EAAE,OACtB;CAAC;;AACD,AAAA,oBAAoB,CAAC,OAAO,CAAA;EACxB,gBAAgB,EAAE,OAAO;CAC5B",
+    "sources": [
+        "../../src/app/components/courosel-slider/courosel-slider.component.scss"
+    ],
+    "names": [],
+    "file": "courosel-slider.component.css"
+}

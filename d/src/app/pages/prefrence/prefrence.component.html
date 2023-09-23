@@ -1,0 +1,152 @@
+<div class="container-fluid py-3">
+    <div class="container">
+        <div class="container px-5">
+            <div class="col-12 row mx-0 px-4 pgw py-3">
+                <span class="fz-16 fw-500" style="color: #717478;">
+                    Notification Preferences
+                </span>
+            </div>
+            <div class="col-12 row mx-0 px-4 pgw py-2 mt-2 border-bottom">
+               <span class="fz-12 mb-4 mt-3" style="color: #1B1B1F; ">
+                    Select the type of notification you wants to get about your activities and reccommendations
+               </span> 
+               <div class="col-4">
+                    <div class=" mb-2">
+                        <span class="fz-14 fw-500 w-100 " style="color: #717478;">
+                            WEBSITE NOTIFICATIONS 
+                        </span> 
+                    </div>
+                    <div class="">
+                        <span class="fz-12" style="color: #1B1B1F;">
+                            Select the type of notification you wants to 
+                            get about your activities and recommendations.
+                        </span> 
+                    </div>
+               </div>
+               <div class="col-8">
+                   <div class="d-flex flex-row">
+                        <div class="form-check form-switch ms-3">
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" (change)="changeNotification($event,'reminders')" checked>
+                        </div>
+                        <div class="d-flex flex-column ms-2" [ngClass]="reminderActive==true?'btn_Active':'btn_InActive'">
+                            <span class="fz-16 fw-bold">
+                                Reminders
+                            </span> 
+                            <span class="fz-12 mt-2 span1" style="color: #1B1B1F;">
+                                Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.
+                            </span>
+                        </div> 
+                   </div>
+                   <div class="d-flex flex-row mt-4">
+                        <div class="form-check form-switch ms-3">
+                            <input class="form-check-input" (change)="changeNotification($event,'your_shipment')" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                        </div>
+                        <div class="d-flex flex-column ms-2">
+                            <span class="fz-16 fw-bold">
+                                Your Shipment info
+                            </span> 
+                            <span class="fz-12 mt-2" style="color: #1B1B1F;">
+                                Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.
+                            </span>
+                        </div> 
+                   </div>
+                   <div class="d-flex flex-row mt-4">
+                        <div class="form-check form-switch ms-3">
+                            <input class="form-check-input" (change)="changeNotification($event,'your_recommendations')" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                        </div>
+                        <div class="d-flex flex-column ms-2">
+                            <span class="fz-16 fw-bold">
+                                Recommendations
+                            </span> 
+                            <span class="fz-12 mt-2" style="color: #1B1B1F;">
+                                Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.
+                            </span>
+                        </div> 
+                   </div>
+                   <div class="d-flex flex-row mt-4">
+                        <div class="form-check form-switch ms-3">
+                            <input class="form-check-input" (change)="changeNotification($event,'new_offers')" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                        </div>
+                        <div class="d-flex flex-column ms-2">
+                            <span class="fz-16 fw-bold">
+                                New Offers 
+                            </span> 
+                            <span class="fz-12 mt-2" style="color: #1B1B1F;">
+                                Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.
+                            </span>
+                        </div> 
+                    </div>
+               </div>
+            </div>
+            <div class="col-12 row mx-0 px-4 pgw py-2 pt-3">
+                <div class="col-4">
+                     <div class=" mb-2">
+                         <span class="fz-14 fw-500 w-100 " style="color: #717478;">
+                            PUSH NOTIFICATIONS 
+                         </span> 
+                     </div>
+                     <div class="">
+                         <span class="fz-12" style="color: #1B1B1F;">
+                             Select the type of notification you wants to 
+                             get about your activities and recommendations.
+                         </span> 
+                     </div>
+                </div>
+                <div class="col-8">
+                    <div class="d-flex flex-row">
+                         <div class="form-check form-switch ms-3">
+                             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                         </div>
+                         <div class="d-flex flex-column ms-2">
+                             <span class="fz-16 fw-bold">
+                                 Reminders
+                             </span> 
+                             <span class="fz-12 mt-2" style="color: #1B1B1F;">
+                                 Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.
+                             </span>
+                         </div> 
+                    </div>
+                    <div class="d-flex flex-row mt-4">
+                         <div class="form-check form-switch ms-3">
+                             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                         </div>
+                         <div class="d-flex flex-column ms-2">
+                             <span class="fz-16 fw-bold">
+                                 Your Shipment info
+                             </span> 
+                             <span class="fz-12 mt-2" style="color: #1B1B1F;">
+                                 Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.
+                             </span>
+                         </div> 
+                    </div>
+                    <div class="d-flex flex-row mt-4">
+                         <div class="form-check form-switch ms-3">
+                             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                         </div>
+                         <div class="d-flex flex-column ms-2">
+                             <span class="fz-16 fw-bold">
+                                 Recommendations
+                             </span> 
+                             <span class="fz-12 mt-2" style="color: #1B1B1F;">
+                                 Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.
+                             </span>
+                         </div> 
+                    </div>
+                    <div class="d-flex flex-row mt-4">
+                         <div class="form-check form-switch ms-3">
+                             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+                         </div>
+                         <div class="d-flex flex-column ms-2">
+                             <span class="fz-16 fw-bold">
+                                 Push Notification
+                             </span> 
+                             <span class="fz-12 mt-2" style="color: #1B1B1F;">
+                                 Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.
+                             </span>
+                         </div> 
+                     </div>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>

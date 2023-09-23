@@ -1,0 +1,42 @@
+.card{
+    box-shadow: 0px 3px 5px #00000014;
+}
+.deals{
+    &__image{
+        object-fit: cover;
+        object-position: top;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: transparent;
+}
+
+.deals-heading{
+    text-align: center;
+    border-radius: 0px 0px 3px 3px;
+    background: #F8F7F5;
+}
+
+.uk-button-default{
+    border: none;
+    
+}
+
+.uk-button{
+    text-transform: none;
+    border: none;
+    line-height: 0px;
+}
+
+.groupListOver:hover{
+    background-color: #FFF5E6;
+}
+
+.wish_befor{
+    color:#EEEEEE ;
+}
+.wish_after{
+    color: #C70718;
+}

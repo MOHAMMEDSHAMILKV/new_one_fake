@@ -1,0 +1,45 @@
+<div class="bgw px-sm-4 px-1 d-flex justify-content-between  align-items-center" style="padding: 13px 0px 13px 0px;">
+    <div >
+       <span class="fz-15 fw-bold" *ngIf="is_subscribe==false">All Orders</span>
+    </div>
+    <!-- <span class="fz-15 fw-bold" style="padding: 12px 0px 12px 0px;" *ngIf="is_subscribe==true">Subscribed Products</span> -->
+    <div class="d-flex flex-column" *ngIf="is_subscribe==false">
+        <div class="">
+            <select class="form-select fz-14" (change)="isFilter($event)">
+                <option selected value="Default">Default</option>
+                <option value="Order Cancelled">Order Cancelled</option>
+                <option value="Order Delivered">Order Delivered</option>
+                <option value="Order Returned">Order Returned</option>
+            </select>
+        </div>
+    </div>
+</div> 
+
+ <div class="bgw mt-2" *ngIf="allOrderArray.length!=0">
+     <div class="border-bottom" *ngFor="let item of allOrderArray">
+        <div class="col-12 row mx-0 py-4 px-2" (click)="navigateProductPage(item.variant_id)">
+            <div class="order col-lg-2 col-3  d-flex align-items-center justify-content-center px-md-2 px-0">
+                <img src="{{item.image}}" alt="">
+            </div>
+            <div class="col-lg-10 col-9 d-flex justify-content-between">
+                 <div class="d-flex flex-column">
+                    <span class="fz-14 fw-400 w-100">{{item.name}}</span>
+                    <span class="mt-2 fw-500 fz-14">Ordered On {{item.order_date}}</span>
+                    <button class="mt-4 order-btn py-2 fz-14" *ngIf="is_subscribe==false"  routerLinkActive="router-link-active" (click)="routeToDetailPage(item.Orderline_id)" >View Order Detail</button>
+                    <button class="mt-4 order-btn py-2 fz-14" *ngIf="is_subscribe==true"> View Subscribed Details</button>
+                 </div>
+                 <!-- <i class="c-FF9900 fz-14 fw-400" style="font-style: italic;" *ngIf="item.is_subscribe==false">Unsubsrcibed Product</i> -->
+                 <i class="c-FF9900 fz-14 fw-400" style="font-style: italic;" *ngIf="item.is_subscribe==true">Subsrcibed Product</i>
+            </div>
+        </div> 
+     </div>
+ </div>
+ <div class="bgw mt-2" *ngIf="allOrderArray.length==0">
+    <div class="d-flex justify-content-center align-items-center" style="height: 70vh;">
+        <h2 class="m-0" style="color:#FF9900;">
+            No Data Found
+        </h2>
+    </div>
+</div>
+
+ 

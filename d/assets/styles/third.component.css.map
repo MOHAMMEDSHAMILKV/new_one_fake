@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/app/pages/profile/seller-account/third/third.component.scss"
+    ],
+    "names": [],
+    "file": "third.component.css"
+}

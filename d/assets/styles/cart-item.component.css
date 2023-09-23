@@ -1,0 +1,231 @@
+.qty-drop {
+  max-width: 90px;
+  display: inline-block;
+  height: 30px;
+}
+
+:host {
+  width: 100%;
+}
+
+.track-modal {
+  max-width: 600px;
+  width: 90%;
+}
+
+.order-track-progress {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  padding: 0% 5%;
+  margin: 30px auto;
+  margin-bottom: 80px;
+}
+
+.order-track-progress .track {
+  margin: auto;
+  width: 80%;
+  height: 10px;
+  background: gainsboro;
+  position: relative;
+}
+
+.order-track-progress .track::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 10px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  background: #086DB5 !important;
+}
+
+.order-track-progress .track.stage-one {
+  position: relative;
+}
+
+.order-track-progress .track.stage-one::before {
+  width: 28%;
+}
+
+.order-track-progress .track.stage-two {
+  position: relative;
+}
+
+.order-track-progress .track.stage-two::before {
+  width: 65% !important;
+}
+
+.order-track-progress .track.stage-three {
+  position: relative;
+}
+
+.order-track-progress .track.stage-three::before {
+  width: 98% !important;
+}
+
+.order-track-progress .stepcontent-one, .order-track-progress .stepcontent-two, .order-track-progress .stepcontent-three, .order-track-progress .stepcontent-four {
+  position: absolute;
+  top: 35px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: auto;
+  font-size: 14px;
+}
+
+.order-track-progress .stepcontent-one {
+  left: 40px;
+}
+
+.order-track-progress .stepcontent-two {
+  left: 30%;
+}
+
+.order-track-progress .stepcontent-three {
+  right: 30%;
+}
+
+.order-track-progress .stepcontent-four {
+  right: 40px;
+}
+
+.order-track-progress .step-one, .order-track-progress .step-two, .order-track-progress .step-three, .order-track-progress .step-four {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  background: gainsboro;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border-radius: 50%;
+  z-index: 5;
+  -webkit-box-shadow: 0px 0px 5px #00000021;
+          box-shadow: 0px 0px 5px #00000021;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #000;
+}
+
+.order-track-progress .step-one i, .order-track-progress .step-two i, .order-track-progress .step-three i, .order-track-progress .step-four i {
+  font-size: 15px;
+}
+
+.order-track-progress .step-one {
+  left: 70px;
+}
+
+.order-track-progress .step-two {
+  left: 34%;
+}
+
+.order-track-progress .step-three {
+  right: 34%;
+}
+
+.order-track-progress .step-four {
+  right: 70px;
+}
+
+.order-track-progress .step-one.stage-one {
+  color: #fff !important;
+  background: #086DB5 !important;
+}
+
+.order-track-progress .step-one.stage-one i {
+  font-size: 18px !important;
+}
+
+.order-track-progress .step-one.stage-two {
+  color: #fff !important;
+  background: #086DB5 !important;
+}
+
+.order-track-progress .step-one.stage-two i {
+  font-size: 18px !important;
+}
+
+.order-track-progress .step-one.stage-three {
+  color: #fff !important;
+  background: #086DB5 !important;
+}
+
+.order-track-progress .step-one.stage-three i {
+  font-size: 18px !important;
+}
+
+.order-track-progress .step-one.stage-four {
+  color: #fff !important;
+  background: #086DB5 !important;
+}
+
+.order-track-progress .step-one.stage-four i {
+  font-size: 18px !important;
+}
+
+.order-track-progress .step-two.stage-two {
+  color: #fff !important;
+  background: #086DB5 !important;
+}
+
+.order-track-progress .step-two.stage-two i {
+  font-size: 18px !important;
+}
+
+.order-track-progress .step-two.stage-three {
+  color: #fff !important;
+  background: #086DB5 !important;
+}
+
+.order-track-progress .step-two.stage-three i {
+  font-size: 18px !important;
+}
+
+.order-track-progress .step-two.stage-four {
+  color: #fff !important;
+  background: #086DB5 !important;
+}
+
+.order-track-progress .step-two.stage-four i {
+  font-size: 18px !important;
+}
+
+.order-track-progress .step-three.stage-three {
+  color: #fff !important;
+  background: #086DB5 !important;
+}
+
+.order-track-progress .step-three.stage-three i {
+  font-size: 18px !important;
+}
+
+.order-track-progress .step-three.stage-four {
+  color: #fff !important;
+  background: #086DB5 !important;
+}
+
+.order-track-progress .step-three.stage-four i {
+  font-size: 18px !important;
+}
+
+.order-track-progress .step-four.stage-four {
+  color: #fff !important;
+  background: #086DB5 !important;
+}
+
+.order-track-progress .step-four.stage-four i {
+  font-size: 18px !important;
+}
+/*# sourceMappingURL=cart-item.component.css.map */

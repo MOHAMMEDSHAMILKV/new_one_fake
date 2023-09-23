@@ -1,0 +1,240 @@
+<div  *ngIf="isLoading" class="container-fluid  loading-overlay d-flex justify-content-center align-items-center" style="height:100%">
+    <img src="../../../assets/images/New-anime2.gif" alt="" width="80">
+</div>
+
+<app-sidraheader style="position: fixed;width: 100%;top: 0;
+left: 0;
+z-index: 999;"></app-sidraheader>
+<app-menu-header></app-menu-header>
+<div class="container-fluid main-cart-page pb-5 pt-sm-4 pt-0 px-sm-2 px-0">
+    <div class="col-12 row mx-0">
+       <div class="col-lg-9 col-md-8 col-sm-7 col-12 d-flex flex-column ps-md-2 ps-0 pe-sm-2 pe-0">
+           <div class="d-flex bgw justify-content-around w-100">
+               <div class="w-20 d-flex justify-content-center cartHeading" (click)="cart()" [ngClass]="cartHeadingActive==true?'cartheadActive':'cartHeading'">
+                  <span class="fz-15 fw-400 cursor pt-3 pb-2">Cart ({{cartDataMain?.length}} Items)</span>
+               </div>
+               <div class="w-20 d-flex justify-content-center cartHeading"  (click)="Instantcart()" [ngClass]="InstantcartHeadingActive==true?'cartheadActive':'cartHeading'">
+                  <span class="fz-15 fw-400 cursor pt-3 pb-2">Pick Up</span>
+               </div> 
+           </div> 
+           <div class="bgw mt-sm-2 mt-1"  *ngIf="isCart==true">
+                <app-sidra-cart-items 
+                [isSaveForLater]="false" 
+                ></app-sidra-cart-items> 
+           </div> 
+           <div class="bgw mt-2 d-flex justify-content-center px-2 py-5" *ngIf="isInstantCart==true">
+               <div class="d-flex flex-column justify-content-center">
+                     <div class="d-flex justify-content-center">
+                         <div class="empty_cart d-flex justify-content-center align-items-center ">
+                             <img src="../../../assets/assets/cartempty.svg" alt="" style="width: 40px;">
+                         </div>
+                     </div>
+                     <div class="d-flex justify-content-center mt-3">
+                         <span class="fw-500 fz-16">
+                             Cart empty
+                         </span>
+                     </div> 
+                     <div class="mt-3 d-flex justify-content-center">
+                         <button class="update-btn fz-14 fw-500 py-2 px-4">
+                             Continue to Shopping 
+                         </button>
+                     </div> 
+               </div>
+           </div> 
+           <div class="bgw d-none d-sm-block mt-2" *ngIf="isSaveForLatertrue==true">
+                <app-sidra-cart-items 
+                    [isSaveForLater]="true"
+                ></app-sidra-cart-items> 
+           </div> 
+       </div> 
+       <div class="col-lg-3 col-md-4 col-sm-5 col-12 d-flex flex-column px-0">
+             <div class="w-100 bgw py-3 px-3 border-bottom">
+                 <span class="fz-14 fw-bold c-717478">PRICE DETAILS</span>
+             </div>
+             <div class="w-100 bgw p-3 d-flex flex-column">
+             <div class="d-flex justify-content-between">
+                 <span class="fz-14 c-676767">Subtotal</span>
+                 <span class="fz-12 bc fw-500">AED <i class="fz-14 ms-2 bc fw-500">{{finalprice}}</i> </span>
+            </div> 
+             <div class="d-flex justify-content-between mt-3">
+                 <span class="fz-14 c-676767">Discount</span> 
+                 <span class="fz-12 bc fw-500">AED <i class="fz-14 ms-2 bc fw-500">00</i> </span>
+            </div>
+             <div class="d-flex justify-content-between mt-3">
+                 <span class="fz-14 c-676767">Delivery Charge</span>
+                 <span class="fz-14 c-079B16 fw-500">FREE</span>
+             </div>
+             <div class="d-flex justify-content-between border-t-b py-2 mt-3">
+                <span class="fz-14 c-676767">Grand Total</span>
+                <span class="fz-12 bc fw-500">AED <i class="fz-14 ms-2 bc fw-500">{{finalprice | number: '1.2-2' }}</i> </span>
+            </div> 
+             <div class="offer-info-box px-2 py-3 mt-3">
+                <span class="fz-12 cursor">
+                    You know about Sidrabazar's delivery services and corresponding details, 
+                    <i uk-toggle="#moreInfo">
+                        more information
+                    </i> 
+                </span> 
+             </div>
+             <!-- <span class="fz-14 c-676767 mt-3">You save 
+                 <i class="fz-14 c-079B16">AED 25.25</i> with this offer 
+             </span>  -->
+             <button class="buy_btn fw-400 fz-15 mt-3 py-2" *ngIf="is_loading_orderCreate==false" (click)="proceedToBuy()">Proceed to Buy</button>
+             <button class="buy_btn fw-400 fz-15 mt-3 py-2" *ngIf="is_loading_orderCreate==true">
+                <div class="spinner-border text-light" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+             </button>
+             </div> 
+             <div class="w-100 bgw py-3 px-3 border-top">
+                <div class="d-flex flex-row">
+                    <img src="../../../assets/icons/truck.svg" alt="" width="25">
+                    <div class="d-flex flex-column ms-2">
+                        <span class="fz-12 fw-500">
+                            {{freeShipNote}} 
+                        </span>
+                        <span class="fz-10 mt-0" style="color: #3D3C3C;">
+                            Delivering securely on time every time.
+                        </span>
+                    </div>
+                </div>
+            </div> 
+
+            <div class="bgw d-block d-sm-none mt-2" *ngIf="isSaveForLatertrue==true">
+                <app-sidra-cart-items 
+                    [isSaveForLater]="true"
+                ></app-sidra-cart-items> 
+           </div> 
+
+             <div class="w-100 bgw py-2 px-3 mt-2 border-bottom">
+                 <span class="fz-13 fw-500 c-717478">WE ACCEPT</span>
+             </div> 
+             <div class=" bgw py-2 px-2 d-flex flex-row payment-option">
+                 <img src="../../../assets/icons/card1.svg" alt="">
+                 <img class="ps-2" src="../../../assets/icons/card2.svg" alt="">
+                 <img class="ps-2" src="../../../assets/icons/card3.svg" alt="">
+                 <img class="ps-2" src="../../../assets/icons/card4.svg" alt="">
+                 <img class="ps-2" src="../../../assets/icons/card5.svg" alt="">
+             </div>
+             <div class="mt-2">
+                 <img src="../../../assets/icons/banner.svg" alt="">
+             </div>
+        </div>
+    </div>
+ </div> 
+ 
+ <!-- <div class="container-fluid bgw mb-3">
+     <div class="col-12 row mx-0">
+         <app-product-slider-three></app-product-slider-three>
+     </div> 
+ </div> -->
+ 
+ <!-- <div class="container-fluid py-4 bgw mt-0 mb-3">
+     <div class="col-12 row mx-0 px-2"> 
+         <app-product-card-four class="px-0"></app-product-card-four>
+     </div>
+ </div> -->
+
+
+<div id="moreInfo" class="uk-flex-top" uk-modal>
+    <div>
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+    </div>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical p-0">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12 row mx-0  header-c " style="background-color: #F4F3F0;">
+           <div class="py-3 px-4">
+                <span class="fz-18 fw-bold">
+                    Delivery System
+                </span>
+           </div>
+            <div class="col-5 p-0">
+                <div class="bg-white p-4" style="height: 100%;">
+                    <span class="fz-16 fw-bold" style="line-height: 1.4rem;">
+                        Sidra Bazar using currently 4 types of delivery options.
+                    </span>
+                    <div class="mt-2">
+                        <p class="fz-12" style="line-height: 1.4rem;">
+                            E-commerce delivery involves various steps, such as order processing, packing, shipping, and delivery. Once an order is placed online, the retailer or e-commerce platform must process the order, verify payment, and prepare the item for shipping. The item is then packed and shipped using various modes of transportation, such as air, sea, or ground.
+                        </p>
+                        <p class="mt-3 fz-12" style="line-height: 1.4rem;">
+                            The delivery process can vary depending on the retailer or e-commerce platform, and can include options such as standard delivery, express delivery, and time-slot based delivery. Customers may be able to track their orders and receive notifications regarding the status of their delivery.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7 p-0" >
+                <div class="bg-white ms-1 p-4" style="height: 100%;">
+                    <div class="scroll">
+                        <div class="">
+                            <span class="fz-13 fw-500">
+                                1.Standard Delivery :
+                            </span>
+                            <div class="mt-2">
+                                <span class="fz-16 fw-bold">
+                                    Reliable and cost-effective shipping option.
+                                </span>
+                                <p class="fz-12 mt-2" style="line-height: 1.3rem;">
+                                    Standard delivery refers to a shipping service that delivers items to their destination within a regular timeframe, typically ranging from  few days to a few weeks, depending on the carrier and the destination. It is usually the most cost-effective shipping option, and may be free or available at a nominal fee for certain types of products or order values. They may come with tracking and delivery confirmation features, allowing the recipient to track the status of their shipment and estimate the delivery date.                        
+                                </p>
+                            </div>
+                         </div>
+                         <div class="">
+                            <span class="fz-13 fw-500">
+                                2.Instant delivery :
+                            </span>
+                            <div class="mt-2">
+                                <span class="fz-16 fw-bold">
+                                    Guarantees immediate delivery of a product or service, usually within 1 hour.                            
+                                </span>
+                                <p class="fz-12 mt-2" style="line-height: 1.3rem;">
+                                    Instant delivery, also known as on-demand delivery, refers to a type of delivery service that guarantees immediate delivery of a product or service which allows consumers to order products or services and receive them within 1 hour.                            
+                                </p>
+                            </div>
+                         </div>
+                         <div class="">
+                            <span class="fz-13 fw-500">
+                                3. Same day delivery  :
+                            </span>
+                            <div class="mt-2">
+                                <span class="fz-16 fw-bold">
+                                    This option gives customer to select a specific delivery time and slot within a shorter time frame.                            
+                                </span>
+                                <p class="fz-12 mt-2" style="line-height: 1.3rem;">
+                                    Same day delivery or Express delivery services usually offer a range of delivery time options, with the fastest being same-day or next-day delivery, depending on the carrier and the specific delivery requirements. This allows for more flexibility in planning, as the customer can choose a delivery time that is convenient for them.                            </p>
+                            </div>
+                         </div>
+                         <div class="">
+                            <span class="fz-13 fw-500">
+                                4. Collection Point :
+                            </span>
+                            <div class="mt-2">
+                                <span class="fz-16 fw-bold">
+                                    More secure and reliable delivery option for customers.                            
+                                </span>
+                                <p class="fz-12 mt-2" style="line-height: 1.3rem;">
+                                    Pickup locations are often used as an alternative delivery option to home delivery, allowing customers to choose a convenient location to collect their items. Pickup locations can also reduce the risk of missed deliveries and provide greater flexibility for customers who may not be able to receive packages at their home or workplace.
+    
+                                    pickup locations can reduce the cost of home delivery and improve delivery efficiency, as items can be delivered in bulk to a single location. Pickup locations can also drive foot traffic to retail stores & provide opportunities for retailers to offer additional services or products to customers who come to collect their orders.                            
+                                </p>
+                                <span class="mt-3 fz-12">
+                                    To check your nearest pickup location :
+                                </span>
+                                <div class="fz-12 fw-bold mt-1">
+                                    <span>Goto : Profile -> Pickup location -> Search. </span>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<app-footer></app-footer>
+
+

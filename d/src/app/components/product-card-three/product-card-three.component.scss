@@ -1,0 +1,164 @@
+.qty-drop{
+    max-width:100px;
+    display:block;
+    margin:auto;
+    height:40px    
+}
+:host{
+    width: 100%;
+}
+
+.sidraCard{
+   border: 1px solid #f5f5f5;
+}
+
+.c-black{
+    color: black;
+}
+
+/* Initially show two lines and hide the rest with ellipsis */
+#product-name {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Override the above styles for larger screens (you can adjust the breakpoint as needed) */
+  @media (min-width: 1600px) {
+    #product-name {
+      display: inline; /* Show the full name */
+      white-space: normal; /* Allow line breaks */
+    }
+  }
+.c-717478{
+    color: #717478;
+}
+
+.c-58BB2C{
+    color: #58BB2C;
+}
+
+.c-FF9900{
+    color: #FF9900;
+}
+
+.c-EEEEEE{
+    color: #EEEEEE;
+}
+
+.add-to-cart-btn{
+    background-color: #FF9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.offer-btn{
+    border-radius: 100px;
+    border: none;
+    background-color: #FF9900;
+    color: white;
+    // font-size: 12px !important;
+}
+
+
+.wishlist{
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #EEEEEE;
+    color:white ;
+    &:hover{
+        background: #EEEEEE;
+        color:white ;
+        border: none !important;
+    }
+}
+
+.wish_befor{
+    color:white ;
+    // background: #EEEEEE;
+
+}
+.wish_after{
+    color: #C70718;
+}
+
+.tras{
+    background-color: transparent; 
+}
+
+
+.bw{
+    background-color: white;
+}
+
+.h-226px{
+    height: 180px;
+    margin-top: -5px;
+}
+
+
+.c-6D6D6D{
+    color: #6D6D6D;
+}
+
+
+
+.fw-600{
+    font-weight: 600 !important;
+}
+
+.fw-500{
+    font-weight: 500 !important;
+}
+
+.c-717478{
+    color: #717478;
+}
+
+.fw-400{
+    font-weight: 400;
+}
+
+.h-226px{
+    height: 130px;
+}
+
+.fz-9{
+    font-size: 9px;
+}
+
+.card-img-top{
+    img{
+        height:150px;
+        transition: transform .2s;
+        z-index: 1;
+        object-fit: contain;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+    overflow: hidden;
+}
+
+.h-30{
+    height: 50px;
+}
+
+
+.qty-btn{
+    background: transparent;
+    // width: 110px;
+    // height: 38px;
+    border: 1px solid #dad5d5 !important;
+    border-radius: 5px;
+} 
+
+
+.qty-adder{
+    background: transparent;
+    border: none;
+}

@@ -1,0 +1,253 @@
+<div  *ngIf="isLoading" class="container-fluid  loading-overlay d-flex justify-content-center align-items-center" style="height:100%">
+  <img src="../../../../assets/images/New-anime2.gif" alt="" width="80">
+</div>
+
+<div class="m-0 p-0 d-flex flex-row flex-wrap" *ngFor="let item of homeArray">
+    <div class="container-fluid mx-0 px-0" *ngIf="item.design_key=='design_1_1'&&item?.slot_data?.slot_contents.length!=0">
+        <div class="col-12 row mx-0 px-0">
+            <div class="px-0 " *ngFor="let d of item?.slot_data?.slot_contents" >
+                <div *ngFor="let k of d.value">
+                    <img [src]="k.image" alt="" style="width: 100%;"> 
+                    <!-- <span class="fz-18" style="color: white;">{{k.name}}</span> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Popular Category -->
+    <div class="container-fluid mx-0 px-4 py-sm-5 py-3 d-flex flex-row justify-content-center" *ngIf="item.design_key=='design_8_2'&&item?.slot_data?.slot_contents.length!=0" style="background: white;">
+    <div uk-slider>
+        <div class="uk-position-relative uk-visible-toggle uk-light multi-slider" tabindex="-1">
+          <ul class="uk-slider-items uk-child-width-auto uk-grid uk-grid-small ">
+            <li *ngFor="let d of item?.slot_data?.slot_contents | slice:0:12" >
+                <div class="m-0 p-0  mx-0 " >
+                    <app-popular-category 
+                        parentLink="/division/"
+                        [group]="specialGroups"
+                        [count]="count"
+                        [popular_category]="d"
+                    ></app-popular-category>
+               </div> 
+            </li>
+          </ul>
+          <a class="uk-position-center-left uk-position-small uk-hidden-hover  icon" style="color: black;" href="#" uk-slidenav-previous
+            uk-slider-item="previous"></a>
+          <a class="uk-position-center-right uk-position-small uk-hidden-hover  icon" style="color: black;" href="#" uk-slidenav-next
+            uk-slider-item="next">
+          </a>
+        </div>      
+      </div>
+    </div>
+ 
+   <!-- <div class="container-fluid mx-0 px-2 py-5 d-flex flex-row justify-content-center" *ngIf="item.design_key=='design_8_2'&&item?.slot_data?.slot_contents.length!=0" style="background: white;">
+       <div class="m-0 p-0  mx-0 " *ngFor="let d of item?.slot_data?.slot_contents | slice:0:11">
+            <app-popular-category 
+                parentLink="/division/"
+                [group]="specialGroups"
+                [count]="count"
+                [popular_category]="d"
+            ></app-popular-category>
+       </div> 
+   </div> -->
+
+
+    <!-- <button class="btn border" (click)="onScroll()">hi</button> -->
+    <!-- Ends of Popular Category -->
+    <!-- <div class="container-fluid mx-0" *ngFor="let d of item?.slot_data?.slot_contents">
+        <div class=" mx-0"*ngIf="d.block_design=='half_double_banner'" >
+            <div class="col-12 row mx-0">
+                <div class="col-12">
+                    <app-banner
+                        [bannerList]="d.value"
+                    ></app-banner>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="container-fluid mx-0" *ngFor="let d of item?.slot_data?.slot_contents">
+        <div class=" mx-0"*ngIf="d.block_design=='product_slider_1_12'" >
+            <div class="col-12 row mx-0">
+                <div class="col-12">
+                    <app-product-slider-two>
+                        [products]="d.value"
+                    </app-product-slider-two>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container-fluid d-flex flex-wrap w-100 box px-sm-4 px-2 py-3 mt-2" dir="ltr" *ngIf="item.design_key=='product_slider_1_12'">
+        <div class="col-12 row mx-0">
+            <div class="d-flex justify-content-between border-bottom pb-2 px-0">
+                <h4 class="fw-bold min-fit-width mb-0 pb-2 ms-2 ms-md-0 fz-16">{{item.slot_data?.slot_display_name}}</h4>
+                <div class="" (click)="viewAll(item?.slot_data?.slot_contents)">
+                    <button class="btn_viewAll fz-12 fw-500 px-3 py-2">View All</button>
+                </div> 
+            </div> 
+        </div> 
+        
+        <div class="col-12 multi-slider" dir="ltr" > 
+            <div class="uk-position-relative uk-visible-toggle uk-light"  tabindex="-1" uk-slider >
+                <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-6@m">
+                    <li *ngFor="let d of item?.slot_data?.slot_contents">
+                        <app-product-card-one 
+                            [products]="d.value[0]" 
+                            [block_design]="d.block_design"   
+                        ></app-product-card-one>
+                    </li> 
+                </ul> 
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover icon" href="#" uk-slidenav-previous uk-slider-item="previous">
+                    <!-- <img src="../../../../assets/assets/arraow-orange.svg" alt="" width="7"> -->
+                </a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover icon" href="#" uk-slidenav-next uk-slider-item="next">
+                    <!-- <img src="../../../../assets/assets/arraow-orange.svg" alt="" width="7"> -->
+                </a> 
+            </div> 
+        </div> 
+    </div> 
+
+    
+    <div class="container-fluid mx-0 px-0 py-5" *ngIf="item.design_key=='design_2_2_slider'">
+        <div class="col-12 row mx-0 px-3">
+            <div class="col-lg-3 col-sm-6 col-12 mt-sm-0 mt-2"*ngFor="let d of item?.slot_data?.slot_contents">
+                <app-deal-card-one
+                    [parent]="d.value"
+                ></app-deal-card-one>
+            </div>
+        </div>
+    </div>
+<!-- 
+    <app-deals 
+        [group]="specialGroups" 
+        [parent]="deals" 
+        [directions]="languageShow"
+    ></app-deals> -->
+
+ <!-- <div class="container-fluid py-5 px-0">
+    <div class="col-12 row mx-0">
+        <div class="">
+            <app-product-slider>
+                [products]="mainSlot_10?.products"
+            </app-product-slider>
+        </div>
+    </div>
+ </div> -->
+
+    <!-- <app-product-slider-two 
+        [sectionTitle]="mainSlot_3?.Display_name"
+        [products]="mainSlot_5?.products"
+    ></app-product-slider-two>  -->
+
+    <!-- <div class="container-fluid d-flex flex-wrap mt-md-3 p-md-3 p-1 w-100" dir="rtl">
+        <h4 class="fw-bold min-fit-width col-12 mb-4 ms-2 ms-md-0 ps-3 fz-22 text-capitalize">{{mainSlot_4?.Display_name}}</h4>
+        <div class="col-12 row gx-3 pe-3" dir="rtl">
+            <div class="col-lg-3 col-md-4 col-6 mb-3" dir="rtl" *ngFor="let item of mainSlot_4?.banner">
+                <a class="m-0 p-0" [href]="routeTo(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code)">
+                    <img class="w-100 rounded pointer" [src]="item.image" alt="">
+                </a> 
+            </div> 
+        </div>
+    </div> -->
+
+    <!-- <app-product-slider-two 
+        [sectionTitle]="mainSlot_5?.Display_name"
+        [products]="mainSlot_5?.products"
+    ></app-product-slider-two> -->
+
+
+    <!-- <div class="container-fluid d-flex flex-wrap mt-md-3 p-md-3 p-1 w-100" dir="rtl">
+        <div class="col-12 row gx-3 pe-3" dir="rtl">
+            <div class="col-md-6 mb-3" dir="rtl" *ngFor="let item of center_slot.banner">
+                <a class="m-0 p-0" [href]="routeTo(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code)">
+                    <img class="w-100 rounded pointer" [src]="item.image" alt="" >
+                </a>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <app-product-slider-two 
+        [sectionTitle]="mainSlot_6?.Display_name"
+        [products]="mainSlot_6?.products"
+    ></app-product-slider-two>
+
+    <app-product-slider-two 
+        [sectionTitle]="mainSlot_7?.Display_name"
+        [products]="mainSlot_7?.products"
+    ></app-product-slider-two> -->
+
+    <!-- <div class="container-fluid d-flex flex-wrap mt-md-3 p-md-3 p-1 w-100" dir="rtl">
+        <h4 class="fw-bold min-fit-width col-12 mb-4 ms-2 ms-md-0 ps-3 fz-22 text-capitalize" dir="rtl">{{mainSlot_8?.Display_name}}</h4>
+        <div class="col-12 row gx-3 pe-3" dir="rtl">
+            <div class="col-lg-3 col-md-4 col-6 mb-3" dir="rtl" *ngFor="let item of mainSlot_8.banner">
+                <a class="m-0 p-0" [href]="routeTo(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code)">
+                    <img class="w-100 rounded pointer" [src]="item.image" alt="">
+                </a>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- <div  class="container-fluid d-flex flex-wrap mt-md-3 mb-3 mb-md-0 p-md-3 p-1 w-100 slot-9-banners" >
+        <h4 class="fw-bold min-fit-width col-12 mb-4 ms-2 ms-md-0 px-3 fz-22 text-capitalize">{{mainSlot_9_title| language | async}}</h4>
+        <div class="uk-position-relative uk-visible-toggle uk-light px-3 w-100 multi-slider" tabindex="-1" uk-slider="center: false">
+            <ul class="uk-slider-items uk-grid-small px-0">
+                <li class="uk-width-4-5 category-slide-item px-0 pe-2" *ngFor="let item of mainSlot_9">
+                    <div class="uk-panel"> 
+                        <div class="container-fluid row gx-3 mx-0 px-0 w-100">
+                            <div class="col-6 ps-0">
+                                <a  [href]="routeTo(item.redirect_type,item.redirecturl,item.redirect_id,item.section_type,item.redirect_code)" class="m-0 p-0">
+                                    <img  class="w-100 rounded pointer" [src]="item.image" alt="" >
+                                </a>
+                            </div> 
+                            <div class="col-6 row gx-2">
+                                <div class="col-3" *ngFor="let child of item.child | slice:0:4;let i = index">
+                                    <div class="w-100">
+                                        <a  [href]="routeTo(child.redirect_type,child.redirecturl,child.redirect_id,child.section_type,child.redirect_code)" class="m-0 p-0">
+                                            <img class="w-100 rounded pointer" [src]="child.image" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 ps-0 d-flex flex-wrap mt-2">
+                                <div class="col-6 row gx-2 secondlast-slide-row">
+                                    <div class="col-3" *ngFor="let child of item.child | slice:4:8;let i = index">
+                                        <div class="">
+                                            <a  [href]="routeTo(child.redirect_type,child.redirecturl,child.redirect_id,child.section_type,child.redirect_code)" class="m-0 p-0">
+                                                <img class="w-100 rounded pointer" [src]="child.image" [alt]="i">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6 row gx-2 ps-2 last-category-slide-row">
+                                    <div class="col-3" *ngFor="let child of item.child | slice:8:12;let i = index">
+                                        <div class="">
+                                            <a  [href]="routeTo(child.redirect_type,child.redirecturl,child.redirect_id,child.section_type,child.redirect_code)" class="m-0 p-0">
+                                                <img class="w-100 rounded pointer" [src]="child.image" [alt]="i" >
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <a class="uk-position-center-left uk-position-small dark-sidenav" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small dark-sidenav" href="#" uk-slidenav-next uk-slider-item="next"></a>
+        </div>
+    </div> -->
+
+
+    <!-- <app-product-slider-two 
+        [sectionTitle]="mainSlot_10?.Display_name"
+        [products]="mainSlot_10?.products"
+    ></app-product-slider-two> -->
+
+    <!-- <div class="py-3 w-100"></div> -->
+</div>
+
+<div class="m-0 p-0" *ngIf="bulkTempInactive==true">
+    <div class="container-fluid py-5 d-flex justify-content-center align-items-center">
+        <h3 class="fw-bold">This segment currently not available</h3>
+    </div>
+</div>

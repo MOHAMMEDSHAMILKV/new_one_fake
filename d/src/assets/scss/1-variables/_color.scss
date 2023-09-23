@@ -1,0 +1,74 @@
+// theme colors
+$colors: (
+    primary:#F0D518,
+    secondary: #086DB5,
+    primarytwo:#086DB5,
+    success: #1FBC4B,
+    danger:#C51919,
+    warning:#FFCE31,
+    yellow: #fffa38,
+    info:#0098FF,
+    favorite:#FF995F,
+    black:#000,
+    white:#fff,
+    invisible:#fff0,
+    bg:#eee,
+
+    dark:#1A1A1A,
+    medium:#3E3E3E,
+    smooth:#737373,
+
+    sidebar:#f7f7f7,
+
+    gray-100: #f8f9fa,
+    gray-200: #e9ecef,
+    gray-300: #dee2e6,
+
+    gray-400: #ced4da,
+    gray-500: #adb5bd,
+    gray-600: #6c757d,
+
+    gray-700: #495057,
+    gray-800: #343a40,
+    gray-900: #212529,
+
+    gradient-1:linear-gradient(90deg, #7E17AF 0%, #0EA8E9 100%),
+
+    cmain:#FF9900,
+    facebook:#3A589B,
+    twitter:#1CB7EB,
+    youtube:#CA3737,
+    linkedin:#1686B0,
+    
+);
+
+.life-style-bg{
+    background: #CEE2F0 !important;
+}
+.essential-bg{
+    background: #DCEFCC !important;
+}
+.bulk-bg{
+    background: #E8DCEC !important;
+}
+.text-bulk{
+    color: #FF0000 !important;
+    // opacity: 50%;
+    
+}
+.around-world-bg{
+    background: #FCF7D1 !important;
+}
+
+.life-style-gradient{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #086DB5 100%) !important;
+}
+.essential-gradient{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #50AF00 100%) !important;
+}
+.bulk-gradient{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #8B50A0 100%) !important;
+}
+.around-world-gradient{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #F0D518 100%) !important;
+}

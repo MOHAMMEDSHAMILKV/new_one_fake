@@ -1,0 +1,63 @@
+
+<div  *ngIf="isLoading" class="container-fluid  loading-overlay d-flex justify-content-center align-items-center" style="height:100%">
+  <img src="../../../assets/images/New-anime2.gif" alt="" width="80">
+</div>
+<app-sidraheader style="position: fixed;width: 100%;top: 0;
+left: 0;
+z-index: 999;"></app-sidraheader>
+<app-menu-header></app-menu-header>
+<div class="container-fluid py-lg-4 py-md-4 py-3  px-lg-4 px-md-4 px-sm-3 px-2">
+    
+  <div class="col-12 row mx-0">
+    <div class="bgw d-flex justify-content-between py-2">
+      <div class="d-flex align-items-center">
+          <div class="p-0 m-0" *ngIf="searchIsActive==false">
+                <span class="fz-15 fw-bold" style="color: #717478;">Search result of  “<i class="fz-15 fw-bold ms-2" style="color: black;">{{headingData | titlecase}}</i> ”</span>
+              <!-- <span class="fz-15 ms-3">{{searchResultList.length}} Prodcuts</span> -->
+          </div>
+          <div class="p-0 m-0" *ngIf="searchIsActive==true">
+            <span class="fw-bold fz-14  d-block d-sm-none"  (click)="back()"><span class="fw-bold" uk-icon="arrow-left"></span>
+            Similar Products
+         </span>
+              <span class="fz-15 fw-bold d-none d-sm-block" style="color: black;">Similar Products</span>
+          </div>
+      </div>
+      <div class="">
+        <select class="form-select fz-14" (change)="Searchfilter($event)">
+          <option value="Filter">Filter</option>
+          <option value="asc">Low to High</option>
+          <option value="desc">High to Low</option>
+          <option value="alpha">Alphabetic</option>
+        </select>
+      </div>
+    </div> 
+  </div> 
+  <div class="col-12 row bgw  mx-0 pt-4 pb-3 mt-2 px-2"> 
+    <div class="d-flex flex-wrap px-sm-2 px-0">
+      <div class="px-0 mt-3 col-xl-2 col-lg-3 col-sm-4 col-6" *ngFor="let product of searchResultList">
+          <app-product-card-three
+              [products]="product" 
+          ></app-product-card-three> 
+      </div>
+    </div> 
+    <div class="col-12 row mx-0 mt-3">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination d-flex justify-content-center">
+          <li class="page-item" (click)="priviousData()" *ngIf="paginationDetails?.previous!=null" >
+            <a class="page-link" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item" *ngIf="paginationDetails?.next!=null" (click)="nextData()">
+            <a class="page-link" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a> 
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

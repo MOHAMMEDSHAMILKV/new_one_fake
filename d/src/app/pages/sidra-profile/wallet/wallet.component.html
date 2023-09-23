@@ -1,0 +1,51 @@
+<div class="bgw px-4" style="padding: 21px 0px 21px 0px;">
+    <span class="fz-15 fw-bold">Wallet and Points</span>
+</div>
+
+<div class="mt-2">
+    <div class="col-12 row mx-0 ">
+        <div class="col-8 px-0 ">
+            <div class="py-4 bgw me-2">
+                <div class="d-flex justify-content-center">
+                    <div class="points-round d-flex align-items-center justify-content-center">
+                        <img src="../../../../assets/images/wallet.svg" alt="">
+                   </div>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <span class="fz-45 fw-bold">{{walletData?.available_points}}</span>
+                </div>
+                <div class="d-flex justify-content-center mt-2">
+                    <span class="fz-14 c-5F5F61">Total Available Points</span>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                    <span class="fz-16 c-FF9900 fw-500">Current wallet amount is AED {{walletData?.available_points}}</span>
+                </div> 
+            </div> 
+        </div> 
+        <div class="col-4 px-0 bgw">
+            <div class=" px-4 py-4">
+                <span class="fz-13 fw-bold">Points</span>
+                <div class="col-12 mt-3">
+                    <input type="text" class="form-control fz-12 h-55"  placeholder="Enter Point" [(ngModel)]="points" (input)="calculation(points)">
+                </div> 
+                <div class="col-12 mt-3"> 
+                    <input type="text" class="form-control fz-12 h-55"  placeholder="You will get..." [(ngModel)]="pointData">
+                </div>   
+                <div class="col-12 mt-2">
+                    <span class="fz-12 c-#A9A8A8">
+                        You need minimum of 500 points to redeem your points to wallet  
+                    </span>
+                </div>    
+                <div class="col-12 pt-4"> 
+                    <button class="update-btn fz-14 fw-500 w-100" (click)="postPoints()">Redeem Now</button>
+                </div>      
+            </div>   
+        </div> 
+    </div> 
+    <div class="col-12 row mx-0 mt-2 px-0">
+        <img src="../../../../assets/test/bannersidra.svg" alt="" class="px-0">
+    </div>
+</div>  
+
+
+

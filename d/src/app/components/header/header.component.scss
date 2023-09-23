@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+.container-fluid{
+  font-family: 'Roboto', sans-serif;
+}
+
+.sidra-header-main{
+    // height: 50px;
+    .logo{
+      img{
+        // width: 87px;
+        height: 42px;
+      }
+    }
+}
+
+.input-group{
+  background-color: #F4F3F1;
+  border-radius: 5px;
+}
+
+.form-control{
+  background-color: #F4F3F1;
+  border-radius: 0px !important;
+  color: #868686;
+  font-size: 13px;
+}
+
+.btn-outline-secondary{
+  border: 1px solid #ced4da;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.btn{
+  border-radius: 5px 0px 0px 5px;
+  color: black;
+  font-size: 15px;
+}
+
+.input-group-text{
+  border-radius: 0px 5px 5px 0px;
+  background-color: #FF8606;
+  border: 2px solid #FF8606;
+
+  i{
+    color: black;
+    font-weight: 500;
+  }
+}
+
+.search-result__text{
+   &:hover{
+     background-color: #F4F3F1;
+     border-radius: 4px;
+   }
+}
+
+// .btn-check:checked .btn-outline-secondary, .btn-check:active + .btn-outline-secondary, .btn-outline-secondary:active, .btn-outline-secondary.active, .btn-outline-secondary.dropdown-toggle.show{
+
+// }
+
+.dropdown-toggle.show{
+  background-color:none ;
+}
+
+.dropdown-toggle:hover{
+  background-color:none ;
+}
+
+.flag-dropdown{
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.fw-500{
+  font-weight: 500;
+}
+
+.fz-12{
+  font-size: 12px;
+}
+
+.fz-14{
+  font-size: 14px;
+}
+
+
+.sidra-header-main_two{
+  background-color: #323031;
+} 
+
+.cw{
+  color: white;
+}
+
+.header-two-content:hover{
+  background-color: #3A3839;
+  padding: 14px 0px 14px 0px;
+}
+.menu{
+  width: 200px;
+  position:absolute;
+  .profile-box{
+    background-color: #F4F3F1;
+  }
+  
+}
+
+.content-box{
+  .text-1{
+    color: #6D6D6D;
+    &:hover{
+      color: #FF8606;
+    }
+    
+  }
+  &:hover{
+    color: #FF8606;
+  }
+}
+  .form-check-input:checked {
+    background-color:#FF9900 ;
+    border-color:#FF9900 ;
+}
+
+.form-check-input{
+    width: 1rem;
+    height: 1rem;
+    border-color:#FF9900;
+    background-color: #FFF5E6;
+} 
+  
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #F0F0F0; 
+  border-radius: 4px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #A5A4A4; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b4b3b3; 
+}
+
+
+.bgw{
+  background-color: white;
+}
+.b-b{
+    border-bottom:5px solid #FF9900 ;
+}
+
+
+.form-check-input:checked{
+  background-color: #FF9900 !important;
+  border: 1px solid #FF9900 !important;
+}
+
+.form-check-input{
+  border: 1px solid #FF9900 !important;
+}
+
+.company-list{
+  background-color: #F4F3F1;
+  border-radius: 4px;
+}
+
+.all-cate{
+  height: 400px;
+  overflow-y: auto;
+}
+
+.all-cate_hover{
+  background-color: #F4F3F1;
+  border-radius: 4px;
+ &:hover{
+  background-color: #F4F3F1;
+  border-radius: 4px;
+ }
+}
+
+input{
+  outline: none;
+}
+
+.c-FF9900{
+  color: #FF9900;
+}
+
+.c-6D6D6D{
+  color: #6D6D6D;
+  &:hover{
+    color: black;
+  }
+}
+
+.round{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1.5px solid #F2F2F2;
+  &:hover{
+    border: 1.5px solid black;
+    transform: scale(1.1);
+  }
+}
+
+.linercolor:hover{
+  border-bottom: 5px solid #FF9900;
+  margin-bottom: -14px;
+}
+.all_cateSelect{
+  border-bottom: 5px solid #FF9900;
+  margin-bottom: -14px;
+}

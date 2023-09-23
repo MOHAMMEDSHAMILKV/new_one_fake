@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,KAAK,CAAA;EACH,SAAS,EAAC,IACZ;CAAC",
+    "sources": [
+        "../../src/app/pages/profile/setting/setting.component.scss"
+    ],
+    "names": [],
+    "file": "setting.component.css"
+}

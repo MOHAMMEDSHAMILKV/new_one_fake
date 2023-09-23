@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,iBAAiB,CAAA;EAEb,UAAU,EAAE,IAAI;EAChB,KAAK,EAAE,IAAI;EACX,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;CAiBxB;;AAtBH,AAMI,iBANa,CAMb,UAAU,CAAC;EACP,UAAU,EAAE,eAAe;EAC3B,QAAQ,EAAE,QAAQ;EAClB,OAAO,EAAE,KAAK;EACd,KAAK,EAAE,OAAO;EACd,eAAe,EAAE,eAAe;EAChC,gBAAgB,EAAE,IAAI;EAEtB,UAAU,EAAE,yHAAyH;CACxI;;AAfL,AAgBI,iBAhBa,CAgBb,UAAU,AAAA,OAAO,CAAC,UAAU,CAAC;EACzB,OAAO,EAAE,CAAC;EACV,KAAK,EAAE,IAAI;EACX,gBAAgB,EAAE,kBAAkB;EACpC,YAAY,EAAE,kBAAkB;CACnC",
+    "sources": [
+        "../../src/app/pages/search/search.component.scss"
+    ],
+    "names": [],
+    "file": "search.component.css"
+}

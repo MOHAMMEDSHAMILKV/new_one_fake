@@ -1,0 +1,428 @@
+<div class="bgw px-4" style="padding: 21px 0px 21px 0px;">
+    <span class="fz-16 fw-bold">Settings</span>
+</div>
+
+<div class="container-fluid bgw mt-2">
+    <div class="col-12 row mx-0  py-4">
+        <div class="d-flex flex-row align-items-center px-0">
+            <span class="fz-15 fw-500">Notification</span>
+            <div class="form-check form-switch ms-3">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
+            </div>
+        </div>
+        <p class="fz-14 mt-2 px-0" style="line-height: 1.5;">
+        </p>
+        <!-- <div class="mt-2 px-0">
+             <span class="fz-14 c-FF9900 fw-500 cursor" [routerLink]="['/notification-prefrence']" routerLinkActive="router-link-active" >
+                Notification preferences 
+             </span>
+         </div> -->
+    </div>
+</div>
+
+<!-- <div class="container-fluid bgw mt-2">
+     <div class="col-12 row mx-0">
+         <div class="py-3 px-0">
+            <div class="px-0">
+                <span class="fz-15 fw-500">Permission</span>
+            </div>
+            <p class="fz-14 mt-2 pb-4">
+                Lorem ipsum dolor sit amet, consect etur adipi scing elit. Integer dolor varius lectus habit asse.Lorem ipsum dolor sit amet.
+            </p> 
+            <div class="d-flex justify-content-between align-items-center pb-2 border-bot mt-2 cursor" uk-toggle="target:#permission">
+                <div class="d-flex flex-row align-items-center">
+                    <div class="rounded-icon d-flex align-items-center justify-content-center">
+                        <img src="../../../../assets/icons/folder_open.svg" alt="" width="18">
+                    </div>
+                    <div class="ms-2 d-flex flex-column">
+                    <span class="fz-14 fw-500">
+                        File Manager
+                    </span>
+                    <span class="fz-12 mt-1 c-3D3C3C">
+                        Ask before accessing 
+                    </span> 
+                    </div>
+                </div>
+                <div class="">
+                    <img src="../../../../assets/icons/right-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pb-2  border-bot mt-2 cursor" uk-toggle="target:#permission">
+                <div class="d-flex flex-row align-items-center">
+                    <div class="rounded-icon d-flex align-items-center justify-content-center">
+                        <img src="../../../../assets/icons/location_on.svg" alt="" width="16" height="21">
+                    </div>
+                    <div class="ms-2 d-flex flex-column">
+                       <span class="fz-14 fw-500">
+                           Location
+                       </span>
+                       <span class="fz-12 mt-1 c-3D3C3C">
+                           Ask before accessing 
+                       </span> 
+                    </div>
+                </div>
+                <div class="">
+                    <img src="../../../../assets/icons/right-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pb-2  border-bot mt-2 cursor" uk-toggle="target:#permission">
+                <div class="d-flex flex-row align-items-center">
+                    <div class="rounded-icon d-flex align-items-center justify-content-center">
+                        <img src="../../../../assets/icons/contacts.svg" alt="" width="18">
+                    </div>
+                    <div class="ms-2 d-flex flex-column">
+                       <span class="fz-14 fw-500">
+                           Contacts
+                       </span> 
+                       <span class="fz-12 mt-1 c-3D3C3C">
+                           Ask before accessing 
+                       </span> 
+                    </div>
+                </div>
+                <div class="">
+                    <img src="../../../../assets/icons/right-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pb-2  border-bot mt-2 cursor" uk-toggle="target:#permission">
+                <div class="d-flex flex-row align-items-center">
+                    <div class="rounded-icon d-flex align-items-center justify-content-center">
+                        <img src="../../../../assets/icons/photo_camera.svg" alt="" width="18">
+                    </div>
+                    <div class="ms-2 d-flex flex-column">
+                    <span class="fz-14 fw-500">
+                        Camera
+                    </span>
+                    <span class="fz-12 mt-1 c-3D3C3C">
+                        Ask before accessing 
+                    </span> 
+                    </div>
+                </div>
+                <div class="">
+                    <img src="../../../../assets/icons/right-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center pb-2 border-bot mt-2 cursor" uk-toggle="target:#permission">
+                <div class="d-flex flex-row align-items-center">
+                    <div class="rounded-icon d-flex align-items-center justify-content-center">
+                        <img src="../../../../assets/icons/keyboard_voice.svg" alt="" width="15">
+                    </div>
+                    <div class="ms-2 d-flex flex-column">
+                    <span class="fz-14 fw-500">
+                        Micro Phone
+                    </span>
+                    <span class="fz-12 mt-1 c-3D3C3C">
+                        Ask before accessing 
+                    </span> 
+                    </div>
+                </div>
+                <div class="">
+                    <img src="../../../../assets/icons/right-icon.svg" alt="">
+                </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center  mt-2 cursor" uk-toggle="target:#permission">
+                <div class="d-flex flex-row align-items-center">
+                    <div class="rounded-icon d-flex align-items-center justify-content-center">
+                        <img src="../../../../assets/icons/stay_current_portrait.svg" alt="" width="13">
+                    </div>
+                    <div class="ms-2 d-flex flex-column">
+                    <span class="fz-14 fw-500">
+                        Phone Ring
+                    </span>
+                    <span class="fz-12 mt-1 c-3D3C3C">
+                        Ask before accessing 
+                    </span> 
+                    </div>
+                </div>
+                <div class="">
+                    <img src="../../../../assets/icons/right-icon.svg" alt="">
+                </div>
+            </div>
+         </div>
+     </div>
+ </div> -->
+
+<div class="container-fluid bgw mt-2">
+    <div class="col-12 row mx-0">
+        <div class="py-3">
+            <div class="px-0">
+                <span class="fz-15 fw-500">Saved Cards</span>
+            </div>
+            <p class="fz-14 mt-2 pb-2 px-0">
+            </p>
+            <div class="px-0">
+                <button class="setting-btn fw-500 fz-13" (click)="saveCard()">+ ADD NEW CREDIT/DEBIT CARD</button>
+            </div>
+            <div class="card-box py-2  px-3 mt-3" *ngFor="let item of savedCard">
+                <div class="d-flex flex-row">
+                    <!-- <div class="">
+                          <img src="../../../../assets/icons/card2.svg" alt="" width="45">
+                      </div> -->
+                    <div class="ms-3">
+                        <span class="fz-14 fw-bold">{{item.discription}}</span>
+                        <div class="mt-2">
+                            {{item.expiry}}
+                        </div>
+                        <div class="mt-2">
+                            <span class="fz-13 fw-bold td cursor" (click)="deletecard(item.id)">Delete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid bgw py-3">
+    <div class="col-12 row mx-0">
+        <!-- <div class="mb-2"> 
+            <span class="fz-16 fw-bold">
+                Saved card FAQs
+            </span>
+        </div> -->
+        <div class="mb-2">
+            <span class="fz-16 fw-bold">
+                Is it safe to tokenise my card?
+            </span>
+            <p class="mt-3 fz-13" style="line-height: 1.5;">
+                <!-- Yes. A tokenised card transaction is considered safer as the actual card details are not shared with the Flipkart during transaction processing . Card information is stored with the  authorised card networks or card issuers only and Flipkart does not store your 16-digit card number. -->
+                We accept the following payment methods: credit cards (Visa and MasterCard), PayPal and Cash on
+                Delivery. Credit cards: we accept payments made using Visa and MasterCard. To pay using your credit
+                card, after accepting the Terms and Conditions, you will be redirected to our secured payment gateway
+                page. You will need your card number, expiry date, and the three-digit CVV number (found on the backside
+                of your card). After entering these details, you will be redirected to your bank's page for entering the
+                online 3D secure password according to the terms of your bank. Please wait till the page comes back to
+                the order confirmation. Debit cards: We accept payments made using Visa and MasterCard. To pay using
+                your debit card, after accepting the Terms and Conditions, you will be redirected to our secured payment
+                gateway page. You will need your card number, expiry date, and the three-digit CVV number (found on the
+                backside of your card). After entering these details, you will be redirected to your bank's page for
+                entering the online 3D secure password according to the terms of your bank. Please wait till the page
+                comes back to the order confirmation. Cash on Delivery: If you are not comfortable making an online
+                payment on sidrabazar.com, you can opt for the Cash on Delivery (COD) payment method instead. With COD
+                you can pay in cash at the time of actual delivery of your order to your doorstep, without requiring you
+                to make any advance payment online. The maximum order value for Cash on Delivery (COD) payment is 2500
+                AED. It is strictly a cash-only payment method. Foreign currency cannot be used to make a COD payment.
+                Only Arab Emirates Dirhams (AED) are accepted.
+            </p>
+        </div>
+        <!-- <div class="py-3 border-bot">
+            <span class="fz-14 fw-500">
+                What happens if I don’t give consent to secure my card?
+            </span> 
+            <p class="mt-3 fz-13" style="line-height: 1.5;">
+                As per the new RBI guidelines to make card data more secure, merchants like Flipkart cannot store the card details of users. As an alternative, RBI has authori sed card networks and card issuers to offer card tokenisation services, which means the replacement of actual credit and debit card details with an alternate code called “token”. The user can either choose to tokenise their card by giving consent for future transactions or choose to continue without tokenisation.            
+            </p>
+        </div> -->
+        <!-- <div class="py-3">
+            <span class="fz-14 fw-500">
+                Is it safe to tokenise my card?            
+            </span>
+            <p class="mt-3 fz-13" style="line-height: 1.5;">
+                Yes. A tokenised card transaction is considered safer as the actual card details are not shared with the Flipkart during transaction processing . Card information is stored with the  authorised card networks or card issuers only and Flipkart does not store your 16-digit card number.
+            </p> 
+        </div> -->
+    </div>
+</div>
+
+<div id="permission" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body permission-body uk-margin-auto-vertical p-4">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12  mx-0 d-flex justify-content-between pb-3">
+            <div class="d-flex flex-column px-0">
+                <span class="fz-18 fw-bold">
+                    Permissions
+                </span>
+                <span class="c-3D3C3C fz-12 mt-1">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
+                    sint.</span>
+            </div>
+            <div class="">
+                <button class="update-btn">Save</button>
+            </div>
+        </div>
+        <div class="col-12 row mx-0" style="border-radius: 8px;border: 1.5px solid #F4F3F0;">
+            <div class="col-4 px-0 bc-F0EFED" style="border-radius: 8px 0px 0px 8px;border-right: 1.5px solid #F4F3F0;">
+                <div class="active-box cursor"
+                    style="border-bottom: 1.5px solid #F4F3F0;    border-radius: 8px 0px 0px 0px;">
+                    <div class="py-3 ms-4">
+                        <img src="../../../../assets/icons/location_on.svg" alt="" width="18">
+                        <span class="fz-14 fw-500 ms-2">
+                            Location
+                        </span>
+                    </div>
+                </div>
+                <div class="active-box cursor" style="border-bottom: 1.5px solid #F4F3F0;">
+                    <div class="py-3 ms-4">
+                        <img src="../../../../assets/icons/folder_open.svg" alt="" width="18">
+                        <span class="fz-14 fw-500 ms-2">
+                            File Manager
+                        </span>
+                    </div>
+                </div>
+                <div class="active-box cursor" style="border-bottom: 1.5px solid #F4F3F0;">
+                    <div class="py-3 ms-4">
+                        <img src="../../../../assets/icons/stay_current_portrait.svg" alt="" width="13">
+                        <span class="fz-14 fw-500 ms-2">
+                            Phone Ring
+                        </span>
+                    </div>
+                </div>
+                <div class="active-box cursor" style="border-bottom: 1.5px solid #F4F3F0;">
+                    <div class="py-3 ms-4">
+                        <img src="../../../../assets/icons/contacts.svg" alt="" width="18">
+                        <span class="fz-14 fw-500 ms-2">
+                            Contants
+                        </span>
+                    </div>
+                </div>
+                <div class="active-box cursor" style="border-bottom: 1.5px solid #F4F3F0;">
+                    <div class="py-3 ms-4">
+                        <img src="../../../../assets/icons/photo_camera.svg" alt="" width="18">
+                        <span class="fz-14 fw-500 ms-2">
+                            Camera
+                        </span>
+                    </div>
+                </div>
+                <div class="active-box shadow-sm cursor bottom px-0" style="border-bottom: 1.5px solid #d8d8d8;">
+                    <div class="py-3 ms-4">
+                        <img src="../../../../assets/icons/keyboard_voice.svg" alt="" width="15">
+                        <span class="fz-14 fw-500 ms-2">
+                            Micro Phone
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8 px-1 bc-FFFDFA" style="border-radius: 0px 8px 8px 0px;">
+                <div class="m-1 px-2" style="height: 360px;border-radius: 0px 8px 8px 0px;overflow-y: auto;">
+                    <div class="condition py-3 px-3 d-flex flex-row">
+                        <input class="form-check-input_1" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <div class="d-flex flex-column ms-3 mt-3">
+                            <span class="fz-14 fw-500">
+                                Order Return
+                            </span>
+                            <span class="fz-12 c-3D3C3C">
+                                Finding out when new offers are arrived
+                            </span>
+                        </div>
+                    </div>
+                    <div class="condition py-3 px-3 d-flex flex-row">
+                        <input class="form-check-input_1" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <div class="d-flex flex-column ms-3 mt-3">
+                            <span class="fz-14 fw-500">
+                                Order Return
+                            </span>
+                            <span class="fz-12 c-3D3C3C">
+                                Finding out when new offers are arrived
+                            </span>
+                        </div>
+                    </div>
+                    <div class="condition py-3 px-3 d-flex flex-row">
+                        <input class="form-check-input_1" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <div class="d-flex flex-column ms-3 mt-3">
+                            <span class="fz-14 fw-500">
+                                Order Return
+                            </span>
+                            <span class="fz-12 c-3D3C3C">
+                                Finding out when new offers are arrived
+                            </span>
+                        </div>
+                    </div>
+                    <div class="condition py-3 px-3 d-flex flex-row">
+                        <input class="form-check-input_1" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <div class="d-flex flex-column ms-3 mt-3">
+                            <span class="fz-14 fw-500">
+                                Order Return
+                            </span>
+                            <span class="fz-12 c-3D3C3C">
+                                Finding out when new offers are arrived
+                            </span>
+                        </div>
+                    </div>
+                    <div class="condition py-3 px-3 d-flex flex-row">
+                        <input class="form-check-input_1" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <div class="d-flex flex-column ms-3 mt-3">
+                            <span class="fz-14 fw-500">
+                                Order Return
+                            </span>
+                            <span class="fz-12 c-3D3C3C">
+                                Finding out when new offers are arrived
+                            </span>
+                        </div>
+                    </div>
+                    <div class="condition py-3 px-3 d-flex flex-row">
+                        <input class="form-check-input_1" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <div class="d-flex flex-column ms-3 mt-3">
+                            <span class="fz-14 fw-500">
+                                Order Return
+                            </span>
+                            <span class="fz-12 c-3D3C3C">
+                                Finding out when new offers are arrived
+                            </span>
+                        </div>
+                    </div>
+                    <div class="condition py-3 px-3 d-flex flex-row">
+                        <input class="form-check-input_1" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <div class="d-flex flex-column ms-3 mt-3">
+                            <span class="fz-14 fw-500">
+                                Order Return
+                            </span>
+                            <span class="fz-12 c-3D3C3C">
+                                Finding out when new offers are arrived
+                            </span>
+                        </div>
+                    </div>
+                    <div class="condition py-3 px-3 d-flex flex-row">
+                        <input class="form-check-input_1" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <div class="d-flex flex-column ms-3 mt-3">
+                            <span class="fz-14 fw-500">
+                                Order Return
+                            </span>
+                            <span class="fz-12 c-3D3C3C">
+                                Finding out when new offers are arrived
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="cardadding" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body cardadding-body uk-margin-auto-vertical p-4">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12 row mx-0">
+            <div class="d-flex flex-column px-0">
+                <span class="fz-20 fw-bold">Add new card</span>
+                <span class="fz-12 c-3D3C3C mt-1">Amet minim mollit non deserunt ullamco est sit.</span>
+            </div>
+            <div class="body-uk py-4 mt-3 px-0">
+                <div class="col-12 row mx-0">
+                    <div class="col-12">
+                        <label for="" class="fz-13 fw-500 mb-2">Card Number</label>
+                        <input type="text" class="form-control fz-12 h-55" placeholder="enter card number">
+                    </div>
+                    <div class="col-12 mt-3">
+                        <label for="" class="fz-13 fw-500 mb-2">Display Name</label>
+                        <input type="text" class="form-control fz-12 h-55" placeholder="Display name...">
+                    </div>
+                    <div class="col-12 row mx-0 mt-3">
+                        <div class="col ps-0 pe-1">
+                            <label for="" class="fz-13 fw-500 mb-2">Expiry date</label>
+                            <input type="text" class="form-control fz-12 h-55" placeholder="Expair Date">
+                        </div>
+                        <div class="col ps-1 pe-0">
+                            <label for="" class="fz-13 fw-500 mb-2">CVV</label>
+                            <input type="text" class="form-control fz-12 h-55" placeholder="Enter CVV">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 row mx-0 mt-3">
+                <div class="d-flex justify-content-center">
+                    <button class="cancel-btn fz-13 fw-bold">Cancel</button>
+                    <button class="update-btn ms-2">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

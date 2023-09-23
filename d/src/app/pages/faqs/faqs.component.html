@@ -1,0 +1,70 @@
+<app-sidraheader style="position: fixed;width: 100%;top: 0;
+left: 0;
+z-index: 999;"></app-sidraheader>
+<app-menu-header></app-menu-header>
+<div class="contain-fluid my-4">
+    <div class="container">
+        <div class="col-12 row mx-0 bgw py-3">
+            <span class="fz-16 fw-bold" style="color: #717478;">
+                Frequently Added Questions
+            </span>
+        </div>
+        <div class="col-12 row mx-0  mt-1">
+            <div class="col-3 pe-0 px-0">
+                <div class="bgw me-2">
+                    <div class="py-3 px-3" > 
+                        <div class="d-flex flex-row align-items-center mb-3">
+                            <div class="form-control d-flex justify-content-between align-items-center" style="position:absolute;" style="height: 40px; width: 250px;background-color: #F8F7F5;">
+                              <input type="email" class="fz-12" [(ngModel)]="faqSearch" (input)="faqSearchData(faqSearch)"  style="border: none; background-color: transparent;outline: none;"  placeholder="Enter Coupon Code ...">
+                              <i class="bi bi-search" (click)="faqSearchData(faqSearch)"></i>
+                            </div> 
+                        </div> 
+                        <div class="mt-3"*ngFor="let item of faqArray;let i=index;">
+                            <span class="fz-15 fw-bold">{{item.tittle}}</span>
+                            <div class="ms-2 cursor d-flex flex-column" *ngFor="let d of item.values| slice:0:3;let j=index " (click)="faqDes(i,j)">
+                                <div class="d-flex justify-content-between main-profile-options me-2 mt-2">
+                                    <span class="fz-13 fw-400">{{d.title}}</span>
+                                    <img src="../../../assets/icons/right-icon.svg" alt="" width="7">
+                                </div> 
+                            </div> 
+                            <div class="p-0 m-0" *ngIf="showAll==true && faqtitleIndex==i" >
+                                <div class="ms-2 cursor d-flex flex-column" *ngFor="let d of item.values.slice(3);let j=index " (click)="faqDes(i,j)">
+                                    <div class="d-flex justify-content-between main-profile-options me-2 mt-2">
+                                        <span class="fz-13 fw-400">{{d.title}}</span>
+                                        <img src="../../../assets/icons/right-icon.svg" alt="" width="7">
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="d-flex flex-row  mt-2 ms-2 cursor" *ngIf="item.values.length>3" (click)="showAllData(i)">
+                                <span class="fz-13 fw-400 me-2" style="color: #FF9502;">View All FAQs</span>
+                                <img src="../../../assets/assets/arraow-orange.svg" alt="" width="7">
+                            </div> 
+                        </div> 
+                    </div>
+                    <div class="border-b ms-3 me-0 my-0 p-0"></div>    
+                </div> 
+            </div>
+            <div class="col-9 px-0">
+                <div class="p-4 bgw" style="height: 100vh;">
+                    <span class="fz-20 fw-bold mb-3">
+                        {{findData?.title}}
+                    </span>
+                    <p  class="fz-13 mt-3" style="line-height: 1.5rem;color: #3D3C3C;">
+                        {{findData?.description}}
+                    </p>
+                    <!-- <div class="yesorno mt-4 p-3 " style="width:300px;">
+                        <span class="fz-16 fw-bold">
+                            Is this information helpful ?
+                        </span>
+                        <div class="mt-3 d-flex flex-row"> 
+                            <button class="btn-no fz-14 fw-bold px-3 py-2">No</button>
+                            <button class="btn-yes fz-14 fw-bold px-3 py-2 ms-2">Yes</button>
+                        </div>
+                    </div> -->
+                </div>            
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

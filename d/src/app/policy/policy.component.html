@@ -1,0 +1,53 @@
+<div class="container-fluid p-0 d-flex   pt-2" style="background-color: #ECF1F5;">
+    <div class="d-flex col-12 row px-3">
+        <!-- content-section -->
+        <!-- ---------------------------------- -->
+        <div class="px-5 d-flex align-item-start flex-wrap px-3 me-3 me-md-0 ms-2 mt-3 mb-5" style="background-color: white;">
+            <div class="mt-3">
+                <h4 class="fw-bold fz-16">{{privacyPolicy?.title}}</h4>
+                <p style="font-size: 12px;"> Last updated: {{privacyPolicy?.last_updated | date}}</p>
+                <div>
+                    <div class="p-Font fz-14" [innerHtml]="privacyPolicy?.description">
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <h4 class="fz-16 fw-bold">{{securityPolicy.title}}</h4>
+                <p style="font-size: 12px;">Last updated: {{securityPolicy.last_updated}}</p>
+                <div>
+                    <div class="p-Font" [innerHtml]="securityPolicy.description">
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <h4 class="fz-16 fw-bold">{{genaralPolicy?.title}}</h4>
+                <p style="font-size: 12px;"> Last updated: {{genaralPolicy?.last_updated | date}}</p>
+                <div>
+                    <div class="p-Font" [innerHtml]="genaralPolicy?.description">
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <h4 class="fz-16 fw-bold">{{dataPolicy?.title}}</h4>
+                <p style="font-size: 12px;"> Last updated: {{dataPolicy?.last_updated | date}}</p>
+                <div>
+                    <div class="p-Font"  style="line-height: 24px !important;" [innerHtml]="dataPolicy?.description">
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <h4 class="fz-16 fw-bold">{{cookiePolicy.title}}</h4>
+                <p style="font-size: 12px;"> Last updated: {{cookiePolicy.last_updated}}</p>
+                <div>
+                    <div class="p-Font" [innerHtml]="cookiePolicy.description">
+                    </div>
+                </div>
+            </div>
+            <!-- spacer -->
+            <div class="my-5 w-100"></div>
+            <!-- spacer -->
+        </div>
+    </div>
+    <!-- ---------------------------------- -->
+    <!-- content-section ends -->
+</div>

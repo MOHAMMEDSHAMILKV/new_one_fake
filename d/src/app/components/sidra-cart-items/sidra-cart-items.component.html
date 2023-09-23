@@ -1,0 +1,604 @@
+
+
+<div class="" *ngIf="isSaveForLater==false" >
+    <div class=""*ngIf="cartDataMain?.length!=0||cartDataMain!=null">
+        <div  class="container-md container-fluid  border-bottom px-md-4 px-sm-0 px-1" *ngFor="let item of cartDataMain;let i=index">
+            <div class="d-flex flex-row py-md-4 py-3 pb-2 px-md-0 px-2">
+                <div class="cart_img d-flex justify-content-center" (click)="navigateProductPage(item.variant_id)">
+                    <img [src]="item.image" alt=""> 
+                </div>   
+                <div class="d-flex flex-column ms-md-4 ms-3"> 
+                   <span class="bc fz-16 fw-500 mb-2">{{item.name| titlecase}}</span>
+                   <span class="d-block d-sm-none fz-17 fw-bold">AED {{item.price}}</span>
+                   <div class="priceDiv  d-flex d-sm-none flex-row my-2 d-flex align-items-center">  
+                    <button class="qty-btn shadow-sm">
+                        <button class="qty-adder" [disabled]="disabledAdder==true" (click)="reduce(item,i)">
+                             <img  class="me-3"  src="../../../assets/icons/minus.svg" >
+                        </button>  
+                         <i class="quantity fz-30">{{item.quantity}}</i> 
+                         <button class="qty-adder" (click)="adder(item,i)"> 
+                             <div class="px-2" *ngIf="plus_btn_active==true"></div>
+                             <img class="ms-3" *ngIf="plus_btn_active==false" src="../../../assets/icons/plus.svg"  style="width: 13px;">
+                         </button> 
+                    </button>  
+                    <span class="d-none d-sm-block ms-2 fz-16 fw-bold bc">AED {{item.price}}</span>
+                    <!-- <s class="ms-2 c-6D6D6D fz-14 fw-500"> 3100.00</s>
+                    <span class="ms-3 fz-14 fw-500 c-079B16">3 Offers Applied</span> -->
+                </div>
+                   <span class="fz-11 mb-1">Seller : 
+                       <i class="fw-500 fz-11 fw-bold">{{item.inventory_name}}</i>
+                   </span> 
+                   <span class="d-none d-sm-block fz-11">Expect Delivery In :  
+                       <i class="fw-500 fz-11">{{item.estimated_delivery}} {{item.delivery_slot?.notes}}</i> 
+                       <i class="c-FF8F04 ms-2 fw-500 cursor" uk-toggle="target:#deliveryaddress" (click)="manageDelivery(item)">Manage Delivery</i>
+                   </span>  
+                   <!-- <span class="fz-11 fw-bold mt-2 cursor" uk-toggle="target:#subscribe">
+                        Subscribed Product 
+                   </span>  -->
+                   <div class="priceDiv d-none d-sm-flex flex-row mt-3 d-flex align-items-center">  
+                       <button class="qty-btn shadow-sm">
+                           <button class="qty-adder" [disabled]="disabledAdder==true" (click)="reduce(item,i)">
+                                <img  class="me-3"  src="../../../assets/icons/minus.svg" >
+                           </button>  
+                            <i class="quantity fz-30">{{item.quantity}}</i> 
+                            <button class="qty-adder"  (click)="adder(item,i)"> 
+                                <img class="ms-3" src="../../../assets/icons/plus.svg"  style="width: 13px;">
+                            </button> 
+                       </button>  
+                       <span class="d-none d-sm-block ms-2 fz-16 fw-bold bc">AED {{item.price}}</span>
+                       <!-- <s class="ms-2 c-6D6D6D fz-14 fw-500"> 3100.00</s>
+                       <span class="ms-3 fz-14 fw-500 c-079B16">3 Offers Applied</span> -->
+                   </div>
+                   <div class="d-none d-md-flex flex-row mt-3 c-717478 align-items-center  cursor">
+                      <span class="c-717478 fz-12 pe-2 fw-500"  (click)="saveForLater(item.variant_id)">Save For Later </span>
+                      <i style="color: #717478;">|</i>
+                      <span class="c-717478 fz-12 px-2 fw-500" (click)="buyNow(item)">Buy Now</span>
+                      <i style="color: #717478;">|</i>
+                      <div class="uk-inline"> 
+                        <span class="c-717478 fz-12 px-2 fw-500">Add to Wishlist</span>
+                        <div class="p-0" style="border-radius: 5px;" uk-dropdown="mode: click">
+                            <div class="d-flex flex-row py-2 px-3 align-items-center border-bottom cursor groupListOver"  *ngFor="let j of groupListArray;let i=index" (click)="movetoAnother(item,j.id,i)">
+                                <input class="form-check-input" type="radio" [checked]="is_wish_active==i">
+                                <span class="fz-13 ms-2">{{j.group_name}} </span>   
+                            </div> 
+                        </div> 
+                      </div> 
+                      <i style="color: #717478;">|</i> 
+                      <!-- <span class="c-717478 fz-12 px-2 fw-500">View Realted Items</span>
+                      <i style="color: #717478;">|</i>  -->
+                      <span class="c-717478 fz-12 px-2 fw-500" (click)="removeFromCart(item.variant_id,i)">Delete</span>
+                   </div> 
+                </div>
+            </div>
+            <span class="d-flex d-sm-none justify-content-start fz-11 ps-3">Express Delivery In :  
+                <i class="fw-500 fz-11">{{item.estimated_delivery}}</i> 
+                <i class="c-FF8F04 ms-4 fw-500 cursor" uk-toggle="target:#deliveryaddress" (click)="manageDelivery(item)">Manage Delivery</i>
+            </span> 
+            <div class=" d-flex d-md-none justify-content-start my-2 mb-3 ps-3 c-717478 align-items-center  cursor">
+                <span class="c-717478 fz-11 pe-2 fw-500"  (click)="saveForLater(item.variant_id)">Save For Later </span>
+                <i style="color: #717478;">|</i>
+                <span class="c-717478 fz-11 px-2 fw-500"(click)="buyNow(item)">Buy Now</span>
+                <i style="color: #717478;">|</i>
+                <div class="uk-inline"> 
+                  <span class="c-717478 fz-11 px-2 fw-500">Add to Wishlist</span>
+                  <div class="p-0" style="border-radius: 5px;" uk-dropdown="mode: click">
+                      <div class="d-flex flex-row py-2 px-3 align-items-center border-bottom cursor groupListOver"  *ngFor="let j of groupListArray;let i=index" (click)="movetoAnother(item,j.id,i)">
+                          <input class="form-check-input" type="radio" [checked]="is_wish_active==i">
+                          <span class="fz-13 ms-2">{{j.group_name}} </span>   
+                      </div> 
+                  </div> 
+                </div> 
+                <i style="color: #717478;">|</i> 
+                <!-- <span class="c-717478 fz-12 px-2 fw-500">View Realted Items</span>
+                <i style="color: #717478;">|</i>  -->
+                <span class="c-717478 fz-11 px-2 fw-500" (click)="removeFromCart(item.variant_id,i)">Delete</span>
+             </div> 
+        </div> 
+    </div>
+
+    <div *ngIf="cartDataMain?.length==0||cartDataMain==null" class=" mt-2 d-flex justify-content-center px-2 py-5">
+        <div class="d-flex flex-column justify-content-center">
+              <div class="d-flex justify-content-center">
+                  <div class="empty_cart d-flex justify-content-center align-items-center ">
+                      <img src="../../../assets/assets/cartempty.svg" alt="" style="width: 40px;">
+                  </div>
+              </div>
+              <div class="d-flex justify-content-center mt-3">
+                  <span class="fw-500 fz-16">
+                      Cart empty
+                  </span>
+              </div>
+              <div class="mt-3 d-flex justify-content-center">
+                  <button class="update-btn fz-14 fw-500 py-2 px-4" [routerLink]="['/']" routerLinkActive="router-link-active" >
+                      Continue to Shopping 
+                  </button>
+              </div>
+        </div>
+    </div> 
+
+</div>
+
+<div class="" *ngIf="isSaveForLater==true&&svaeForLaterArray?.length!=0">
+    <div class="py-3 border-bottom px-3" >
+        <span class="fz-16 fw-500"> 
+           Save for Later 
+        </span>
+    </div> 
+    <div class="container  border-bottom" *ngFor="let item of svaeForLaterArray">
+        <div class="d-flex flex-row py-2">
+            <div class="d-flex justify-content-center p-2"style=" width: 120px;">
+                <img [src]="item.image" alt=""> 
+            </div>   
+            <div class="d-flex flex-column ms-3"> 
+               <span class="bc fz-16 fw-500 mb-2">{{item.name}}</span>
+               <span class="fz-11  mb-1">Seller : 
+                   <i class="fw-500 fz-11">Rawabi Market</i>
+               </span> 
+               <span class="fz-11 mb-1">Price : 
+                    <i class="fw-500 fz-11 fw-bold">{{item.price}} AED</i>
+               </span> 
+               <!-- <span class="mb-1 fz-14 fw-bold">AED {{item.price}}</span> -->
+               <!-- <span class="fz-11 bc">Expect Delivery In :  
+                   <i class="fw-500 fz-11">Tue 24, 2022</i> 
+                   <i class="c-FF8F04 ms-2 fw-500 cursor" uk-toggle="target:#deliveryaddress" (click)="manageDelivery(item)">Manage Delivery</i>
+               </span> -->
+               <div class="d-flex flex-row mt-2 c-717478 align-items-center  cursor">
+                  <button class="buy_btn py-2 px-3" (click)="addToCart(item)">Add to Cart</button>
+                  <span class="c-717478 fz-12 fw-500 ms-3"  (click)="DeletesaveForLater(item.variant_id)">Delete</span>
+               </div> 
+            </div>
+        </div> 
+    </div>
+</div>
+
+<div id="deliveryaddress" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical p-0">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12 row mx-0 py-3 header-c px-2" style="background-color: #F4F3F0;">
+            <span class="fz-16 fw-bold cursor" *ngIf="addressdata==true"> 
+                Delivery Address 
+            </span> 
+            <div class="d-flex align-items-center cursor" *ngIf="addressList==true" (click)="back()">
+                <i class="bi bi-arrow-left fz-16 fw-bold"></i>
+                <span class="fz-16 fw-bold ms-2">
+                    Change Address
+                </span>
+            </div>
+            <div class="d-flex align-items-center cursor" *ngIf="addressAddingActive==true" (click)="back2()">
+                <i class="bi bi-arrow-left fz-16 fw-bold"></i>
+                <span class="fz-16 fw-bold ms-2">
+                    New Delivery Address
+                </span>
+            </div> 
+        </div>  
+        <div class="col-12 row mx-0"*ngIf="addressdata==true">
+            <div class="col-12  px-3 py-3">
+               <div class="p-0"> 
+                  <ul class="nav nav-pills mb-2" >
+                    <li class="nav-item" >
+                      <button class="nav-link fw-500" [ngClass]="normal==true?'navActive':'nav-link'"  (click)="normalFun()">
+                          Normal Delivery 
+                      </button> 
+                    </li> 
+                    <li class="nav-item ms-2" (click)="combine()">
+                      <button class="nav-link fw-500"  [ngClass]="together==true?'navActive':'nav-link'">
+                          Get it Together
+                      </button>
+                    </li> 
+                  </ul> 
+                  <div class="tab-content">
+                    <div class="" *ngIf="managedeliverActive==true">
+                        <div class="border p-3"style="border-radius: 5px 5px 0px 0px;">
+                            <span class="fz-13 fw-bold heading">
+                                DELIVERY ADDRESS 
+                            </span> 
+                            <div class="address-box d-flex flex-row px-3 py-3 mt-3">
+                                <input class="form-check-input" type="radio"  checked>
+                                <div class="d-flex justify-content-between w-100">
+                                    <div class="d-flex flex-column ms-2 mt-1"> 
+                                        <span class="fw-bold fz-14">{{manageAddress?.full_name}}</span> 
+                                        <span class="mt-2"> {{manageAddress?.building_name}}, {{manageAddress?.street_name}}</span>
+                                        <span class="mt-2">{{manageAddress?.state}} - {{manageAddress?.postal_code}}, {{manageAddress?.country}}</span>
+                                    </div>  
+                                    <span class="fw-500 cursor" style="color: #FF8406;" (click)="listAddress(manageAddress)">CHANGE</span>
+                                </div> 
+                            </div>  
+                        </div>
+                        <div class="border p-3"style="border-radius: 0px 0px 5px 5px;">
+                            <!-- <div class="col-12  px-0 py-3 pb-0" style="border-radius: 0px 5px 5px 0px;">
+                                <span class="fz-13 fw-500">
+                                    Delivery address is  
+                                </span>
+                                <span class="fw-500 ms-2" style="color: #FF9900;">
+                                    08 December 2022
+                                </span> 
+                            </div> -->
+                            <div class="col-12 px-0 d-flex">
+                                <div class="cursor d-flex flex-row me-2 mt-2" *ngFor="let item of deliveryTime;let i=index" (click)="deliverId(item.id,i,item.delivery_date,item.notes)">
+                                    <div class=""> 
+                                        <div class="fz-14 fw-500">
+                                            <span class="cr-main">{{item.notes}}</span>
+                                        </div>
+                                        <div class="d-flex flex-row" *ngFor="let item1 of item?.date_list;let j=index" (click)="dateIndexSelection(item1.date)">
+                                            <div class="p-1 mt-2 border b-r-5 p-2" [class.selected]="dateIndex==item1.date">
+                                                {{item1.date}}
+                                            </div>  
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-12 row mx-0 d-flex justify-content-center mt-3">
+                            <div class="d-flex justify-content-center">
+                                <button class="update-btn" (click)="applyDeliveryAddress()">Apply</button>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="" *ngIf="NormalDeliveryActive==true">
+                        <div class="border p-3" style="border-radius: 5px 5px 0px 0px;">
+                            <span class="fz-13 fw-bold heading"> 
+                                DELIVERY ADDRESS 
+                            </span> 
+                            <div class="address-box d-flex flex-row px-3 py-3 mt-3">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" checked>
+                                <div class="d-flex justify-content-between w-100">
+                                    <div class="d-flex flex-column ms-2 mt-1"> 
+                                        <span class="fw-bold fz-14">{{manageAddress?.full_name}}</span> 
+                                        <span class="mt-2"> {{manageAddress?.building_name}}, {{manageAddress?.street_name}}</span>
+                                        <span class="mt-2">{{manageAddress?.state}} - {{manageAddress?.postal_code}}, {{manageAddress?.country}}</span>
+                                    </div>   
+                                    <span class="fw-500 cursor" style="color: #FF8406;" (click)="listAddress(manageAddress)">CHANGE</span>
+                                </div> 
+                            </div> 
+                        </div>
+                        <div class="border p-3"style="border-radius: 0px 0px 5px 5px;">
+                            <div class="col-12 d-flex flex-column px-0 pb-3" style="border-radius: 0px 5px 5px 0px;">
+                                <span class="fz-13 fw-bold heading"> 
+                                    COMBINED PRODUCTS
+                                </span> 
+                                <span class="fz-13 mt-1" style="color: #3D3C3C;">
+                                    Safe and Secure Payments.Easy returns.100% Authentic products. Lorem ipsum this is dummy Safe.
+                                </span> 
+                            </div>
+                            <div class="col-12 row mx-0">
+                                <div class="combined-prod d-flex flex-row align-items-center py-2 mb-2" *ngFor="let item of combinedArray;let i = index">
+                                    <div class="me-3  mt-2">
+                                        <input class="" type="checkbox" value=""  (click)="dateCombinedArray($event,item,item.name)">
+                                    </div>                                    
+                                    <div class="image-box d-flex justify-content-center align-items-center">
+                                        <img class="" src="{{item.image}}" alt="" style="width: 35px;">
+                                    </div>  
+                                    <span class="fz-14 fw-500 ms-3">
+                                        {{item.name}}  
+                                    </span>  
+                                </div>  
+                            </div>  
+                            <div class="col-12 row mx-0 py-2 mt-2 address-box" *ngIf="dateArray.length!=0">
+                                <span class="fz-14 fw-bold"> Expected Delivery in {{dateString}}</span>
+                            </div>
+                        </div> 
+                        <div class="col-12 row mx-0 d-flex justify-content-center mt-3">
+                            <div class="d-flex justify-content-center">
+                                <button class="update-btn" (click)="getItTogther()">Apply</button>
+                            </div>
+                        </div>
+                    </div> 
+                  </div> 
+               </div>
+            </div>
+        </div>
+        <div class="col-12 row mx-0" *ngIf="addressList==true" >
+           <div class="col-12 px-3 py-3"> 
+                <div class="d-flex justify-content-end">
+                    <span class="fz-13 fw-500 cursor" style="color: #FF9900;" (click)="addnew()">ADD NEW ADDRESS</span>
+                </div>  
+                <div class="d-flex flex-row px-3 py-3 mt-2" *ngFor="let item of addressArray;let i=index" (click)="onSelect(i,item)" [ngClass]="i==is_address_select? 'address-box':'address-box-two'">
+                    <input class="form-check-input" type="radio"  [checked]="i==is_address_select"> 
+                    <div class="d-flex justify-content-between w-100">
+                        <div class="d-flex flex-column ms-2 mt-1"> 
+                            <span class="fw-bold fz-14">{{item.full_name}}</span>
+                            <span class="mt-2">{{item.building_name}}, {{item.street_name}}, {{item.state}}</span>
+                            <span class="mt-2">{{item.city}},{{item.country}}</span>
+                        </div>  
+                        <!-- <span class="fw-500 cursor" style="color: #FF8406;" (click)="edit(item.id)">EDIT</span> -->
+                    </div>  
+                </div> 
+           </div>
+           <div class="col-12 row mx-0 d-flex justify-content-center border-top mt-3">
+                <div class="d-flex justify-content-center py-2">
+                    <button class="update-btn" (click)="changeAddressUpdation()">Apply</button>
+                </div> 
+           </div>
+        </div>
+        <div class="col-12 row mx-0 mb-2" *ngIf="addressAddingActivepopup==true">
+            <div class="">
+                <div class="col-12 row mx-0 bg-F4F3F0">
+                    <div class="col-12 py-3">
+                        <div class="px-2">
+                            <span class="fz-16 fw-500">Delivery Address</span>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-12 row mx-0 mt-2 border-bottom">
+                    <div class="col-12 row mx-0"> 
+                        <div class="col-6 mt-3 border-end">
+                            <div class="border b-r-5">
+                                <google-map
+                                    height="500px"
+                                    width="100%"
+                                    [center]="center"
+                                    [options]="options"
+                                    [latitude]="lat" 
+                                    [longitude]="lng"
+                                    [scrollwheel]="true"
+                                    (mapClick)="onMapClick($event)">
+                                    <map-marker 
+                                        *ngFor="let marker of markers" 
+                                        [position]="marker.position" 
+                                        [options]="marker.options"> 
+                                    </map-marker> 
+                                </google-map>
+                                <!-- <div class="pt-1 px-2">
+                                    <span class="fz-12 fw-500">
+                                        {{street}},{{district}},{{state}},{{country}}
+                                    </span>
+                                </div> -->
+                                <div class="d-flex justify-content-end mt-1 pb-2 px-2 cursor" (click)="fullMap()">
+                                    <span class="fz-12 fw-500 cr-main">
+                                        Change Location  
+                                    </span>
+                                </div>
+                            </div> 
+                        <div class="d-flex align-items-center mt-3 mb-2">
+                            <input class="form-check-input mt-0" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label fz-14 ms-2" for="flexCheckChecked">
+                                Make it as default
+                            </label>
+                        </div>
+                        </div> 
+                        <div class="col-6">
+                            <div class="col-12 row mx-0 py-3 px-0">
+                                <div class="col-12 px-0">
+                                    <label for="" class="fz-13 fw-500 mb-1">First Name<span class="text-danger fz-13 fw-bold ms-1">*</span></label>
+                                    <input [(ngModel)]="full_name" type="text" class="form-control form-control_address fz-12 h-55"  placeholder="First Name">
+                                </div>  
+                                <div class="col-12 row mx-0 px-0 mt-2">
+                                   <div class="px-0">
+                                        <label for="" class="fz-13 fw-500 mb-1">Phone Number</label>
+                                        <span class="text-danger fz-13 fw-bold ms-1">*</span>
+                                   </div>
+                                    <!-- <input type="text" [(ngModel)]="contact" class="form-control fz-12 h-55"  placeholder="Phone Number"> -->
+                                    <div class="form-control d-flex flex-row px-0 py-0" style="position: relative;border-radius: 5px; ">
+                                        <select class="form-select w-25 pe-1 ps-2" style="border-radius: 5px !important; outline: none; box-shadow: none;border: none;height: 38px;"[(ngModel)]="country_code" (change)="country">
+                                            <option *ngFor="let con of contry_code_list" [value]="con.code">{{con.code}}</option>
+                                        </select> 
+                                        <input class="fz-12 w-100" list="datalistOptions" type="text" [(ngModel)]="contact" placeholder="558678579"  style=" outline: none; border: none;border-radius: 5px;">
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-3 px-0">
+                                    <label for="" class="fz-13 fw-500 mb-1">Building Name / Room Number<span class="text-danger fz-13 fw-bold ms-1">*</span></label>
+                                    <input type="text" [(ngModel)]="building_name" class="form-control form-control_address fz-12 h-55"  placeholder="eg.Rashidiyyah">
+                                </div> 
+                                <div class="col-12 mt-3 px-0">
+                                    <label for="" class="fz-13 fw-500 mb-1">Landmark</label>
+                                    <input type="text" [(ngModel)]="landmark" class="form-control form-control_address fz-12 h-55"  placeholder="eg. near Rawabi market">
+                                </div>
+                                <div class="col-12 mt-3 px-0">
+                                    <label for="" class="fz-13 fw-500 mb-1">Street/city<span class="text-danger fz-13 fw-bold ms-1">*</span></label>
+                                    <input type="text" [(ngModel)]="street" class="form-control form-control_address fz-12 h-55"  placeholder="eg. near Rawabi market">
+                                </div>
+                            </div>
+                            <div class="col-12 row mx-0 pb-3 pt-0 px-0 mt-2">
+                                <div class="col-12 px-0">
+                                    <span class="fz-14 fw-500">Add Delivery Instructions</span>
+                                    <div class="d-flex flex-row mt-2">
+                                        <button class="address-btn-two fw-500"  [class.address-btn-twoActive]="instBox=='Avoid ringing bell'" (click)="instructionsSelection('Avoid ringing bell')">
+                                            Avoid ringing bell
+                                        </button>
+                                        <button class="address-btn-two ms-2 fw-500" [class.address-btn-twoActive]="instBox=='Hand over to security'" (click)="instructionsSelection('Hand over to security')">
+                                            Hand over to security
+                                        </button>
+                                        <button class="address-btn-two ms-2 fw-500" [class.address-btn-twoActive]="instBox=='Leave at the door'" (click)="instructionsSelection('Leave at the door')">
+                                            Leave at the door                    
+                                        </button>
+                                        <!-- <textarea class="form-control form-control_address fz-14 textarea ms-2" [(ngModel)]="instructionsTextarea" placeholder="Add custom message ..." rows="2" (click)="textareachange('btnactivefour')"></textarea> -->
+                                    </div>
+                                </div> 
+                            </div>
+                            <div class="col-12 mt-2 px-0 mt-2 mb-3">
+                                <input type="text" [(ngModel)]="instructionsTextarea" class="form-control form-control_address fz-12 h-55"  placeholder="eg. near Rawabi market" (click)="textareachange()">
+                            </div>
+                            <span class="fz-14 fw-500">Location Tag<span class="text-danger  ms-1">*</span></span>
+                            <div class="col-12 d-flex mb-3">
+                                <div class="d-flex flex-row mt-2 d-flex align-items-center">
+                                <!-- <span class="fz-14 fw-500">Location Tag<span class="text-danger  ms-1">*</span> :</span> -->
+                                    <div class="d-flex align-items-center ms-2">
+                                        <input class="form-check-input" type="radio" [checked]="address_tag=='Home'" name="flexRadioDefault" id="flexRadioDefault1" (click)="locationTag('Home')">
+                                        <span class="ms-2 fz-14 fw-400">Home</span>  
+                                    </div>  
+                                    <div class="d-flex align-items-center ms-2">
+                                        <input class="form-check-input" type="radio" [checked]="address_tag=='Office'"  name="flexRadioDefault" id="flexRadioDefault2" (click)="locationTag('Office')">
+                                        <span class="ms-2 fz-14 fw-400">Office</span>
+                                    </div> 
+                                    <div class="d-flex align-items-center ms-2">
+                                        <input class="form-check-input" type="radio" [checked]="address_tag=='Custom'"  name="flexRadioDefault" id="flexRadioDefault3" (click)="locationTag('Custom')">
+                                        <span class="ms-2 fz-14 fw-400">Custom</span>
+                                    </div> 
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="py-0 d-flex justify-content-center pt-3" (click)="addresCreate()">
+                    <button class="confirm_btn px-3 py-2" [disabled]="full_name== '' || contact== ''|| building_name== ''  || street== '' || address_tag==null  ">Create new Address</button>
+                </div> 
+            </div>
+        </div> 
+        <div class="col-12 row mx-0 mt-3" *ngIf="isFullMap==true">
+            <div class="search-box position-relative d-xl-block d-none" style="height: 42px;"> 
+                <div class="overflow-hidden position-relative h-100">
+                    <input class="form-control bg-light fz-13 text-truncate w-100" 
+                    type="text"  ngx-google-places-autocomplete (onAddressChange)="handleAddressChange($event)"   style="border-radius: 5px !important; border: 1.3px solid #F4F3F1 !important; height: 42px !important;" placeholder="Search products..">
+                    <button class="pointer" (click)="handleAddressChange($event)" ><i class="bi bi-search"></i></button>
+                </div> 
+            </div> 
+            <div class="col-12 row mx-0 px-0">
+                <google-map
+                    height="300px"
+                    width="100%"
+                    [center]="center"
+                    [options]="options"
+                    [latitude]="lat" 
+                    [longitude]="lng"
+                    [scrollwheel]="true"
+                    (mapClick)="onMapClick($event)"
+                    [zoom]="zoom">
+                    <map-marker 
+                        *ngFor="let marker of markers" 
+                        [position]="marker.position" 
+                        [options]="marker.options"> 
+                    </map-marker> 
+                    <label class="current-location-btn" (click)="getCurrentLocation()">
+                    <i class="bi bi-geo-alt me-2"></i>Locate Me</label>
+                </google-map> 
+            </div>
+            <div class="col-12 row mx-0 py-3">
+                <div class="d-flex flex-row d-flex justify-content-center">
+                    <button class="py-2 px-3 colseMap_btn fz-14 fw-bold">
+                        Close Map
+                    </button>
+                    <button class="confirm_btn py-2 px-3 ms-2 fz-14 fw-bold" [disabled]="avaliableLocation==false" (click)="confirmLocations()">
+                        Confirm Address
+                    </button> 
+                </div> 
+            </div>
+        </div>
+        <div class="col-12 row mx-0 mb-2" *ngIf="editaddress==true">
+            <app-adressgeneration class="px-0"
+                [editAddressIsacctive]="true"
+                [AddressData]="editDuplicateData"
+            ></app-adressgeneration>
+        </div> 
+        <div class="dialog-container" *ngIf="otpDisplay">
+            <p-dialog header="Otp Verification " class="" [(visible)]="otpDisplay">
+                <div class="col-12 row mx-0 ">
+                    <div class="pt-3">
+                        <ng-otp-input class="px-0 d-flex justify-content-around" header="GeeksforGeeks" (onInputChange)="onOtpChange($event)" [config]="{length:5}"></ng-otp-input>
+                    </div>
+                    <button *ngIf="updateBtnActiveOtp==false" class="fz-15 fw-400 w-100 mt-3 mx-1 login-btn" [disabled]="button_active==false"  (click)="addresVarification()">Send</button>
+                    <button *ngIf="updateBtnActiveOtp==true"  class="fz-15 fw-400 w-100 mt-3 mx-1 login-btn" [disabled]="button_active==false"  (click)="UpdateaddresVarification()">Send</button>
+                    <div class="col-12 px-1 mt-2 d-flex justify-content-center">
+                        <i class="fz-13 fw-500 cr-main mt-2 cursor"  *ngIf="subscribeTimer!=0">{{subscribeTimer}} sec</i>
+                        <i class="fz-13 fw-500 cr-main mt-2 cursor"  *ngIf="subscribeTimer==0"(click)="reSendOtp()">Resend Otp</i>
+                    </div> 
+                </div> 
+            </p-dialog>
+        </div>
+        
+    </div>
+</div>
+
+
+<div id="subscribe" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body cardadding-body uk-margin-auto-vertical p-0" style="width: 350px;">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="col-12 row mx-0 bc-F4F3F0 px-3 py-2">
+            <div class="d-flex flex-column px-0">
+                <span class="fz-20 fw-bold">Subscribe Product</span>
+            </div> 
+        </div>
+        <div class="body-uk py-2 px-3">
+            <div class="">
+                <span class="fz-11" style="color: #3D3C3C; line-height: 1rem;">
+                    Lorem ipsum dolor sit amet, conse ctetur adipiscing elit.                 
+                </span>
+            </div>
+            <div class="col-12 row mx-0 px-0 mt-1">
+                <div class="checkbox cursor p-3" (click)="activeBtn('active1')">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="">
+                            <input class="form-check-input mt-0" type="radio" value="" id="flexCheckChecked" checked>
+                        </div>
+                        <div class="ms-2 d-flex flex-column">
+                            <span class=" fz-13 fw-500">Deliver Everyday</span>
+                            <span class="fz-12 mt-1" *ngIf="active1==true">
+                                Save 5% Now and upto 15% in 
+                                repeated deliveries. Cancel Anytime
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="checkbox cursor p-3 mt-2" (click)="activeBtn('active2')">
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="">
+                            <input class="form-check-input mt-0" type="radio" value="" id="flexCheckChecked" checked>
+                        </div>
+                        <div class="ms-2 d-flex flex-column">
+                            <span class=" fz-13 fw-500">Deliver Everyday</span>
+                            <span class="fz-12 mt-1"  *ngIf="active2==true">
+                                Save 5% Now and upto 15% in 
+                                repeated deliveries. Cancel Anytime
+                            </span>
+                        </div>                    
+                    </div>
+                </div>
+                <div class="checkbox cursor p-3 mt-2" >
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="">
+                            <input class="form-check-input mt-0" type="radio" value="" id="flexCheckChecked" checked>
+                        </div>
+                        <div class="ms-2 d-flex flex-column">
+                            <span class=" fz-13 fw-500">Deliver Every Month</span>
+                        </div>                    
+                    </div>
+                </div>
+                <div class="checkbox cursor p-3 mt-2" >
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="">
+                            <input class="form-check-input mt-0" type="radio" value="" id="flexCheckChecked" checked>
+                        </div>
+                        <div class="ms-2 d-flex flex-column">
+                            <span class=" fz-13 fw-500">Deliver Every 2Month</span>
+                        </div>                    
+                    </div>
+                </div>
+                <div class="checkbox cursor p-3 mt-2" >
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="">
+                            <input class="form-check-input mt-0" type="radio" value="" id="flexCheckChecked" checked>
+                        </div>
+                        <div class="ms-2 d-flex flex-column">
+                            <span class=" fz-13 fw-500">Deliver Every 6Month</span>
+                        </div>                    
+                    </div>
+                </div>
+                <div class="checkbox cursor p-3 mt-2" >
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="">
+                            <input class="form-check-input mt-0" type="radio" value="" id="flexCheckChecked" checked>
+                        </div>
+                        <div class="ms-2 d-flex flex-column">
+                            <span class=" fz-13 fw-500">Custom</span>
+                        </div>                    
+                    </div>
+                </div>
+                <div class="checkbox cursor p-3 mt-2" >
+                    <div class="d-flex flex-row align-items-center">
+                        <div class="">
+                            <input class="form-check-input mt-0" type="radio" value="" id="flexCheckChecked" checked>
+                        </div>
+                        <div class="ms-2 d-flex flex-column">
+                            <span class=" fz-13 fw-500">Unsubscribe</span>
+                        </div>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 row mx-0 mt-3 pt-4 pb-2">
+            <div class="d-flex justify-content-between">
+                <button class="update-btn ms-2 px-3 py-2 w-100">Aplay</button>
+            </div>
+        </div>
+   </div>
+</div>
+

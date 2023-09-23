@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAA;EACL,gBAAgB,EAAC,wCAAwC;EACzD,eAAe,EAAC,KAAK;EACrB,mBAAmB,EAAC,MAAM;EAC1B,iBAAiB,EAAC,SAAS;CAC5B",
+    "sources": [
+        "../../src/app/components/deals/deals.component.scss"
+    ],
+    "names": [],
+    "file": "deals.component.css"
+}

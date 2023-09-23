@@ -1,0 +1,65 @@
+<div class="card deals mx-0  p-3" style="background-color: white;border: none;border-radius: 0px; position: relative;">
+    <div class="d-flex justify-content-end">
+       <div class="" *ngIf="withLoginwishList==true">
+            <div class="uk-inline">
+                <!-- <button class="uk-button uk-button-default" type="button">Click</button> -->
+                <div class="icons wishlist  p-0 d-flex justify-content-center align-items-center cursor uk-button uk-button-default" (click)="wishListdropDown(products)">
+                    <i [ngClass]="is_wishlisted==true?'wish_after':' wish_befor'" class="bi bi-suit-heart-fill"></i>
+                </div> 
+                <div class="p-0" *ngIf="wishListActived==true" style="border-radius: 5px;" uk-dropdown="mode: click">
+                    <div class="d-flex flex-row py-3 px-3 align-items-center border-bottom cursor groupListOver"  *ngFor="let j of groupListArray;let i=index" (click)="movetoAnother(products,j.id,i)">
+                        <input class="form-check-input" type="radio" [checked]="is_wish_active==i">
+                        <span class="fz-13 ms-2">{{j.group_name}} </span>   
+                    </div>
+                </div> 
+            </div>
+       </div> 
+    </div>  
+    <div class="d-flex justify-content-center card-img-top" (click)="navigateProductPage(products.id)">
+        <img src="{{products.image1}}" alt="" (click)="scrollToTop()">
+    </div>
+    <div class="cardheading pt-2" style="height: 143px;">
+        <div class="mainhead" style="height: 104px;">
+             <div class="pt-2">
+                <span class="fz-13 mt-2 fw-500">
+                    {{products.name|titlecase | truncate:40}}
+                 </span> 
+             </div>
+             <div class="pt-2">
+                <span class="fz-14 fw-500">AED</span>
+                <span class="fz-14 fw-bold">
+                    {{products.selling_price}} 
+                </span>
+                <span class="fz-12 ms-1" style="color: #6D6D6D;"*ngIf="products?.discount_details?.has_discount==true &&products?.discount_details?.discount_based_on=='price'">
+                    {{products?.discount_details?.discount_price}} <i class="ms-1" style="color: black;">AED</i>
+                </span>
+                <span class="fz-12 fw-bold ms-1" *ngIf="products?.discount_details?.has_discount==true &&products?.discount_details?.discount_based_on=='percentage'" style="color: #FF9900;">
+                    {{products?.discount_details?.discount_percentage_price}} %Off
+                </span> 
+             </div>
+             <div class="pt-1">
+                <span class="fz-12">Unit :</span>
+                <span class="fz-12 ms-1" style="color: #717478;">{{products?.sales_uom_name |titlecase}}</span>
+             </div>
+             <div class="">
+                <span class="fz-12">Orgin :</span>
+                <span  *ngIf="products?.produced_country!=null" class="fz-12 ms-1" style="color: #717478;">{{products?.produced_country |titlecase}}</span>
+                <span  *ngIf="products?.produced_country==null" class="fz-12 ms-1" style="color: #717478;">none</span>
+             </div>
+        </div> 
+        <div class="mt-2" *ngIf="products?.is_stock==true"> 
+            <button *ngIf="is_addtocart==true&&inCartIsActive==false&&withAndWithoutLoginBtn==true" class="add-to-cart-btn fz-13 fw-400 px-3 py-2" (click)="addToCart(products)">Add to Cart</button>
+            <button *ngIf="is_addtocart==true&&inCartIsActive==false&&withAndWithoutLoginBtn==false" class="add-to-cart-btn fz-13 fw-400 px-3 py-2" (click)="addToCartLocal(products)">Add to Cart</button>
+            <button *ngIf="is_addtocart==false&&inCartIsActive==true" class="add-to-cart-btn fz-13 fw-400 px-3 py-2" [routerLink]="['/cart']" routerLinkActive="router-link-active" >In Cart</button>
+            <button  *ngIf="is_count==true" class="qty-btn shadow-sm px-3" style="padding: 6px 0px 6px 0px;">
+                <button  class="qty-adder p-0 m-0" (click)="reduce(products)" [disabled]="reduceDisable==true">
+                   <img  class="me-3"  src="../../../assets/icons/minus.svg">
+                </button>  
+                <i class="fz-18">{{currentQty}}</i> 
+                <button class="qty-adder p-0 m-0"  (click)="adder(products)" [disabled]=" adderDisable==true">
+                   <img class="ms-3" src="../../../assets/icons/plus.svg"  style="width: 13px;">
+                </button> 
+            </button>  
+        </div> 
+    </div>
+</div> 

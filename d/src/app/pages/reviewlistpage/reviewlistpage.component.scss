@@ -1,0 +1,94 @@
+.review_pro{
+  border: 1.5px solid #efeefe;
+  border-radius: 5px;
+}
+
+.rating_box{
+    border: 1.5px solid #efefef;
+    border-radius: 5px;
+}
+
+.rating_box_1{
+    border: 1.5px solid #efefef;
+    border-radius: 5px;
+}
+
+.c-main{
+    color: #FF9900;
+}
+
+.btn-2{
+    background: transparent;
+    border: 1.5px solid #efefef;
+    border-radius: 5px;
+    color: black;
+}
+
+
+
+.update-btn{
+    // width: 160px;
+    // height: 45px;
+    background-color: #FF9900;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    // padding: 12px 36px;
+   }
+
+   .cancel-btn{
+        background-color: transparent;
+        color: #A9A8A8;
+        border-radius: 5px;
+        border: 1.5px solid #efefef;
+        // padding: 12px 28px;
+   }
+
+   .bottom {
+    box-shadow: 0px 10px 10px -15px rgb(146, 144, 144);    
+  }
+
+  .cardadding-body{
+      width: 350px;
+    //   border-radius: 5px;
+  }
+
+  .body-uk{
+    //   background-color: #FFFDFA;
+    //   border: 1.5px solid #efefef;
+    //   border-radius: 5px;
+  }
+
+.form-control{
+    height: 42px;
+    border: 1.5px solid #ececec;
+}
+
+.form-control::placeholder{
+    color: #A9A8A8;
+}
+
+.bc-F4F3F0{
+    background-color: #F4F3F0;
+}
+
+.form-check-input:checked {
+    background-color:#FF9900 ;
+    border-color:#FF9900 ;
+}
+
+.form-check-input {
+    background-color:#FFF5E6;
+    border-color:#FF9900;
+    width: 1.3em;
+    height: 1.3em;
+}
+
+.checkbox{
+    border: 1.5px solid #efefef;
+    border-radius: 5px;
+    &:hover{
+        border: 1.5px solid #FF9900;
+        background-color:#FFF5E6; 
+    }
+}

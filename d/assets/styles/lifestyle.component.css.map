@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/app/pages/home/lifestyle/lifestyle.component.scss"
+    ],
+    "names": [],
+    "file": "lifestyle.component.css"
+}

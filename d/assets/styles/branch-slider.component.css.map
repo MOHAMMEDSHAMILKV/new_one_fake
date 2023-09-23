@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/app/components/branch-slider/branch-slider.component.scss"
+    ],
+    "names": [],
+    "file": "branch-slider.component.css"
+}

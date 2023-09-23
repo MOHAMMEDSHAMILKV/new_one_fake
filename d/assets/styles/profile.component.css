@@ -1,0 +1,12 @@
+.body-content {
+  min-height: calc(100vh - 350px);
+}
+
+.menu-profile {
+  margin-left: auto;
+}
+
+.dropdown-item.router-link-active {
+  color: #086DB5 !important;
+}
+/*# sourceMappingURL=profile.component.css.map */

@@ -1,0 +1,31 @@
+@media (max-width: 500px) {
+  .banner {
+    position: relative;
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+  }
+}
+
+.banner {
+  min-height: -webkit-fit-content;
+  min-height: -moz-fit-content;
+  min-height: fit-content;
+}
+
+.carousel-indicators {
+  bottom: -50px;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 8px;
+  height: 8px;
+  border-radius: 50% !important;
+  padding: 0;
+  background-color: #E5E5E5;
+}
+
+.carousel-indicators .active {
+  background-color: #086DB5;
+}
+/*# sourceMappingURL=courosel-slider.component.css.map */

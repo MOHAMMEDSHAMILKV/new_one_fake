@@ -1,0 +1,96 @@
+.bgw{
+    background-color: white;
+}
+
+.profile-image{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    img{
+        border-radius: 50%;
+    }
+}
+
+.c-717478{
+    color: #717478;
+}
+
+.fw-bold{
+    font-weight: bold;
+}
+
+.c-black{
+    color: black;
+}
+
+
+.c-A9A8A8{
+    color: #A9A8A8;
+}
+.main-profile-options{
+    color: black;
+    padding: 10px 0px 10px 0px;
+
+
+}
+.main-profile-options{
+    router-link-active{
+        &::after{
+            background-color: #F8F7F5;
+            color: #FF9900;
+            margin-left: -10px;
+            margin-right: -17px;
+            padding: 10px 16px 10px 10px;
+        }
+    }
+}
+
+
+
+.main-profile-options:hover{
+   //width: 200px;
+   background-color: #F8F7F5;
+   color: #FF9900;
+   margin-left: -10px;
+   margin-right: -17px;
+   padding: 10px 16px 10px 10px;
+}
+.main-profile-options1{
+    color: black;
+}
+.main-profile-options1:hover{
+    span{}
+    color: #FF9900;
+}
+
+.hr:not([size]){
+    height: 1.6px;
+}
+
+.border-b{
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.bgw{
+    background-color: white;
+}
+
+.yesorno{
+    border: 2px dashed #F4F3F1;
+    border-radius: 10px;
+}
+
+.btn-yes{
+    border-radius: 5px;
+    border: 1.5px solid #efefef;
+    background: #F4F3F1;
+    color: #3D3C3C;
+}
+
+.btn-no{
+    border-radius: 5px;
+    border: 1.5px solid #efefef;
+    background: transparent;
+    color: #3D3C3C;
+}

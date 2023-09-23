@@ -1,0 +1,13 @@
+<div class="policy-header">
+    <div class="policy-header__title text-center">
+        {{cookiePolicy.title}}
+        <div class="w-100 fz-13 text-center mt-3">
+            Last updated: {{cookiePolicy.last_updated}}
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="container py-5" [innerHtml]="cookiePolicy.description">
+    </div>
+</div>

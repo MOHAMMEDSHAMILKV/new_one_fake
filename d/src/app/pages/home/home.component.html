@@ -1,0 +1,50 @@
+<app-sidraheader style="position: fixed;width: 100%;top: 0;
+left: 0;
+z-index: 999;"></app-sidraheader>
+
+<app-menu-header style="position: relative;"></app-menu-header>
+
+<!-- <app-courosel-slider
+    [bannerList]="bannerList?.banner"
+    [directions]="languageShow"
+    >
+</app-courosel-slider> -->
+
+
+<!-- <div class="container-fluid p-md-3 p-1 pb-3 bluebg">
+    <div class="container-fluid mt-5">
+        <div class="row g-2 g-md-3" [dir]="languageShow">
+            <div class="col-xl-3 col-md-3 col-6" [dir]="languageShow" *ngFor="let category of mainCategory;let i =index" >
+                <div class="d-flex flex-wrap align-items-center w-100 category-main-card pointer px-md-3 px-1"   [ngClass]="{active: specialGroups === category.title, four: i==0, two: i==1, three: i==2, one: i==3 }" (click)="specialGroup(category.title,category.shortN)">
+                    <div class="icon"> 
+                        <img class="icon-image-main-category"*ngIf="specialGroups !== category.title" [src]="category.icon" alt="">
+                        <img class="icon-image-main-category"*ngIf="specialGroups === category.title" [src]="category.icon2" alt="">
+                    </div>
+                    <div class="col-xl col-md-12 col mt-0 ms-md-0">
+                        <p class="fw-bold mt-2 mb-2 test text-capitalize">
+                           {{category.displayName | translate| language | async}} 
+                        </p> 
+                        <p class="fz-12 mt-0 main-filter-detail text-capitalize">
+                           {{category.detail | language | async}}
+                        </p>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>                             -->
+
+<!-- <div class="container-fluid p-0" *ngIf="specialGroups == 'smart'">
+    <app-lifestyle></app-lifestyle>  
+</div> -->
+<div class="container-fluid p-0">
+    <app-essential [specialGroups]="specialGroups"></app-essential>
+</div>
+<!-- <div class="container-fluid p-0" *ngIf="specialGroups == 'bulk'">
+    <app-bulk></app-bulk>
+</div> --> 
+<!-- <div class="container-fluid p-0" *ngIf="specialGroups == 'premium'">
+    <app-aroundworld></app-aroundworld>
+</div> -->
+
+<app-footer></app-footer>

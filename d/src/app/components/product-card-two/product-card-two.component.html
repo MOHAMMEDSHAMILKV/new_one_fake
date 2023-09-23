@@ -1,0 +1,128 @@
+<div class="card mx-0">
+    <div class="offer-tag" *ngIf="products?.offer_details?.has_offer && products.offer_details.offer_based_on=='percentage'">
+        {{products?.offer_details?.offer_percentage_price}}%
+    </div>
+    <div class="offer-applied" *ngIf="products?.set_offer && products.is_stock">
+        {{'Offer applied'|translate}}  
+    </div>
+    <div class="flex-wrap d-flex justify-content-end wish-bar" dir="ltr" *ngIf="isLogin">
+        <div class="d-flex">
+          <i 
+              class="bi pointer fz-18 text-bulk" 
+              [ngClass]="wishListed === true ? 'bi-heart-fill' : 'bi-heart'"
+              (click)="changeWishlist(products.id)"
+          ></i> 
+        </div>    
+    </div>
+    <a [href]="routeTo(products.id)" class="m-0 p-0">
+        <div class="card-img-top " *ngIf="products.image1==null">
+            <img class="mx-auto d-block pointer" src="../../../assets/icons/no_products.svg" alt="" style="width: 150px;">
+        </div>
+        <div class="card-img-top " *ngIf="products.image1 != null">
+            <img [src]="products.image1" [alt]="products.name" class="mx-auto d-block pointer" style="width: 150px;">
+        </div> 
+    </a>
+    <div class="card-body">
+        <a class="m-0 p-0" [href]="routeTo(products.id)" >
+            <button *ngIf="products.rating" class="rating_icon mb-1" style="margin-top: -27px;" ><i class="bi bi-star-fill me-1"></i> {{products.rating}}</button>
+            <span class="fz-14 fw-500 product-cardtwo-name mb-1 text-dark pointer" [title]="products.name">{{products.name | titlecase}} <span *ngIf="products.sales_uom_name != null">{{'Unit'|translate}}: ({{products.sales_uom_name | titlecase}})</span> </span>
+            <span class="fz-12 d-block mt-2  uom-factor text-gray" >
+                <span *ngIf="products.sales_uom_name">
+                    {{'Unit'|translate}}: {{products.sales_uom_name}} 
+                    <!-- is {{products.base_uom_conversion_factor * products.sales_uom_conversion_factor}} {{products.base_uom_name}} -->
+                </span> 
+            </span>    
+            <span class="fz-12 mt-1 mb-3 d-block text-gray origin-country" >
+                <span *ngIf="products.produced_country != null && products.produced_country !=''">{{'Origin'|translate}}: {{products.produced_country}}</span>
+            </span>
+            
+            <div class="product-card-price" [ngClass]="products?.offer_details?.has_offer == true ? 'd-flex' : 'd-none'">
+                <span class="card-text fw-bold fz-15 me-2 text-dark"><b>{{ products?.offer_details?.offer_price| currency : 'AED' }}</b>
+                </span>
+                <span class="fz-12">
+                    <s> {{products.selling_price | currency: 'AED'}}</s><br >
+                </span>
+            </div>
+            
+            <div class="d-flex  product-card-price" [ngClass]="products?.offer_details?.has_offer != true ? 'd-flex' : 'd-none'">
+                <span class="card-text fw-bold fz-15 me-2 text-dak"><b>{{ products.selling_price | currency : 'AED ' }}</b>
+                </span>
+                <!-- <span class="card-text fz-12 me-2 text-dak " style="color: #6D6D6D;font-style: italic;">
+                    delivery
+                    <i class="fw-bold text-dark">
+                        Today
+                    </i>
+                    
+                </span> -->
+            </div>
+        </a>
+        <!-- <div class="stock-limit" *ngIf="currentQty != maxQty && products.is_stock">
+            <div >
+                In Stock
+            </div>
+        </div>
+        <div class="warning-limit" *ngIf="currentQty == maxQty && products.is_stock">
+            <div >
+                Max limit reached
+            </div>
+        </div> -->
+        <!-- <div class="warning-limit" *ngIf="!products.is_stock">
+            <div >
+                SOLD OUT
+            </div>
+        </div> -->
+        <button class="btn btn-primary color_btn mx-auto d-block fz-13 w-100" (click)="addCart(products,products.min_order_limit,products.max_order_limit,products.stock_count)" *ngIf="currentQty==0&&products.is_stock" [disabled]="products.selling_price ==0" >
+            {{'ADD'|translate}} 
+        </button>
+        <button class="btn warning-limit mx-auto d-block fz-13 w-100 " *ngIf="!products.is_stock" >
+            {{'SOLD OUT'|translate}} 
+        </button> 
+        <div class="cart-controler" *ngIf="currentQty>0" [ngClass]="buttondissable === true ? 'dissable' : ''">
+            <div class="cart-controler__start">
+                <button class="cart-controler__btn btn btn-primary color_btn" (click)="reduce(products,products.min_order_limit)" [disabled]="dissableReduce" *ngIf="currentQty!=1">
+                    <i class="bi bi-dash"></i>
+                </button>
+                <button class="cart-controler__btn btn btn-primary color_btn" *ngIf="currentQty==1" (click)="remove(products)" >
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+            <div class="cart-controler__middle">
+                <div class="uk-inline"> 
+                    <select class="form-select text-primary" aria-label="Default select example" [(ngModel)]="currentQty" (change)="qtyChanger(products)">
+                        <ng-container *ngFor="let in of qty(products.max_order_limit);let i=index">
+                            <option  *ngIf="i>=products.min_order_limit" [value]="i"><span>{{i}}</span></option>
+                        </ng-container>  
+                    </select>  
+                </div>
+            </div>
+            <div class="cart-controler__end">
+                <button class="cart-controler__btn btn-primary color_btn" (click)="adder(products,products.min_order_limit,products.max_order_limit)" [disabled]="!products.is_stock">
+                    <i class="bi bi-plus"></i>
+                </button>
+            </div>
+        </div>
+        <!-- <div class="cart-controler" *ngIf="currentQty>0&&products.max_order_limit==null" [ngClass]="buttondissable === true ? 'dissable' : ''">
+            <div class="cart-controler__start">
+                <button class="cart-controler__btn btn btn-primary color_btn" (click)="reduce(products,products.min_order_limit)" [disabled]="dissableReduce" *ngIf="currentQty!=1">
+                    <i class="bi bi-dash"></i>
+                </button>
+                <button class="cart-controler__btn btn btn-primary color_btn" *ngIf="currentQty==1" (click)="removeMaxMin(products)" >
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
+            <div class="cart-controler__middle">
+                <div class="uk-inline">
+                    <select class="form-select text-primary" aria-label="Default select example" [(ngModel)]="currentQty" (change)="qtyChanger(products)" (click)="qtyMax()">
+                        <option *ngFor=" let item of qtyArray; let i = index " [value]="i" ><span>{{item.qty}}</span></option>
+                    </select>
+                </div>
+            </div>
+            <div class="cart-controler__end">
+                <button class="cart-controler__btn btn-primary color_btn" (click)="adder(products,products.min_order_limit,products.max_order_limit)" [disabled]="!products.is_stock">
+                    <i class="bi bi-plus"></i>
+                </button>
+            </div>
+        </div> -->
+    </div>
+</div>
+

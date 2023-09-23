@@ -1,0 +1,47 @@
+.scoll-up{
+    display: block;
+    margin: 0px auto;
+    width: fit-content;
+    height: auto;
+    background: color(white);
+    text-decoration: none !important;
+    color: color(dark) !important;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 10px 12px;
+    font-size: 13px;
+    &:hover{
+        box-shadow: 0px 6px 10px #00000052;
+    }
+}
+@each $name, $color in $colors{
+    .text-#{$name}{
+        color : $color !important;
+    }
+    .bg-#{$name}{
+        background-color: $color !important;
+    }
+    button.text-#{$name}{
+        color : $color !important;
+    }
+    button.bg-#{$name}{
+        background-color: $color !important;
+    }
+}
+div.bg-primary,span.bg-primary{
+    background: color(primary) !important;
+}
+i.text-primary,span.text-primary{
+    color: color(primary) !important;
+}
+div.bg-secondary,span.bg-secondary{
+    background: color(secondary) !important;
+}
+.offer-span{
+    width: fit-content;
+    padding: 8px;
+    padding-right: 20px;
+    border-radius: 0px 303px 303px 0px;
+    background: color(primary);
+    color: color(white);
+}

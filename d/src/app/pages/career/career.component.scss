@@ -1,0 +1,317 @@
+
+// header 
+.aboutus{
+   color: #FF9701;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+    }
+    .bgw{
+        background-color: white;
+    }
+    
+    // section 1
+    .bgw-image{
+        background-image:linear-gradient(90deg, #d3ac2c98 -7.52%, rgb(0, 0, 0) 114.73%), url("../../../assets/images/Rectangle\ 21737.png");
+        height: 397px;
+        // background-repeat: no-repeat;
+        // background-size: cover; 
+    }  
+    .bgw-image1{
+        background-image:linear-gradient(90deg, #d3ac2c98 -7.52%, rgb(0, 0, 0) 114.73%), url("../../../assets/images/Rectangle\ 21737.png");
+        height: 250px;
+        background-repeat: no-repeat;
+        background-size: cover; 
+    } 
+    .text{
+       font-weight: 500;
+    }
+    .btn{
+        background-color: #FF7E07;
+        border-radius: 5px;
+        color: white;
+    }
+    
+    @media (max-width: 404px) {
+        .section1-text1{
+    font-size: 19px;
+        }
+        .section1-text2{
+    font-size: 21px;
+        }
+    .bgw-image{
+        height:300px
+    }
+    .btn{
+        align-items: center;
+        justify-content: center;
+    }
+      }
+     
+    
+    // section 2
+    .section2{
+        background-color:#1B1B1F;
+    }
+    .paragraph1{
+        font-size: 13px;
+    }
+    
+    // section 3
+    .bgc{
+        background: #F5F5F5;;
+    }
+    
+    .section3-text1{
+        font-weight: 700;
+        font-size: 27px;
+    }
+    .box{
+        background: white;
+        // height: 260px;
+    }
+    .box-t{
+        font-size: 14px;
+        color: #6D6D6D;
+    }
+    .btn-1{
+        border-radius: 5px;
+        color: #FF7E07;
+        border: 1.5px solid #FF7E07;
+        font-weight: 500;
+        background: transparent;
+    
+    }
+    
+    .btn-1:hover{
+        color: white;
+        border: 1.5px solid #FF7E07;
+        font-weight: 500;
+        background: #FF7E07;
+    }
+    
+    .btn-2{
+        border-radius: 5px;
+        color: white;
+        border: 1.5px solid #FF7E07;
+        font-weight: 500;
+        background: #FF7E07;
+    }
+    
+    // section 4
+    
+    .link{
+        color: #FF9701;
+    }
+    .section4bgc{
+        background-color: white;
+    }
+    
+    // section 5
+    .slidergradient{
+        position: absolute;
+        margin-top: -50px;
+        height: 50px;
+        width: 100%;
+        background: linear-gradient(90deg, #FF9701 .1%, transparent 100.73%);
+    }
+    
+    @media (max-width: 768px) {
+        .slidergradient {
+          height: 30px;
+          margin-top: -30px;
+          background: linear-gradient(90deg, #FF9701 .1%, transparent 100.73%);
+        }
+      }
+     
+    
+    // section 6
+    .section6bgc{
+        background-color: #323031;
+        
+    }
+    @media (max-width: 768px) {
+        .section6-text1{
+            font-size: 18px;
+            font-weight: 600;
+        }
+      }
+    .section6-btn1{
+        border-radius: 5px;
+        color:white;
+        border: 1.5px solid white;
+        font-weight: 500;
+        background: transparent;
+        font-size: 12px;
+    
+    }
+    .section6-btn2{
+        font-size: 12px;
+        border-radius: 5px;
+        color: black;
+        border: 1.5px solid #323031;
+        font-weight: 500;
+    }
+    
+    // footer 
+    .footer{
+        background-color: #282627;
+    }
+    .copyright{
+        color: white;
+        font-size: 11px;
+        font-weight: 300;
+    }
+    .iconborder{
+        border: 1px white solid;
+        border-radius: 50%;
+        color: white;
+        background:#282627;
+        height:30px ;
+        width:30px ;
+    }
+    
+    // modal 
+    .formbgc{
+    background-color: #F4F3F0;
+    }
+    .modal{
+        background-color: #323031;
+    }
+    .labelfont{
+        font-weight: 600;
+        font-size: 13px;
+    }
+    .checkbox{
+        font-weight: 600;
+        font-size: 11px;
+    }
+      .submitbtn{
+        background-color: #FF7E07;
+        border-radius: 5px;
+        color: white;
+        width: max-content;
+        font-weight: 500;
+        font-size: 13px;
+      }
+      .form-control::placeholder{
+        font-size: 12px;
+        color: #A1A1A7;
+      }
+      .form-check-input:checked {
+        background-color: #fd870d;
+        border-color: #ff7e07;
+    }
+    .form-check-input{
+        cursor: pointer;
+    }
+     .mandatory{
+        color: red;
+        font-size: larger;
+     }
+    #resumeInput{
+        opacity: 0;
+    }
+    
+    .custom-span {
+        position: absolute;
+        top: 4px;
+        left: 0;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: 600;
+        z-index: 2;
+      }
+      
+      .file-label {
+        position: relative;
+        z-index: 1;
+      }
+    
+      .file-input-label {
+        position: absolute;
+        top: 0;
+        left: 12px;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        font-size: 11px;
+        font-weight: 400;
+        color: #999999;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    
+      .hide {
+        display: none;
+      }
+    
+    // view all jobs
+    .textcolor{
+        color: #FF9701;
+        font-weight: 600;
+    }
+    .paragraph2{
+        font-weight: 500;
+        color: #6D6D6D;
+        font-size: 13px;
+        // font-family: Roboto;
+    }
+    .textsize1{
+        font-weight: 700;
+        font-size: 14px;
+    }
+    .date{
+        font-weight: 700;
+        font-size: 12px;
+    }
+    .box1{
+        background: white;
+        border-bottom: 1px solid  #F5F5F5;
+    }
+    .box2{
+        background:  hsla(40, 18%, 97%, 1);
+        border-bottom: 1px solid  #F5F5F5;
+        border-left:5px solid #FF9701;
+        
+    
+    }
+    .iconborder2{
+        border: 1px white solid;
+        border-radius: 50%;
+        color: white;
+        height:35px ;
+        width:35px ;
+    }
+    .atag{
+        text-decoration: none;
+        color: white;
+    }
+    .jobheading{
+    font-weight: 700;
+    font-size: 16px;
+    }
+    .lastbox{
+        background-color: #FF7E07;
+        border-radius: 5px;
+        color: white;
+    }
+    .viewbtn{
+        background-color: hsla(0, 0%, 100%, 1);
+        color: black;
+        font-weight: 500;
+        font-size: 18px;
+    }
+    .viewtext{
+        color:  hsla(0, 0%, 100%, 1);
+        font-weight: 600;
+    }
+    
+    // accordion
+    .accordion{
+        --bs-accordion-btn-focus-box-shadow:none;
+    }
+    

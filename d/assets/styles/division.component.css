@@ -1,0 +1,22 @@
+.category-page {
+  background: #F7F7FA;
+  min-height: 70vh;
+}
+
+.category-flilter {
+  width: 280px;
+  min-height: 300px;
+}
+
+.category-body {
+  width: calc(100% - 280px);
+}
+
+.dark-sidenav {
+  background-color: #979797ba;
+}
+
+.main-cat {
+  width: 210px;
+}
+/*# sourceMappingURL=division.component.css.map */
